@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>at.ac.tuwien.lod</groupId>
-    <artifactId>finder-core</artifactId>
+    <artifactId>finder</artifactId>
     <packaging>pom</packaging>
     <version>0.1-SNAPSHOT</version>
 
@@ -20,6 +20,7 @@
 
     <modules>
         <module>vocabulary</module>
+        <module>data-management</module>
     </modules>
 
     <build>

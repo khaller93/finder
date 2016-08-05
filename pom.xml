@@ -21,6 +21,7 @@
     <modules>
         <module>vocabulary</module>
         <module>data-management</module>
+        <module>fuseki</module>
     </modules>
 
     <build>

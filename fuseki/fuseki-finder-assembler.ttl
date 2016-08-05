@@ -1,0 +1,35 @@
+@prefix fuseki:  <http://jena.apache.org/fuseki#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tdb:     <http://jena.hpl.hp.com/2008/tdb#> .
+@prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix :        <#> .
+
+#<#serviceProduction> rdf:type fuseki:Service ;
+#    fuseki:name                     "/tuwien" ;
+#    fuseki:serviceQuery             "query" ;
+#    fuseki:serviceReadGraphStore    "data" ;
+#
+#    # Specifying the dataset
+#    fuseki:dataset           <#dataset> ;
+#    .
+
+<#serviceLocal> rdf:type fuseki:Service ;
+    fuseki:name                       "/finder" ;
+    fuseki:serviceQuery               "query" ;
+    fuseki:serviceQuery               "sparql" ;
+    fuseki:serviceUpdate              "update" ;
+    fuseki:serviceUpload              "upload" ;
+    fuseki:serviceReadWriteGraphStore "data" ;
+    # A separate ead-only graph store endpoint:
+    fuseki:serviceReadGraphStore      "get" ;
+    fuseki:dataset                   <#dataset> ;
+    .
+
+<#dataset> rdf:type      tdb:DatasetTDB ;
+    tdb:location "../triplestore/DB" ;
+    # Query timeout on this dataset (1s, 1000 milliseconds)
+    ja:context [ ja:cxtName "arq:queryTimeout" ;  ja:cxtValue "100000" ] ;
+    # Make the default graph be the union of all named graphs.
+    tdb:unionDefaultGraph true ;
+    .

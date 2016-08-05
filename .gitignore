@@ -1,0 +1,12 @@
+### Finder ignore
+
+**/logs/*.log
+triplestore/DB
+
+### IntelliJ IDEA ignore
+
+**/*.iml
+**/.idea/
+**/out/
+**/target/
+.idea_modules/

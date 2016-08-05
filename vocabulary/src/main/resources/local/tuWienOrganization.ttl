@@ -1,0 +1,652 @@
+@prefix : <http://lod.tuwien.ac.at/organization/vocab#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix aiiso: <http://purl.org/vocab/aiiso/schema#> .
+@base <http://lod.tuwien.ac.at/organization/vocab#> .
+
+<http://lod.tuwien.ac.at/organization/vocab#> rdf:type owl:Ontology ;
+                                              
+                                              rdfs:label "Vokabular für die Organisationsstruktur von Universitäten"@de ,
+                                                         "Vocabulary for the organizational structure of universities"@en ;
+                                              
+                                              dct:created "2016-02-04"^^xsd:date ;
+                                              
+                                              dct:modified "2016-02-05"^^xsd:date ;
+                                              
+                                              dct:abstract "Beschreibt die Domäne der Organisationsstruktur von Universitäten."@de ;
+                                              
+                                              rdfs:comment "Beschreibt die Domäne der Organisationsstruktur von Universitäten."@de ;
+                                              
+                                              dct:title "Vokabular für die Organisationsstruktur von Universitäten"@de ;
+                                              
+                                              rdfs:comment "Describes the domain of the organizational structure of universities."@en ;
+                                              
+                                              dct:abstract "Describes the domain of the organizational structure of universities."@en ;
+                                              
+                                              dct:title "Vocabulary for the organizational structure of universities"@en ;
+                                              
+                                              owl:versionIRI <http://lod.tuwien.ac.at/organization/0.1-SNAPSHOT> ;
+                                              
+                                              dct:contributor <http://lod.tuwien.ac.at/person/contributor/Kevin_Haller> ;
+                                              
+                                              owl:imports skos: ,
+                                                          org: .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#employmentRole
+
+:employmentRole rdf:type owl:ObjectProperty ;
+                
+                rdfs:label "anstellungsrolle"@de ,
+                           "employment role"@en ;
+                
+                rdfs:comment "Beschreibt welche Anstellunsgrolle (z.B.: Dozent, Tutor) der Agent in der gegebene Mitgliedschaft an einer Universität spielt."@en ,
+                             "Indicates the employment role (e.g. tutor, docent, ...) of the agent of a membership in an university."@en ;
+                
+                rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> ;
+                
+                rdfs:domain :Employment ;
+                
+                rdfs:range :EmploymentRole ;
+                
+                rdfs:subPropertyOf :role .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#hasDeanary
+
+:hasDeanary rdf:type owl:FunctionalProperty ,
+                     owl:IrreflexiveProperty ,
+                     owl:ObjectProperty ;
+            
+            rdfs:label "hat Dekanat"@de ,
+                       "has deanary"@en ;
+            
+            rdfs:comment "Diese Fakultät hat das gegebene Dekanat. Einer Fakultät kann nur ein Dekanat zugeordnet werden."@de ,
+                         "This faculty has the given deanary. A faculty can have only one deanary."@en ;
+            
+            rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> ;
+            
+            rdfs:range :Deanery ;
+            
+            rdfs:subPropertyOf :hasUnit ;
+            
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( :Department
+                                        :Faculty
+                                      )
+                        ] .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#hasInstitute
+
+:hasInstitute rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "hat Institut"@de ,
+                         "has institute"@en ;
+              
+              rdfs:comment "Diese Fakultät hat das gegebene Institut."@de ,
+                           "This faculty has the given institute."@en ;
+              
+              rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> ;
+              
+              rdfs:domain :Faculty ;
+              
+              rdfs:range :Institute ;
+              
+              rdfs:subPropertyOf :hasUnit .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#hasSubOrganization
+
+:hasSubOrganization rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:label "hat universitäre Suborganisation"@de ,
+                               "has university suborganization"@en ;
+                    
+                    rdfs:isDefinedBy "Die gegebene Universitätsorganisation ist eine Suborganisation dieser Universitätsorganisation."@de ;
+                    
+                    rdfs:comment "The given university organization is a suborganization of this university organization."@en ;
+                    
+                    rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> ;
+                    
+                    rdfs:domain :UniversityOrganization ;
+                    
+                    rdfs:range :UniversityOrganization ;
+                    
+                    rdfs:subPropertyOf org:hasSubOrganization .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#hasUnit
+
+:hasUnit rdf:type owl:ObjectProperty ;
+         
+         rdfs:label "hat Organisationseinheit"@de ,
+                    "has organizational unit"@en ;
+         
+         rdfs:commenet "Diese Universitätsorganisation hat die gegebene universitäre Organisationseinheit als Suborganisaiton."@de ,
+                       "This university organization has the given university organizational unit as suborganization."@en ;
+         
+         rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> ;
+         
+         rdfs:domain :UniversityOrganization ;
+         
+         rdfs:range :UniversityOrganizationalUnit ;
+         
+         rdfs:subPropertyOf :hasSubOrganization .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#isDeanaryOf
+
+:isDeanaryOf rdf:type owl:FunctionalProperty ,
+                      owl:IrreflexiveProperty ,
+                      owl:ObjectProperty ;
+             
+             rdfs:label "ist Dekanat von"@de ,
+                        "is deanary of"@en ;
+             
+             rdfs:comment "Diese Universitätsorganisation ist das Dekanat der gegebenen Fakultät oder Abteilung."@de ,
+                          "This university organization is the deanary of the given faculty or division."@en ;
+             
+             rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> ;
+             
+             rdfs:domain :Deanery ;
+             
+             owl:inverseOf :hasDeanary ;
+             
+             rdfs:subPropertyOf :unitOf ;
+             
+             rdfs:range [ rdf:type owl:Class ;
+                          owl:unionOf ( :Department
+                                        :Faculty
+                                      )
+                        ] .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#isInstituteOf
+
+:isInstituteOf rdf:type owl:ObjectProperty ;
+               
+               rdfs:label "ist Institut von"@de ,
+                          "is institute of"@en ;
+               
+               rdfs:comment "Diese Universitätsorganisation ist ein Institut der gegebenen Universitätsorganisation."@en ,
+                            "This university organization is the institute of the given faculty."@en ;
+               
+               rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> ;
+               
+               rdfs:range :Faculty ;
+               
+               rdfs:domain :Institute ;
+               
+               owl:inverseOf :hasInstitute ;
+               
+               rdfs:subPropertyOf :unitOf .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#role
+
+:role rdf:type owl:ObjectProperty ;
+      
+      rdfs:label "rolle"@de ,
+                 "role"@en ;
+      
+      rdfs:comment "Beschreibt welche Universitätstrolle (z.B.: Student, Vortragender,...) der Agent in der gegebene Mitgliedschaft an einer Universität spielt."@de ,
+                   "Indicates the university role (e.g. student, lecturer, ...) of the agent of a membership in an university."@en ;
+      
+      rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> ;
+      
+      rdfs:domain :UniversityMembership ;
+      
+      rdfs:range :UniversityRole ;
+      
+      rdfs:subPropertyOf org:role .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#subOrganizationOf
+
+:subOrganizationOf rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:label "ist Suborganisation von"@de ,
+                              "is suborganization of"@en ;
+                   
+                   rdfs:comment "Diese Universitätsorganisation ist eine Suborganisation der gegebenen Universitätsorganisation."@de ,
+                                "This university organization is a suborganization of the given organization."@en ;
+                   
+                   rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> ;
+                   
+                   rdfs:domain :UniversityOrganization ;
+                   
+                   rdfs:range :UniversityOrganization ;
+                   
+                   owl:inverseOf :hasSubOrganization ;
+                   
+                   rdfs:subPropertyOf org:subOrganizationOf .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#unitOf
+
+:unitOf rdf:type owl:ObjectProperty ;
+        
+        rdfs:label "ist Organisationseinheit von"@de ,
+                   "is organizational unit of"@en ;
+        
+        rdfs:comment "Diese Organisationseinheit einer Universität ist die Einheit einer gegebenen Universitätsorganisation."@de ,
+                     "This university organizational unit is the unit of the given university organization."@en ;
+        
+        rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> ;
+        
+        rdfs:range :UniversityOrganization ;
+        
+        rdfs:domain :UniversityOrganizationalUnit ;
+        
+        owl:inverseOf :hasUnit ;
+        
+        rdfs:subPropertyOf :subOrganizationOf .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#AcademicLibrary
+
+:AcademicLibrary rdf:type owl:Class ;
+                 
+                 rdfs:label "Akademische Bibliothek"@de ,
+                            "Academic library"@en ;
+                 
+                 rdfs:subClassOf :UniversityOrganization ,
+                                 org:FormalOrganization ;
+                 
+                 rdfs:comment "Eine akademische Bibliothek ist eine Bibliothek, die einer Universität zugeordnet ist um einerseits die Curricula der Asubildung und andererseits die Forschung von Universitätsorganisationen und Studenten zu unterstützen."@de ,
+                              "An academic library is a library that is attached to an university which serves two complementary purposes to support the curricula, and to support the research of university organizations and students."@en ;
+                 
+                 rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#Center
+
+:Center rdf:type owl:Class ;
+        
+        rdfs:label "Zentrum"@de ,
+                   "Center"@en ;
+        
+        owl:equivalentClass aiiso:Center ;
+        
+        rdfs:subClassOf :UniversityOrganizationalUnit ;
+        
+        owl:disjointWith :Department ,
+                         :Faculty ,
+                         :Institute ,
+                         :ResearchGroup ;
+        
+        rdfs:comment "A Center is a group of people recognised by an organization as forming a cohesive group referred to by the organization as a center."@en ;
+        
+        rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#Deanery
+
+:Deanery rdf:type owl:Class ;
+         
+         rdfs:label "Dekanat"@de ,
+                    "Deanery"@en ;
+         
+         rdfs:subClassOf :UniversityOrganizationalUnit ;
+         
+         owl:disjointWith :Department ,
+                          :Faculty ,
+                          :Institute ,
+                          :ResearchGroup ;
+         
+         rdfs:comment "A deanery is a organizational unit inside of an university, which administrates a faculty or a department."@en ;
+         
+         rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#Department
+
+:Department rdf:type owl:Class ;
+            
+            rdfs:label "Abteilung"@de ,
+                       "Department"@en ;
+            
+            owl:equivalentClass aiiso:Department ;
+            
+            rdfs:subClassOf :UniversityOrganizationalUnit ;
+            
+            owl:disjointWith :Faculty ,
+                             :Institute ,
+                             :ResearchGroup ;
+            
+            rdfs:comment "A Department is a group of people recognised by an organization as forming a cohesive group referred to by the organization as a department."@en ;
+            
+            rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#EducationRole
+
+:EducationRole rdf:type owl:Class ;
+               
+               rdfs:subClassOf :EmploymentRole ;
+               
+               skos:altLabel "Ausbildende"@de ;
+               
+               skos:prefLabel "Ausbildender"@de ;
+               
+               rdfs:comment "DIese Rolle inkludiert die Ausbildung und Unterstützung in Bezug auf Ausbildung und Vorbereitung."@de ;
+               
+               skos:prefLabel "Educator"@en ;
+               
+               rdfs:comment "This role includes education or supporting function in regard of education and preperation."@en ;
+               
+               rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#Employment
+
+:Employment rdf:type owl:Class ;
+            
+            rdfs:label "Anstellung"@de ,
+                       "Employment"@en ;
+            
+            rdfs:subClassOf :UniversityMembership ;
+            
+            rdfs:comment "Beschreibt die Anstellung eines Agenten in einer Universitätsorganisationen. Repräsentiert eine n-dimensionale Beziehung zwischen einem Agenten, einer Universitätsorganisation und einer Anstellungsrolle (z.B.: Tutor, Dozent, ...)."@de ,
+                         "Indicates the employment of an Agent in an university organization. Represents an n-ary relation between an Agent, an University Organization and an Employment Role (e.g. tutor, docent, ...)."@en ;
+            
+            rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#EmploymentRole
+
+:EmploymentRole rdf:type owl:Class ;
+                
+                rdfs:subClassOf :UniversityRole ;
+                
+                skos:altLabel "Angestellte"@de ;
+                
+                skos:prefLabel "Angestellter"@de ,
+                               "Employee"@en ;
+                
+                rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#Faculty
+
+:Faculty rdf:type owl:Class ;
+         
+         rdfs:label "Fakultät"@de ,
+                    "Faculty"@en ;
+         
+         owl:equivalentClass aiiso:Faculty ;
+         
+         rdfs:subClassOf :UniversityOrganizationalUnit ;
+         
+         owl:disjointWith :Institute ,
+                          :ResearchGroup ;
+         
+         rdfs:comment "A Faculty is a group of people recognised by an organization as forming a cohesive group referred to by the organization as a faculty."@en ;
+         
+         rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#Institute
+
+:Institute rdf:type owl:Class ;
+           
+           rdfs:label "Institut"@de ,
+                      "Institute"@en ;
+           
+           owl:equivalentClass aiiso:Institute ;
+           
+           rdfs:subClassOf :UniversityOrganizationalUnit ;
+           
+           owl:disjointWith :ResearchGroup ;
+           
+           rdfs:comment "An Institute is a group of people recognised by an organization as forming a cohesive group referred to by the organization as an institute."@en ;
+           
+           rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#ResearchCenter
+
+:ResearchCenter rdf:type owl:Class ;
+                
+                rdfs:label "Forschungszentrum"@de ,
+                           "Research center"@en ,
+                           <http://lod.tuwien.ac.at/organization/vocab#> ;
+                
+                rdfs:subClassOf :Center ;
+                
+                rdfs:comment "A Center is a group of people recognised by an organization as forming a cohesive group referred to by the organization as a research center."@en .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#ResearchGroup
+
+:ResearchGroup rdf:type owl:Class ;
+               
+               rdfs:label "Forschungsgruppe"@de ,
+                          "Research group"@en ;
+               
+               owl:equivalentClass aiiso:ResearchGroup ;
+               
+               rdfs:subClassOf :UniversityOrganizationalUnit ;
+               
+               rdfs:comment "A Research Group is a group of people recognised by an organization as forming a cohesive group referred to by the organization as a research group."@en ;
+               
+               rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#StudentRole
+
+:StudentRole rdf:type owl:Class ;
+             
+             rdfs:subClassOf :UniversityRole ;
+             
+             skos:prefLabel "Student"@de ;
+             
+             skos:altLabel "Studentin"@de ,
+                           "Studierende"@de ,
+                           "Studierender"@de ;
+             
+             skos:prefLabel "Student"@en ;
+             
+             rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#TutorRole
+
+:TutorRole rdf:type owl:Class ;
+           
+           rdfs:subClassOf :EducationRole ;
+           
+           skos:prefLabel "Tutor"@de ;
+           
+           skos:altLabel "Tutorin"@de ;
+           
+           skos:prefLabel "Tutor"@en ;
+           
+           rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#University
+
+:University rdf:type owl:Class ;
+            
+            rdfs:label "Universität"@de ,
+                       "University"@en ;
+            
+            rdfs:subClassOf :UniversityOrganization ,
+                            org:FormalOrganization ;
+            
+            rdfs:comment "Eine Institution höherer Ausbildung und Forschung, welche akademische Grade in verschieden Fachbereichen verleiht und ein grundständiges Studium beziehungsweise postgraduelle Ausbildung ermöglicht."@de ,
+                         "An institution of higher education and research, which grants academic degrees in a variety of subjects, and provides both undergraduate education and postgraduate education."@en ;
+            
+            rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#UniversityMembership
+
+:UniversityMembership rdf:type owl:Class ;
+                      
+                      rdfs:label "Universitätsmitgliedschaft"@de ,
+                                 "University membership"@en ,
+                                 <http://lod.tuwien.ac.at/organization/vocab#> ;
+                      
+                      rdfs:subClassOf org:Membership ;
+                      
+                      rdfs:comment "Beschreibt die Natur der Mitgliedschaft eines Agenten in einer Universitätsorganisation. Die Klasse repräsentiert eine n-dimensionale Beziehung zwischen einem Agenten, einer Universitätsorganisation und der Universitätsrolle (z.B. Student, Vortragender, ...)."@de ,
+                                   "Indicates the nature of an Agent's membership of an university organization. Represents an n-ary relation between an Agent, an University Organization and a University Role (e.g. Student, Lecturer,...)."@en .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#UniversityOrganization
+
+:UniversityOrganization rdf:type owl:Class ;
+                        
+                        rdfs:label "Universitätsorganisation"@de ,
+                                   "University organization"@en ;
+                        
+                        rdfs:subClassOf org:Organization ;
+                        
+                        rdfs:comment "Beschreibt eine Organisation, die einer Universität zugeordnet werden kann oder selbst eine Universität ist."@de ,
+                                     "Describes an organization, which can be assigned to an university or is an university itself."@en ;
+                        
+                        rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#UniversityOrganizationalUnit
+
+:UniversityOrganizationalUnit rdf:type owl:Class ;
+                              
+                              rdfs:label "Organisationseinheit einer Universität"@de ,
+                                         "University organization unit"@en ;
+                              
+                              rdfs:subClassOf :UniversityOrganization ,
+                                              org:OrganizationalUnit ;
+                              
+                              rdfs:comment "Beschreibt die Organisationseinehit einer Universität."@de ,
+                                           "Describes the organizational unit of an university."@en ;
+                              
+                              rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://lod.tuwien.ac.at/organization/vocab#UniversityRole
+
+:UniversityRole rdf:type owl:Class ;
+                
+                rdfs:label "Universitätsrolle"@de ,
+                           "University role"@en ;
+                
+                rdfs:subClassOf org:Role ;
+                
+                rdfs:comment "Beschreibt eine Rolle innerhalb der Universität. Zum Beispiel die Rolle eines Studenten oder Vorlesenden."@de ,
+                             "Describes a role inside of an university. E.g. student or lecturer."@de ;
+                
+                rdfs:isDefinedBy <http://lod.tuwien.ac.at/organization/vocab#> .
+
+
+
+###  http://purl.org/vocab/aiiso/schema#Center
+
+aiiso:Center rdf:type owl:Class .
+
+
+
+###  http://purl.org/vocab/aiiso/schema#Department
+
+aiiso:Department rdf:type owl:Class .
+
+
+
+###  http://purl.org/vocab/aiiso/schema#Faculty
+
+aiiso:Faculty rdf:type owl:Class .
+
+
+
+###  http://purl.org/vocab/aiiso/schema#Institute
+
+aiiso:Institute rdf:type owl:Class .
+
+
+
+###  http://purl.org/vocab/aiiso/schema#ResearchGroup
+
+aiiso:ResearchGroup rdf:type owl:Class .
+
+
+
+###  http://xmlns.com/foaf/0.1/Person
+
+foaf:Person rdf:type owl:Class ;
+            
+            rdfs:isDefinedBy foaf: .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://lod.tuwien.ac.at/person/contributor/Kevin_Haller
+
+<http://lod.tuwien.ac.at/person/contributor/Kevin_Haller> rdf:type owl:NamedIndividual ,
+                                                                   foaf:Person .
+
+
+
+
+###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+

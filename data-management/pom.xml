@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>datamanagement</artifactId>
+    <artifactId>data-management</artifactId>
 
     <dependencies>
         <!-- Finder task management -->
         <dependency>
-            <artifactId>taskmanagement</artifactId>
+            <artifactId>task-management</artifactId>
             <groupId>at.ac.tuwien.lod</groupId>
             <version>0.1-SNAPSHOT</version>
         </dependency>

@@ -19,9 +19,10 @@
     </properties>
 
     <modules>
+        <module>fuseki</module>
         <module>vocabulary</module>
         <module>data-management</module>
-        <module>fuseki</module>
+        <module>task-management</module>
     </modules>
 
     <build>

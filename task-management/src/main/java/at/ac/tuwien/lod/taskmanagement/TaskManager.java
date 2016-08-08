@@ -61,19 +61,21 @@ public final class TaskManager implements AutoCloseable {
     }
 
     /**
-     * Adds the given {@link Callable} to this task manager. The task manager must not be closed.
+     * Adds the given {@link ReturnValueTask} to this task manager. The task manager must not be
+     * closed.
      *
-     * @param callable the callable, which shall be added to the task manager.
+     * @param returnValueTask the {@link ReturnValueTask}, which shall be added to the task manager.
      * @return the {@link Future} of the submitted callable.
      */
-    public <R> Future<R> submitCallable(Callable<R> callable) throws TaskManagerClosedException {
-        if (callable == null) {
+    public <R> Future<R> submitCallable(ReturnValueTask<R> returnValueTask)
+        throws TaskManagerClosedException {
+        if (returnValueTask == null) {
             throw new IllegalArgumentException("The given persistent callable must not be null.");
         }
         taskSubmitLock.lock();
         try {
             if (!isClosed.get()) {
-                Future<R> future = threadPool.submit(callable);
+                Future<R> future = threadPool.submit(returnValueTask);
                 activeFutureList.add(future);
                 return future;
             } else {

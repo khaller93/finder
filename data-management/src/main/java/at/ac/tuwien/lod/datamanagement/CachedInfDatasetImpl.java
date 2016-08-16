@@ -171,6 +171,11 @@ public class CachedInfDatasetImpl implements InfDataset {
     }
 
     @Override
+    public boolean supportsTransactionAbort() {
+        return dataset.supportsTransactionAbort();
+    }
+
+    @Override
     public void begin(ReadWrite readWrite) {
         dataset.begin(readWrite);
     }

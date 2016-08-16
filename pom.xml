@@ -4,12 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>at.ac.tuwien.lod</groupId>
+    <groupId>at.ac.tuwien.finder</groupId>
     <artifactId>finder</artifactId>
     <packaging>pom</packaging>
     <version>0.1-SNAPSHOT</version>
 
     <properties>
+        <apache-jena.version>3.1.0</apache-jena.version>
+        <!-- Versions for logging frameworks -->
         <slf4j.version>1.7.13</slf4j.version>
         <jcl-over-slf4j.version>1.7.13</jcl-over-slf4j.version>
         <log4j-over-slf4j.version>1.7.13</log4j-over-slf4j.version>

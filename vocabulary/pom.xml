@@ -28,12 +28,12 @@
                     <fileOptions>
                         <source>
                             <input>default</input>
-                            <package-name>at.ac.tuwien.lod.vocabulary</package-name>
+                            <package-name>at.ac.tuwien.finder.vocabulary</package-name>
                             <lang-owl>true</lang-owl>
                             <use-inf>true</use-inf>
                         </source>
                         <source>
-                            <input>src/main/resources/vocabulary/tuWienFacility.ttl</input>
+                            <input>src/main/resources/vocabulary/tuViennaSpatialOntology.ttl</input>
                             <ontology>true</ontology>
                         </source>
                         <source>

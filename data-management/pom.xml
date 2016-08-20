@@ -15,13 +15,13 @@
         <!-- Finder task management -->
         <dependency>
             <artifactId>task-management</artifactId>
-            <groupId>at.ac.tuwien.lod</groupId>
+            <groupId>at.ac.tuwien.finder</groupId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
         <!-- Finder vocabulary -->
         <dependency>
             <artifactId>vocabulary</artifactId>
-            <groupId>at.ac.tuwien.lod</groupId>
+            <groupId>at.ac.tuwien.finder</groupId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
         <!-- Apache Jena -->

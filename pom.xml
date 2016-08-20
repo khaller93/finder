@@ -25,6 +25,7 @@
         <module>vocabulary</module>
         <module>data-management</module>
         <module>task-management</module>
+        <module>service</module>
     </modules>
 
     <build>

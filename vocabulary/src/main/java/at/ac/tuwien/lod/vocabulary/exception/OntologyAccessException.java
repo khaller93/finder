@@ -1,7 +1,7 @@
 package at.ac.tuwien.lod.vocabulary.exception;
 
 /**
- * This class is an exception, which indicates that the ontology can not be accessed.
+ * This class is an exception, that shall be thrown, if the ontology can not be accessed.
  *
  * @author Kevin Haller
  */

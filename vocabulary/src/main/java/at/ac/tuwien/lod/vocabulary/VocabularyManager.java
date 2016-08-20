@@ -25,24 +25,24 @@ public final class VocabularyManager {
     private static final Logger logger = LoggerFactory.getLogger(VocabularyManager.class);
 
     private static final String DC_ONT_MANAGER_CONF_PATH = "config/ont-manager.rdf";
-    private static final String FACILITY_ONTOLOGY_PATH = "local/tuWienFacility.ttl";
+    private static final String SPATIAL_ONTOLOGY_PATH = "local/tuViennaSpatialOntology.ttl";
     private static final String ORGANIZATION_ONTOLOGY_PATH = "local/tuWienOrganization.ttl";
 
     /* ontology models */
-    private static OntModel facilityOntology;
+    private static OntModel spatialOntology;
     private static OntModel organizationOntology;
 
     /**
-     * Gets the ontology that models the domain of the facilities of an university.
+     * Gets the ontology that models the domain of spatial information about a university.
      *
-     * @return the ontology that models the domain of the facilities of an university.
+     * @return the ontology that models the domain of spatial information about a university.
      * @throws OntologyAccessException if the ontology can not be accessed.
      */
-    public static OntModel getFacilityOntology() throws OntologyAccessException {
-        if (facilityOntology == null) {
-            facilityOntology = readOntology(FACILITY_ONTOLOGY_PATH, RDFLanguages.TURTLE);
+    public static OntModel getSpatialOntology() throws OntologyAccessException {
+        if (spatialOntology == null) {
+            spatialOntology = readOntology(SPATIAL_ONTOLOGY_PATH, RDFLanguages.TURTLE);
         }
-        return facilityOntology;
+        return spatialOntology;
     }
 
     /**
@@ -90,7 +90,7 @@ public final class VocabularyManager {
      */
     public static Map<String, OntModel> getCoreOntologies() throws OntologyAccessException {
         Map<String, OntModel> coreOntologies = new HashMap<>();
-        coreOntologies.put(TuWienFacility.getURI(), getFacilityOntology());
+        coreOntologies.put(TuWienFacility.getURI(), getSpatialOntology());
         coreOntologies.put(TuWienOrganization.getURI(), getUniversityOrganizationOntology());
         return coreOntologies;
     }

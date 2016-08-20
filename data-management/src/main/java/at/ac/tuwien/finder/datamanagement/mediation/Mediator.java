@@ -1,7 +1,7 @@
 package at.ac.tuwien.finder.datamanagement.mediation;
 
-import at.ac.tuwien.lod.taskmanagement.ReturnValueTask;
-import at.ac.tuwien.lod.taskmanagement.TaskManager;
+import at.ac.tuwien.finder.taskmanagement.ReturnValueTask;
+import at.ac.tuwien.finder.taskmanagement.TaskManager;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.slf4j.Logger;

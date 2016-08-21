@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration name="TU LOD Dao logging" status="warn" strict="false">
+<Configuration name="TU Vienna data-management" status="warn" strict="false">
     <Properties>
         <Property name="debugLogFile">logs/debug.log</Property>
     </Properties>
@@ -12,7 +12,7 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="at.ac.tuwien.lod" level="debug"/>
+        <Logger name="at.ac.tuwien.finder" level="debug"/>
 
         <Root level="warn">
             <AppenderRef ref="console"/>

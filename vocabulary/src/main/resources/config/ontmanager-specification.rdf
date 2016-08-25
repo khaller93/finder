@@ -1,0 +1,37 @@
+<?xml version='1.0'?>
+
+<!DOCTYPE rdf:RDF [
+        <!ENTITY jena    'http://jena.hpl.hp.com/schemas/'>
+
+        <!ENTITY rdf     'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+        <!ENTITY xsd     'http://www.w3.org/2001/XMLSchema#'>
+        <!ENTITY base    '&jena;2003/03/ont-manager'>
+        <!ENTITY ont     '&base;#'>
+        ]>
+<rdf:RDF
+        xmlns:rdf="&rdf;"
+        xmlns="&ont;"
+        xml:base="&base;"
+>
+    <DocumentManagerPolicy>
+        <processImports rdf:datatype="&xsd;boolean">true</processImports>
+        <cacheModels rdf:datatype="&xsd;boolean">true</cacheModels>
+    </DocumentManagerPolicy>
+
+    <!-- ISA Programme Location Core Vocabulary -->
+    <OntologySpec>
+        <publicURI rdf:resource="https://www.w3.org/ns/locn"/>
+        <altURL rdf:resource="file:src/main/resources/external/locn.ttl"/>
+        <language rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <prefix rdf:datatype="&xsd;string">locn</prefix>
+    </OntologySpec>
+
+    <!-- GeoSPARQL -->
+    <OntologySpec>
+        <publicURI rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <altURL rdf:resource="file:src/main/resources/external/geosparql.rdf"/>
+        <language rdf:resource="http://www.w3.org/2002/07/owl"/>
+        <prefix rdf:datatype="&xsd;string">ogc</prefix>
+    </OntologySpec>
+
+</rdf:RDF>

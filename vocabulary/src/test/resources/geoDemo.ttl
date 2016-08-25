@@ -1,0 +1,15 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix fs: <http://finder.tuwien.ac.at/vocab/spatial#> .
+@prefix fsbu: <http://finder.tuwien.ac.at/spatial/unit/id/> .
+@prefix fsbg: <http://finder.tuwien.ac.at/spatial/geometry/id/> .
+
+fsbg:AGeom a ogc:Point ;
+	ogc:asWKT "POINT(1 2)"^^ogc:wktLiteral .
+
+fsbu:A ogc:hasGeometry fsbg:AGeom ;
+	rdfs:label "A" ;
+	fs:containsBuildingUnit fsbu:AA .
+
+fsbu:AA rdfs:label "AA" .
+

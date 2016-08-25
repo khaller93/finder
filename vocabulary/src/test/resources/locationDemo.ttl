@@ -1,0 +1,26 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fs: <http://finder.tuwien.ac.at/vocab/spatial#> .
+@prefix fsa: <http://finder.tuwien.ac.at/spatial/address/id/> .
+@prefix fsb: <http://finder.tuwien.ac.at/spatial/building/id/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+
+fsb:A a fs:Building ;
+	rdfs:label "Central building" ;
+	locn:address fsa:AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13 .
+
+fsa:AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13 locn:locatorDesignator "13" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Karlsplatz 13, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Karlsplatz" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1989798 ;
+	geo:longitude 16.3699039 .
+

@@ -1,0 +1,22 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fs: <http://finder.tuwien.ac.at/vocab/spatial#> .
+@prefix fsb: <http://finder.tuwien.ac.at/spatial/building/id/> .
+@prefix fsbu: <http://finder.tuwien.ac.at/spatial/unit/id/> .
+@prefix fsbc: <http://finder.tuwien.ac.at/spatial/campus/id/> .
+
+fsb:A a fs:Building ;
+	fs:containsBuildingUnit fsbu:AA, fsbu:AB, fsbu:AC .
+
+fsbu:AA a fs:BuildingUnit .
+fsbu:AB a fs:BuildingUnit .
+fsbu:AC a fs:BuildingUnit .
+
+fsbu:AA fs:containsBuildingUnit fsbu:AA01 .
+fsbu:AC fs:containsBuildingUnit fsbu:AC01 .
+
+fsbu:AA01 a fs:BuildingUnit .
+fsbu:AC01 a fs:BuildingUnit .
+
+fsb:A fs:isPartOfCampus fsbc:1 .
+
+fsbc:1 rdfs:label "Campus" .

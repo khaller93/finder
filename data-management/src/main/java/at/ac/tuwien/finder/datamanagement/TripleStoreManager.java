@@ -13,28 +13,26 @@ import org.apache.jena.tdb.TDBFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Map;
 import java.util.concurrent.Semaphore;
 
 /**
- * This class represents a triple store manager, which manages the dataset for the application.
- * This includes the management of the core ontology and the base model.
+ * This class represents a triple store manager that manages details about the triple store, the
+ * structure of the data (graphs) and access to it.
  *
  * @author Kevin Haller
  */
-public final class TripleStoreManager {
+public class TripleStoreManager {
 
     private static final Logger logger = LoggerFactory.getLogger(TripleStoreManager.class);
 
     private static final String TDB_ASSEMBLY_FILE = "config/tdb-assembler.ttl";
-
     public static final String BASE_NAMED_GRAPH = "http://finder.tuwien.ac.at";
-    public static final String FACILITY_NAMED_GRAPH = BASE_NAMED_GRAPH + "/spatial";
-    public static final String EVENT_NAMED_GRAPH = BASE_NAMED_GRAPH + "/event";
-    public static final String ORGANIZATION_NAMED_GRAPH = BASE_NAMED_GRAPH + "/organization";
+    public static final String SPATIAL_NAMED_GRAPH = BASE_NAMED_GRAPH + "/spatial";
 
     private static TripleStoreManager tripleStoreManager;
     private static Semaphore tripleStoreReference = new Semaphore(-1);
+
+    private VocabularyManager vocabularyManager;
 
     /**
      * Gets an instance of the triple store manager and increments the reference counter. If the
@@ -51,63 +49,61 @@ public final class TripleStoreManager {
         return tripleStoreManager;
     }
 
-    private CachedInfDatasetImpl infDataset;
-    private OntModel coreOntology;
+    private Dataset dataset;
 
     /**
-     * Creates a new triple store manager.
+     * Creates a new triple store manager. The default reasoning for the base model is RDFS.
      */
     private TripleStoreManager() {
         this(ReasonerRegistry.getRDFSReasoner());
     }
 
     /**
-     * Creates a new triple store manager.
+     * Creates a new triple store manager based on the given dataset. The default reasoning for the
+     * base model is RDFS.
+     *
+     * @param dataset that shall be used as base for the {@link TripleStoreManager}.
+     */
+    public TripleStoreManager(Dataset dataset) {
+        this(ReasonerRegistry.getRDFSReasoner());
+    }
+
+    /**
+     * Creates a new triple store manager that bases on a local, pure triple store (TDB).
      *
      * @param reasoner the reasoner, which shall be used for reasoning over the base model.
      */
-    public TripleStoreManager(Reasoner reasoner) {
-        Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMBLY_FILE);
-        this.coreOntology = initCoreOntology(dataset);
-        this.infDataset = new CachedInfDatasetImpl(dataset, coreOntology(), reasoner);
+    private TripleStoreManager(Reasoner reasoner) {
+        this(TDBFactory.assembleDataset(TDB_ASSEMBLY_FILE), reasoner);
     }
 
     /**
-     * Gets the core ontology.
+     * Creates a new triple store manager that bases on the given dataset and uses the given
+     * reasoner to reason over the base model.
      *
-     * @return the core ontology.
+     * @param reasoner the reasoner, which shall be used for reasoning over the base model.
+     */
+    public TripleStoreManager(Dataset dataset, Reasoner reasoner) {
+        try {
+            this.vocabularyManager = VocabularyManager.getInstance();
+        } catch (OntologyAccessException o) {
+            logger.error("The access to the vocabulary manager failed. {}", o);
+        }
+        this.dataset = new CachedInfDatasetImpl(dataset, coreOntology(), reasoner);
+    }
+
+    /**
+     * Gets the core ontology. If the core ontology could not be accessed, an empty {@link OntModel}
+     * will be returned.
+     *
+     * @return the core ontology or an empty {@link OntModel}, if the core ontology could not be
+     * accessed.
      */
     public OntModel coreOntology() {
-        return coreOntology;
-    }
-
-    /**
-     * Initialize the core ontology, which is a union of all core ontologies managed by the
-     * {@link VocabularyManager}.
-     *
-     * @param dataset the dataset, of which the ontology shall be fetched.
-     * @return the core ontology.
-     */
-    private OntModel initCoreOntology(Dataset dataset) {
-        OntModel coreOntology = ModelFactory.createOntologyModel();
-        try {
-            Map<String, OntModel> coreOntologies = VocabularyManager.getCoreOntologies();
-            for (Map.Entry<String, OntModel> coreOntologyEntry : coreOntologies.entrySet()) {
-                logger.debug(coreOntologyEntry.getValue().toString());
-                dataset.begin(ReadWrite.READ);
-                if (!dataset.containsNamedModel(coreOntologyEntry.getKey())) {
-                    dataset.end();
-                    dataset.begin(ReadWrite.WRITE);
-                    dataset.addNamedModel(coreOntologyEntry.getKey(), coreOntologyEntry.getValue());
-                    dataset.commit();
-                }
-                dataset.end();
-                coreOntology.add(coreOntologyEntry.getValue());
-            }
-        } catch (OntologyAccessException e) {
-            logger.error("Update of the core ontologies failed.{}", e);
+        if (vocabularyManager == null) {
+            return ModelFactory.createOntologyModel();
         }
-        return coreOntology;
+        return vocabularyManager.getCoreOntology();
     }
 
     /**
@@ -116,11 +112,11 @@ public final class TripleStoreManager {
      * @return the base model.
      */
     public Model getBaseModel() {
-        infDataset.begin(ReadWrite.READ);
+        dataset.begin(ReadWrite.READ);
         try {
-            return infDataset.getNamedModel("urn:x-arq:UnionGraph");
+            return dataset.getNamedModel("urn:x-arq:UnionGraph");
         } finally {
-            infDataset.end();
+            dataset.end();
         }
     }
 
@@ -129,8 +125,8 @@ public final class TripleStoreManager {
      *
      * @return the dataset of the triple store for this application.
      */
-    public CachedInfDatasetImpl getInfDataset() {
-        return infDataset;
+    public Dataset getDataset() {
+        return dataset;
     }
 
     /**
@@ -150,7 +146,7 @@ public final class TripleStoreManager {
         if (tripleStoreReference.tryAcquire() && !force) {
             return;
         }
-        infDataset.close();
+        dataset.close();
         tripleStoreReference = new Semaphore(-1);
         tripleStoreReference = null;
     }

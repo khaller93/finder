@@ -11,48 +11,79 @@
 
     <artifactId>vocabulary</artifactId>
 
+    <dependencies>
+        <!--Sesame -->
+        <dependency>
+            <groupId>org.openrdf.sesame</groupId>
+            <artifactId>sesame-model</artifactId>
+            <version>${sesame.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openrdf.sesame</groupId>
+            <artifactId>sesame-rio-api</artifactId>
+            <version>${sesame.version}</version>
+        </dependency>
+    </dependencies>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>outofbits.repository</id>
+            <name>outofbits.repository</name>
+            <url>http://repo.outofbits.com/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <plugins>
-            <!-- Helps to generate java classes from the given vocabulary files -->
             <plugin>
-                <groupId>org.apache.jena</groupId>
-                <artifactId>jena-maven-tools</artifactId>
-                <version>${apache-jena.version}</version>
-                <configuration>
-                    <includes>
-                        <include>src/main/resources/local/*.ttl</include>
-                        <include>src/main/resources/local/*.rdf</include>
-                        <include>src/main/resources/external/*.ttl</include>
-                        <include>src/main/resources/external/*.rdf</include>
-                    </includes>
-                    <fileOptions>
-                        <source>
-                            <input>default</input>
-                            <package-name>at.ac.tuwien.finder.vocabulary</package-name>
-                            <lang-owl>true</lang-owl>
-                            <use-inf>true</use-inf>
-                        </source>
-                        <source>
-                            <input>src/main/resources/vocabulary/tuViennaSpatialOntology.ttl</input>
-                            <ontology>true</ontology>
-                        </source>
-                        <source>
-                            <input>src/main/resources/vocabulary/tuWienOrganization.ttl</input>
-                            <ontology>true</ontology>
-                        </source>
-                    </fileOptions>
-                </configuration>
+                <groupId>org.outofbits.sesame</groupId>
+                <artifactId>schemagen-maven</artifactId>
+                <version>1.0-SNAPSHOT</version>
                 <executions>
                     <execution>
-                        <id>schemagen</id>
                         <phase>generate-sources</phase>
                         <goals>
-                            <goal>translate</goal>
+                            <goal>schemaGeneration</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <!-- Global vocabulary settings -->
+                    <classPackage>at.ac.tuwien.finder.vocabulary</classPackage>
+                    <outputDirectory>${project.build.directory}/generated-sources/</outputDirectory>
+                    <rdfFramework>SESAME</rdfFramework>
+                    <oldSesameVersion>true</oldSesameVersion>
+                    <!-- Vocabulary settings -->
+                    <vocabularies>
+                        <!-- Local TU Vienna spatial ontology -->
+                        <vocabulary>
+                            <className>TUVS</className>
+                            <input>file:src/main/resources/local/tuViennaSpatialOntology.ttl</input>
+                            <baseNamespace>http://finder.tuwien.ac.at/vocab/spatial#</baseNamespace>
+                        </vocabulary>
+                        <!-- ISA Programme Location Core Vocabulary -->
+                        <vocabulary>
+                            <className>LOCN</className>
+                            <input>http://www.w3.org/ns/locn</input>
+                            <altInput>file:src/main/resources/external/locn.ttl</altInput>
+                            <baseNamespace>http://www.w3.org/ns/locn#</baseNamespace>
+                        </vocabulary>
+                        <!-- GeoSPARQL -->
+                        <vocabulary>
+                            <className>GeoSPARQL</className>
+                            <input>http://www.opengis.net/ont/geosparql#</input>
+                            <rdfFormat>application/rdf+xml</rdfFormat>
+                            <baseNamespace>http://www.opengis.net/ont/geosparql#</baseNamespace>
+                        </vocabulary>
+                    </vocabularies>
+                </configuration>
             </plugin>
-            <!-- Helps to add the generated java classes to the source directory -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -70,27 +101,7 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.jena</groupId>
-            <artifactId>apache-jena-libs</artifactId>
-            <type>pom</type>
-            <version>${apache-jena.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-    </dependencies>
 
 </project>

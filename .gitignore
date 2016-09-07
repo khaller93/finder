@@ -1,7 +1,7 @@
 ### Finder ignore
 
 **/logs/*.log
-triplestore/DB
+repositories/
 
 ### IntelliJ IDEA ignore
 

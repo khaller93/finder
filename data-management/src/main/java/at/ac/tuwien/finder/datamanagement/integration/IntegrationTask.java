@@ -3,7 +3,7 @@ package at.ac.tuwien.finder.datamanagement.integration;
 import at.ac.tuwien.finder.taskmanagement.Task;
 import at.ac.tuwien.finder.taskmanagement.TaskCloseHandler;
 import at.ac.tuwien.finder.taskmanagement.TaskFailedHandler;
-import org.apache.jena.rdf.model.Model;
+import org.openrdf.model.Model;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 

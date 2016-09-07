@@ -243,7 +243,7 @@ dcterms:Location rdfs:label "Location"@en ;
 
 <https://joinup.ec.europa.eu/node/43160> dcterms:title "Process and Methodology for Developing Core Vocabularies" .
 
-<locn.svg> rdfs:label "Class and property diagram of the LOCN vocabulary" .
+<iri:locn.svg> rdfs:label "Class and property diagram of the LOCN vocabulary" .
 
 <https://joinup.ec.europa.eu/node/55858> dcterms:title "Core Vocabularies Specification" .
 
@@ -314,7 +314,7 @@ dcterms:Location rdfs:label "Location"@en ;
             foaf:name "Andrea Perego" ] ;
     owl:versionInfo "First version in w3.org/ns space"@en ;
     wdsr:describedby <https://joinup.ec.europa.eu/node/55858> ;
-    foaf:depiction <locn.svg> ;
+    foaf:depiction <iri:locn.svg> ;
     foaf:maker [ foaf:homepage <https://joinup.ec.europa.eu/node/42444> ;
             foaf:name "EU ISA Programme Core Vocabularies Working Group (Location Task Force)" ] .
 

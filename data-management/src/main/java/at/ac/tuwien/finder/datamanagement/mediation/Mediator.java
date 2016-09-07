@@ -2,8 +2,8 @@ package at.ac.tuwien.finder.datamanagement.mediation;
 
 import at.ac.tuwien.finder.taskmanagement.ReturnValueTask;
 import at.ac.tuwien.finder.taskmanagement.TaskManager;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
+import org.openrdf.model.Model;
+import org.openrdf.model.impl.LinkedHashModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,11 +50,11 @@ public abstract class Mediator implements ReturnValueTask<Model> {
             completionService.submit(new MediatorTask(dataAcquirer));
         }
         // Gather the results.
-        Model model = ModelFactory.createDefaultModel();
+        Model model = new LinkedHashModel();
         for (int n = 0; n < dataAcquirers.size(); n++) {
             Future<Model> retrievedModel = completionService.take();
             try {
-                model = model.union(retrievedModel.get());
+                model.addAll(retrievedModel.get());
             } catch (ExecutionException | CancellationException | InterruptedException e) {
                 //TODO: Try a second execution for callable that caused an InterruptedException.
                 logger.error("A data acquirer failed. {}", e);

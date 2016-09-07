@@ -1,6 +1,6 @@
 package at.ac.tuwien.finder.datamanagement.integration;
 
-import org.apache.jena.rdf.model.Model;
+import org.openrdf.model.Model;
 
 /**
  * Instances of this interface represent linkers that link the entities of a given graph with

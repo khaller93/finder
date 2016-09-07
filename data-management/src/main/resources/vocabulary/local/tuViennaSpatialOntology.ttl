@@ -232,7 +232,7 @@ schema:containsPlace a owl:ObjectProperty ;
 :Auditorium a owl:Class ;
 	rdfs:subClassOf :Room ;
 	owl:disjointWith :OfficeRoom ;
-	rdfs:comment "A auditorium is a room built to enable an audience to hear and watch performances. In an university this performaces are usually lectures."@en , "Ein Auditorium ist ein Raum, welcher es einer Menge von Zusehern ermöglicht Vörführungen zu hören oder sich anzusehen. An der Universität sind diese Vorführungen in der Regel Vorlesungen."@de ;
+	rdfs:comment "A auditorium is a room built to enable an audience to hear and watch performances. In an university this performaces are usually lectures."@en , "Ein Auditorium ist ein Raum, welcher es einer Menge von Zusehern ermöglicht Vörführungen zu hören oder sich anzusehen. An der Universität sind diese Vorführungen in der Regel Vorlesungen."@en ;
 	rdfs:isDefinedBy <http://finder.tuwien.ac.at/vocab/spatial#> ;
 	rdfs:label "Auditorium"@de , "Auditorium"@en .
 # 
@@ -249,7 +249,7 @@ schema:containsPlace a owl:ObjectProperty ;
 
 :BuildingTract a owl:Class ;
 	rdfs:subClassOf :BuildingUnit ;
-	rdfs:comment "A building tract is a building unit. It decomposes a building horizontally in (mostly disjunctive) vertical areas, which can contain further building units like a room."@en , "Ein Gebäudetrakt ist eine Gebäudeeinheit. Dieser zerlegt ein Gebäude horizontal in (meistens disjunktive) vertikale Bereiche, die weitere Gebäudeeinheiten, wie einen Raum, beinhalten kann."@de ;
+	rdfs:comment "A building tract is a building unit. It decomposes a building horizontally in (mostly disjunctive) vertical areas, which can contain further building units like a room."@de , "Ein Gebäudetrakt ist eine Gebäudeeinheit. Dieser zerlegt ein Gebäude horizontal in (meistens disjunktive) vertikale Bereiche, die weitere Gebäudeeinheiten, wie einen Raum, beinhalten kann."@de ;
 	rdfs:isDefinedBy <http://finder.tuwien.ac.at/vocab/spatial#> ;
 	rdfs:label "Building tract"@en , "Gebäudetrakt"@de .
 # 
@@ -273,7 +273,7 @@ schema:containsPlace a owl:ObjectProperty ;
 
 :ComputerRoom a owl:Class ;
 	rdfs:subClassOf :Room ;
-	rdfs:comment "A computer room is a room, which offers a working place with multiple computers."@en , "Ein Computerraum ist Raum in welchem ein Arbeitsplatz mit mehreren Computern angeboten wird."@de ;
+	rdfs:comment "A computer room is a room, which offers a working place with multiple computers."@en , "Ein Computerraum ist Raum in welchem ein Arbeitsplatz mit mehreren Computern angeboten wird."@en ;
 	rdfs:isDefinedBy <http://finder.tuwien.ac.at/vocab/spatial#> ;
 	rdfs:label "Computer room"@en , "Computerraum"@de .
 # 

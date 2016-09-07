@@ -1,153 +1,224 @@
 package at.ac.tuwien.finder.datamanagement;
 
-import at.ac.tuwien.finder.vocabulary.VocabularyManager;
-import at.ac.tuwien.finder.vocabulary.exception.OntologyAccessException;
-import org.apache.jena.ontology.OntModel;
-import org.apache.jena.query.Dataset;
-import org.apache.jena.query.ReadWrite;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.reasoner.Reasoner;
-import org.apache.jena.reasoner.ReasonerRegistry;
-import org.apache.jena.tdb.TDBFactory;
+import at.ac.tuwien.finder.datamanagement.integration.exception.TripleStoreManagerException;
+import org.openrdf.model.Model;
+import org.openrdf.model.Resource;
+import org.openrdf.model.URI;
+import org.openrdf.model.impl.TreeModel;
+import org.openrdf.model.impl.URIImpl;
+import org.openrdf.model.vocabulary.RDF;
+import org.openrdf.repository.Repository;
+import org.openrdf.repository.RepositoryConnection;
+import org.openrdf.repository.RepositoryException;
+import org.openrdf.repository.config.RepositoryConfig;
+import org.openrdf.repository.config.RepositoryConfigException;
+import org.openrdf.repository.config.RepositoryConfigSchema;
+import org.openrdf.repository.manager.LocalRepositoryManager;
+import org.openrdf.repository.manager.RepositoryManager;
+import org.openrdf.rio.*;
+import org.openrdf.rio.helpers.StatementCollector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Optional;
+import java.util.Properties;
 import java.util.concurrent.Semaphore;
 
 /**
+ * This class represents a triple store manager that manages the access to the local triple store.
+ * <p>
  * This class represents a triple store manager that manages details about the triple store, the
  * structure of the data (graphs) and access to it.
  *
  * @author Kevin Haller
  */
-public class TripleStoreManager {
+public class TripleStoreManager implements AutoCloseable {
 
     private static final Logger logger = LoggerFactory.getLogger(TripleStoreManager.class);
 
-    private static final String TDB_ASSEMBLY_FILE = "config/tdb-assembler.ttl";
-    public static final String BASE_NAMED_GRAPH = "http://finder.tuwien.ac.at";
-    public static final String SPATIAL_NAMED_GRAPH = BASE_NAMED_GRAPH + "/spatial";
+    public static final URI BASE_NAMED_GRAPH;
+    public static final URI SPATIAL_NAMED_GRAPH;
+    private static final String STORE_CONF_PATH = "/config/sesame-assembler.ttl";
 
     private static TripleStoreManager tripleStoreManager;
     private static Semaphore tripleStoreReference = new Semaphore(-1);
+    private static String baseDirectory;
 
-    private VocabularyManager vocabularyManager;
+    private static Model storeConfigurationModel;
 
-    /**
-     * Gets an instance of the triple store manager and increments the reference counter. If the
-     * reference counter was 0, a new instance will be created, otherwise the already existing
-     * triple store instance will be returned.
-     *
-     * @return an instance of the triple store manager.
-     */
-    public synchronized static TripleStoreManager getInstance() {
-        tripleStoreReference.release();
-        if (tripleStoreManager == null) {
-            tripleStoreManager = new TripleStoreManager();
+    static {
+        Properties dataManagementProperties = new Properties();
+        try (InputStream propertiesStream = TripleStoreManager.class.getClassLoader()
+            .getResourceAsStream("config/datamanagement.properties")) {
+            dataManagementProperties.load(propertiesStream);
+        } catch (IOException e) {
+            logger.error("The property file for data-manegement cannot be accessed. {}", e);
+            System.exit(1);
         }
-        return tripleStoreManager;
+        BASE_NAMED_GRAPH = new URIImpl(dataManagementProperties.getProperty("base.iri"));
+        SPATIAL_NAMED_GRAPH = new URIImpl(BASE_NAMED_GRAPH.toString() + "spatial");
+        storeConfigurationModel = new TreeModel();
+        try (InputStream configIn = TripleStoreManager.class.getResourceAsStream(STORE_CONF_PATH)) {
+            RDFParser rdfParser = Rio.createParser(RDFFormat.TURTLE);
+            rdfParser.setRDFHandler(new StatementCollector(storeConfigurationModel));
+            rdfParser.parse(configIn, RepositoryConfigSchema.NAMESPACE);
+        } catch (IOException | RDFHandlerException | RDFParseException e) {
+            logger.error("The configuration file for triple store cannot be accessed. {}", e);
+        }
     }
 
-    private Dataset dataset;
+    private RepositoryManager repositoryManager;
+    private Repository repository;
 
     /**
-     * Creates a new triple store manager. The default reasoning for the base model is RDFS.
-     */
-    private TripleStoreManager() {
-        this(ReasonerRegistry.getRDFSReasoner());
-    }
-
-    /**
-     * Creates a new triple store manager based on the given dataset. The default reasoning for the
-     * base model is RDFS.
+     * Gets an instance of the {@link TripleStoreManager} and increments the reference counter. If
+     * the reference counter is 0, a new instance will be created, otherwise the already existing
+     * triple store instance will be returned. The location of the triple store will be the current
+     * working directory.
      *
-     * @param dataset that shall be used as base for the {@link TripleStoreManager}.
+     * @return an instance of the {@link TripleStoreManager}.
+     * @throws TripleStoreManagerException if no instance can be created.
      */
-    public TripleStoreManager(Dataset dataset) {
-        this(ReasonerRegistry.getRDFSReasoner());
+    public synchronized static TripleStoreManager getInstance() throws TripleStoreManagerException {
+        return getInstance(".");
     }
 
     /**
-     * Creates a new triple store manager that bases on a local, pure triple store (TDB).
+     * Gets an instance of the {@link TripleStoreManager} and increments the reference counter. If
+     * the reference counter is 0, a new instance will be created, otherwise the already existing
+     * triple store instance will be returned. The location of the triple store will be at the given
+     * base directory.
      *
-     * @param reasoner the reasoner, which shall be used for reasoning over the base model.
+     * @param baseDir the directory where the triple store shall be located.
+     * @return an instance of the {@link TripleStoreManager}.
+     * @throws TripleStoreManagerException if no instance can be created.
      */
-    private TripleStoreManager(Reasoner reasoner) {
-        this(TDBFactory.assembleDataset(TDB_ASSEMBLY_FILE), reasoner);
+    public synchronized static TripleStoreManager getInstance(String baseDir)
+        throws TripleStoreManagerException {
+        if (baseDirectory == null || baseDir.equals(baseDirectory)) {
+            tripleStoreReference.release();
+            if (tripleStoreManager == null) {
+                try {
+                    RepositoryManager repositoryManager =
+                        new LocalRepositoryManager(new File(baseDir));
+                    repositoryManager.initialize();
+                    tripleStoreManager = new TripleStoreManager(repositoryManager);
+                    baseDirectory = baseDir;
+                    logger
+                        .debug("The triple store manager {} has been started.", tripleStoreManager);
+                } catch (TripleStoreManagerException | RepositoryException e) {
+                    logger.debug("The triple store manager cannot be established. {}", e);
+                }
+            }
+            return tripleStoreManager;
+        } else {
+            throw new TripleStoreManagerException(String.format(
+                "A triple store manager already exists at '%s'. No one at '%s' can be created",
+                new File(baseDirectory).getAbsolutePath(), baseDir));
+        }
     }
 
     /**
-     * Creates a new triple store manager that bases on the given dataset and uses the given
-     * reasoner to reason over the base model.
-     *
-     * @param reasoner the reasoner, which shall be used for reasoning over the base model.
+     * Creates a new instance of {@link TripleStoreManager}. The configuration file for the
+     * {@link Repository} must be stored at {@code STORE_ASSEMBLY_FILE} and must be valid,
+     * otherwise a {@link TripleStoreManagerException} will be thrown.
      */
-    public TripleStoreManager(Dataset dataset, Reasoner reasoner) {
+    private TripleStoreManager(RepositoryManager repositoryManager)
+        throws TripleStoreManagerException {
+        this.repositoryManager = repositoryManager;
         try {
-            this.vocabularyManager = VocabularyManager.getInstance();
-        } catch (OntologyAccessException o) {
-            logger.error("The access to the vocabulary manager failed. {}", o);
-        }
-        this.dataset = new CachedInfDatasetImpl(dataset, coreOntology(), reasoner);
-    }
-
-    /**
-     * Gets the core ontology. If the core ontology could not be accessed, an empty {@link OntModel}
-     * will be returned.
-     *
-     * @return the core ontology or an empty {@link OntModel}, if the core ontology could not be
-     * accessed.
-     */
-    public OntModel coreOntology() {
-        if (vocabularyManager == null) {
-            return ModelFactory.createOntologyModel();
-        }
-        return vocabularyManager.getCoreOntology();
-    }
-
-    /**
-     * Gets the base model of the triple store, which includes all known facts and entailed facts.
-     *
-     * @return the base model.
-     */
-    public Model getBaseModel() {
-        dataset.begin(ReadWrite.READ);
-        try {
-            return dataset.getNamedModel("urn:x-arq:UnionGraph");
-        } finally {
-            dataset.end();
+            repository = repositoryManager.hasRepositoryConfig("graphdb-repo") ?
+                repositoryManager.getRepository("graphdb-repo") :
+                initializeRepository();
+        } catch (RepositoryException | RepositoryConfigException e) {
+            throw new TripleStoreManagerException(e);
         }
     }
 
     /**
-     * Gets the dataset of the triple store.
+     * Initializes the repository by loading the configuration given by
+     * {@code GRAPHDB_ASSEMBLY_FILE}.
      *
-     * @return the dataset of the triple store for this application.
+     * @return the newly initialized repository.
+     * @throws TripleStoreManagerException if the initialization of the repository is not possible.
      */
-    public Dataset getDataset() {
-        return dataset;
+    private Repository initializeRepository() throws TripleStoreManagerException {
+        Optional<Resource> repositoryNodeOptionalSubject =
+            storeConfigurationModel.filter(null, RDF.TYPE, RepositoryConfigSchema.REPOSITORY)
+                .subjects().stream().findFirst();
+        if (repositoryNodeOptionalSubject.isPresent()) {
+            Resource repositoryNode = repositoryNodeOptionalSubject.get();
+            try {
+                RepositoryConfig repositoryConfig =
+                    RepositoryConfig.create(storeConfigurationModel, repositoryNode);
+                repositoryManager.addRepositoryConfig(repositoryConfig);
+                return repositoryManager.getRepository("graphdb-repo");
+            } catch (RepositoryException | RepositoryConfigException e) {
+                throw new TripleStoreManagerException(e);
+            }
+        } else {
+            throw new TripleStoreManagerException(String
+                .format("The configuration file at %s for accessing the triple store is not valid.",
+                    STORE_CONF_PATH));
+        }
     }
 
     /**
-     * Closes this triple store manager, if the reference counter is 0.
+     * Creates a new {@link RepositoryConnection} to the triple store that is managed by this
+     * {@link TripleStoreManager}.
+     *
+     * @return new {@link RepositoryConnection} to the triple store managed by this
+     * {@link TripleStoreManager}.
+     * @throws RepositoryException if no connection cannot created for the managed
+     *                             {@link Repository}.
      */
-    public synchronized void close() {
+    public RepositoryConnection getConnection() throws RepositoryException {
+        return repository.getConnection();
+    }
+
+    /**
+     * Changes the configuration file of the triple store to the given one.
+     */
+    public static void changeTripleStoreConfigurationFile(Model storeConfigurationModel) {
+        TripleStoreManager.storeConfigurationModel = storeConfigurationModel;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public synchronized void close() throws Exception {
         close(false);
     }
 
     /**
-     * Closes this triple store manager, if the reference counter is 0 or if force is true (then
-     * the reference counter will be ignored).
-     *
-     * @param force true, if the reference counter shall be ignored and
+     * Cleans up all the variables specific for the given instance of {@link TripleStoreManager}.
      */
-    public synchronized void close(boolean force) {
+    private void cleanUp() {
+        tripleStoreReference = new Semaphore(-1);
+        tripleStoreManager = null;
+        baseDirectory = null;
+    }
+
+    /**
+     * Closes this {@link TripleStoreManager}, if the reference counter is 0 or if the given force
+     * value is true; then the reference counter will be ignored.
+     *
+     * @param force true, if the reference counter shall be ignored.
+     * @throws RepositoryException if the {@link Repository} managed by this
+     *                             {@link TripleStoreManager} cannot be closed.
+     */
+    public synchronized void close(boolean force) throws RepositoryException {
         if (tripleStoreReference.tryAcquire() && !force) {
             return;
         }
-        dataset.close();
-        tripleStoreReference = new Semaphore(-1);
-        tripleStoreReference = null;
+        if (repository != null)
+            repository.shutDown();
+        repositoryManager.shutDown();
+        cleanUp();
+        logger.debug("The triple store manager {} has been closed.", this);
     }
 }

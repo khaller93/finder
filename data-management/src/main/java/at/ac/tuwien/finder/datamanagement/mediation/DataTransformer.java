@@ -1,7 +1,7 @@
 package at.ac.tuwien.finder.datamanagement.mediation;
 
 import at.ac.tuwien.finder.datamanagement.mediation.exception.DataTransformationException;
-import org.apache.jena.rdf.model.Model;
+import org.openrdf.model.Model;
 
 /**
  * Instances of this interface represents a transformer that converts the (possibly messy) data

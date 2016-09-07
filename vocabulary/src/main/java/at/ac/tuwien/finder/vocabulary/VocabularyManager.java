@@ -1,12 +1,10 @@
 package at.ac.tuwien.finder.vocabulary;
 
 import at.ac.tuwien.finder.vocabulary.exception.OntologyAccessException;
-import org.apache.jena.ontology.OntDocumentManager;
-import org.apache.jena.ontology.OntModel;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RDFDataMgr;
+import org.openrdf.model.Model;
+import org.openrdf.model.impl.LinkedHashModel;
+import org.openrdf.rio.*;
+import org.openrdf.rio.helpers.StatementCollector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +24,6 @@ public final class VocabularyManager {
     private static final Logger logger = LoggerFactory.getLogger(VocabularyManager.class);
 
     private static final String ONTOLOGY_BASE = "http://finder.tuwien.ac.at/vocab/spatial#";
-    private static final String DC_ONT_MANAGER_CONF_PATH = "config/ontmanager-specification.rdf";
     private static final String SPATIAL_ONTOLOGY_PATH = "local/tuViennaSpatialOntology.ttl";
 
     private static VocabularyManager vocabularyManager;
@@ -44,24 +41,13 @@ public final class VocabularyManager {
         return vocabularyManager;
     }
 
-    private OntModel coreOntology;
     private Map<String, Model> ontologyMap;
 
     /**
      * Creates a new instance of {@link VocabularyManager}.
      */
     private VocabularyManager() throws OntologyAccessException {
-        coreOntology = initCoreOntology();
         ontologyMap = initRawOntologyModels();
-    }
-
-    /**
-     * Gets the ontology that models the domain of spatial information about a university.
-     *
-     * @return the ontology that models the domain of spatial information about a university.
-     */
-    public OntModel getCoreOntology() {
-        return coreOntology;
     }
 
     /**
@@ -81,39 +67,19 @@ public final class VocabularyManager {
      */
     private Map<String, Model> initRawOntologyModels() throws OntologyAccessException {
         Map<String, Model> ontologyMap = new HashMap<>();
-        Model spatialOntologyModel = ModelFactory.createDefaultModel();
+        Model spatialOntologyModel = new LinkedHashModel();
         try (InputStream spatialOntologyStream = VocabularyManager.class.getClassLoader()
             .getResourceAsStream(SPATIAL_ONTOLOGY_PATH)) {
-            RDFDataMgr.read(spatialOntologyModel, spatialOntologyStream, Lang.TURTLE);
+            RDFParser turtleParser = Rio.createParser(RDFFormat.TURTLE);
+            turtleParser.setRDFHandler(new StatementCollector(spatialOntologyModel));
+            turtleParser.parse(spatialOntologyStream, ONTOLOGY_BASE);
             ontologyMap.put("spatial", spatialOntologyModel);
-        } catch (IOException e) {
+        } catch (IOException | RDFHandlerException | RDFParseException e) {
             logger.error("The spatial ontology located at '{}' cannot be read in. {}",
                 SPATIAL_ONTOLOGY_PATH, e);
             throw new OntologyAccessException(e);
         }
         return ontologyMap;
-    }
-
-    /**
-     * Initializes the core ontology.
-     *
-     * @return {@link OntModel} that contains a spatial ontology.
-     * @throws OntologyAccessException if the core ontology cannot be initiated.
-     */
-    private OntModel initCoreOntology() throws OntologyAccessException {
-        OntModel ontologyModel = ModelFactory.createOntologyModel();
-        OntDocumentManager documentManager = ontologyModel.getDocumentManager();
-        documentManager.setMetadataSearchPath(DC_ONT_MANAGER_CONF_PATH, true);
-        try (InputStream spatialOntologyStream = VocabularyManager.class.getClassLoader()
-            .getResourceAsStream(SPATIAL_ONTOLOGY_PATH)) {
-            ontologyModel.read(spatialOntologyStream, ONTOLOGY_BASE, Lang.TURTLE.getName());
-        } catch (IOException e) {
-            logger.error("The spatial ontology located at '{}' cannot be read in. {}",
-                SPATIAL_ONTOLOGY_PATH, e);
-            throw new OntologyAccessException(e);
-        }
-        logger.debug("Initialized core ontology {}.", ontologyModel.toString());
-        return ontologyModel;
     }
 
 }

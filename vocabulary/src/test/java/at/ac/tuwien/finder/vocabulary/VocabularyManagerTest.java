@@ -1,34 +1,12 @@
 package at.ac.tuwien.finder.vocabulary;
 
-import at.ac.tuwien.finder.vocabulary.exception.OntologyAccessException;
-import org.apache.jena.query.Dataset;
-import org.apache.jena.query.DatasetFactory;
-import org.apache.jena.rdf.model.*;
-import org.apache.jena.reasoner.Reasoner;
-import org.apache.jena.reasoner.ReasonerRegistry;
-import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.vocabulary.RDF;
-import org.apache.jena.vocabulary.RDFS;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.stream.Collectors;
-
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.hasItems;
-import static org.junit.Assert.*;
-
 /**
  * This class tests the {@link VocabularyManager}.
  *
  * @author Kevin Haller
  */
 public class VocabularyManagerTest {
-
+/*
     private VocabularyManager vocabularyManager;
     private static Dataset dataset;
 
@@ -120,6 +98,6 @@ public class VocabularyManagerTest {
 
     private static Resource resource(String local) {
         return ResourceFactory.createResource("http://finder.tuwien.ac.at/" + local);
-    }
+    }*/
 
 }

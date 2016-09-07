@@ -1,0 +1,3276 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fs: <http://finder.tuwien.ac.at/vocab/spatial#> .
+
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/GAEG> a fs:Floor ;
+	fs:floorCode "GAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/GAEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/GA01> a fs:Floor ;
+	fs:floorCode "GA01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/GA01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/GA02> a fs:Floor ;
+	fs:floorCode "GA02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/GA02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/GA04> a fs:Floor ;
+	fs:floorCode "GA04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/GA04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/GA07> a fs:Floor ;
+	fs:floorCode "GA07" ;
+	rdfs:label "07" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/GA07> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AEU2> a fs:Floor ;
+	fs:floorCode "AEU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AEU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AEU1> a fs:Floor ;
+	fs:floorCode "AEU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AEU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AEEG> a fs:Floor ;
+	fs:floorCode "AEEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AEEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AEZE> a fs:Floor ;
+	fs:floorCode "AEZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AEZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AE01> a fs:Floor ;
+	fs:floorCode "AE01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AE01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AEZ1> a fs:Floor ;
+	fs:floorCode "AEZ1" ;
+	rdfs:label "Z1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AEZ1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AE02> a fs:Floor ;
+	fs:floorCode "AE02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AE02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AE03> a fs:Floor ;
+	fs:floorCode "AE03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AE03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AEDG> a fs:Floor ;
+	fs:floorCode "AEDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AEDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ECU1> a fs:Floor ;
+	fs:floorCode "ECU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ECU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ECEG> a fs:Floor ;
+	fs:floorCode "ECEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ECEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EC01> a fs:Floor ;
+	fs:floorCode "EC01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EC01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EC02> a fs:Floor ;
+	fs:floorCode "EC02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EC02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EC03> a fs:Floor ;
+	fs:floorCode "EC03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EC03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ECDG> a fs:Floor ;
+	fs:floorCode "ECDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ECDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HGEG> a fs:Floor ;
+	fs:floorCode "HGEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HGEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HG01> a fs:Floor ;
+	fs:floorCode "HG01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HG01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HG02> a fs:Floor ;
+	fs:floorCode "HG02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HG02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HG03> a fs:Floor ;
+	fs:floorCode "HG03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HG03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HG04> a fs:Floor ;
+	fs:floorCode "HG04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HG04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HG05> a fs:Floor ;
+	fs:floorCode "HG05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HG05> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/OV> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/OVU1> a fs:Floor ;
+	fs:floorCode "OVU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/OV> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/OV> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/OVU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/OVEG> a fs:Floor ;
+	fs:floorCode "OVEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/OV> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/OV> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/OVEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/OV01> a fs:Floor ;
+	fs:floorCode "OV01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/OV> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/OV> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/OV01> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EBU2> a fs:Floor ;
+	fs:floorCode "EBU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EBU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EBU1> a fs:Floor ;
+	fs:floorCode "EBU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EBU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EBEG> a fs:Floor ;
+	fs:floorCode "EBEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EBEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EB01> a fs:Floor ;
+	fs:floorCode "EB01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EB01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EB02> a fs:Floor ;
+	fs:floorCode "EB02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EB02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EB03> a fs:Floor ;
+	fs:floorCode "EB03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EB03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EB04> a fs:Floor ;
+	fs:floorCode "EB04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EB04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EBDG> a fs:Floor ;
+	fs:floorCode "EBDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EBDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AH> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AHEG> a fs:Floor ;
+	fs:floorCode "AHEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AHEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AHZE> a fs:Floor ;
+	fs:floorCode "AHZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AHZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AH01> a fs:Floor ;
+	fs:floorCode "AH01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AH01> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZAU2> a fs:Floor ;
+	fs:floorCode "ZAU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZAU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZAU1> a fs:Floor ;
+	fs:floorCode "ZAU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZAU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZAEG> a fs:Floor ;
+	fs:floorCode "ZAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZAEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZA01> a fs:Floor ;
+	fs:floorCode "ZA01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZA01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZADG> a fs:Floor ;
+	fs:floorCode "ZADG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZADG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CH> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CH> a fs:Floor ;
+	fs:floorCode "CH" ;
+	rdfs:label "Dieser Bereich ist zurzeit eine Baustelle !" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MAEG> a fs:Floor ;
+	fs:floorCode "MAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MAEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MD> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MDKG> a fs:Floor ;
+	fs:floorCode "MDKG" ;
+	rdfs:label "KG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MDKG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MDEG> a fs:Floor ;
+	fs:floorCode "MDEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MDEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/GE> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/GE02> a fs:Floor ;
+	fs:floorCode "GE02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/GE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/GE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/GE02> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DDU3> a fs:Floor ;
+	fs:floorCode "DDU3" ;
+	rdfs:label "U3" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DDU3> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DDU2> a fs:Floor ;
+	fs:floorCode "DDU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DDU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DDU1> a fs:Floor ;
+	fs:floorCode "DDU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DDU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DDEG> a fs:Floor ;
+	fs:floorCode "DDEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DDEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DD01> a fs:Floor ;
+	fs:floorCode "DD01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DD01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DD02> a fs:Floor ;
+	fs:floorCode "DD02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DD02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DD03> a fs:Floor ;
+	fs:floorCode "DD03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DD03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DD04> a fs:Floor ;
+	fs:floorCode "DD04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DD04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DD05> a fs:Floor ;
+	fs:floorCode "DD05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DD05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DD06> a fs:Floor ;
+	fs:floorCode "DD06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DD06> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DD07> a fs:Floor ;
+	fs:floorCode "DD07" ;
+	rdfs:label "07" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DD07> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DDDG> a fs:Floor ;
+	fs:floorCode "DDDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DDDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MBEG> a fs:Floor ;
+	fs:floorCode "MBEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MBEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HH> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HHEG> a fs:Floor ;
+	fs:floorCode "HHEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HHEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CBU2> a fs:Floor ;
+	fs:floorCode "CBU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CBU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CBU1> a fs:Floor ;
+	fs:floorCode "CBU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CBU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CBEG> a fs:Floor ;
+	fs:floorCode "CBEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CBEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CB01> a fs:Floor ;
+	fs:floorCode "CB01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CB01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CB02> a fs:Floor ;
+	fs:floorCode "CB02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CB02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CB03> a fs:Floor ;
+	fs:floorCode "CB03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CB03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CB04> a fs:Floor ;
+	fs:floorCode "CB04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CB04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CB05> a fs:Floor ;
+	fs:floorCode "CB05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CB05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CB06> a fs:Floor ;
+	fs:floorCode "CB06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CB06> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AFU1> a fs:Floor ;
+	fs:floorCode "AFU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AFU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AFEG> a fs:Floor ;
+	fs:floorCode "AFEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AFEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AFZE> a fs:Floor ;
+	fs:floorCode "AFZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AFZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AF01> a fs:Floor ;
+	fs:floorCode "AF01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AF01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AF02> a fs:Floor ;
+	fs:floorCode "AF02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AF02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AFZ2> a fs:Floor ;
+	fs:floorCode "AFZ2" ;
+	rdfs:label "Z2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AFZ2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AF03> a fs:Floor ;
+	fs:floorCode "AF03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AF03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AFDG> a fs:Floor ;
+	fs:floorCode "AFDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AFDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AQ> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AQU1> a fs:Floor ;
+	fs:floorCode "AQU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AQ> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AQ> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AQU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AQEG> a fs:Floor ;
+	fs:floorCode "AQEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AQ> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AQ> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AQEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AQ01> a fs:Floor ;
+	fs:floorCode "AQ01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AQ> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AQ> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AQ01> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MC> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MCEG> a fs:Floor ;
+	fs:floorCode "MCEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MCEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MF> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MFEG> a fs:Floor ;
+	fs:floorCode "MFEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MFEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MF01> a fs:Floor ;
+	fs:floorCode "MF01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MF01> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/PB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/PBEG> a fs:Floor ;
+	fs:floorCode "PBEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/PB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/PB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/PBEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CGU1> a fs:Floor ;
+	fs:floorCode "CGU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CGU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CGEG> a fs:Floor ;
+	fs:floorCode "CGEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CGEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CG01> a fs:Floor ;
+	fs:floorCode "CG01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CG01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CG02> a fs:Floor ;
+	fs:floorCode "CG02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CG02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CG03> a fs:Floor ;
+	fs:floorCode "CG03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CG03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CG04> a fs:Floor ;
+	fs:floorCode "CG04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CG04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CG05> a fs:Floor ;
+	fs:floorCode "CG05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CG05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CG06> a fs:Floor ;
+	fs:floorCode "CG06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CG06> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AGU1> a fs:Floor ;
+	fs:floorCode "AGU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AGU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AGEG> a fs:Floor ;
+	fs:floorCode "AGEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AGEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AGZE> a fs:Floor ;
+	fs:floorCode "AGZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AGZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AG01> a fs:Floor ;
+	fs:floorCode "AG01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AG01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AGZ1> a fs:Floor ;
+	fs:floorCode "AGZ1" ;
+	rdfs:label "Z1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AGZ1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AG02> a fs:Floor ;
+	fs:floorCode "AG02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AG02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AG03> a fs:Floor ;
+	fs:floorCode "AG03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AG03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AGDG> a fs:Floor ;
+	fs:floorCode "AGDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AGDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FBU1> a fs:Floor ;
+	fs:floorCode "FBU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FBU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FBEG> a fs:Floor ;
+	fs:floorCode "FBEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FBEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FBZE> a fs:Floor ;
+	fs:floorCode "FBZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FBZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FB01> a fs:Floor ;
+	fs:floorCode "FB01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FB01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FB02> a fs:Floor ;
+	fs:floorCode "FB02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FB02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FB03> a fs:Floor ;
+	fs:floorCode "FB03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FB03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FB04> a fs:Floor ;
+	fs:floorCode "FB04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FB04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FB05> a fs:Floor ;
+	fs:floorCode "FB05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FB05> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BLU2> a fs:Floor ;
+	fs:floorCode "BLU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BLU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BLU1> a fs:Floor ;
+	fs:floorCode "BLU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BLU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BLEG> a fs:Floor ;
+	fs:floorCode "BLEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BLEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BL01> a fs:Floor ;
+	fs:floorCode "BL01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BL01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BL02> a fs:Floor ;
+	fs:floorCode "BL02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BL02> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/QB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/QB01> a fs:Floor ;
+	fs:floorCode "QB01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/QB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/QB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/QB01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/QB02> a fs:Floor ;
+	fs:floorCode "QB02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/QB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/QB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/QB02> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BEU1> a fs:Floor ;
+	fs:floorCode "BEU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BEU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BEEG> a fs:Floor ;
+	fs:floorCode "BEEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BEEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BE01> a fs:Floor ;
+	fs:floorCode "BE01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BE01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BE02> a fs:Floor ;
+	fs:floorCode "BE02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BE02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BE03> a fs:Floor ;
+	fs:floorCode "BE03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BE03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BE04> a fs:Floor ;
+	fs:floorCode "BE04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BE04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BE05> a fs:Floor ;
+	fs:floorCode "BE05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BE05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BE06> a fs:Floor ;
+	fs:floorCode "BE06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BE06> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BEDG> a fs:Floor ;
+	fs:floorCode "BEDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BEDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CDU2> a fs:Floor ;
+	fs:floorCode "CDU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CDU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CDU1> a fs:Floor ;
+	fs:floorCode "CDU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CDU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CDEG> a fs:Floor ;
+	fs:floorCode "CDEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CDEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CDZE> a fs:Floor ;
+	fs:floorCode "CDZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CDZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CD01> a fs:Floor ;
+	fs:floorCode "CD01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CD01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CD02> a fs:Floor ;
+	fs:floorCode "CD02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CD02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CD03> a fs:Floor ;
+	fs:floorCode "CD03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CD03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CD04> a fs:Floor ;
+	fs:floorCode "CD04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CD04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CD05> a fs:Floor ;
+	fs:floorCode "CD05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CD05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CD06> a fs:Floor ;
+	fs:floorCode "CD06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CD06> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EAU1> a fs:Floor ;
+	fs:floorCode "EAU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EAU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EAEG> a fs:Floor ;
+	fs:floorCode "EAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EAEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EAZE> a fs:Floor ;
+	fs:floorCode "EAZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EAZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EA01> a fs:Floor ;
+	fs:floorCode "EA01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EA01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EA02> a fs:Floor ;
+	fs:floorCode "EA02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EA02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EA03> a fs:Floor ;
+	fs:floorCode "EA03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EA03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EA04> a fs:Floor ;
+	fs:floorCode "EA04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EA04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EA05> a fs:Floor ;
+	fs:floorCode "EA05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EA05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/EADG> a fs:Floor ;
+	fs:floorCode "EADG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/EADG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ASU1> a fs:Floor ;
+	fs:floorCode "ASU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ASU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ASEG> a fs:Floor ;
+	fs:floorCode "ASEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ASEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AS01> a fs:Floor ;
+	fs:floorCode "AS01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AS01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AS02> a fs:Floor ;
+	fs:floorCode "AS02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AS02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AS03> a fs:Floor ;
+	fs:floorCode "AS03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AS03> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DCU4> a fs:Floor ;
+	fs:floorCode "DCU4" ;
+	rdfs:label "U4" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DCU4> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DCU3> a fs:Floor ;
+	fs:floorCode "DCU3" ;
+	rdfs:label "U3" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DCU3> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DCU2> a fs:Floor ;
+	fs:floorCode "DCU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DCU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DCU1> a fs:Floor ;
+	fs:floorCode "DCU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DCU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DCEG> a fs:Floor ;
+	fs:floorCode "DCEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DCEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DC01> a fs:Floor ;
+	fs:floorCode "DC01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DC01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DC02> a fs:Floor ;
+	fs:floorCode "DC02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DC02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DC03> a fs:Floor ;
+	fs:floorCode "DC03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DC03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DC04> a fs:Floor ;
+	fs:floorCode "DC04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DC04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DC05> a fs:Floor ;
+	fs:floorCode "DC05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DC05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DC06> a fs:Floor ;
+	fs:floorCode "DC06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DC06> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DC07> a fs:Floor ;
+	fs:floorCode "DC07" ;
+	rdfs:label "07" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DC07> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DC08> a fs:Floor ;
+	fs:floorCode "DC08" ;
+	rdfs:label "08" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DC08> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AI> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AIU1> a fs:Floor ;
+	fs:floorCode "AIU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AIU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AIEG> a fs:Floor ;
+	fs:floorCode "AIEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AIEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AI01> a fs:Floor ;
+	fs:floorCode "AI01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AI01> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/PA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/PAEG> a fs:Floor ;
+	fs:floorCode "PAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/PA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/PA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/PAEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/PA01> a fs:Floor ;
+	fs:floorCode "PA01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/PA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/PA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/PA01> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZC> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZCU1> a fs:Floor ;
+	fs:floorCode "ZCU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZCU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZCEG> a fs:Floor ;
+	fs:floorCode "ZCEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZCEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZC01> a fs:Floor ;
+	fs:floorCode "ZC01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZC01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZCDG> a fs:Floor ;
+	fs:floorCode "ZCDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZCDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HEEG> a fs:Floor ;
+	fs:floorCode "HEEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HEEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HE01> a fs:Floor ;
+	fs:floorCode "HE01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HE01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HE02> a fs:Floor ;
+	fs:floorCode "HE02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HE02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HE03> a fs:Floor ;
+	fs:floorCode "HE03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HE03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HE04> a fs:Floor ;
+	fs:floorCode "HE04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HE04> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ADU1> a fs:Floor ;
+	fs:floorCode "ADU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ADU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ADEG> a fs:Floor ;
+	fs:floorCode "ADEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ADEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ADZE> a fs:Floor ;
+	fs:floorCode "ADZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ADZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AD01> a fs:Floor ;
+	fs:floorCode "AD01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AD01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AD02> a fs:Floor ;
+	fs:floorCode "AD02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AD02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AD03> a fs:Floor ;
+	fs:floorCode "AD03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AD03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AD04> a fs:Floor ;
+	fs:floorCode "AD04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AD04> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AK> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AKEG> a fs:Floor ;
+	fs:floorCode "AKEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AK> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AK> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AKEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AKZE> a fs:Floor ;
+	fs:floorCode "AKZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AK> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AK> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AKZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AK01> a fs:Floor ;
+	fs:floorCode "AK01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AK> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AK> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AK01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AK04> a fs:Floor ;
+	fs:floorCode "AK04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AK> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AK> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AK04> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BAU2> a fs:Floor ;
+	fs:floorCode "BAU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BAU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BAU1> a fs:Floor ;
+	fs:floorCode "BAU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BAU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BAZU> a fs:Floor ;
+	fs:floorCode "BAZU" ;
+	rdfs:label "ZU" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BAZU> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BAEG> a fs:Floor ;
+	fs:floorCode "BAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BAEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BA01> a fs:Floor ;
+	fs:floorCode "BA01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BA01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BA02> a fs:Floor ;
+	fs:floorCode "BA02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BA02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BA03> a fs:Floor ;
+	fs:floorCode "BA03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BA03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BA04> a fs:Floor ;
+	fs:floorCode "BA04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BA04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BA05> a fs:Floor ;
+	fs:floorCode "BA05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BA05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BA06> a fs:Floor ;
+	fs:floorCode "BA06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BA06> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BA07> a fs:Floor ;
+	fs:floorCode "BA07" ;
+	rdfs:label "07" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BA07> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BA08> a fs:Floor ;
+	fs:floorCode "BA08" ;
+	rdfs:label "08" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BA08> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BA09> a fs:Floor ;
+	fs:floorCode "BA09" ;
+	rdfs:label "09" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BA09> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BA10> a fs:Floor ;
+	fs:floorCode "BA10" ;
+	rdfs:label "10" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BA10> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BA11> a fs:Floor ;
+	fs:floorCode "BA11" ;
+	rdfs:label "11" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BA11> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HBEG> a fs:Floor ;
+	fs:floorCode "HBEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HBEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HB01> a fs:Floor ;
+	fs:floorCode "HB01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HB01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HB02> a fs:Floor ;
+	fs:floorCode "HB02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HB02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HB03> a fs:Floor ;
+	fs:floorCode "HB03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HB03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HB04> a fs:Floor ;
+	fs:floorCode "HB04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HB04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HB05> a fs:Floor ;
+	fs:floorCode "HB05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HB05> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MI> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MIEG> a fs:Floor ;
+	fs:floorCode "MIEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MIEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AAU1> a fs:Floor ;
+	fs:floorCode "AAU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AAU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AAEG> a fs:Floor ;
+	fs:floorCode "AAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AAEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AAZE> a fs:Floor ;
+	fs:floorCode "AAZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AAZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AA01> a fs:Floor ;
+	fs:floorCode "AA01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AA01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AAZ1> a fs:Floor ;
+	fs:floorCode "AAZ1" ;
+	rdfs:label "Z1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AAZ1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AA02> a fs:Floor ;
+	fs:floorCode "AA02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AA02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AA03> a fs:Floor ;
+	fs:floorCode "AA03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AA03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AAZ3> a fs:Floor ;
+	fs:floorCode "AAZ3" ;
+	rdfs:label "Z3" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AAZ3> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AA04> a fs:Floor ;
+	fs:floorCode "AA04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AA04> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/PC> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/PCEG> a fs:Floor ;
+	fs:floorCode "PCEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/PC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/PC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/PCEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/APU1> a fs:Floor ;
+	fs:floorCode "APU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/APU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/APZU> a fs:Floor ;
+	fs:floorCode "APZU" ;
+	rdfs:label "ZU" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/APZU> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/APEG> a fs:Floor ;
+	fs:floorCode "APEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/APEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AP01> a fs:Floor ;
+	fs:floorCode "AP01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AP01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AP02> a fs:Floor ;
+	fs:floorCode "AP02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AP02> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FC> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FCU1> a fs:Floor ;
+	fs:floorCode "FCU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FCU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FCEG> a fs:Floor ;
+	fs:floorCode "FCEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FCEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CFU1> a fs:Floor ;
+	fs:floorCode "CFU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CFU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CFSO> a fs:Floor ;
+	fs:floorCode "CFSO" ;
+	rdfs:label "SO" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CFSO> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CFEG> a fs:Floor ;
+	fs:floorCode "CFEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CFEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CF01> a fs:Floor ;
+	fs:floorCode "CF01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CF01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CF02> a fs:Floor ;
+	fs:floorCode "CF02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CF02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CFZ2> a fs:Floor ;
+	fs:floorCode "CFZ2" ;
+	rdfs:label "Z2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CFZ2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CF03> a fs:Floor ;
+	fs:floorCode "CF03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CF03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CF04> a fs:Floor ;
+	fs:floorCode "CF04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CF04> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ACU1> a fs:Floor ;
+	fs:floorCode "ACU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ACU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ACEG> a fs:Floor ;
+	fs:floorCode "ACEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ACEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ACZE> a fs:Floor ;
+	fs:floorCode "ACZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ACZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AC01> a fs:Floor ;
+	fs:floorCode "AC01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AC01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ACZ1> a fs:Floor ;
+	fs:floorCode "ACZ1" ;
+	rdfs:label "Z1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ACZ1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AC02> a fs:Floor ;
+	fs:floorCode "AC02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AC02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ACZ2> a fs:Floor ;
+	fs:floorCode "ACZ2" ;
+	rdfs:label "Z2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ACZ2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AC03> a fs:Floor ;
+	fs:floorCode "AC03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AC03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ACZ3> a fs:Floor ;
+	fs:floorCode "ACZ3" ;
+	rdfs:label "Z3" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ACZ3> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AC04> a fs:Floor ;
+	fs:floorCode "AC04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AC04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ACZ4> a fs:Floor ;
+	fs:floorCode "ACZ4" ;
+	rdfs:label "Z4" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ACZ4> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ACDG> a fs:Floor ;
+	fs:floorCode "ACDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ACDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/QA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/QAU1> a fs:Floor ;
+	fs:floorCode "QAU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/QA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/QA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/QAU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/QAEG> a fs:Floor ;
+	fs:floorCode "QAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/QA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/QA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/QAEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/QA01> a fs:Floor ;
+	fs:floorCode "QA01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/QA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/QA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/QA01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/QA02> a fs:Floor ;
+	fs:floorCode "QA02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/QA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/QA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/QA02> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BBU1> a fs:Floor ;
+	fs:floorCode "BBU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BBU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BBEG> a fs:Floor ;
+	fs:floorCode "BBEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BBEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BB01> a fs:Floor ;
+	fs:floorCode "BB01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BB01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BB02> a fs:Floor ;
+	fs:floorCode "BB02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BB02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BB03> a fs:Floor ;
+	fs:floorCode "BB03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BB03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BB04> a fs:Floor ;
+	fs:floorCode "BB04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BB04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BB05> a fs:Floor ;
+	fs:floorCode "BB05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BB05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BB06> a fs:Floor ;
+	fs:floorCode "BB06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BB06> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CE> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CEU2> a fs:Floor ;
+	fs:floorCode "CEU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CEU2> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BDU2> a fs:Floor ;
+	fs:floorCode "BDU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BDU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BDU1> a fs:Floor ;
+	fs:floorCode "BDU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BDU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BDEG> a fs:Floor ;
+	fs:floorCode "BDEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BDEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BD01> a fs:Floor ;
+	fs:floorCode "BD01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BD01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BD02> a fs:Floor ;
+	fs:floorCode "BD02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BD02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BD03> a fs:Floor ;
+	fs:floorCode "BD03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BD03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BD04> a fs:Floor ;
+	fs:floorCode "BD04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BD04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BD05> a fs:Floor ;
+	fs:floorCode "BD05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BD05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BD06> a fs:Floor ;
+	fs:floorCode "BD06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BD06> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BD07> a fs:Floor ;
+	fs:floorCode "BD07" ;
+	rdfs:label "07" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BD07> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HCEG> a fs:Floor ;
+	fs:floorCode "HCEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HCEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HC01> a fs:Floor ;
+	fs:floorCode "HC01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HC01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HC02> a fs:Floor ;
+	fs:floorCode "HC02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HC02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HC03> a fs:Floor ;
+	fs:floorCode "HC03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HC03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HC04> a fs:Floor ;
+	fs:floorCode "HC04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HC04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HC05> a fs:Floor ;
+	fs:floorCode "HC05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HC05> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HFEG> a fs:Floor ;
+	fs:floorCode "HFEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HFEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HF01> a fs:Floor ;
+	fs:floorCode "HF01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HF01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HF02> a fs:Floor ;
+	fs:floorCode "HF02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HF02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HF03> a fs:Floor ;
+	fs:floorCode "HF03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HF03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HF04> a fs:Floor ;
+	fs:floorCode "HF04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HF04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HF05> a fs:Floor ;
+	fs:floorCode "HF05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HF05> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DBU4> a fs:Floor ;
+	fs:floorCode "DBU4" ;
+	rdfs:label "U4" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DBU4> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DBU3> a fs:Floor ;
+	fs:floorCode "DBU3" ;
+	rdfs:label "U3" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DBU3> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DBU2> a fs:Floor ;
+	fs:floorCode "DBU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DBU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DBU1> a fs:Floor ;
+	fs:floorCode "DBU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DBU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DBEG> a fs:Floor ;
+	fs:floorCode "DBEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DBEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB01> a fs:Floor ;
+	fs:floorCode "DB01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB02> a fs:Floor ;
+	fs:floorCode "DB02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB03> a fs:Floor ;
+	fs:floorCode "DB03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB04> a fs:Floor ;
+	fs:floorCode "DB04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB05> a fs:Floor ;
+	fs:floorCode "DB05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB06> a fs:Floor ;
+	fs:floorCode "DB06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB06> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB07> a fs:Floor ;
+	fs:floorCode "DB07" ;
+	rdfs:label "07" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB07> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB08> a fs:Floor ;
+	fs:floorCode "DB08" ;
+	rdfs:label "08" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB08> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB09> a fs:Floor ;
+	fs:floorCode "DB09" ;
+	rdfs:label "09" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB09> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB10> a fs:Floor ;
+	fs:floorCode "DB10" ;
+	rdfs:label "10" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB10> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB11> a fs:Floor ;
+	fs:floorCode "DB11" ;
+	rdfs:label "11" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB11> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DB12> a fs:Floor ;
+	fs:floorCode "DB12" ;
+	rdfs:label "12" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DB12> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/GB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/GB04> a fs:Floor ;
+	fs:floorCode "GB04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/GB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/GB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/GB04> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BK> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BKU2> a fs:Floor ;
+	fs:floorCode "BKU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BK> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BK> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BKU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BKU1> a fs:Floor ;
+	fs:floorCode "BKU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BK> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BK> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BKU1> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DAU4> a fs:Floor ;
+	fs:floorCode "DAU4" ;
+	rdfs:label "U4" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DAU4> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DAU3> a fs:Floor ;
+	fs:floorCode "DAU3" ;
+	rdfs:label "U3" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DAU3> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DAU2> a fs:Floor ;
+	fs:floorCode "DAU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DAU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DAU1> a fs:Floor ;
+	fs:floorCode "DAU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DAU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DAEG> a fs:Floor ;
+	fs:floorCode "DAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DAEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DA01> a fs:Floor ;
+	fs:floorCode "DA01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DA01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DA02> a fs:Floor ;
+	fs:floorCode "DA02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DA02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DA03> a fs:Floor ;
+	fs:floorCode "DA03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DA03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DA04> a fs:Floor ;
+	fs:floorCode "DA04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DA04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DA05> a fs:Floor ;
+	fs:floorCode "DA05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DA05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DA06> a fs:Floor ;
+	fs:floorCode "DA06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DA06> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DA07> a fs:Floor ;
+	fs:floorCode "DA07" ;
+	rdfs:label "07" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DA07> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DA08> a fs:Floor ;
+	fs:floorCode "DA08" ;
+	rdfs:label "08" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DA08> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DA09> a fs:Floor ;
+	fs:floorCode "DA09" ;
+	rdfs:label "09" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DA09> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/OZ> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/OZU1> a fs:Floor ;
+	fs:floorCode "OZU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/OZ> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/OZ> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/OZU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/OZEG> a fs:Floor ;
+	fs:floorCode "OZEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/OZ> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/OZ> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/OZEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BG> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BGU2> a fs:Floor ;
+	fs:floorCode "BGU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BGU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BGU1> a fs:Floor ;
+	fs:floorCode "BGU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BGU1> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HL> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HL01> a fs:Floor ;
+	fs:floorCode "HL01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HL> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HL> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HL01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HL04> a fs:Floor ;
+	fs:floorCode "HL04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HL> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HL> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HL04> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HI> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HIEG> a fs:Floor ;
+	fs:floorCode "HIEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HIEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MH> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MHEG> a fs:Floor ;
+	fs:floorCode "MHEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MHEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MH01> a fs:Floor ;
+	fs:floorCode "MH01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MH01> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MG> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MGEG> a fs:Floor ;
+	fs:floorCode "MGEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MGEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MG01> a fs:Floor ;
+	fs:floorCode "MG01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/MG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/MG> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MG01> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DEU3> a fs:Floor ;
+	fs:floorCode "DEU3" ;
+	rdfs:label "U3" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DEU3> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DEU2> a fs:Floor ;
+	fs:floorCode "DEU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DEU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DEU1> a fs:Floor ;
+	fs:floorCode "DEU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DEU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DEEG> a fs:Floor ;
+	fs:floorCode "DEEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DEEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DEZE> a fs:Floor ;
+	fs:floorCode "DEZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DEZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DE01> a fs:Floor ;
+	fs:floorCode "DE01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DE01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DE02> a fs:Floor ;
+	fs:floorCode "DE02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DE02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DE03> a fs:Floor ;
+	fs:floorCode "DE03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DE03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DE04> a fs:Floor ;
+	fs:floorCode "DE04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DE04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DEDG> a fs:Floor ;
+	fs:floorCode "DEDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DEDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ME> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MEU1> a fs:Floor ;
+	fs:floorCode "MEU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ME> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ME> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MEU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MEEG> a fs:Floor ;
+	fs:floorCode "MEEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ME> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ME> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MEEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/MEZE> a fs:Floor ;
+	fs:floorCode "MEZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ME> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ME> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/MEZE> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HK> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HKEG> a fs:Floor ;
+	fs:floorCode "HKEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HK> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HK> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HKEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HK03> a fs:Floor ;
+	fs:floorCode "HK03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HK> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HK> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HK03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HK04> a fs:Floor ;
+	fs:floorCode "HK04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HK> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HK> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HK04> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CCU2> a fs:Floor ;
+	fs:floorCode "CCU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CCU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CCU1> a fs:Floor ;
+	fs:floorCode "CCU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CCU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CCEG> a fs:Floor ;
+	fs:floorCode "CCEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CCEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CC01> a fs:Floor ;
+	fs:floorCode "CC01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CC01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CC02> a fs:Floor ;
+	fs:floorCode "CC02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CC02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CC03> a fs:Floor ;
+	fs:floorCode "CC03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CC03> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/OY> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/OYU1> a fs:Floor ;
+	fs:floorCode "OYU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/OY> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/OY> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/OYU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/OYEG> a fs:Floor ;
+	fs:floorCode "OYEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/OY> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/OY> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/OYEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HDEG> a fs:Floor ;
+	fs:floorCode "HDEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HDEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HD01> a fs:Floor ;
+	fs:floorCode "HD01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HD01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HD02> a fs:Floor ;
+	fs:floorCode "HD02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HD02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HD03> a fs:Floor ;
+	fs:floorCode "HD03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HD03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HD04> a fs:Floor ;
+	fs:floorCode "HD04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HD04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HD05> a fs:Floor ;
+	fs:floorCode "HD05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HD05> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FAU1> a fs:Floor ;
+	fs:floorCode "FAU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FAU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FAEG> a fs:Floor ;
+	fs:floorCode "FAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FAEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FAZE> a fs:Floor ;
+	fs:floorCode "FAZE" ;
+	rdfs:label "ZE" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FAZE> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FA01> a fs:Floor ;
+	fs:floorCode "FA01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FA01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FA02> a fs:Floor ;
+	fs:floorCode "FA02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FA02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/FA03> a fs:Floor ;
+	fs:floorCode "FA03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/FA03> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ABU1> a fs:Floor ;
+	fs:floorCode "ABU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ABU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ABEG> a fs:Floor ;
+	fs:floorCode "ABEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ABEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AB01> a fs:Floor ;
+	fs:floorCode "AB01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AB01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AB02> a fs:Floor ;
+	fs:floorCode "AB02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AB02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AB03> a fs:Floor ;
+	fs:floorCode "AB03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AB03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AB04> a fs:Floor ;
+	fs:floorCode "AB04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AB04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ABDG> a fs:Floor ;
+	fs:floorCode "ABDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ABDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BIU2> a fs:Floor ;
+	fs:floorCode "BIU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BIU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BIU1> a fs:Floor ;
+	fs:floorCode "BIU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BIU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BIEG> a fs:Floor ;
+	fs:floorCode "BIEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BIEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BI01> a fs:Floor ;
+	fs:floorCode "BI01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BI01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BI02> a fs:Floor ;
+	fs:floorCode "BI02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BI02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BI03> a fs:Floor ;
+	fs:floorCode "BI03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BI03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BI04> a fs:Floor ;
+	fs:floorCode "BI04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BI04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BI05> a fs:Floor ;
+	fs:floorCode "BI05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BI05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BI06> a fs:Floor ;
+	fs:floorCode "BI06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BI06> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BI07> a fs:Floor ;
+	fs:floorCode "BI07" ;
+	rdfs:label "07" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BI07> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BI08> a fs:Floor ;
+	fs:floorCode "BI08" ;
+	rdfs:label "08" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BI08> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BI09> a fs:Floor ;
+	fs:floorCode "BI09" ;
+	rdfs:label "09" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BI09> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BI10> a fs:Floor ;
+	fs:floorCode "BI10" ;
+	rdfs:label "10" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BI10> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BIDG> a fs:Floor ;
+	fs:floorCode "BIDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BIDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZD> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZDU1> a fs:Floor ;
+	fs:floorCode "ZDU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZDU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZDZU> a fs:Floor ;
+	fs:floorCode "ZDZU" ;
+	rdfs:label "ZU" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZDZU> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZDEG> a fs:Floor ;
+	fs:floorCode "ZDEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZD> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZD> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZDEG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CI> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CIEG> a fs:Floor ;
+	fs:floorCode "CIEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CIEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CI01> a fs:Floor ;
+	fs:floorCode "CI01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CI> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CI> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CI01> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BCU2> a fs:Floor ;
+	fs:floorCode "BCU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BCU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BCU1> a fs:Floor ;
+	fs:floorCode "BCU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BCU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BCEG> a fs:Floor ;
+	fs:floorCode "BCEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BCEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BC01> a fs:Floor ;
+	fs:floorCode "BC01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BC01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BC02> a fs:Floor ;
+	fs:floorCode "BC02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BC02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BC03> a fs:Floor ;
+	fs:floorCode "BC03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BC03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BC04> a fs:Floor ;
+	fs:floorCode "BC04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BC04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BC05> a fs:Floor ;
+	fs:floorCode "BC05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BC05> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AT> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ATEG> a fs:Floor ;
+	fs:floorCode "ATEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AT> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AT> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ATEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AT01> a fs:Floor ;
+	fs:floorCode "AT01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AT> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AT> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AT01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AT02> a fs:Floor ;
+	fs:floorCode "AT02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AT> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AT> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AT02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/AT03> a fs:Floor ;
+	fs:floorCode "AT03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/AT> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/AT> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/AT03> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HAEG> a fs:Floor ;
+	fs:floorCode "HAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HAEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HA01> a fs:Floor ;
+	fs:floorCode "HA01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HA01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HA02> a fs:Floor ;
+	fs:floorCode "HA02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HA02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HA03> a fs:Floor ;
+	fs:floorCode "HA03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HA03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HA04> a fs:Floor ;
+	fs:floorCode "HA04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HA04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/HA05> a fs:Floor ;
+	fs:floorCode "HA05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/HA05> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZBU2> a fs:Floor ;
+	fs:floorCode "ZBU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZBU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZBU1> a fs:Floor ;
+	fs:floorCode "ZBU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZBU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZBEG> a fs:Floor ;
+	fs:floorCode "ZBEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZBEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZB01> a fs:Floor ;
+	fs:floorCode "ZB01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZB01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/ZBDG> a fs:Floor ;
+	fs:floorCode "ZBDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/ZBDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BZU1> a fs:Floor ;
+	fs:floorCode "BZU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BZU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BZEG> a fs:Floor ;
+	fs:floorCode "BZEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BZEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BZ01> a fs:Floor ;
+	fs:floorCode "BZ01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BZ01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BZ02> a fs:Floor ;
+	fs:floorCode "BZ02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BZ02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BZ03> a fs:Floor ;
+	fs:floorCode "BZ03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BZ03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BZDG> a fs:Floor ;
+	fs:floorCode "BZDG" ;
+	rdfs:label "DG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BZDG> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BHU1> a fs:Floor ;
+	fs:floorCode "BHU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BHU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BHEG> a fs:Floor ;
+	fs:floorCode "BHEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BHEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BH01> a fs:Floor ;
+	fs:floorCode "BH01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BH01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BH02> a fs:Floor ;
+	fs:floorCode "BH02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BH02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BH03> a fs:Floor ;
+	fs:floorCode "BH03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BH03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BH04> a fs:Floor ;
+	fs:floorCode "BH04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BH04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/BH05> a fs:Floor ;
+	fs:floorCode "BH05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/BH05> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CAU2> a fs:Floor ;
+	fs:floorCode "CAU2" ;
+	rdfs:label "U2" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CAU2> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CAU1> a fs:Floor ;
+	fs:floorCode "CAU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CAU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CAEG> a fs:Floor ;
+	fs:floorCode "CAEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CAEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CA01> a fs:Floor ;
+	fs:floorCode "CA01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CA01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CA02> a fs:Floor ;
+	fs:floorCode "CA02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CA02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CA03> a fs:Floor ;
+	fs:floorCode "CA03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CA03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CA04> a fs:Floor ;
+	fs:floorCode "CA04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CA04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CA05> a fs:Floor ;
+	fs:floorCode "CA05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CA05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/CA06> a fs:Floor ;
+	fs:floorCode "CA06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/CA06> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> a fs:BuildingTract .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DFU1> a fs:Floor ;
+	fs:floorCode "DFU1" ;
+	rdfs:label "U1" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DFU1> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DFEG> a fs:Floor ;
+	fs:floorCode "DFEG" ;
+	rdfs:label "EG" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DFEG> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DF01> a fs:Floor ;
+	fs:floorCode "DF01" ;
+	rdfs:label "01" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DF01> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DF02> a fs:Floor ;
+	fs:floorCode "DF02" ;
+	rdfs:label "02" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DF02> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DF03> a fs:Floor ;
+	fs:floorCode "DF03" ;
+	rdfs:label "03" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DF03> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DF04> a fs:Floor ;
+	fs:floorCode "DF04" ;
+	rdfs:label "04" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DF04> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DF05> a fs:Floor ;
+	fs:floorCode "DF05" ;
+	rdfs:label "05" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DF05> .
+
+<http://finder.tuwien.ac.at/spatial/floor/id/DF06> a fs:Floor ;
+	fs:floorCode "DF06" ;
+	rdfs:label "06" ;
+	fs:isPartOfBuildingUnit <http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> .
+
+<http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> fs:containsBuildingUnit <http://finder.tuwien.ac.at/spatial/floor/id/DF06> .

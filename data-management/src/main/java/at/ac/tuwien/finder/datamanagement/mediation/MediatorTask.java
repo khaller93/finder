@@ -4,7 +4,7 @@ import at.ac.tuwien.finder.datamanagement.mediation.exception.DataAcquireExcepti
 import at.ac.tuwien.finder.datamanagement.mediation.exception.DataTransformationException;
 import at.ac.tuwien.finder.datamanagement.mediation.exception.MediatorException;
 import at.ac.tuwien.finder.taskmanagement.ReturnValueTask;
-import org.apache.jena.rdf.model.Model;
+import org.openrdf.model.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

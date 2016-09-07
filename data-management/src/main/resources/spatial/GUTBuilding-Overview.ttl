@@ -1,0 +1,709 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix fs: <http://finder.tuwien.ac.at/vocab/spatial#> .
+@prefix fsc: <http://finder.tuwien.ac.at/spatial/campus/id/> .
+@prefix fsb: <http://finder.tuwien.ac.at/spatial/building/id/> .
+@prefix fsbt: <http://finder.tuwien.ac.at/spatial/buildingtract/id/> .
+@prefix fsa: <http://finder.tuwien.ac.at/spatial/address/id/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+
+# --------------------------------------------------------------------------------------------------------
+# City / Country
+# --------------------------------------------------------------------------------------------------------
+
+dbo:Vienna rdfs:label "Vienna"@en, "Wien"@de ;
+	owl:sameAs <http://sws.geonames.org/2761333/> .
+
+dbo:Austria rdfs:label "Austria"@en, "Österreich"@de ;
+	owl:sameAs <http://sws.geonames.org/2782113/> .
+
+# --------------------------------------------------------------------------------------------------------
+#  Buildings
+# --------------------------------------------------------------------------------------------------------
+
+fsb:A a fs:Building ;
+	rdfs:label "Hauptgebäude"@de, "Central building"@en ;
+	fs:buildingCode "A" ;
+	fs:containsBuildingUnit fsbt:AA, fsbt:AB, fsbt:AC, fsbt:AD, fsbt:AE, fsbt:AF, fsbt:AG, fsbt:AH, fsbt:AI ;
+	locn:address fsa:AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13 .
+
+fsb:AK a fs:Building ;
+	rdfs:label "Institutsgebäude (AK)"@de, "Building of an institute (AK)"@en ;
+	fs:buildingCode "AK" ;
+	fs:containsBuildingUnit fsbt:AK ;
+	locn:address fsa:AT1040-b39e34d32cb32396302a9b0d7e126a08-16 .
+
+fsb:AP a fs:Building ;
+	rdfs:label "Goldenes Lamm"@de, "Goldenes Lamm"@en ;
+	fs:buildingCode "AP" ;
+	fs:containsBuildingUnit fsbt:AP ;
+	locn:address fsa:AT1040-6429eeb3b30efc944311adcf05c1235c-7 .
+
+fsb:AQ a fs:Building ;
+	rdfs:label "Ödenburg"@de, "Ödenburg"@en ;
+	fs:buildingCode "AQ" ;
+	fs:containsBuildingUnit fsbt:AQ ;
+	locn:address fsa:AT1040-6429eeb3b30efc944311adcf05c1235c-9 .
+
+fsb:AS a fs:Building ;
+	rdfs:label "Institutsgebäude (AS)"@de, "Building of an institute (AS)"@en ;
+	fs:buildingCode "AS" ;
+	fs:containsBuildingUnit fsbt:AS ;
+	locn:address fsa:AT1040-6291e1b5f5aa26891b7668edaaa67156-3 .
+
+fsb:AT a fs:Building ;
+	rdfs:label "Institutsgebäude (AT)"@de, "Building of an institute (AT)"@en ;
+	fs:buildingCode "AT" ;
+	fs:containsBuildingUnit fsbt:AT ;
+	locn:address fsa:AT1040-6291e1b5f5aa26891b7668edaaa67156-5 .
+
+fsb:BH a fs:Building ;
+	rdfs:label "Wirtschaftsgebäude"@de, "Economy-Bulding" ;
+	fs:buildingCode "BH" ;
+	fs:containsBuildingUnit fsbt:BH ;
+	locn:address fsa:AT1060-482ccca3c6ffdffedaa901c2561d53b6-1a .
+
+fsb:BZ a fs:Building ;
+	rdfs:label "Geniegebäude"@de, "Genius-Bulding" ;
+	fs:buildingCode "BZ" ;
+	fs:containsBuildingUnit fsbt:BZ ;
+	locn:address fsa:AT1060-1133b78fa20f06c6656ca91d934c3fc8-9 .
+
+fsb:C a fs:Building ;
+	rdfs:label "Institutsgebäude Elektrotechnik"@de, "Building of the electrical engineering institute"@en ;
+	fs:buildingCode "C" ;
+	fs:containsBuildingUnit fsbt:CA, fsbt:CB, fsbt:CC, fsbt:CD, fsbt:CE ;
+	locn:address fsa:AT1040-5f45ffd8bfea2cf0152895a4da598863-27-29 .
+
+fsb:CFG a fs:Building ;
+	rdfs:label "Altes Institutsgebäude Elektrotechnik"@de, "Old building of the electrical engineering institute"@en ;
+	fs:buildingCode "CFG" ;
+	fs:containsBuildingUnit fsbt:CF, fsbt:CG ;
+	locn:address fsa:AT1040-5f45ffd8bfea2cf0152895a4da598863-25-25a .
+
+fsb:CI a fs:Building ;
+	rdfs:label "Makartvilla"@de, "Makartvilla"@en ;
+	fs:buildingCode "CI" ;
+	fs:containsBuildingUnit fsbt:CI ;
+	locn:address fsa:AT1040-5f45ffd8bfea2cf0152895a4da598863-25-25a .
+
+fsb:DABC a fs:Building ;
+	rdfs:label "Freihaus"@de, "Freihaus"@en ;
+	fs:buildingCode "DABC" ;
+	fs:containsBuildingUnit fsbt:DA, fsbt:DB, fsbt:DC ;
+	locn:address fsa:AT1040-6429eeb3b30efc944311adcf05c1235c-8-10 .
+
+fsb:DD a fs:Building ;
+	rdfs:label "Hauptbibliothek"@de, "Central library"@en ;
+	fs:buildingCode "DD" ;
+	fs:containsBuildingUnit fsbt:DD ;
+	locn:address fsa:AT1040-6291e1b5f5aa26891b7668edaaa67156-4 .
+
+fsb:DE a fs:Building ;
+	rdfs:label "BAWAG-Haus"@de, "BAWAG-House"@en ;
+	fs:buildingCode "DE" ;
+	fs:containsBuildingUnit fsbt:DE ;
+	locn:address fsa:AT1040-d45844fb692cba003e3ca1aa9d993004-3 .
+
+fsb:DF a fs:Building ;
+	rdfs:label "Perlmooser-Haus"@de, "Perlmooser-House"@en ;
+	fs:buildingCode "DF" ;
+	fs:containsBuildingUnit fsbt:DF ;
+	locn:address fsa:AT1040-1d8e4f044e262e59134afe57688fa1a5-11 .
+
+fsb:EA a fs:Building ;
+	rdfs:label "Institutsgebäude (EA)"@de, "Building of an institute (EA)"@en ;
+	fs:buildingCode "EA" ;
+	fs:containsBuildingUnit fsbt:EA ;
+	locn:address fsa:AT1040-a72dc6ea538710dded4e44e9264d4ffd-8 .
+
+fsb:EB a fs:Building ;
+	rdfs:label "Institutsgebäude (EB)"@de, "Building of an institute (EB)"@en ;
+	fs:buildingCode "EB" ;
+	fs:containsBuildingUnit fsbt:EB ;
+	locn:address fsa:AT1040-eb2bbbe1e6e343b30410f04f626be251-11 .
+
+fsb:EC a fs:Building ;
+	rdfs:label "Institutsgebäude (EC)"@de, "Building of an institute (EC)"@en ;
+	fs:buildingCode "EC" ;
+	fs:containsBuildingUnit fsbt:EC ;
+	locn:address fsa:AT1040-eb2bbbe1e6e343b30410f04f626be251-13 .
+
+fsb:FA a fs:Building ;
+	rdfs:label "Institutsgebäude (FA)"@de, "Building of an institute (FA)"@en ;
+	fs:buildingCode "FA" ;
+	fs:containsBuildingUnit fsbt:FA ;
+	locn:address fsa:AT1040-5f45ffd8bfea2cf0152895a4da598863-28 .
+
+fsb:FBC a fs:Building ;
+	rdfs:label "Institutsgebäude (FB-FC)"@de, "Building of an institute (FB-FC)"@en ;
+	fs:buildingCode "FBC" ;
+	fs:containsBuildingUnit fsbt:FB, fsbt:FC ;
+	locn:address fsa:AT1040-e1549b840f202ee08353561d2f396721-1 .
+
+fsb:GA a fs:Building ;
+	rdfs:label "Institutsgebäude (GA)"@de, "Building of an institute (GA)"@en ;
+	fs:buildingCode "GA" ;
+	fs:containsBuildingUnit fsbt:GA ;
+	locn:address fsa:AT1040-7c40a5f4aeb83695ff61910135707a35-7 .
+
+fsb:GB a fs:Building ;
+	rdfs:label "Institutsgebäude (GB)"@de, "Building of an institute (GB)"@en ;
+	fs:buildingCode "GB" ;
+	fs:containsBuildingUnit fsbt:GB ;
+	locn:address fsa:AT1040-7c40a5f4aeb83695ff61910135707a35-7a .
+
+fsb:GE a fs:Building ;
+	rdfs:label "Institutsgebäude (GE)"@de, "Building of an institute (GE)"@en ;
+	fs:buildingCode "GE" ;
+	fs:containsBuildingUnit fsbt:GE ;
+	locn:address fsa:AT1040-6429eeb3b30efc944311adcf05c1235c-76 .
+
+fsb:H a fs:Building ;
+	rdfs:label "Institutsgebäude Informatik"@de, "Building of the informatic institute"@en ;
+	fs:buildingCode "H" ;
+	fs:containsBuildingUnit fsbt:HA, fsbt:HB, fsbt:HC, fsbt:HD, fsbt:HE, fsbt:HF, fsbt:HG, fsbt:HH, fsbt:HI ;
+	locn:address fsa:AT1040-3ebd6229134d2d9c36a91657af166825-9-11 .
+
+fsb:HK a fs:Building ;
+	rdfs:label "Institutsgebäude Informatik (HK)"@de, "Building of the informatic institute (HK)"@en ;
+	fs:buildingCode "HK" ;
+	fs:containsBuildingUnit fsbt:HK ;
+	locn:address fsa:AT1040-3ebd6229134d2d9c36a91657af166825-16 .
+
+fsb:HL a fs:Building ;
+	rdfs:label "Institutsgebäude Informatik (HL)"@de, "Building of the informatic institute (HL)"@en ;
+	fs:buildingCode "HL" ;
+	fs:containsBuildingUnit fsbt:HL ;
+	locn:address fsa:AT1040-02e19355d15c5cd26c51bf97b98ad765-11 .
+
+fsb:MAB a fs:Building ;
+	rdfs:label "Funke-Halle"@de, "Funke-Halle"@en ;
+	fs:buildingCode "MAB" ;
+	fs:containsBuildingUnit fsbt:MA, fsbt:MB ;
+	locn:address fsa:AT1030-2e61ad2283b33ab737674e7689097ffb-1-3 .
+
+fsb:MC a fs:Building ;
+	rdfs:label "Plechaty-Halle"@de, "Plechaty-Halle"@en ;
+	fs:buildingCode "MC" ;
+	fs:containsBuildingUnit fsbt:MC ;
+	locn:address fsa:AT1030-2e61ad2283b33ab737674e7689097ffb-1-3 .
+
+fsb:MD a fs:Building ;
+	rdfs:label "Hirnböckhalle"@de, "Hirnböckhalle"@en ;
+	fs:buildingCode "MD" ;
+	fs:containsBuildingUnit fsbt:MD ;
+	locn:address fsa:AT1030-2e61ad2283b33ab737674e7689097ffb-1-3 .
+
+fsb:ME a fs:Building ;
+	rdfs:label "Rella Halle"@de, "Rella Halle"@en ;
+	fs:buildingCode "ME" ;
+	fs:containsBuildingUnit fsbt:ME ;
+	locn:address fsa:AT1030-2e61ad2283b33ab737674e7689097ffb-1-3 .
+
+fsb:MF a fs:Building ;
+	rdfs:label "Transalpinahalle"@de, "Transalpinahalle"@en ;
+	fs:buildingCode "MF" ;
+	fs:containsBuildingUnit fsbt:MF ;
+	locn:address fsa:AT1030-2e61ad2283b33ab737674e7689097ffb-1-3 .
+
+fsb:MGH a fs:Building ;
+	rdfs:label "Transalpinahalle"@de, "Transalpinahalle"@en ;
+	fs:buildingCode "MGH" ;
+	fs:containsBuildingUnit fsbt:MG, fsbt:MH ;
+	locn:address fsa:AT1030-2e61ad2283b33ab737674e7689097ffb-1-3 .
+
+fsb:MI a fs:Building ;
+	rdfs:label "Segelfliegerhalle"@de, "Segelfliegerhalle"@en ;
+	fs:buildingCode "MI" ;
+	fs:containsBuildingUnit fsbt:MI ;
+	locn:address fsa:AT1030-2e61ad2283b33ab737674e7689097ffb-1-3 .
+
+fsb:OV a fs:Building ;
+	rdfs:label "ARSENAL Objekt 219"@de, "ARSENAL Object 219"@en ;
+	fs:buildingCode "OV" ;
+	fs:containsBuildingUnit fsbt:OV .
+
+fsb:OZY a fs:Building ;
+	rdfs:label "ARSENAL Objekt 214"@de, ""@en ;
+	fs:buildingCode "OZY" ;
+	fs:containsBuildingUnit fsbt:OY, fsbt:OZ ;
+	locn:address fsa:AT1030-c16620064d29acfc05845de15cb51da2-3 .
+
+fsb:P a fs:Building ;
+	rdfs:label "Institutsgebäude - Labor"@de, "Building of an institute - Laboratory"@en ;
+	fs:buildingCode "P" ;
+	fs:containsBuildingUnit fsbt:PA, fsbt:PB, fsbt:PC ;
+	locn:address fsa:AT1200-96d36d67be45e5d4eb7b64e93c1ad509-119 .
+
+fsb:QA a fs:Building ;
+	rdfs:label "Institutsgebäude (QA)"@de, "Building of an institute (QA)"@en ;
+	fs:buildingCode "QA" ;
+	fs:containsBuildingUnit fsbt:QA ;
+	locn:address fsa:AT1040-039723012612f3d8e15555cf75d68c01-27 .
+
+fsb:QB a fs:Building ;
+	rdfs:label "Institutsgebäude (QB)"@de, "Institutsgebäude (QB)"@en ;
+	fs:buildingCode "QB" ;
+	fs:containsBuildingUnit fsbt:QB ;
+	locn:address fsa:AT1040-039723012612f3d8e15555cf75d68c01-7 .
+
+fsb:Z a fs:Building ;
+	rdfs:label "Atominstitut-Gebäude"@de, "Building of atom institute"@en ;
+	fs:buildingCode "Z" ;
+	fs:containsBuildingUnit fsbt:ZA, fsbt:ZB, fsbt:ZC, fsbt:ZD ;
+	locn:address fsa:AT1020-a1608f15c0dbcd0d7eaa4c2cfe38e636-2 .
+
+# --------------------------------------------------------------------------------------------------------
+# Campus
+# --------------------------------------------------------------------------------------------------------
+
+fsc:1 a fs:Campus ;
+	rdfs:label "Campus der Technischen Universität Wien"@de, "Campus of the Vienna University of Technology"@en ; 
+	fs:isCampusOf dbr:Vienna_University_of_Technology ;
+	fs:containsBuilding fsb:A, fsb:AK, fsb:AP, fsb:AQ, fsb:AS, fsb:AT, fsb:BH, fsb:BZ, fsb:C, fsb:CFG, fsb:CI,
+		fsb:DABC, fsb:DD, fsb:DE, fsb:EA, fsb:EB, fsb:EC, fsb:FA, fsb:FBC, fsbt:GA, fsbt:GB, fsbt:GE, fsb:H,
+		fsb:HK, fsb:HL, fsb:MAB, fsb:MC, fsb:MD, fsb:ME, fsb:MF, fsb:MGH, fsb:MI, fsb:OV, fsb:OZY, fsb:P, fsb:QA, 
+		fsb:QB, fsb:Z .
+
+# ---------------------------------------------------------------------------------------------------------
+#  Addresses
+# ---------------------------------------------------------------------------------------------------------
+
+fsa:AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13 a locn:Address ;
+	locn:locatorDesignator "13" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Karlsplatz 13, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Karlsplatz" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1989798 ;
+	geo:longitude 16.3699039 .
+
+fsa:AT1040-b39e34d32cb32396302a9b0d7e126a08-16 a locn:Address ;
+	locn:locatorDesignator "16" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Paniglgasse 16, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-b39e34d32cb32396302a9b0d7e126a08-16" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Paniglgasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1981204 ;
+	geo:longitude 16.3689958 .
+
+fsa:AT1040-6429eeb3b30efc944311adcf05c1235c-7 a locn:Address ;
+	locn:locatorDesignator "7" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Wiedner Hauptstraße 7, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-6429eeb3b30efc944311adcf05c1235c-7" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Wiedner Hauptstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1987046 ;
+	geo:longitude 16.3680159 .
+
+fsa:AT1040-6429eeb3b30efc944311adcf05c1235c-8-10 a locn:Address ;
+	locn:locatorDesignator "8-10" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Wiedner Hauptstraße 8-10, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-6429eeb3b30efc944311adcf05c1235c-8-10" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Wiedner Hauptstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1987104 ;
+	geo:longitude 16.3675761 .
+
+fsa:AT1040-6429eeb3b30efc944311adcf05c1235c-9 a locn:Address ;
+	locn:locatorDesignator "9" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Wiedner Hauptstraße 9, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-6429eeb3b30efc944311adcf05c1235c-9" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Wiedner Hauptstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1985616 ;
+	geo:longitude 16.3679599 .
+
+fsa:AT1040-6429eeb3b30efc944311adcf05c1235c-76 a locn:Address ;
+	locn:locatorDesignator "76" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Wiedner Hauptstraße 76, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-6429eeb3b30efc944311adcf05c1235c-76" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Wiedner Hauptstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1894082 ;
+	geo:longitude 16.365332 .
+
+fsa:AT1040-6291e1b5f5aa26891b7668edaaa67156-3 a locn:Address ;
+	locn:locatorDesignator "3" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Resselgasse 3, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-6291e1b5f5aa26891b7668edaaa67156-3" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Resselgasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1988667 ;
+	geo:longitude 16.3688381 .
+
+fsa:AT1040-6291e1b5f5aa26891b7668edaaa67156-4 a locn:Address ;
+	locn:locatorDesignator "4" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Resselgasse 4, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-6291e1b5f5aa26891b7668edaaa67156-4" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Resselgasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1993555 ;
+	geo:longitude 16.3675884 .
+
+fsa:AT1040-6291e1b5f5aa26891b7668edaaa67156-5 a locn:Address ;
+	locn:locatorDesignator "5" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Resselgasse 5, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-6291e1b5f5aa26891b7668edaaa67156-5" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Resselgasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1989549 ;
+	geo:longitude 16.3685097 .
+
+fsa:AT1060-482ccca3c6ffdffedaa901c2561d53b6-1a a locn:Address ;
+	locn:locatorDesignator "1a" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Gumpendorfer Straße 1A, 1060 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1060-482ccca3c6ffdffedaa901c2561d53b6-1a" ;
+	locn:postCode "1060" ;
+	locn:thoroughfare "Gumpendorferstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Mariahilf" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.2011907 ;
+	geo:longitude 16.3624111 .
+
+fsa:AT1060-1133b78fa20f06c6656ca91d934c3fc8-9 a locn:Address ;
+	locn:locatorDesignator "9" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Getreidemarkt 9, 1060 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1060-1133b78fa20f06c6656ca91d934c3fc8-9" ;
+	locn:postCode "1060" ;
+	locn:thoroughfare "Getreidemarkt" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Mariahilf" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.2012289 ;
+	geo:longitude 16.3635393 .
+
+fsa:AT1040-5f45ffd8bfea2cf0152895a4da598863-25-25a a locn:Address ;
+	locn:locatorDesignator "25-25a" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Gußhausstraße 25-25a, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-5f45ffd8bfea2cf0152895a4da598863-25-25a" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Gußhausstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1967429 ;
+	geo:longitude 16.3704933 .
+
+fsa:AT1040-5f45ffd8bfea2cf0152895a4da598863-27-29 a locn:Address ;
+	locn:locatorDesignator "27-29" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Gußhausstraße 27-29, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-5f45ffd8bfea2cf0152895a4da598863-27-29" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Gußhausstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.19630480000001 ;
+	geo:longitude 16.3697415 .
+
+fsa:AT1040-5f45ffd8bfea2cf0152895a4da598863-28 a locn:Address ;
+	locn:locatorDesignator "28" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Gußhausstraße 28, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-5f45ffd8bfea2cf0152895a4da598863-28" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Gußhausstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1964828 ;
+	geo:longitude 16.3690028 .
+
+fsa:AT1040-d45844fb692cba003e3ca1aa9d993004-3 a locn:Address ;
+	locn:locatorDesignator "3" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Treitlstraße 3, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-d45844fb692cba003e3ca1aa9d993004-3" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Treitlstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1998027 ;
+	geo:longitude 16.3672187 .
+
+fsa:AT1040-1d8e4f044e262e59134afe57688fa1a5-11 a locn:Address ;
+	locn:locatorDesignator "11" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Operngasse 11, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-1d8e4f044e262e59134afe57688fa1a5-11" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Operngasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1995306 ;
+	geo:longitude 16.3669327 .
+
+fsa:AT1040-a72dc6ea538710dded4e44e9264d4ffd-8 a locn:Address ;
+	locn:locatorDesignator "8" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Argentinierstraße 8, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-a72dc6ea538710dded4e44e9264d4ffd-8" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Argentinierstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.19764079999999 ;
+	geo:longitude 16.3714926 .
+
+fsa:AT1040-eb2bbbe1e6e343b30410f04f626be251-11 a locn:Address ;
+	locn:locatorDesignator "11" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Karlsgasse 11, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-eb2bbbe1e6e343b30410f04f626be251-11" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Karlsgasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1972165 ;
+	geo:longitude 16.3701151 .
+
+fsa:AT1040-eb2bbbe1e6e343b30410f04f626be251-13 a locn:Address ;
+	locn:locatorDesignator "13" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Karlsgasse 13, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-eb2bbbe1e6e343b30410f04f626be251-13" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Karlsgasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1970572 ;
+	geo:longitude 16.3700144 .
+
+fsa:AT1040-e1549b840f202ee08353561d2f396721-1 a locn:Address ;
+	locn:locatorDesignator "1" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Erzherzog-Johann-Platz 1, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-e1549b840f202ee08353561d2f396721-1" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Erzherzog Johann Platz" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1963419;
+	geo:longitude 16.3685967 .
+
+fsa:AT1040-7c40a5f4aeb83695ff61910135707a35-7 a locn:Address ;
+	locn:locatorDesignator "7" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Floragasse 7, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-7c40a5f4aeb83695ff61910135707a35-7" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Floragasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1947724 ;
+	geo:longitude 16.3689315 .
+
+fsa:AT1040-7c40a5f4aeb83695ff61910135707a35-7a a locn:Address ;
+	locn:locatorDesignator "7a" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Floragasse 7A, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-7c40a5f4aeb83695ff61910135707a35-7a" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Floragasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1944391 ;
+	geo:longitude 16.3679698 .
+
+fsa:AT1040-3ebd6229134d2d9c36a91657af166825-9-11 a locn:Address ;
+	locn:locatorDesignator "9-11" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Favoritenstraße 9-11, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-3ebd6229134d2d9c36a91657af166825-9-11" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Favoritenstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.19490159999999 ;
+	geo:longitude 16.3701504 .
+
+fsa:AT1040-3ebd6229134d2d9c36a91657af166825-16 a locn:Address ;
+	locn:locatorDesignator "16" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Favoritenstraße 16, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-3ebd6229134d2d9c36a91657af166825-16" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Favoritenstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1945878 ;
+	geo:longitude 16.3696865 .
+
+fsa:AT1040-02e19355d15c5cd26c51bf97b98ad765-11 a locn:Address ;
+	locn:locatorDesignator "11" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Taubstummengasse 11, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-02e19355d15c5cd26c51bf97b98ad765-11" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Taubstummengasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.19497639999999 ;
+	geo:longitude 16.3711639 .
+
+fsa:AT1030-2e61ad2283b33ab737674e7689097ffb-1-3 a locn:Address ;
+	locn:locatorDesignator "1-3" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Adolf-Blamauer-Gasse 1-3, 1030 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1030-2e61ad2283b33ab737674e7689097ffb-1-3" ;
+	locn:postCode "1030" ;
+	locn:thoroughfare "Adolf Blamauergasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Landstrasse" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.190333 ;
+	geo:longitude 16.3923258 .
+
+fsa:AT1020-a1608f15c0dbcd0d7eaa4c2cfe38e636-2 a locn:Address ;
+	locn:locatorDesignator "2" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Stadionallee 2, 1020 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1020-a1608f15c0dbcd0d7eaa4c2cfe38e636-2" ;
+	locn:postCode "1020" ;
+	locn:thoroughfare "Stadionallee" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Leopoldstadt" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1965174 ;
+	geo:longitude 16.4124584 .
+
+fsa:AT1040-039723012612f3d8e15555cf75d68c01-7 a locn:Address ;
+	locn:locatorDesignator "7" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Theresianumgasse 7, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-039723012612f3d8e15555cf75d68c01-7" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Theresianumgasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1924804 ;
+	geo:longitude 16.3773863 .
+
+fsa:AT1040-039723012612f3d8e15555cf75d68c01-27 a locn:Address ;
+	locn:locatorDesignator "27" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Theresianumgasse 27, 1040 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1040-039723012612f3d8e15555cf75d68c01-27" ;
+	locn:postCode "1040" ;
+	locn:thoroughfare "Theresianumgasse" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Wieden" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.1914786 ;
+	geo:longitude 16.3734974 .
+
+fsa:AT1200-96d36d67be45e5d4eb7b64e93c1ad509-119 a locn:Address ;
+	locn:locatorDesignator "119" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Engerthstraße 119, 1200 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1200-96d36d67be45e5d4eb7b64e93c1ad509-119" ;
+	locn:postCode "1200" ;
+	locn:thoroughfare "Engerthstraße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Brigittenau" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.2342649 ;
+	geo:longitude 16.3919539 .
+
+fsa:AT1030-c16620064d29acfc05845de15cb51da2-3 a locn:Address ;
+	locn:locatorDesignator "3" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Franz-Grill-Straße 3, 1030 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1030-c16620064d29acfc05845de15cb51da2-3" ;
+	locn:postCode "1030" ;
+	locn:thoroughfare "Franz Grill Straße" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Landstrasse" ;
+	locn:postName "Wien"@de ;
+	geo:latitude 48.17989009999999 ;
+	geo:longitude 16.400377 .

@@ -1,6 +1,7 @@
 package at.ac.tuwien.finder.datamanagement.integration.spatial;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import at.ac.tuwien.finder.datamanagement.catalog.dataset.SpatialDataSet;
 import at.ac.tuwien.finder.datamanagement.integration.DataIntegrator;
 import at.ac.tuwien.finder.datamanagement.integration.exception.TripleStoreManagerException;
 import org.openrdf.model.Model;
@@ -21,7 +22,7 @@ public class SpatialDataIntegrator implements DataIntegrator {
 
     private TripleStoreManager tripleStoreManager;
 
-    public SpatialDataIntegrator(){
+    public SpatialDataIntegrator() {
         try {
             tripleStoreManager = TripleStoreManager.getInstance();
         } catch (TripleStoreManagerException e) {
@@ -31,7 +32,7 @@ public class SpatialDataIntegrator implements DataIntegrator {
 
     @Override
     public String graphName() {
-        return TripleStoreManager.SPATIAL_NAMED_GRAPH.toString();
+        return SpatialDataSet.NS.stringValue();
     }
 
     @Override
@@ -43,7 +44,7 @@ public class SpatialDataIntegrator implements DataIntegrator {
         RepositoryConnection connection = null;
         try {
             connection = tripleStoreManager.getConnection();
-            connection.add(model, TripleStoreManager.SPATIAL_NAMED_GRAPH);
+            connection.add(model, SpatialDataSet.NS);
         } catch (RepositoryException e) {
             e.printStackTrace();
         } finally {

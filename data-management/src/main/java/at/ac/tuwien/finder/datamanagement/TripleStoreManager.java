@@ -1,11 +1,10 @@
 package at.ac.tuwien.finder.datamanagement;
 
+import at.ac.tuwien.finder.datamanagement.catalog.DataCatalog;
 import at.ac.tuwien.finder.datamanagement.integration.exception.TripleStoreManagerException;
 import org.openrdf.model.Model;
 import org.openrdf.model.Resource;
-import org.openrdf.model.URI;
 import org.openrdf.model.impl.TreeModel;
-import org.openrdf.model.impl.URIImpl;
 import org.openrdf.model.vocabulary.RDF;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryConnection;
@@ -39,8 +38,6 @@ public class TripleStoreManager implements AutoCloseable {
 
     private static final Logger logger = LoggerFactory.getLogger(TripleStoreManager.class);
 
-    public static final URI BASE_NAMED_GRAPH;
-    public static final URI SPATIAL_NAMED_GRAPH;
     private static final String STORE_CONF_PATH = "/config/sesame-assembler.ttl";
 
     private static TripleStoreManager tripleStoreManager;
@@ -58,8 +55,6 @@ public class TripleStoreManager implements AutoCloseable {
             logger.error("The property file for data-manegement cannot be accessed. {}", e);
             System.exit(1);
         }
-        BASE_NAMED_GRAPH = new URIImpl(dataManagementProperties.getProperty("base.iri"));
-        SPATIAL_NAMED_GRAPH = new URIImpl(BASE_NAMED_GRAPH.toString() + "spatial");
         storeConfigurationModel = new TreeModel();
         try (InputStream configIn = TripleStoreManager.class.getResourceAsStream(STORE_CONF_PATH)) {
             RDFParser rdfParser = Rio.createParser(RDFFormat.TURTLE);
@@ -72,6 +67,7 @@ public class TripleStoreManager implements AutoCloseable {
 
     private RepositoryManager repositoryManager;
     private Repository repository;
+    private DataCatalog dataCatalog;
 
     /**
      * Gets an instance of the {@link TripleStoreManager} and increments the reference counter. If
@@ -128,7 +124,6 @@ public class TripleStoreManager implements AutoCloseable {
      */
     private TripleStoreManager(RepositoryManager repositoryManager)
         throws TripleStoreManagerException {
-        this.repositoryManager = repositoryManager;
         try {
             repository = repositoryManager.hasRepositoryConfig("graphdb-repo") ?
                 repositoryManager.getRepository("graphdb-repo") :
@@ -136,6 +131,8 @@ public class TripleStoreManager implements AutoCloseable {
         } catch (RepositoryException | RepositoryConfigException e) {
             throw new TripleStoreManagerException(e);
         }
+        this.repositoryManager = repositoryManager;
+        this.dataCatalog = new DataCatalog(this);
     }
 
     /**
@@ -175,7 +172,7 @@ public class TripleStoreManager implements AutoCloseable {
      * @throws RepositoryException if no connection cannot created for the managed
      *                             {@link Repository}.
      */
-    public RepositoryConnection getConnection() throws RepositoryException {
+    public synchronized RepositoryConnection getConnection() throws RepositoryException {
         return repository.getConnection();
     }
 

@@ -1,6 +1,6 @@
 package at.ac.tuwien.finder.datamanagement.mediation.spatial;
 
-import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import at.ac.tuwien.finder.datamanagement.catalog.DataCatalog;
 import at.ac.tuwien.finder.datamanagement.mediation.DataAcquirer;
 import at.ac.tuwien.finder.datamanagement.mediation.DataTransformer;
 import at.ac.tuwien.finder.datamanagement.mediation.exception.DataAcquireException;
@@ -73,12 +73,10 @@ public class GUTBuildingInformationAcquirer implements SpatialDataAcquirer<Model
             RDFParser parser = Rio.createParser(RDFFormat.TURTLE);
             parser.setRDFHandler(new StatementCollector(buildingInfoModel));
             try {
+                parser.parse(buildingOverviewStream, DataCatalog.BASE_NAMED_GRAPH.stringValue());
                 parser
-                    .parse(buildingOverviewStream, TripleStoreManager.BASE_NAMED_GRAPH.toString());
-                parser.parse(builidngTractOverviewStream,
-                    TripleStoreManager.BASE_NAMED_GRAPH.toString());
-                parser.parse(builidngTractFloorsStream,
-                    TripleStoreManager.BASE_NAMED_GRAPH.toString());
+                    .parse(builidngTractOverviewStream, DataCatalog.BASE_NAMED_GRAPH.stringValue());
+                parser.parse(builidngTractFloorsStream, DataCatalog.BASE_NAMED_GRAPH.stringValue());
             } catch (RDFParseException | RDFHandlerException e) {
                 logger
                     .error("The linked data about university facilities can not be read in. {}", e);

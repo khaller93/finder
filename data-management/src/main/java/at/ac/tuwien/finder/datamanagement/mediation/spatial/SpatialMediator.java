@@ -1,6 +1,6 @@
 package at.ac.tuwien.finder.datamanagement.mediation.spatial;
 
-import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import at.ac.tuwien.finder.datamanagement.catalog.dataset.SpatialDataSet;
 import at.ac.tuwien.finder.datamanagement.mediation.Mediator;
 
 import java.util.Collection;
@@ -26,7 +26,7 @@ public class SpatialMediator extends Mediator {
 
     @Override
     public String graphName() {
-        return TripleStoreManager.SPATIAL_NAMED_GRAPH.toString();
+        return SpatialDataSet.NS.stringValue();
     }
 
 }

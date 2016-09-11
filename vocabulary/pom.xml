@@ -16,12 +16,10 @@
         <dependency>
             <groupId>org.openrdf.sesame</groupId>
             <artifactId>sesame-model</artifactId>
-            <version>${sesame.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openrdf.sesame</groupId>
             <artifactId>sesame-rio-api</artifactId>
-            <version>${sesame.version}</version>
         </dependency>
     </dependencies>
 
@@ -80,6 +78,13 @@
                             <input>http://www.opengis.net/ont/geosparql#</input>
                             <rdfFormat>application/rdf+xml</rdfFormat>
                             <baseNamespace>http://www.opengis.net/ont/geosparql#</baseNamespace>
+                        </vocabulary>
+                        <!-- Dataset Catalog -->
+                        <vocabulary>
+                            <className>DCAT</className>
+                            <input>http://www.w3.org/ns/dcat#</input>
+                            <rdfFormat>application/rdf+xml</rdfFormat>
+                            <baseNamespace>http://www.w3.org/ns/dcat#</baseNamespace>
                         </vocabulary>
                     </vocabularies>
                 </configuration>

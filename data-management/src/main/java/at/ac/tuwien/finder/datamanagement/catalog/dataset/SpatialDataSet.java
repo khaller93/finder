@@ -1,7 +1,6 @@
 package at.ac.tuwien.finder.datamanagement.catalog.dataset;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.datamanagement.catalog.DataCatalog;
 import org.openrdf.model.Model;
 import org.openrdf.model.URI;
 import org.openrdf.model.ValueFactory;
@@ -19,7 +18,7 @@ public class SpatialDataSet implements DataSet {
 
     static {
         ValueFactory valueFactory = ValueFactoryImpl.getInstance();
-        NS = valueFactory.createURI(DataCatalog.BASE_NAMED_GRAPH.stringValue(), "spatial");
+        NS = valueFactory.createURI(TripleStoreManager.BASE.stringValue(), "spatial");
     }
 
     private TripleStoreManager tripleStoreManager;

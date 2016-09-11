@@ -1,28 +1,23 @@
 package at.ac.tuwien.finder.datamanagement;
 
 import at.ac.tuwien.finder.datamanagement.catalog.DataCatalog;
+import at.ac.tuwien.finder.datamanagement.catalog.dataset.DataSet;
 import at.ac.tuwien.finder.datamanagement.integration.exception.TripleStoreManagerException;
-import org.openrdf.model.Model;
-import org.openrdf.model.Resource;
-import org.openrdf.model.impl.TreeModel;
-import org.openrdf.model.vocabulary.RDF;
+import org.openrdf.model.URI;
+import org.openrdf.model.impl.ValueFactoryImpl;
 import org.openrdf.repository.Repository;
 import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
-import org.openrdf.repository.config.RepositoryConfig;
 import org.openrdf.repository.config.RepositoryConfigException;
-import org.openrdf.repository.config.RepositoryConfigSchema;
-import org.openrdf.repository.manager.LocalRepositoryManager;
+import org.openrdf.repository.manager.RemoteRepositoryManager;
 import org.openrdf.repository.manager.RepositoryManager;
-import org.openrdf.rio.*;
-import org.openrdf.rio.helpers.StatementCollector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Optional;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.Semaphore;
 
@@ -38,31 +33,31 @@ public class TripleStoreManager implements AutoCloseable {
 
     private static final Logger logger = LoggerFactory.getLogger(TripleStoreManager.class);
 
-    private static final String STORE_CONF_PATH = "/config/sesame-assembler.ttl";
+    public static final URI BASE;
+    private static final String GRAPH_DB_NAME = "finder-repo";
 
     private static TripleStoreManager tripleStoreManager;
     private static Semaphore tripleStoreReference = new Semaphore(-1);
-    private static String baseDirectory;
-
-    private static Model storeConfigurationModel;
+    private static URL DEFAULT_TRIPLE_STORE_URL;
+    private static URL baseURL;
 
     static {
         Properties dataManagementProperties = new Properties();
         try (InputStream propertiesStream = TripleStoreManager.class.getClassLoader()
             .getResourceAsStream("config/datamanagement.properties")) {
             dataManagementProperties.load(propertiesStream);
+            try {
+                DEFAULT_TRIPLE_STORE_URL = new URL(dataManagementProperties.getProperty("db.url"));
+            } catch (MalformedURLException e) {
+                logger.error("The default location url {} of the triple store is malformed. {}",
+                    dataManagementProperties.getProperty("db.url"), e);
+            }
         } catch (IOException e) {
             logger.error("The property file for data-manegement cannot be accessed. {}", e);
             System.exit(1);
         }
-        storeConfigurationModel = new TreeModel();
-        try (InputStream configIn = TripleStoreManager.class.getResourceAsStream(STORE_CONF_PATH)) {
-            RDFParser rdfParser = Rio.createParser(RDFFormat.TURTLE);
-            rdfParser.setRDFHandler(new StatementCollector(storeConfigurationModel));
-            rdfParser.parse(configIn, RepositoryConfigSchema.NAMESPACE);
-        } catch (IOException | RDFHandlerException | RDFParseException e) {
-            logger.error("The configuration file for triple store cannot be accessed. {}", e);
-        }
+        BASE = ValueFactoryImpl.getInstance()
+            .createURI(dataManagementProperties.getProperty("base.iri"));
     }
 
     private RepositoryManager repositoryManager;
@@ -72,39 +67,41 @@ public class TripleStoreManager implements AutoCloseable {
     /**
      * Gets an instance of the {@link TripleStoreManager} and increments the reference counter. If
      * the reference counter is 0, a new instance will be created, otherwise the already existing
-     * triple store instance will be returned. The location of the triple store will be the current
-     * working directory.
+     * triple store instance will be returned. The location of the triple store will be the
+     * {@code DEFAULT_TRIPLE_STORE_URL} read in from the data management properties file.
      *
      * @return an instance of the {@link TripleStoreManager}.
      * @throws TripleStoreManagerException if no instance can be created.
      */
     public synchronized static TripleStoreManager getInstance() throws TripleStoreManagerException {
-        return getInstance(".");
+        return getInstance(DEFAULT_TRIPLE_STORE_URL);
     }
 
     /**
      * Gets an instance of the {@link TripleStoreManager} and increments the reference counter. If
      * the reference counter is 0, a new instance will be created, otherwise the already existing
      * triple store instance will be returned. The location of the triple store will be at the given
-     * base directory.
+     * URL.
      *
-     * @param baseDir the directory where the triple store shall be located.
+     * @param dbURL {@link URL} where the triple store is located.
      * @return an instance of the {@link TripleStoreManager}.
      * @throws TripleStoreManagerException if no instance can be created.
      */
-    public synchronized static TripleStoreManager getInstance(String baseDir)
+    public synchronized static TripleStoreManager getInstance(URL dbURL)
         throws TripleStoreManagerException {
-        if (baseDirectory == null || baseDir.equals(baseDirectory)) {
+        if (baseURL == null || dbURL.equals(baseURL)) {
             tripleStoreReference.release();
+            logger.debug("New instance of triple store manager requested. Total references: {} ",
+                tripleStoreReference.availablePermits() + 1);
             if (tripleStoreManager == null) {
                 try {
                     RepositoryManager repositoryManager =
-                        new LocalRepositoryManager(new File(baseDir));
+                        new RemoteRepositoryManager(dbURL.toString());
                     repositoryManager.initialize();
                     tripleStoreManager = new TripleStoreManager(repositoryManager);
-                    baseDirectory = baseDir;
-                    logger
-                        .debug("The triple store manager {} has been started.", tripleStoreManager);
+                    baseURL = dbURL;
+                    logger.debug("The triple store manager {} has been initialized.",
+                        tripleStoreManager);
                 } catch (TripleStoreManagerException | RepositoryException e) {
                     logger.debug("The triple store manager cannot be established. {}", e);
                 }
@@ -112,8 +109,8 @@ public class TripleStoreManager implements AutoCloseable {
             return tripleStoreManager;
         } else {
             throw new TripleStoreManagerException(String.format(
-                "A triple store manager already exists at '%s'. No one at '%s' can be created",
-                new File(baseDirectory).getAbsolutePath(), baseDir));
+                "A triple store manager already exists for '%s'. No one for '%s' can be created",
+                baseURL, dbURL));
         }
     }
 
@@ -125,9 +122,17 @@ public class TripleStoreManager implements AutoCloseable {
     private TripleStoreManager(RepositoryManager repositoryManager)
         throws TripleStoreManagerException {
         try {
-            repository = repositoryManager.hasRepositoryConfig("graphdb-repo") ?
-                repositoryManager.getRepository("graphdb-repo") :
-                initializeRepository();
+            if (repositoryManager.hasRepositoryConfig(GRAPH_DB_NAME)) {
+                repository = repositoryManager.getRepository(GRAPH_DB_NAME);
+            } else {
+                logger.error(String
+                    .format("The repository with the name %s cannot be located at %s",
+                        GRAPH_DB_NAME, baseURL));
+                System.err.println(String
+                    .format("The repository with the name %s cannot be located at %s",
+                        GRAPH_DB_NAME, baseURL));
+                System.exit(1);
+            }
         } catch (RepositoryException | RepositoryConfigException e) {
             throw new TripleStoreManagerException(e);
         }
@@ -136,31 +141,12 @@ public class TripleStoreManager implements AutoCloseable {
     }
 
     /**
-     * Initializes the repository by loading the configuration given by
-     * {@code GRAPHDB_ASSEMBLY_FILE}.
+     * Gets the {@link DataCatalog} holding information about managed {@link DataSet}.
      *
-     * @return the newly initialized repository.
-     * @throws TripleStoreManagerException if the initialization of the repository is not possible.
+     * @return {@link DataCatalog} holding information about managed {@link DataSet}.
      */
-    private Repository initializeRepository() throws TripleStoreManagerException {
-        Optional<Resource> repositoryNodeOptionalSubject =
-            storeConfigurationModel.filter(null, RDF.TYPE, RepositoryConfigSchema.REPOSITORY)
-                .subjects().stream().findFirst();
-        if (repositoryNodeOptionalSubject.isPresent()) {
-            Resource repositoryNode = repositoryNodeOptionalSubject.get();
-            try {
-                RepositoryConfig repositoryConfig =
-                    RepositoryConfig.create(storeConfigurationModel, repositoryNode);
-                repositoryManager.addRepositoryConfig(repositoryConfig);
-                return repositoryManager.getRepository("graphdb-repo");
-            } catch (RepositoryException | RepositoryConfigException e) {
-                throw new TripleStoreManagerException(e);
-            }
-        } else {
-            throw new TripleStoreManagerException(String
-                .format("The configuration file at %s for accessing the triple store is not valid.",
-                    STORE_CONF_PATH));
-        }
+    public synchronized DataCatalog getDataCatalog() {
+        return this.dataCatalog;
     }
 
     /**
@@ -173,14 +159,8 @@ public class TripleStoreManager implements AutoCloseable {
      *                             {@link Repository}.
      */
     public synchronized RepositoryConnection getConnection() throws RepositoryException {
+        logger.debug("Connection from {} requested.", this);
         return repository.getConnection();
-    }
-
-    /**
-     * Changes the configuration file of the triple store to the given one.
-     */
-    public static void changeTripleStoreConfigurationFile(Model storeConfigurationModel) {
-        TripleStoreManager.storeConfigurationModel = storeConfigurationModel;
     }
 
     /**
@@ -197,7 +177,7 @@ public class TripleStoreManager implements AutoCloseable {
     private void cleanUp() {
         tripleStoreReference = new Semaphore(-1);
         tripleStoreManager = null;
-        baseDirectory = null;
+        baseURL = null;
     }
 
     /**
@@ -209,11 +189,14 @@ public class TripleStoreManager implements AutoCloseable {
      *                             {@link TripleStoreManager} cannot be closed.
      */
     public synchronized void close(boolean force) throws RepositoryException {
+        logger.debug("Shutdown of triple store manager requested. Total references: {} ",
+            tripleStoreReference.availablePermits() + 1);
         if (tripleStoreReference.tryAcquire() && !force) {
             return;
         }
-        if (repository != null)
+        if (repository != null) {
             repository.shutDown();
+        }
         repositoryManager.shutDown();
         cleanUp();
         logger.debug("The triple store manager {} has been closed.", this);

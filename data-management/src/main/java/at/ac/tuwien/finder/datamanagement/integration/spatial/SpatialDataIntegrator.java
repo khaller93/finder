@@ -26,7 +26,7 @@ public class SpatialDataIntegrator implements DataIntegrator {
         try {
             tripleStoreManager = TripleStoreManager.getInstance();
         } catch (TripleStoreManagerException e) {
-            logger.debug("{}", e);
+            logger.error("{}", e);
         }
     }
 

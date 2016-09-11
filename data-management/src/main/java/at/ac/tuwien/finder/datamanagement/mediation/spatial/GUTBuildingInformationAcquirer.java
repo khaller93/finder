@@ -1,6 +1,6 @@
 package at.ac.tuwien.finder.datamanagement.mediation.spatial;
 
-import at.ac.tuwien.finder.datamanagement.catalog.DataCatalog;
+import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.datamanagement.mediation.DataAcquirer;
 import at.ac.tuwien.finder.datamanagement.mediation.DataTransformer;
 import at.ac.tuwien.finder.datamanagement.mediation.exception.DataAcquireException;
@@ -46,9 +46,9 @@ public class GUTBuildingInformationAcquirer implements SpatialDataAcquirer<Model
     public Model acquire() throws DataAcquireException {
         try (InputStream buildingOverviewStream = GUTBuildingInformationAcquirer.class
             .getClassLoader().getResourceAsStream(GUT_BUILDING_OVERVIEW);
-            InputStream builidngTractOverviewStream = GUTBuildingInformationAcquirer.class
+            InputStream buildingTractOverviewStream = GUTBuildingInformationAcquirer.class
                 .getClassLoader().getResourceAsStream(GUT_BUILDING_TRACT_OVERVIEW);
-            InputStream builidngTractFloorsStream = GUTBuildingInformationAcquirer.class
+            InputStream buildingTractFloorsStream = GUTBuildingInformationAcquirer.class
                 .getClassLoader().getResourceAsStream(GUT_BUILDING_TRACT_FLOORS)) {
             Model buildingInfoModel = new LinkedHashModel();
             if (buildingOverviewStream == null) {
@@ -57,13 +57,13 @@ public class GUTBuildingInformationAcquirer implements SpatialDataAcquirer<Model
                 throw new DataAcquireException(
                     "The rdf file of the building overview (" + GUT_BUILDING_TRACT_FLOORS
                         + ") cannot be found.");
-            } else if (builidngTractOverviewStream == null) {
+            } else if (buildingTractOverviewStream == null) {
                 logger.error("The rdf file of the building tract overview ({}) cannot be found.",
                     GUT_BUILDING_TRACT_OVERVIEW);
                 throw new DataAcquireException(
                     "The rdf file of the building tract overview (" + GUT_BUILDING_TRACT_OVERVIEW
                         + ") cannot be found.");
-            } else if (builidngTractFloorsStream == null) {
+            } else if (buildingTractFloorsStream == null) {
                 logger.error("The rdf file of the building tract overview ({}) cannot be found.",
                     GUT_BUILDING_TRACT_FLOORS);
                 throw new DataAcquireException(
@@ -73,10 +73,9 @@ public class GUTBuildingInformationAcquirer implements SpatialDataAcquirer<Model
             RDFParser parser = Rio.createParser(RDFFormat.TURTLE);
             parser.setRDFHandler(new StatementCollector(buildingInfoModel));
             try {
-                parser.parse(buildingOverviewStream, DataCatalog.BASE_NAMED_GRAPH.stringValue());
-                parser
-                    .parse(builidngTractOverviewStream, DataCatalog.BASE_NAMED_GRAPH.stringValue());
-                parser.parse(builidngTractFloorsStream, DataCatalog.BASE_NAMED_GRAPH.stringValue());
+                parser.parse(buildingOverviewStream, TripleStoreManager.BASE.stringValue());
+                parser.parse(buildingTractOverviewStream, TripleStoreManager.BASE.stringValue());
+                parser.parse(buildingTractFloorsStream, TripleStoreManager.BASE.stringValue());
             } catch (RDFParseException | RDFHandlerException e) {
                 logger
                     .error("The linked data about university facilities can not be read in. {}", e);

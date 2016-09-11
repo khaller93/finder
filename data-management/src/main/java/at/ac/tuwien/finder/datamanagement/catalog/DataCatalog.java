@@ -35,9 +35,7 @@ public class DataCatalog {
 
     private static final Logger logger = LoggerFactory.getLogger(DataCatalog.class);
 
-    public static final URI BASE_NAMED_GRAPH;
-
-    public static final URI CATALOG_NAME_GRAPH;
+    public static final URI NS;
     public static final URI TU_VIENNA;
 
     static {
@@ -50,8 +48,7 @@ public class DataCatalog {
             System.exit(1);
         }
         ValueFactory valueFactory = ValueFactoryImpl.getInstance();
-        BASE_NAMED_GRAPH = valueFactory.createURI(dataCatalogProperties.getProperty("base.iri"));
-        CATALOG_NAME_GRAPH = valueFactory.createURI(BASE_NAMED_GRAPH.stringValue(), "catalog");
+        NS = valueFactory.createURI(TripleStoreManager.BASE.stringValue(), "catalog");
         TU_VIENNA =
             valueFactory.createURI("http://dbpedia.org/resource/Vienna_University_of_Technology");
     }
@@ -73,9 +70,8 @@ public class DataCatalog {
         try {
             connection = tripleStoreManager.getConnection();
             if (!connection.prepareBooleanQuery(QueryLanguage.SPARQL,
-                String.format("ASK { <%s> a <%s> . }", CATALOG_NAME_GRAPH, DCAT.Catalog))
-                .evaluate()) {
-                connection.add(initializeDataCatalogStatements(), CATALOG_NAME_GRAPH);
+                String.format("ASK { <%s> a <%s> . }", NS, DCAT.Catalog)).evaluate()) {
+                connection.add(initializeDataCatalogStatements(), NS);
             }
         } catch (RepositoryException | MalformedQueryException | QueryEvaluationException e) {
             e.printStackTrace();
@@ -96,7 +92,7 @@ public class DataCatalog {
      * @return a collection of statements describing the catalog of this application.
      */
     private Collection<Statement> initializeDataCatalogStatements() {
-        URI datCatResource = CATALOG_NAME_GRAPH;
+        URI datCatResource = NS;
         ValueFactory valueFactory = ValueFactoryImpl.getInstance();
         List<Statement> statementList = new LinkedList<>();
         statementList.add(valueFactory.createStatement(datCatResource, RDF.TYPE, DCAT.Dataset));

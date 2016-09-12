@@ -84,6 +84,13 @@
                             <rdfFormat>application/rdf+xml</rdfFormat>
                             <baseNamespace>http://www.w3.org/ns/dcat#</baseNamespace>
                         </vocabulary>
+                        <!-- SDMX Code -->
+                        <vocabulary>
+                            <className>SDMX_CODE</className>
+                            <input>https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/sdmx-code.ttl</input>
+                            <rdfFormat>text/turtle</rdfFormat>
+                            <baseNamespace>ttp://purl.org/linked-data/sdmx/2009/code#</baseNamespace>
+                        </vocabulary>
                     </vocabularies>
                 </configuration>
             </plugin>

@@ -2,29 +2,26 @@ package at.ac.tuwien.finder.datamanagement.catalog;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.datamanagement.catalog.dataset.DataSet;
-import at.ac.tuwien.finder.datamanagement.catalog.dataset.SpatialDataSet;
+import at.ac.tuwien.finder.datamanagement.catalog.dataset.factory.DataSetFactory;
+import at.ac.tuwien.finder.datamanagement.catalog.dataset.factory.exception.DataSetFactoryException;
+import at.ac.tuwien.finder.datamanagement.catalog.exception.DataCatalogException;
 import at.ac.tuwien.finder.vocabulary.DCAT;
-import org.eclipse.rdf4j.model.IRI;
-import org.eclipse.rdf4j.model.Statement;
-import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.common.iteration.Iterations;
+import org.eclipse.rdf4j.model.*;
+import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.model.vocabulary.DCTERMS;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
-import org.eclipse.rdf4j.query.MalformedQueryException;
-import org.eclipse.rdf4j.query.QueryEvaluationException;
-import org.eclipse.rdf4j.query.QueryLanguage;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
-import org.eclipse.rdf4j.repository.RepositoryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 /**
  * This class represents a data catalog.
@@ -37,6 +34,9 @@ public class DataCatalog {
 
     public static final IRI NS;
     public static final IRI TU_VIENNA;
+    public static final IRI GEONAMES_VIENNA;
+
+    public static final String TITLE = "Catalog of Finder app (TU Vienna)";
 
     static {
         Properties dataCatalogProperties = new Properties();
@@ -51,11 +51,12 @@ public class DataCatalog {
         NS = valueFactory.createIRI(TripleStoreManager.BASE.stringValue(), "catalog");
         TU_VIENNA =
             valueFactory.createIRI("http://dbpedia.org/resource/Vienna_University_of_Technology");
+        GEONAMES_VIENNA = valueFactory.createIRI("http://sws.geonames.org/2761333/");
     }
 
 
     private TripleStoreManager tripleStoreManager;
-    private List<DataSet> dataSetList = new LinkedList<>();
+    private ConcurrentHashMap<IRI, DataSet> dataSetMap = new ConcurrentHashMap<>();
 
     /**
      * Creates a new instance of {@link DataCatalog} with the given {@link TripleStoreManager}.
@@ -65,24 +66,20 @@ public class DataCatalog {
      */
     public DataCatalog(TripleStoreManager tripleStoreManager) {
         this.tripleStoreManager = tripleStoreManager;
-        dataSetList.add(new SpatialDataSet(tripleStoreManager));
-        RepositoryConnection connection = null;
-        try {
-            connection = tripleStoreManager.getConnection();
-            if (!connection.prepareBooleanQuery(QueryLanguage.SPARQL,
-                String.format("ASK { <%s> a <%s> . }", NS, DCAT.Catalog)).evaluate()) {
+        try (RepositoryConnection connection = tripleStoreManager.getConnection()) {
+            if (!connection.hasStatement(NS, RDF.TYPE, DCAT.Catalog, true)) {
                 connection.add(initializeDataCatalogStatements(), NS);
-            }
-        } catch (RepositoryException | MalformedQueryException | QueryEvaluationException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (RepositoryException e) {
-                    e.printStackTrace();
+            } else {
+                for (Value dataSetResource : Iterations
+                    .stream(connection.getStatements(NS, DCAT.dataset, null))
+                    .map(Statement::getObject).filter(value -> value instanceof IRI)
+                    .collect(Collectors.toList())) {
+                    dataSetMap.put((IRI) dataSetResource,
+                        DataSetFactory.createDataSet((IRI) dataSetResource, tripleStoreManager));
                 }
             }
+        } catch (DataSetFactoryException e) {
+            logger.error("Dataset cannot be established for a persisted data set resource. {}", e);
         }
     }
 
@@ -91,19 +88,42 @@ public class DataCatalog {
      *
      * @return a collection of statements describing the catalog of this application.
      */
-    private Collection<Statement> initializeDataCatalogStatements() {
-        IRI datCatResource = NS;
+    private Model initializeDataCatalogStatements() {
+        logger.debug("Initializes the data catalog.");
         ValueFactory valueFactory = SimpleValueFactory.getInstance();
-        List<Statement> statementList = new LinkedList<>();
-        statementList.add(valueFactory.createStatement(datCatResource, RDF.TYPE, DCAT.Dataset));
-        statementList.add(valueFactory.createStatement(datCatResource, DCTERMS.TITLE,
-            valueFactory.createLiteral("Catalog of Finder app (TU Vienna)", "en")));
-        statementList.add(valueFactory.createStatement(datCatResource, RDFS.LABEL,
-            valueFactory.createLiteral("Catalog of Finder app (TU Vienna)", "en")));
-        statementList
-            .add(valueFactory.createStatement(datCatResource, DCTERMS.PUBLISHER, TU_VIENNA));
-        return statementList;
+        Model catModel = new LinkedHashModel();
+        catModel.add(NS, RDF.TYPE, DCAT.Catalog);
+        catModel.add(NS, DCTERMS.TITLE, valueFactory.createLiteral(TITLE, "en"));
+        catModel.add(NS, RDFS.LABEL, valueFactory.createLiteral(TITLE, "en"));
+        catModel.add(NS, DCTERMS.PUBLISHER, TU_VIENNA);
+        return catModel;
     }
 
+    /**
+     * Gets the {@link DataSet} for the given namespace {@link IRI}. If there is not already a
+     * {@link DataSet} with this namespace, a new one will be created and the metadata persisted.
+     *
+     * @param namespace the namespace {@link IRI} for which the corresponding {@link DataSet} shall
+     *                  be returned.
+     * @return the {@link DataSet} for the given namespace {@link IRI}.
+     * @throws DataCatalogException if the {@link DataSet} for the given namespace {@link IRI}
+     *                              cannot be created.
+     */
+    public synchronized DataSet get(IRI namespace) throws DataCatalogException {
+        if (dataSetMap.containsKey(namespace)) {
+            return dataSetMap.get(namespace);
+        }
+        try {
+            DataSet dataSet = DataSetFactory.createDataSet(namespace, tripleStoreManager);
+            if (dataSet != null) {
+                try (RepositoryConnection connection = tripleStoreManager.getConnection()) {
+                    connection.add(NS, DCAT.dataset, namespace);
+                }
+            }
+            return dataSet;
+        } catch (DataSetFactoryException f) {
+            throw new DataCatalogException(f);
+        }
+    }
 
 }

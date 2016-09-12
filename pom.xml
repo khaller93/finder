@@ -10,7 +10,7 @@
     <version>0.1-SNAPSHOT</version>
 
     <properties>
-        <sesame.version>2.9.0</sesame.version>
+        <rdf4j.version>2.0</rdf4j.version>
         <!-- Versions for logging frameworks -->
         <slf4j.version>1.7.13</slf4j.version>
         <jcl-over-slf4j.version>1.7.13</jcl-over-slf4j.version>
@@ -25,6 +25,7 @@
         <module>data-management</module>
         <module>common</module>
         <module>service</module>
+        <module>webapp</module>
     </modules>
 
     <dependencies>
@@ -82,26 +83,53 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Sesame -->
+            <!-- RDF4J -->
             <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-runtime</artifactId>
-                <version>${sesame.version}</version>
+                <groupId>org.eclipse.rdf4j</groupId>
+                <artifactId>rdf4j-runtime</artifactId>
+                <version>${rdf4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-model</artifactId>
-                <version>${sesame.version}</version>
+                <groupId>org.eclipse.rdf4j</groupId>
+                <artifactId>rdf4j-model</artifactId>
+                <version>${rdf4j.version}</version>
+            </dependency>
+            <!-- RDF4J/Rio-API -->
+            <dependency>
+                <groupId>org.eclipse.rdf4j</groupId>
+                <artifactId>rdf4j-rio-api</artifactId>
+                <version>${rdf4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-rio-api</artifactId>
-                <version>${sesame.version}</version>
+                <groupId>org.eclipse.rdf4j</groupId>
+                <artifactId>rdf4j-rio-rdfxml</artifactId>
+                <version>${rdf4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-repository-api</artifactId>
-                <version>${sesame.version}</version>
+                <groupId>org.eclipse.rdf4j</groupId>
+                <artifactId>rdf4j-rio-turtle</artifactId>
+                <version>${rdf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.rdf4j</groupId>
+                <artifactId>rdf4j-rio-n3</artifactId>
+                <version>${rdf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.rdf4j</groupId>
+                <artifactId>rdf4j-rio-jsonld</artifactId>
+                <version>${rdf4j.version}</version>
+            </dependency>
+            <!-- RDF4J/Repository -->
+            <dependency>
+                <groupId>org.eclipse.rdf4j</groupId>
+                <artifactId>rdf4j-repository-manager</artifactId>
+                <version>${rdf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.rdf4j</groupId>
+                <artifactId>rdf4j-repository-api</artifactId>
+                <version>${rdf4j.version}</version>
             </dependency>
             <!-- Apache http components -->
             <dependency>

@@ -1,10 +1,11 @@
 package at.ac.tuwien.finder.datamanagement.catalog.dataset;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import org.openrdf.model.Model;
-import org.openrdf.model.URI;
-import org.openrdf.model.ValueFactory;
-import org.openrdf.model.impl.ValueFactoryImpl;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.URI;
+import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 
 /**
  * This class represents a {@link DataSet} concerning spatial data about the Vienna University of
@@ -14,11 +15,11 @@ import org.openrdf.model.impl.ValueFactoryImpl;
  */
 public class SpatialDataSet implements DataSet {
 
-    public static final URI NS;
+    public static final IRI NS;
 
     static {
-        ValueFactory valueFactory = ValueFactoryImpl.getInstance();
-        NS = valueFactory.createURI(TripleStoreManager.BASE.stringValue(), "spatial");
+        ValueFactory valueFactory = SimpleValueFactory.getInstance();
+        NS = valueFactory.createIRI(TripleStoreManager.BASE.stringValue(), "spatial");
     }
 
     private TripleStoreManager tripleStoreManager;
@@ -34,7 +35,7 @@ public class SpatialDataSet implements DataSet {
     }
 
     @Override
-    public URI name() {
+    public IRI name() {
         return NS;
     }
 

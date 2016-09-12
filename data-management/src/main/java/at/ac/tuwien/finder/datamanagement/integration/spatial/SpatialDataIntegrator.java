@@ -4,9 +4,9 @@ import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.datamanagement.catalog.dataset.SpatialDataSet;
 import at.ac.tuwien.finder.datamanagement.integration.DataIntegrator;
 import at.ac.tuwien.finder.datamanagement.integration.exception.TripleStoreManagerException;
-import org.openrdf.model.Model;
-import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

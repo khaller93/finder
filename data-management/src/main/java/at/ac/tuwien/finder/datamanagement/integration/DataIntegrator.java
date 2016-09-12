@@ -1,6 +1,6 @@
 package at.ac.tuwien.finder.datamanagement.integration;
 
-import org.openrdf.model.Model;
+import org.eclipse.rdf4j.model.Model;
 
 /**
  * Instances of this interface represent data integrators that integrate the given model into a

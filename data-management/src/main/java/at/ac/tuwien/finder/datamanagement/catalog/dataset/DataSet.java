@@ -1,8 +1,8 @@
 package at.ac.tuwien.finder.datamanagement.catalog.dataset;
 
-import org.openrdf.model.Model;
-import org.openrdf.model.Statement;
-import org.openrdf.model.URI;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.Statement;
+import org.eclipse.rdf4j.model.IRI;
 
 /**
  * Instances of this class represents a dataset that contains statements that concern a certain,
@@ -17,7 +17,7 @@ public interface DataSet {
      *
      * @return the name of the {@link DataSet}, which must be a valid IRI.
      */
-    URI name();
+    IRI name();
 
     /**
      * Returns the description of this {@link DataSet}, means all {@link Statement}s about this

@@ -6,10 +6,10 @@ import at.ac.tuwien.finder.datamanagement.mediation.DataTransformer;
 import at.ac.tuwien.finder.datamanagement.mediation.exception.DataAcquireException;
 import at.ac.tuwien.finder.datamanagement.mediation.exception.DataTransformationException;
 import at.ac.tuwien.finder.datamanagement.mediation.transformer.NOPTransformer;
-import org.openrdf.model.Model;
-import org.openrdf.model.impl.LinkedHashModel;
-import org.openrdf.rio.*;
-import org.openrdf.rio.helpers.StatementCollector;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.impl.LinkedHashModel;
+import org.eclipse.rdf4j.rio.*;
+import org.eclipse.rdf4j.rio.helpers.StatementCollector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

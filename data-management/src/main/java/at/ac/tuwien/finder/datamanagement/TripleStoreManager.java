@@ -3,14 +3,14 @@ package at.ac.tuwien.finder.datamanagement;
 import at.ac.tuwien.finder.datamanagement.catalog.DataCatalog;
 import at.ac.tuwien.finder.datamanagement.catalog.dataset.DataSet;
 import at.ac.tuwien.finder.datamanagement.integration.exception.TripleStoreManagerException;
-import org.openrdf.model.URI;
-import org.openrdf.model.impl.ValueFactoryImpl;
-import org.openrdf.repository.Repository;
-import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
-import org.openrdf.repository.config.RepositoryConfigException;
-import org.openrdf.repository.manager.RemoteRepositoryManager;
-import org.openrdf.repository.manager.RepositoryManager;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
+import org.eclipse.rdf4j.repository.Repository;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.repository.config.RepositoryConfigException;
+import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager;
+import org.eclipse.rdf4j.repository.manager.RepositoryManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +33,7 @@ public class TripleStoreManager implements AutoCloseable {
 
     private static final Logger logger = LoggerFactory.getLogger(TripleStoreManager.class);
 
-    public static final URI BASE;
+    public static final IRI BASE;
     private static final String GRAPH_DB_NAME = "finder-repo";
 
     private static TripleStoreManager tripleStoreManager;
@@ -56,8 +56,8 @@ public class TripleStoreManager implements AutoCloseable {
             logger.error("The property file for data-manegement cannot be accessed. {}", e);
             System.exit(1);
         }
-        BASE = ValueFactoryImpl.getInstance()
-            .createURI(dataManagementProperties.getProperty("base.iri"));
+        BASE = SimpleValueFactory.getInstance()
+            .createIRI(dataManagementProperties.getProperty("base.iri"));
     }
 
     private RepositoryManager repositoryManager;

@@ -1,10 +1,10 @@
 package at.ac.tuwien.finder.vocabulary;
 
 import at.ac.tuwien.finder.vocabulary.exception.OntologyAccessException;
-import org.openrdf.model.Model;
-import org.openrdf.model.impl.LinkedHashModel;
-import org.openrdf.rio.*;
-import org.openrdf.rio.helpers.StatementCollector;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.impl.LinkedHashModel;
+import org.eclipse.rdf4j.rio.*;
+import org.eclipse.rdf4j.rio.helpers.StatementCollector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

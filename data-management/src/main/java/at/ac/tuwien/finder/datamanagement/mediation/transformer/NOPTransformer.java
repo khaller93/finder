@@ -2,7 +2,7 @@ package at.ac.tuwien.finder.datamanagement.mediation.transformer;
 
 import at.ac.tuwien.finder.datamanagement.mediation.DataTransformer;
 import at.ac.tuwien.finder.datamanagement.mediation.exception.DataTransformationException;
-import org.openrdf.model.Model;
+import org.eclipse.rdf4j.model.Model;
 
 /**
  * This class is an implementation of {@link DataTransformer} that passes the given model without

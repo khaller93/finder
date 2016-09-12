@@ -1,7 +1,7 @@
 package at.ac.tuwien.finder.datamanagement.integration;
 
 import at.ac.tuwien.finder.taskmanagement.TaskManager;
-import org.openrdf.model.Model;
+import org.eclipse.rdf4j.model.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

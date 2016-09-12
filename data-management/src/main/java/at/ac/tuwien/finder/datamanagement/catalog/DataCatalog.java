@@ -4,18 +4,18 @@ import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.datamanagement.catalog.dataset.DataSet;
 import at.ac.tuwien.finder.datamanagement.catalog.dataset.SpatialDataSet;
 import at.ac.tuwien.finder.vocabulary.DCAT;
-import org.openrdf.model.Statement;
-import org.openrdf.model.URI;
-import org.openrdf.model.ValueFactory;
-import org.openrdf.model.impl.ValueFactoryImpl;
-import org.openrdf.model.vocabulary.DCTERMS;
-import org.openrdf.model.vocabulary.RDF;
-import org.openrdf.model.vocabulary.RDFS;
-import org.openrdf.query.MalformedQueryException;
-import org.openrdf.query.QueryEvaluationException;
-import org.openrdf.query.QueryLanguage;
-import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Statement;
+import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
+import org.eclipse.rdf4j.model.vocabulary.DCTERMS;
+import org.eclipse.rdf4j.model.vocabulary.RDF;
+import org.eclipse.rdf4j.model.vocabulary.RDFS;
+import org.eclipse.rdf4j.query.MalformedQueryException;
+import org.eclipse.rdf4j.query.QueryEvaluationException;
+import org.eclipse.rdf4j.query.QueryLanguage;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,8 +35,8 @@ public class DataCatalog {
 
     private static final Logger logger = LoggerFactory.getLogger(DataCatalog.class);
 
-    public static final URI NS;
-    public static final URI TU_VIENNA;
+    public static final IRI NS;
+    public static final IRI TU_VIENNA;
 
     static {
         Properties dataCatalogProperties = new Properties();
@@ -47,10 +47,10 @@ public class DataCatalog {
             logger.error("The property file for data-manegement cannot be accessed. {}", e);
             System.exit(1);
         }
-        ValueFactory valueFactory = ValueFactoryImpl.getInstance();
-        NS = valueFactory.createURI(TripleStoreManager.BASE.stringValue(), "catalog");
+        ValueFactory valueFactory = SimpleValueFactory.getInstance();
+        NS = valueFactory.createIRI(TripleStoreManager.BASE.stringValue(), "catalog");
         TU_VIENNA =
-            valueFactory.createURI("http://dbpedia.org/resource/Vienna_University_of_Technology");
+            valueFactory.createIRI("http://dbpedia.org/resource/Vienna_University_of_Technology");
     }
 
 
@@ -92,8 +92,8 @@ public class DataCatalog {
      * @return a collection of statements describing the catalog of this application.
      */
     private Collection<Statement> initializeDataCatalogStatements() {
-        URI datCatResource = NS;
-        ValueFactory valueFactory = ValueFactoryImpl.getInstance();
+        IRI datCatResource = NS;
+        ValueFactory valueFactory = SimpleValueFactory.getInstance();
         List<Statement> statementList = new LinkedList<>();
         statementList.add(valueFactory.createStatement(datCatResource, RDF.TYPE, DCAT.Dataset));
         statementList.add(valueFactory.createStatement(datCatResource, DCTERMS.TITLE,

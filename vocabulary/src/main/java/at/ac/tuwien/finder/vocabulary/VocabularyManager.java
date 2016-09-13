@@ -19,7 +19,7 @@ import java.util.Map;
  *
  * @author Kevin Haller
  */
-public final class VocabularyManager {
+public class VocabularyManager {
 
     private static final Logger logger = LoggerFactory.getLogger(VocabularyManager.class);
 
@@ -80,6 +80,13 @@ public final class VocabularyManager {
             throw new OntologyAccessException(e);
         }
         return ontologyMap;
+    }
+
+    /**
+     * For testing purposes.
+     */
+    public static void setVocabularyManager(VocabularyManager vocabularyManager){
+        VocabularyManager.vocabularyManager = vocabularyManager;
     }
 
 }

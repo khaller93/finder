@@ -1,0 +1,51 @@
+package at.ac.tuwien.finder.service.spatial.room.factory;
+
+import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import at.ac.tuwien.finder.service.IServiceFactory;
+import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * This class is an implementation of {@link IServiceFactory} and
+ * manages knowledge about {@link IServiceFactory}s concerning data about rooms.
+ *
+ * @author Kevin Haller
+ */
+public class RoomServiceFactory extends InternalTreeNodeServiceFactory {
+
+    private static final Logger logger = LoggerFactory.getLogger(RoomServiceFactory.class);
+
+    private Map<String, IServiceFactory> serviceFactoryMap = new HashMap<>();
+
+    /**
+     * Creates a new {@link RoomServiceFactory}.
+     *
+     * @param tripleStoreManager the {@link TripleStoreManager} that manages the triple store that
+     *                           shall be used as knowledge base for this {@link RoomServiceFactory}.
+     */
+    public RoomServiceFactory(TripleStoreManager tripleStoreManager) {
+        assert tripleStoreManager != null;
+        serviceFactoryMap.put(RoomResourceServiceFactory.getManagedPathName(),
+            new RoomResourceServiceFactory(tripleStoreManager));
+        logger.debug("Factory map of room services ({}): ../{}.", getManagedPathName(),
+            String.join(", ../", serviceFactoryMap.keySet()));
+    }
+
+    /**
+     * Gets the name of the path segment that is handled by this {@link IServiceFactory}.
+     *
+     * @return name of the path segment that is handled by this {@link IServiceFactory}.
+     */
+    public static String getManagedPathName() {
+        return "room";
+    }
+
+    @Override
+    public Map<String, IServiceFactory> getServiceFactoryMap() {
+        return serviceFactoryMap;
+    }
+}

@@ -45,9 +45,8 @@ public class SpatialDataIntegrator implements DataIntegrator {
         if (model == null) {
             throw new IllegalArgumentException("The given model must not be null.");
         }
-        RepositoryConnection connection = null;
-        try {
-            connection = tripleStoreManager.getConnection();
+        try (RepositoryConnection connection = tripleStoreManager.getConnection();) {
+
             connection.add(model, SpatialDataSet.NS);
             try {
                 tripleStoreManager.getDataCatalog().get(SpatialDataSet.NS).modifiedAt(new Date());
@@ -57,15 +56,7 @@ public class SpatialDataIntegrator implements DataIntegrator {
                         e);
             }
         } catch (RepositoryException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (RepositoryException e) {
-                    e.printStackTrace();
-                }
-            }
+            logger.error("{}", e);
         }
     }
 

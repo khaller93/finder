@@ -13,6 +13,7 @@ import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
 import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.Rio;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -94,6 +95,11 @@ public class VocabularyServicesTest {
     @Test(expected = IRIUnknownException.class)
     public void getUnknownOntology_throwsIRIUnknownException() throws RDFSerializableException {
         serviceFactory.getService(BASE_URI, getPathScanner("vocab/na"), null).execute();
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws IOException {
+        VocabularyManager.setVocabularyManager(null);
     }
 
     private static Scanner getPathScanner(String path) {

@@ -9,9 +9,7 @@ import at.ac.tuwien.finder.datamanagement.util.exception.TISSApiRequestFailedExc
 import at.ac.tuwien.finder.taskmanagement.TaskManager;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.rio.RDFFormat;
-import org.eclipse.rdf4j.rio.Rio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -20,13 +18,9 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutionException;
@@ -142,35 +136,6 @@ public class RestTISSPersonCrawler
         } catch (IOException e) {
             throw new DataAcquireException(
                 "The CSV file containing the organization OIDs cannot be accessed.", e);
-        }
-    }
-
-    public static void main(String[] args)
-        throws DataAcquireException, ParserConfigurationException, TransformerException,
-        IOException {
-        // Transformer
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer transformer = tf.newTransformer();
-        transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-        try (FileWriter writer = new FileWriter(new File("organization.xml"));
-            RestTISSPersonCrawler personCrawler = new RestTISSPersonCrawler()) {
-            //logger.debug("Print out ....");
-            //DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-            //DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            //Document personDoc = documentBuilder.parse(RestTISSPersonCrawler.class.getClassLoader()
-            //    .getResourceAsStream("organizational/organization.xml"));
-            Document personDoc = personCrawler.acquire();
-            transformer.transform(new DOMSource(personDoc), new StreamResult(writer));
-            logger.debug("Transform to RDF ....");
-            Model personModel = personCrawler.transformer().transform(personDoc);
-            try (FileWriter rdfWriter = new FileWriter(new File("org.rdf"))) {
-                Rio.write(personModel, rdfWriter, RDFFormat.TURTLE);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

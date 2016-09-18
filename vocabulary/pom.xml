@@ -74,6 +74,7 @@
                         <vocabulary>
                             <className>GeoSPARQL</className>
                             <input>http://www.opengis.net/ont/geosparql#</input>
+                            <altInput>file:src/main/resources/external/geosparql.rdf</altInput>
                             <rdfFormat>application/rdf+xml</rdfFormat>
                             <baseNamespace>http://www.opengis.net/ont/geosparql#</baseNamespace>
                         </vocabulary>
@@ -81,6 +82,7 @@
                         <vocabulary>
                             <className>DCAT</className>
                             <input>http://www.w3.org/ns/dcat#</input>
+                            <altInput>file:src/main/resources/external/dcat.rdf</altInput>
                             <rdfFormat>application/rdf+xml</rdfFormat>
                             <baseNamespace>http://www.w3.org/ns/dcat#</baseNamespace>
                         </vocabulary>
@@ -88,8 +90,17 @@
                         <vocabulary>
                             <className>SDMX_CODE</className>
                             <input>https://raw.githubusercontent.com/UKGovLD/publishing-statistical-data/master/specs/src/main/vocab/sdmx-code.ttl</input>
+                            <altInput>file:src/main/resources/external/sdmx-ode.ttl</altInput>
                             <rdfFormat>text/turtle</rdfFormat>
-                            <baseNamespace>ttp://purl.org/linked-data/sdmx/2009/code#</baseNamespace>
+                            <baseNamespace>http://purl.org/linked-data/sdmx/2009/code#</baseNamespace>
+                        </vocabulary>
+                        <!-- W3C Organization -->
+                        <vocabulary>
+                            <className>ORG</className>
+                            <input>http://www.w3.org/ns/org#</input>
+                            <altInput>file:src/main/resources/external/org.rdf</altInput>
+                            <rdfFormat>application/rdf+xml</rdfFormat>
+                            <baseNamespace>http://www.w3.org/ns/org#</baseNamespace>
                         </vocabulary>
                     </vocabularies>
                 </configuration>

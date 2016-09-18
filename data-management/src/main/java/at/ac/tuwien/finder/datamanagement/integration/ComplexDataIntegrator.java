@@ -19,30 +19,17 @@ public class Integrator implements AutoCloseable {
 
     private static final Logger logger = LoggerFactory.getLogger(Integrator.class);
 
- //   private IntegratorManager integratorManager = IntegratorManager.getInstance();
     private TaskManager taskManager = TaskManager.getInstance();
 
     private IntegrationPlan integrationPlan;
-    private String graphName;
 
     /**
      * Creates the integrator with the given graph name and integration paln.
      *
-     * @param graphName       the name of the graph, into which the models shall be integrated.
      * @param integrationPlan the integration plan, which shall be used.
      */
-    public Integrator(String graphName, IntegrationPlan integrationPlan) {
-        this.graphName = graphName;
+    public Integrator(IntegrationPlan integrationPlan) {
         this.integrationPlan = integrationPlan;
-    }
-
-    /**
-     * Gets the name of the graph, for which this data updater is responsible.
-     *
-     * @return the name of the graph, for which this data updater is responsible.
-     */
-    public String graphName() {
-        return this.graphName;
     }
 
     /**
@@ -63,7 +50,7 @@ public class Integrator implements AutoCloseable {
             CompletionService<Model> completionService =
                 new ExecutorCompletionService<>(taskManager.threadPool());
             for (DataLinker dataLinker : integrationPlan.getDataLinkers()) {
-                completionService.submit(() -> dataLinker.link());
+                completionService.submit(dataLinker::link);
             }
             for (int n = 0; n < integrationPlan.getDataLinkers().size(); n++) {
                 try {

@@ -1,9 +1,7 @@
 package at.ac.tuwien.finder.datamanagement.catalog.dataset.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.datamanagement.catalog.dataset.DataSet;
-import at.ac.tuwien.finder.datamanagement.catalog.dataset.SimpleSpatialDataSet;
-import at.ac.tuwien.finder.datamanagement.catalog.dataset.SpatialDataSet;
+import at.ac.tuwien.finder.datamanagement.catalog.dataset.*;
 import at.ac.tuwien.finder.datamanagement.catalog.dataset.factory.exception.DataSetFactoryException;
 import org.eclipse.rdf4j.model.IRI;
 
@@ -29,6 +27,8 @@ public class DataSetFactory {
         throws DataSetFactoryException {
         if (SpatialDataSet.NS.equals(namespace)) {
             return new SimpleSpatialDataSet(tripleStoreManager);
+        } else if (OrganizationalDataSet.NS.equals(namespace)) {
+            return new SimpleOrganizationalDataSet(tripleStoreManager);
         } else {
             throw new DataSetFactoryException(
                 String.format("No data set is registered for the given namespace '%s'", namespace));

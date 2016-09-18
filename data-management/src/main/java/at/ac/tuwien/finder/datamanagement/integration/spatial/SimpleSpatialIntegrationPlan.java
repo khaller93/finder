@@ -1,8 +1,11 @@
 package at.ac.tuwien.finder.datamanagement.integration.spatial;
 
+import at.ac.tuwien.finder.datamanagement.catalog.dataset.SpatialDataSet;
+import at.ac.tuwien.finder.datamanagement.integration.DataCleanser;
+import at.ac.tuwien.finder.datamanagement.integration.DataLinker;
 import at.ac.tuwien.finder.datamanagement.integration.IntegrationPlan;
+import at.ac.tuwien.finder.datamanagement.integration.SimpleDataIntegrator;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -15,9 +18,9 @@ public class SimpleSpatialIntegrationPlan extends IntegrationPlan {
 
     /**
      * Creates a new simple facility integration plan. The plan includes a
-     * {@link SpatialDataIntegrator} ...
+     * {@link SimpleDataIntegrator}, no {@link DataLinker} and no {@link DataCleanser}.
      */
     public SimpleSpatialIntegrationPlan() {
-        super(new SpatialDataIntegrator(), Collections.emptyList(), null);
+        super(new SimpleDataIntegrator(SpatialDataSet.NS), Collections.emptyList(), null);
     }
 }

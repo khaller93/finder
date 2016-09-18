@@ -1,6 +1,6 @@
 package at.ac.tuwien.finder.datamanagement.mediation.spatial;
 
-import at.ac.tuwien.finder.datamanagement.catalog.dataset.SpatialDataSet;
+import at.ac.tuwien.finder.datamanagement.integration.DataIntegrator;
 import at.ac.tuwien.finder.datamanagement.mediation.Mediator;
 
 import java.util.Collection;
@@ -18,15 +18,12 @@ public class SpatialMediator extends Mediator {
      * Creates a new facility mediator, whch gathers data with the given list of
      * {@link SpatialDataAcquirer}.
      *
-     * @param dataAcquirers the list of data acquirers, which shall be executed.
+     * @param dataAcquirers  the list of data acquirers, which shall be executed.
+     * @param dataIntegrator the {@link DataIntegrator} for the integrating the acquired data.
      */
-    public SpatialMediator(Collection<SpatialDataAcquirer> dataAcquirers) {
-        super(new LinkedList<>(dataAcquirers));
-    }
-
-    @Override
-    public String graphName() {
-        return SpatialDataSet.NS.stringValue();
+    public SpatialMediator(Collection<SpatialDataAcquirer> dataAcquirers,
+        DataIntegrator dataIntegrator) {
+        super(new LinkedList<>(dataAcquirers), dataIntegrator);
     }
 
 }

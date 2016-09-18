@@ -1,4 +1,5 @@
 package at.ac.tuwien.finder.taskmanagement;
+
 /**
  * Instances of this interface represents a task that can run concurrently with other
  * tasks.
@@ -6,6 +7,14 @@ package at.ac.tuwien.finder.taskmanagement;
  * @author Kevin Haller
  */
 public interface Task extends Runnable, AutoCloseable {
+
+    /**
+     * The parent task manager of this task. This will be set after each call of
+     * {@code taskmanager.submitTask(Task task)} for the given task.
+     *
+     * @param taskManager sets the parent {@link TaskManager} of this task.
+     */
+    void setParentTaskManager(TaskManager taskManager);
 
     /**
      * Adds the given {@link TaskCloseHandler} to this task.

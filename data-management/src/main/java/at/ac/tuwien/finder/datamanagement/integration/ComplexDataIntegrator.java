@@ -15,9 +15,9 @@ import java.util.concurrent.ExecutorCompletionService;
  *
  * @author Kevin Haller
  */
-public class Integrator implements AutoCloseable {
+public class ComplexDataIntegrator implements DataIntegrator {
 
-    private static final Logger logger = LoggerFactory.getLogger(Integrator.class);
+    private static final Logger logger = LoggerFactory.getLogger(ComplexDataIntegrator.class);
 
     private TaskManager taskManager = TaskManager.getInstance();
 
@@ -28,7 +28,7 @@ public class Integrator implements AutoCloseable {
      *
      * @param integrationPlan the integration plan, which shall be used.
      */
-    public Integrator(IntegrationPlan integrationPlan) {
+    public ComplexDataIntegrator(IntegrationPlan integrationPlan) {
         this.integrationPlan = integrationPlan;
     }
 
@@ -37,6 +37,7 @@ public class Integrator implements AutoCloseable {
      *
      * @param model the model, which shall be integrated.
      */
+    @Override
     public void integrate(Model model) {
         logger.debug("integrate({})", model);
         /* Starts data updating */

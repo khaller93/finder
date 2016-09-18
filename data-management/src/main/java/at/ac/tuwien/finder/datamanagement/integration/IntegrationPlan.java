@@ -18,9 +18,9 @@ public class IntegrationPlan implements AutoCloseable {
      * Creates a new integration plan that uses the given {@link DataIntegrator},
      * {@link DataLinker}s and {@link DataCleanser}s.
      *
-     * @param dataIntegrator  the data updater, which shall be used in this integration plan.
-     * @param dataLinkers  the list of data linkers, which shall be used in this integration plan.
-     * @param dataCleanser the data cleanser, which shall be used int this integration plan.
+     * @param dataIntegrator the data updater, which shall be used in this integration plan.
+     * @param dataLinkers    the list of data linkers, which shall be used in this integration plan.
+     * @param dataCleanser   the data cleanser, which shall be used int this integration plan.
      */
     public IntegrationPlan(DataIntegrator dataIntegrator, Collection<DataLinker> dataLinkers,
         DataCleanser dataCleanser) {
@@ -66,11 +66,7 @@ public class IntegrationPlan implements AutoCloseable {
         }
         if (dataLinkers != null) {
             for (DataLinker dataLinker : dataLinkers) {
-                try {
-                    dataLinker.close();
-                } catch (Exception e) {
-
-                }
+                dataLinker.close();
             }
         }
     }

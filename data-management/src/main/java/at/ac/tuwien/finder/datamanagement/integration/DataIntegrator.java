@@ -1,21 +1,15 @@
 package at.ac.tuwien.finder.datamanagement.integration;
 
+import at.ac.tuwien.finder.datamanagement.catalog.dataset.DataSet;
 import org.eclipse.rdf4j.model.Model;
 
 /**
  * Instances of this interface represent data integrators that integrate the given model into a
- * given graph.
+ * given {@link DataSet}.
  *
  * @author Kevin Haller
  */
 public interface DataIntegrator extends AutoCloseable {
-
-    /**
-     * Gets the name of the graph, for which this data integrator is responsible.
-     *
-     * @return the name of the graph, for which this data updater is responsible.
-     */
-    String graphName();
 
     /**
      * Analyzes the model and integrates it into the graph, which is managed by this data integrator.

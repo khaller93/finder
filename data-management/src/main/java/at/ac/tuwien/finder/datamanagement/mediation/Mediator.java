@@ -1,6 +1,9 @@
 package at.ac.tuwien.finder.datamanagement.mediation;
 
-import at.ac.tuwien.finder.taskmanagement.ReturnValueTask;
+import at.ac.tuwien.finder.datamanagement.integration.DataIntegrator;
+import at.ac.tuwien.finder.taskmanagement.Task;
+import at.ac.tuwien.finder.taskmanagement.TaskCloseHandler;
+import at.ac.tuwien.finder.taskmanagement.TaskFailedHandler;
 import at.ac.tuwien.finder.taskmanagement.TaskManager;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
@@ -18,12 +21,19 @@ import java.util.concurrent.*;
  *
  * @author Kevin Haller
  */
-public abstract class Mediator implements ReturnValueTask<Model> {
+public abstract class Mediator implements Task {
 
     private static final Logger logger = LoggerFactory.getLogger(Mediator.class);
 
-    private TaskManager taskManager = TaskManager.getInstance();
+    private ConcurrentLinkedQueue<TaskCloseHandler> taskCloseHandlers =
+        new ConcurrentLinkedQueue<>();
+
+    private ConcurrentLinkedQueue<TaskFailedHandler> taskFailedHandlers =
+        new ConcurrentLinkedQueue<>();
+
+    private TaskManager taskManager;
     private Collection<DataAcquirer> dataAcquirers;
+    private DataIntegrator dataIntegrator;
 
     /**
      * Creates a new mediator that gathers information about a specific entity by using the given
@@ -31,19 +41,27 @@ public abstract class Mediator implements ReturnValueTask<Model> {
      *
      * @param dataAcquirers list of {@link DataAcquirer}.
      */
-    public Mediator(Collection<DataAcquirer> dataAcquirers) {
+    public Mediator(Collection<DataAcquirer> dataAcquirers, DataIntegrator dataIntegrator) {
         this.dataAcquirers = dataAcquirers;
+        this.dataIntegrator = dataIntegrator;
     }
 
     /**
-     * Gets the graph name of the model, which is managed by the mediator.
+     * Gets the {@link DataIntegrator} of this mediator.
      *
-     * @return the graph name of the model, which is managed by the mediator.
+     * @return the {@link DataIntegrator} of this mediator.
      */
-    public abstract String graphName();
+    public DataIntegrator dataIntegrator() {
+        return dataIntegrator;
+    }
 
     @Override
-    public Model call() throws Exception {
+    public void run() {
+        if (taskManager == null) {
+            taskFailedHandlers.forEach(taskFailedHandler -> taskFailedHandler.failed(
+                new IllegalStateException(String
+                    .format("The task manager for this mediator task %s was not set", this))));
+        }
         CompletionService<Model> completionService =
             new ExecutorCompletionService<>(taskManager.threadPool());
         for (DataAcquirer dataAcquirer : dataAcquirers) {
@@ -52,19 +70,39 @@ public abstract class Mediator implements ReturnValueTask<Model> {
         // Gather the results.
         Model model = new LinkedHashModel();
         for (int n = 0; n < dataAcquirers.size(); n++) {
-            Future<Model> retrievedModel = completionService.take();
             try {
-                model.addAll(retrievedModel.get());
-            } catch (ExecutionException | CancellationException | InterruptedException e) {
-                //TODO: Try a second execution for callable that caused an InterruptedException.
+                Future<Model> retrievedModel = completionService.take();
+                try {
+                    model.addAll(retrievedModel.get());
+                } catch (ExecutionException | CancellationException | InterruptedException e) {
+                    logger.error("A data acquirer failed. {}", e);
+                }
+            } catch (InterruptedException e) {
                 logger.error("A data acquirer failed. {}", e);
             }
         }
-        return model;
+        logger.debug("Start the integration process for {} with {}", model, dataIntegrator);
+        dataIntegrator.integrate(model);
+        taskCloseHandlers.forEach(TaskCloseHandler::closed);
+    }
+
+    @Override
+    public void setParentTaskManager(TaskManager taskManager) {
+        this.taskManager = taskManager;
+    }
+
+    @Override
+    public void addClosedHandler(TaskCloseHandler taskCloseHandler) {
+        taskCloseHandlers.add(taskCloseHandler);
+    }
+
+    @Override
+    public void addFailedHandler(TaskFailedHandler taskFailedHandler) {
+        taskFailedHandlers.add(taskFailedHandler);
     }
 
     @Override
     public void close() throws Exception {
-        taskManager.close();
+
     }
 }

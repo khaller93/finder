@@ -37,9 +37,12 @@ public class MediatorTask implements ReturnValueTask<Model> {
      * @throws MediatorException if the mediation failed.
      */
     public Model mediate() throws MediatorException {
+        logger.debug("mediate({})", dataAcquirer);
         try {
             DataTransformer transformer = dataAcquirer.transformer();
-            return transformer.transform(dataAcquirer.acquire());
+            Object acquire = dataAcquirer.acquire();
+            logger.debug("Raw Data:{}", acquire);
+            return transformer.transform(acquire);
         } catch (DataTransformationException | DataAcquireException e) {
             logger.error("mediate() -> {}", e);
             throw new MediatorException(e);

@@ -73,8 +73,12 @@ public class TripleStoreManager implements AutoCloseable {
      * @return an instance of the {@link TripleStoreManager}.
      * @throws TripleStoreManagerException if no instance can be created.
      */
-    public synchronized static TripleStoreManager getInstance() throws TripleStoreManagerException {
-        return getInstance(DEFAULT_TRIPLE_STORE_URL);
+    public synchronized static TripleStoreManager getInstance() {
+        try {
+            return getInstance(DEFAULT_TRIPLE_STORE_URL);
+        } catch (TripleStoreManagerException e) {
+            return null;
+        }
     }
 
     /**

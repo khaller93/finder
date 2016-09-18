@@ -53,6 +53,7 @@ public final class TaskManager implements AutoCloseable {
         }
         taskSubmitLock.lock();
         if (!isClosed.get()) {
+            task.setParentTaskManager(this);
             activeTasksList.add(task);
             task.addClosedHandler(() -> activeTasksList.remove(task));
             threadPool.submit(task);
@@ -111,13 +112,13 @@ public final class TaskManager implements AutoCloseable {
         }
         taskSubmitLock.lock();
         try {
+            isClosed.set(true);
             for (Task task : activeTasksList) {
                 task.close();
             }
             for (Future future : activeFutureList) {
                 future.cancel(true);
             }
-            isClosed.set(true);
         } catch (Exception e) {
             throw e;
         } finally {

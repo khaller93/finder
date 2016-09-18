@@ -45,7 +45,7 @@ public class SimpleSpatialDataSet implements SpatialDataSet {
         this.tripleStoreManager = tripleStoreManager;
         try (RepositoryConnection connection = tripleStoreManager.getConnection()) {
             if (!connection.hasStatement(NS, RDF.TYPE, DCAT.Dataset, true)) {
-                connection.add(initSpatialDataSetDescription(new Date()), DataCatalog.NS);
+                connection.add(initSpatialDataSetDescription(new Date()), DataCatalog.NS, NS);
             }
         }
     }
@@ -82,7 +82,7 @@ public class SimpleSpatialDataSet implements SpatialDataSet {
         logger.debug("Modification update ({}) for {}.", modificationDate, this);
         try (RepositoryConnection connection = tripleStoreManager.getConnection()) {
             connection.add(NS, DCTERMS.MODIFIED,
-                connection.getValueFactory().createLiteral(modificationDate));
+                connection.getValueFactory().createLiteral(modificationDate), DataCatalog.NS, NS);
         }
     }
 

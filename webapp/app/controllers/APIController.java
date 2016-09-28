@@ -6,6 +6,7 @@ import at.ac.tuwien.finder.dto.exception.FileExtensionUnknownException;
 import at.ac.tuwien.finder.service.ServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
+import at.ac.tuwien.finder.service.exception.ResourceNotFoundException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import exception.SerializationMediaTypeException;
 import exception.ServerInternalException;
@@ -36,7 +37,16 @@ public class APIController extends Controller {
      * @throws ServiceException if the exception cannot be established.
      */
     public APIController() throws ServiceException {
-        serviceFactory = new ServiceFactory();
+        this.serviceFactory = new ServiceFactory();
+    }
+
+    /**
+     * Creates a new instance of {@link APIController} using the given {@link ServiceFactory}.
+     *
+     * @param serviceFactory {@link ServiceFactory} that shall be used for the API Controller.
+     */
+    public APIController(ServiceFactory serviceFactory) {
+        this.serviceFactory = serviceFactory;
     }
 
     /**
@@ -125,10 +135,12 @@ public class APIController extends Controller {
         try {
             return ok(
                 dataPage.render(path, serviceFactory.getService(getPathScanner(path)).execute()));
-        } catch (ServiceException e) {
-            return status(503, dataPage.render(path, ExceptionResourceDto.getInstance(e)));
         } catch (IRIUnknownException | IRIInvalidException i) {
-            return status(404, dataPage.render(path, ExceptionResourceDto.getInstance(i)));
+            return badRequest(dataPage.render(path, ExceptionResourceDto.getInstance(i)));
+        } catch (ResourceNotFoundException i) {
+            return notFound(dataPage.render(path, ExceptionResourceDto.getInstance(i)));
+        } catch (ServiceException e) {
+            return internalServerError(dataPage.render(path, ExceptionResourceDto.getInstance(e)));
         }
     }
 
@@ -145,25 +157,31 @@ public class APIController extends Controller {
         try {
             return ok(serviceFactory.getService(getPathScanner(path)).execute().transformTo(format))
                 .as(format.getDefaultMimeType());
-        } catch (ServiceException e) {
-            try {
-                return status(503, ExceptionResourceDto.getInstance(e).transformTo(format));
-            } catch (IOException u) {
-                return status(503, e.getMessage());
-            }
         } catch (IRIUnknownException | IRIInvalidException i) {
             try {
-                return status(404, ExceptionResourceDto.getInstance(i).transformTo(format));
+                return badRequest(ExceptionResourceDto.getInstance(i).transformTo(format));
             } catch (IOException io) {
-                return status(404, i.getMessage());
+                return badRequest(i.getMessage());
+            }
+        } catch (ResourceNotFoundException e) {
+            try {
+                return notFound(ExceptionResourceDto.getInstance(e).transformTo(format));
+            } catch (IOException io) {
+                return notFound(e.getMessage());
+            }
+        } catch (ServiceException e) {
+            try {
+                return internalServerError(ExceptionResourceDto.getInstance(e).transformTo(format));
+            } catch (IOException u) {
+                return internalServerError(e.getMessage());
             }
         } catch (IOException io) {
             ServerInternalException serverInternalException = new ServerInternalException();
             try {
-                return status(503,
+                return internalServerError(
                     ExceptionResourceDto.getInstance(serverInternalException).transformTo(format));
             } catch (IOException e) {
-                return status(503, serverInternalException.getMessage());
+                return internalServerError(serverInternalException.getMessage());
             }
         }
     }

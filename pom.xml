@@ -23,8 +23,8 @@
     <modules>
         <module>vocabulary</module>
         <module>data-management</module>
-        <module>common</module>
         <module>service</module>
+        <module>dto</module>
         <module>webapp</module>
     </modules>
 

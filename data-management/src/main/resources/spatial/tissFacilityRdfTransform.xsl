@@ -3,6 +3,7 @@
         <!ENTITY base "http://finder.tuwien.ac.at/vocab/spatial#">
         <!ENTITY tuvs "http://finder.tuwien.ac.at/vocab/spatial#">
         <!ENTITY spatial "http://finder.tuwien.ac.at/spatial/">
+        <!ENTITY event "http://finder.tuwien.ac.at/event/">
         <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
         <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
         <!ENTITY schema "http://schema.org/">
@@ -144,7 +145,7 @@
                               select="normalize-space(td[contains(@class,'el_description')])"/>
                 <xsl:variable name="eventId" select="concat($roomResourceId,'-',replace($date, '[^\d]+', ''),'-',
                     replace($timeRange, '[^\d]+', ''),'-',ffunction:base64Encode(concat($eventName, $eventDescription), true()))"/>
-                <schema:Event rdf:about="&base;event/{$eventId}">
+                <schema:Event rdf:about="&event;id/{$eventId}">
                     <schema:name>
                         <xsl:value-of select="$eventName"/>
                     </schema:name>

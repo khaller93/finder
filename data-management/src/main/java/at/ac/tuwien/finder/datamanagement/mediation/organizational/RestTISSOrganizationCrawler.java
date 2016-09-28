@@ -3,7 +3,7 @@ package at.ac.tuwien.finder.datamanagement.mediation.organizational;
 import at.ac.tuwien.finder.datamanagement.mediation.exception.DataAcquireException;
 import at.ac.tuwien.finder.datamanagement.util.TISSApiGetRequest;
 import at.ac.tuwien.finder.datamanagement.util.exception.TISSApiRequestFailedException;
-import at.ac.tuwien.finder.taskmanagement.TaskManager;
+import at.ac.tuwien.finder.datamanagement.util.TaskManager;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

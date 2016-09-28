@@ -1,4 +1,4 @@
-package at.ac.tuwien.finder.datamanagement;
+package at.ac.tuwien.finder.datamanagement.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

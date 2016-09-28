@@ -17,12 +17,6 @@
     <artifactId>data-management</artifactId>
 
     <dependencies>
-        <!-- Finder common module -->
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
         <!-- Finder vocabulary -->
         <dependency>
             <groupId>${project.groupId}</groupId>

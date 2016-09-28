@@ -6,7 +6,7 @@ import at.ac.tuwien.finder.datamanagement.mediation.exception.DataTransformation
 import at.ac.tuwien.finder.datamanagement.mediation.transformer.DOMXSLTransformer;
 import at.ac.tuwien.finder.datamanagement.util.TISSApiGetRequest;
 import at.ac.tuwien.finder.datamanagement.util.exception.TISSApiRequestFailedException;
-import at.ac.tuwien.finder.taskmanagement.TaskManager;
+import at.ac.tuwien.finder.datamanagement.util.TaskManager;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.eclipse.rdf4j.rio.RDFFormat;

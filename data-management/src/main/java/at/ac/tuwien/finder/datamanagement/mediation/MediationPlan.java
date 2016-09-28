@@ -2,6 +2,7 @@ package at.ac.tuwien.finder.datamanagement.mediation;
 
 import at.ac.tuwien.finder.datamanagement.catalog.dataset.DataSet;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -11,18 +12,28 @@ import java.util.Collection;
  *
  * @author Kevin Haller
  */
-public class MediationPlan implements AutoCloseable {
+public class MediationPlan {
 
     private Collection<Mediator> mediators;
 
     /**
      * Creates a new mediation plan with the given mediators and integrator.
      *
-     * @param mediators the mediators, which shall be used in this mediation plan.
+     * @param mediators {@link Mediator}s that shall be used in this mediation plan.
      */
     public MediationPlan(Collection<Mediator> mediators) {
         assert mediators != null;
         this.mediators = mediators;
+    }
+
+    /**
+     * Creates a new mediation plan with the given mediators and integrator.
+     *
+     * @param mediators {@link Mediator}s that shall be used in this mediation plan.
+     */
+    public MediationPlan(Mediator... mediators) {
+        assert mediators != null;
+        this.mediators = Arrays.asList(mediators);
     }
 
     /**
@@ -32,15 +43,5 @@ public class MediationPlan implements AutoCloseable {
      */
     public Collection<Mediator> mediators() {
         return mediators;
-    }
-
-
-    @Override
-    public void close() throws Exception {
-        if (mediators != null) {
-            for (Mediator mediator : mediators) {
-                mediator.close();
-            }
-        }
     }
 }

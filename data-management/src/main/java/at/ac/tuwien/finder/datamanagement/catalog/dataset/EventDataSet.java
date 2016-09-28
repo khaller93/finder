@@ -1,7 +1,18 @@
-package at.ac.tuwien.finder.datamanagement.catalog.dataset.factory;
+package at.ac.tuwien.finder.datamanagement.catalog.dataset;
+
+import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 
 /**
- * Created by haller on 24.09.16.
+ * Instances of this interface represent a {@link DataSet} concerning organizational data about the
+ * Vienna University of Technology.
+ *
+ * @author Kevin Haller
  */
-public class EventDataSet {
+public interface EventDataSet extends DataSet {
+
+    IRI NS =
+        SimpleValueFactory.getInstance().createIRI(TripleStoreManager.BASE.stringValue(), "event");
+
 }

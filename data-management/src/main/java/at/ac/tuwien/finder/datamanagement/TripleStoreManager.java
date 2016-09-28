@@ -70,14 +70,32 @@ public class TripleStoreManager implements AutoCloseable {
      * triple store instance will be returned. The location of the triple store will be the
      * {@code DEFAULT_TRIPLE_STORE_URL} read in from the data management properties file.
      *
-     * @return an instance of the {@link TripleStoreManager}.
-     * @throws TripleStoreManagerException if no instance can be created.
+     * @return an instance of the {@link TripleStoreManager}, or null, if the triple store manager
+     * cannot be established.
      */
     public synchronized static TripleStoreManager getInstance() {
         try {
             return getInstance(DEFAULT_TRIPLE_STORE_URL);
         } catch (TripleStoreManagerException e) {
             return null;
+        }
+    }
+
+    /**
+     * Gets an instance of the {@link TripleStoreManager} and increments the reference counter. If
+     * the reference counter is 0, a new instance will be created, otherwise the already existing
+     * triple store instance will be returned. The location of the triple store will be the
+     * {@code DEFAULT_TRIPLE_STORE_URL} read in from the data management properties file.
+     *
+     * @return an instance of the {@link TripleStoreManager}.
+     * @throws TripleStoreManagerException if no instance can be created.
+     */
+    public synchronized static TripleStoreManager getInstanceOrThrowException()
+        throws TripleStoreManagerException {
+        try {
+            return getInstance(DEFAULT_TRIPLE_STORE_URL);
+        } catch (TripleStoreManagerException e) {
+            throw e;
         }
     }
 

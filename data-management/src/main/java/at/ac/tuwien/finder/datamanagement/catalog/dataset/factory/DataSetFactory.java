@@ -29,6 +29,8 @@ public class DataSetFactory {
             return new SimpleSpatialDataSet(tripleStoreManager);
         } else if (OrganizationalDataSet.NS.equals(namespace)) {
             return new SimpleOrganizationalDataSet(tripleStoreManager);
+        } else if (EventDataSet.NS.equals(namespace)) {
+            return new SimpleEventDataSet(tripleStoreManager);
         } else {
             throw new DataSetFactoryException(
                 String.format("No data set is registered for the given namespace '%s'", namespace));

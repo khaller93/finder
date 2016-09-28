@@ -12,7 +12,8 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="at.ac.tuwien.finder" level="debug"/>
+        <Logger name="at.ac.tuwien.finder" level="DEBUG"/>
+        <Logger name="com.gargoylesoftware.htmlunit" level="ERROR"/>
 
         <Root level="warn">
             <AppenderRef ref="console"/>

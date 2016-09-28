@@ -1,10 +1,10 @@
 package at.ac.tuwien.finder.datamanagement.mediation;
 
 import at.ac.tuwien.finder.datamanagement.integration.DataIntegrator;
-import at.ac.tuwien.finder.taskmanagement.Task;
-import at.ac.tuwien.finder.taskmanagement.TaskCloseHandler;
-import at.ac.tuwien.finder.taskmanagement.TaskFailedHandler;
-import at.ac.tuwien.finder.taskmanagement.TaskManager;
+import at.ac.tuwien.finder.datamanagement.mediation.exception.DataAcquireException;
+import at.ac.tuwien.finder.datamanagement.mediation.exception.DataTransformationException;
+import at.ac.tuwien.finder.datamanagement.mediation.exception.MediatorException;
+import at.ac.tuwien.finder.datamanagement.util.TaskManager;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.slf4j.Logger;
@@ -14,34 +14,35 @@ import java.util.Collection;
 import java.util.concurrent.*;
 
 /**
- * Instances of this interface represents a mediator for a specific entity. The mediator manages
- * one or multiple {@link DataAcquirer} and transforms all the results with the corresponding
- * {@link DataTransformer} into linked data models. This linked data models are united to a single
- * model (named with the specified graph name).
+ * Instances of this interface represents a mediator for acquiring specific information. The
+ * mediator manages one or multiple {@link DataAcquirer} and transforms all the results with
+ * the corresponding {@link DataTransformer} into Linked Data models. This Linked Data models are
+ * united to a single model and integrated using the a given {@link DataIntegrator}.
  *
  * @author Kevin Haller
  */
-public abstract class Mediator implements Task {
+public abstract class Mediator implements Runnable {
 
     private static final Logger logger = LoggerFactory.getLogger(Mediator.class);
 
-    private ConcurrentLinkedQueue<TaskCloseHandler> taskCloseHandlers =
-        new ConcurrentLinkedQueue<>();
-
-    private ConcurrentLinkedQueue<TaskFailedHandler> taskFailedHandlers =
-        new ConcurrentLinkedQueue<>();
-
-    private TaskManager taskManager;
     private Collection<DataAcquirer> dataAcquirers;
     private DataIntegrator dataIntegrator;
+    private TaskManager taskManager;
 
     /**
-     * Creates a new mediator that gathers information about a specific entity by using the given
-     * list of {@link DataAcquirer}.
+     * Creates a new {@link Mediator} that gathers information about a specific entity by using the
+     * given list of {@link DataAcquirer}.
      *
-     * @param dataAcquirers list of {@link DataAcquirer}.
+     * @param taskManager    {@link TaskManager} that shall be used for this mediator.
+     * @param dataAcquirers  list of {@link DataAcquirer}s.
+     * @param dataIntegrator {@link DataAcquirer} that shall be used for the acquisitions.
      */
-    public Mediator(Collection<DataAcquirer> dataAcquirers, DataIntegrator dataIntegrator) {
+    public Mediator(TaskManager taskManager, Collection<DataAcquirer> dataAcquirers,
+        DataIntegrator dataIntegrator) {
+        assert taskManager != null;
+        assert dataAcquirers != null;
+        assert dataIntegrator != null;
+        this.taskManager = taskManager;
         this.dataAcquirers = dataAcquirers;
         this.dataIntegrator = dataIntegrator;
     }
@@ -57,15 +58,23 @@ public abstract class Mediator implements Task {
 
     @Override
     public void run() {
-        if (taskManager == null) {
-            taskFailedHandlers.forEach(taskFailedHandler -> taskFailedHandler.failed(
-                new IllegalStateException(String
-                    .format("The task manager for this mediator task %s was not set", this))));
-        }
         CompletionService<Model> completionService =
             new ExecutorCompletionService<>(taskManager.threadPool());
         for (DataAcquirer dataAcquirer : dataAcquirers) {
-            completionService.submit(new MediatorTask(dataAcquirer));
+            completionService.submit(() -> {
+                logger.debug("mediate({})", dataAcquirer);
+                try {
+                    DataTransformer transformer = dataAcquirer.transformer();
+                    if (transformer == null) {
+                        throw new MediatorException(String
+                            .format("The returned transformer of %s was null.", dataAcquirer));
+                    }
+                    return transformer.transform(dataAcquirer.acquire());
+                } catch (DataTransformationException | DataAcquireException e) {
+                    logger.error("mediate() -> {}", e);
+                    throw new MediatorException(e);
+                }
+            });
         }
         // Gather the results.
         Model model = new LinkedHashModel();
@@ -82,27 +91,6 @@ public abstract class Mediator implements Task {
             }
         }
         logger.debug("Start the integration process for {} with {}", model, dataIntegrator);
-        dataIntegrator.integrate(model);
-        taskCloseHandlers.forEach(TaskCloseHandler::closed);
-    }
-
-    @Override
-    public void setParentTaskManager(TaskManager taskManager) {
-        this.taskManager = taskManager;
-    }
-
-    @Override
-    public void addClosedHandler(TaskCloseHandler taskCloseHandler) {
-        taskCloseHandlers.add(taskCloseHandler);
-    }
-
-    @Override
-    public void addFailedHandler(TaskFailedHandler taskFailedHandler) {
-        taskFailedHandlers.add(taskFailedHandler);
-    }
-
-    @Override
-    public void close() throws Exception {
-
+        dataIntegrator().integrate(model);
     }
 }

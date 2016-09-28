@@ -1,6 +1,6 @@
 package at.ac.tuwien.finder.datamanagement.integration;
 
-import at.ac.tuwien.finder.taskmanagement.TaskManager;
+import at.ac.tuwien.finder.datamanagement.util.TaskManager;
 import org.eclipse.rdf4j.model.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +19,7 @@ public class ComplexDataIntegrator implements DataIntegrator {
 
     private static final Logger logger = LoggerFactory.getLogger(ComplexDataIntegrator.class);
 
-    private TaskManager taskManager = TaskManager.getInstance();
-
+    private TaskManager taskManager;
     private IntegrationPlan integrationPlan;
 
     /**
@@ -28,8 +27,9 @@ public class ComplexDataIntegrator implements DataIntegrator {
      *
      * @param integrationPlan the integration plan, which shall be used.
      */
-    public ComplexDataIntegrator(IntegrationPlan integrationPlan) {
+    public ComplexDataIntegrator(TaskManager taskManager, IntegrationPlan integrationPlan) {
         this.integrationPlan = integrationPlan;
+        this.taskManager = taskManager;
     }
 
     /**

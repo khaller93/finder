@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+@import java.util
+@(centerLong: Double, centerLat: Double)(geometries: util.Collection[String])
+@* Section for the map view of geometries. *@
+<section id="map-widget-section" class="container-fluid">
+    <div class="row text-center">
+        <h3>Map view</h3>
+    </div>
+    <div id="map-w" class="row map-widget"></div>
+</section>
+@* Javascript managing the variables for displaying the geometry (special, not to cache)*@
+<script type="text/javascript">
+        var mapInfo = new FinderMapInformation({'long':@centerLong.toString, 'lat':@centerLat.toString},
+                [@Html(geometries.map(geometry => "\""+geometry+"\"").mkString(","))]);
+        var geometries = [@Html(geometries.map(geometry => "\""+geometry+"\"").mkString(","))];
+        var centerLongitude = @centerLong.toString;
+        var centerLatitude = @centerLat.toString;
+</script>
+@* Generic code for presenting the given geometries. *@
+<script type="text/javascript">
+        new ol.Map({
+            target: 'map-w',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                }),
+                new ol.layer.Vector({
+                    source: new ol.source.Vector({
+                        features: mapInfo.transformGeometriesToFeatures()
+                    })
+                })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([centerLongitude, centerLatitude]),
+                zoom: 17
+            })
+        });
+</script>

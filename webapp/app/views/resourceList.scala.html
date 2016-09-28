@@ -1,36 +1,38 @@
-@import at.ac.tuwien.finder.dto.{ResourceDto, ExceptionResourceDto}
-@(path: String)(resourceDto: ResourceDto)
+@import at.ac.tuwien.finder.dto.{CollectionDto}
+@import at.ac.tuwien.finder.dto.rdf.Resource
+@import at.ac.tuwien.finder.dto.rdf.IResource
+@(path: String)(collectionDto: CollectionDto[Resource])
 
-@basic(resourceDto.getLabel(null)) {
+@basic(collectionDto.getLabel()) {
     @HtmlFormat.empty
 } {
     @HtmlFormat.empty
 } {
     <div class="container-fluid">
-        <div class="page-header">
-            <h1>About: <a href="@resourceDto.getURI">@resourceDto.getLabel(null)</a></h1>
-            <div class="page-subheader">
-                Entity of type: @for(resource <- resourceDto.getTypes){
-                    <a href="@resource.getURI">@resource</a>,
-                }
-            </div>
-        </div>
-        @if(resourceDto.getDescription(null) != null){
-            <div class="row">
-                @resourceDto match {
-                    case _ : ExceptionResourceDto => {
-                        <div class="alert alert-danger" role="alert">
-                            <p class="lead">@resourceDto.getDescription(null)</p>
-                        </div>
-                    }
-                    case _  => {
-                        <p class="lead">@resourceDto.getDescription(null)</p>
-                    }
-                }
-            </div>
-        }
         <div class="row">
-            @propertyTable(resourceDto.getProperties)
+            <h1>Bag: <a href="@collectionDto.getIRI">@collectionDto.getLabel()</a></h1>
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Resource</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for((entry, count) <- collectionDto.asList().zipWithIndex){
+                        <tr>
+                            <th>@count</th>
+                            <th>
+                                @entry match {
+                                    case _ : IResource => { <a href="@entry.asInstanceOf[IResource].getIRI">@entry</a> }
+                                    case _  => { @entry }
+                                }
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
 }

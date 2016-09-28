@@ -1,0 +1,26 @@
+html{
+    position: relative !important;
+    min-height: 100% !important;
+}
+
+body{
+    margin: 0 0 85px !important;
+}
+
+.map-widget {
+    width: 100%;
+    min-height: 200px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+}
+
+.footer-credentials {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+

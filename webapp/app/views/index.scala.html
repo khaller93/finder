@@ -1,20 +1,71 @@
-@*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
-@(message: String)
+@basic("Finder") {
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/openlayer/ol.css")" type="text/css"/>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")"/>
+} {
+    <script src="@routes.Assets.versioned("javascripts/openlayer/ol.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/finder-map.js")" type="text/javascript"></script>
+} {
+    <div class="container-fluid main-container">
+        <div class="row">
+            @* Search bar *@
+            <div class="col-md-3 col-lg-2 search-sidebar">
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">Finder</a>
+                        </div>
+                        @* Search option dropdown *@
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Options<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Free learning rooms</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                @* Search container *@
+                <div class="row search-container">
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row .pre-scrollable search-result-container">
 
-@*
- * Call the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
-@main("Welcome to Play") {
-
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    @play20.welcome(message, style = "Java")
-
+                </div>
+            </div>
+            @* Map container *@
+            <div class="col-md-9 col-lg-10 map-container">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+    @* Script for the initialization of the map *@
+    <script type="text/javascript">
+            var map = new ol.Map({
+                target: 'map',
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    })
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([16.3699039, 48.1989798]),
+                    zoom: 17
+                })
+            });
+    </script>
 }

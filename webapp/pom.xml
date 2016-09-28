@@ -28,6 +28,13 @@
 
     <dependencies>
 
+        <!-- Dto layer module -->
+        <dependency>
+            <groupId>at.ac.tuwien.finder</groupId>
+            <artifactId>dto</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- Service layer module -->
         <dependency>
             <groupId>${project.groupId}</groupId>

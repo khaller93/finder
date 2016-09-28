@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  *
  * @author Kevin Haller
  */
-public class SerializationFormatException extends Exception {
+public class SerializationMediaTypeException extends Exception {
 
     private static String getErrorMessage(String requestedFormat) {
         return String.format(
@@ -23,11 +23,11 @@ public class SerializationFormatException extends Exception {
 
     }
 
-    public SerializationFormatException(String requestedFormat) {
+    public SerializationMediaTypeException(String requestedFormat) {
         super(getErrorMessage(requestedFormat));
     }
 
-    public SerializationFormatException(String requestedFormat, Throwable cause) {
+    public SerializationMediaTypeException(String requestedFormat, Throwable cause) {
         super(getErrorMessage(requestedFormat), cause);
     }
 }

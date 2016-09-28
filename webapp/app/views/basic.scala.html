@@ -1,9 +1,9 @@
 @*
- * This template is called from the `index` template. This template
- * handles the rendering of the page header and body tags. It takes
- * two arguments, a `String` for the title of the page and an `Html`
- * object to insert into the body of the page.
- *@
+* This template is called from the `index` template. This template
+* handles the rendering of the page header and body tags. It takes
+* two arguments, a `String` for the title of the page and an `Html`
+* object to insert into the body of the page.
+*@
 @(title: String)(styleSheets: Html)(jScripts: Html)(content: Html)
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +13,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>@title</title>
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")"/>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("../../public/stylesheets/main.css")"/>
-        @* Specialised  stylesheets*@
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")"/>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap-theme.min.css")"/>
+        @* Specialised stylesheets*@
         @styleSheets
         @* Specialised Javascript *@
         @jScripts
@@ -22,5 +23,9 @@
     <body>
         @* Main content *@
         @content
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="@routes.Assets.versioned("javascripts/bootstrap.min.js")"></script>
     </body>
 </html>

@@ -5,7 +5,7 @@ package at.ac.tuwien.finder.service.exception;
  *
  * @author Kevin Haller
  */
-public class IRIInvalidException extends RDFSerializableException {
+public class IRIInvalidException extends Exception {
 
     /**
      * {@inheritDoc}
@@ -42,8 +42,4 @@ public class IRIInvalidException extends RDFSerializableException {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 
-    @Override
-    public int statusCode() {
-        return 404;
-    }
 }

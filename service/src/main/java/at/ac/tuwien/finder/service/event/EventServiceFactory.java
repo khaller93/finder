@@ -1,4 +1,4 @@
-package at.ac.tuwien.finder.service.organizational.person;
+package at.ac.tuwien.finder.service.event;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.service.IServiceFactory;
@@ -11,28 +11,29 @@ import java.util.Map;
 
 /**
  * This class is an implementation of {@link IServiceFactory} and
- * manages knowledge about {@link IServiceFactory}s concerning data about persons.
+ * manages knowledge about {@link IServiceFactory}s concerning data about events.
  *
  * @author Kevin Haller
  */
-public class PersonServiceFactory extends InternalTreeNodeServiceFactory {
+public class EventServiceFactory extends InternalTreeNodeServiceFactory {
 
-    private static final Logger logger = LoggerFactory.getLogger(PersonServiceFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(EventServiceFactory.class);
 
-    private Map<String, IServiceFactory> personServiceFactoryMap = new HashMap<>();
+    private Map<String, IServiceFactory> eventServiceFactoryMap = new HashMap<>();
 
     /**
-     * Creates a new {@link PersonServiceFactory}.
+     * Creates a new {@link EventServiceFactory}.
      *
      * @param tripleStoreManager the {@link TripleStoreManager} that manages the triple store that
-     *                           shall be used as knowledge base for this {@link PersonServiceFactory}.
+     *                           shall be used as knowledge base for this
+     *                           {@link EventServiceFactory}.
      */
-    public PersonServiceFactory(TripleStoreManager tripleStoreManager) {
+    public EventServiceFactory(TripleStoreManager tripleStoreManager) {
         assert tripleStoreManager != null;
-        personServiceFactoryMap.put(PersonResourceServiceFactory.getManagedPathName(),
-            new PersonResourceServiceFactory(tripleStoreManager));
-        logger.debug("Factory map of spatial services ({}): ../{}.", getManagedPathName(),
-            String.join(", ../", personServiceFactoryMap.keySet()));
+        eventServiceFactoryMap.put(EventResourceServiceFactory.getManagedPathName(),
+            new EventResourceServiceFactory(tripleStoreManager));
+        logger.debug("Factory map of event services ({}): ../{}.", getManagedPathName(),
+            String.join(", ../", eventServiceFactoryMap.keySet()));
     }
 
     /**
@@ -41,11 +42,11 @@ public class PersonServiceFactory extends InternalTreeNodeServiceFactory {
      * @return name of the path segment that is handled by this {@link IServiceFactory}.
      */
     public static String getManagedPathName() {
-        return "person";
+        return "event";
     }
 
     @Override
     public Map<String, IServiceFactory> getServiceFactoryMap() {
-        return personServiceFactoryMap;
+        return eventServiceFactoryMap;
     }
 }

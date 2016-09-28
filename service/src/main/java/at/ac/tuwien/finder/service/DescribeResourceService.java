@@ -1,7 +1,8 @@
 package at.ac.tuwien.finder.service;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
+import at.ac.tuwien.finder.dto.Dto;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.exception.ResourceNotFoundException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import org.eclipse.rdf4j.model.Model;
@@ -13,20 +14,17 @@ import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.RepositoryException;
 import org.eclipse.rdf4j.rio.RDFHandlerException;
 import org.eclipse.rdf4j.rio.helpers.StatementCollector;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
- * This class is an implementation of {@link IService} that returns all known information about a
- * given resource contained in the triple store managed by the given {@link TripleStoreManager}.
+ * This abstract class is an implementation of {@link QueryService} that returns all
+ * known information about a given resource contained in the triple store managed by the
+ * given {@link TripleStoreManager}.
  *
  * @author Kevin Haller
  */
-public class DescribeResourceService implements IService {
+public abstract class DescribeResourceService implements QueryService {
 
-    private static final Logger logger = LoggerFactory.getLogger(DescribeResourceService.class);
-
-    private String resourceUri;
+    private IResourceIdentifier resourceIri;
     private TripleStoreManager tripleStoreManager;
 
     /**
@@ -36,30 +34,62 @@ public class DescribeResourceService implements IService {
      *
      * @param tripleStoreManager the {@link TripleStoreManager} that manages the triple store that
      *                           shall be the knowledge base for this {@link DescribeResourceService}.
-     * @param resourceIri        the IRI of the resource for which the description can be requested by
-     *                           calling {@code execute()}.
+     * @param resourceIri        the IRI of the resource for which the description can be requested
+     *                           by calling {@code execute()}.
      */
     public DescribeResourceService(TripleStoreManager tripleStoreManager, String resourceIri) {
         assert tripleStoreManager != null;
         assert resourceIri != null;
         this.tripleStoreManager = tripleStoreManager;
-        this.resourceUri = resourceIri;
+        this.resourceIri = new IResourceIdentifier(resourceIri);
+    }
+
+    /**
+     * Gets the {@link IResourceIdentifier} of the resource that shall be described.
+     *
+     * @return the {@link IResourceIdentifier} of the resource that shall be described.
+     */
+    public IResourceIdentifier resourceIdentifier() {
+        return resourceIri;
     }
 
     @Override
-    public Model execute() throws RDFSerializableException {
+    public String getQuery() {
+        return String.format("DESCRIBE <%s>", resourceIdentifier());
+    }
+
+    /**
+     * Executes the query of this {@link QueryService}.
+     *
+     * @return the result of the execution of the query given by this {@link QueryService}.
+     * @throws ServiceException if the execution of the given query failed.
+     */
+    public Model executeQuery() throws ServiceException {
         try (RepositoryConnection connection = tripleStoreManager.getConnection()) {
             Model resultModel = new LinkedHashModel();
-            connection.prepareGraphQuery(QueryLanguage.SPARQL,
-                String.format("DESCRIBE <%s>", resourceUri))
+            connection.prepareGraphQuery(QueryLanguage.SPARQL, getQuery())
                 .evaluate(new StatementCollector(resultModel));
             if (resultModel.isEmpty()) {
                 throw new ResourceNotFoundException(
-                    String.format("Resource <%s> is unknown.", resourceUri), resourceUri);
+                    String.format("The resource <%s> cannot be located.", resourceIdentifier()));
             }
             return resultModel;
         } catch (RepositoryException | MalformedQueryException | QueryEvaluationException | RDFHandlerException e) {
             throw new ServiceException(e);
         }
+    }
+
+    /**
+     * Wraps the given model into the a {@link Dto}.
+     *
+     * @param model {@link Model} that shall be wrapped into a {@link Dto}.
+     * @return {@link Dto} that wraps the result of this {@link DescribeResourceService}.
+     * @throws ServiceException if the result cannot be wrapped.
+     */
+    public abstract Dto wrapResult(Model model) throws ServiceException;
+
+    @Override
+    public Dto execute() throws ServiceException {
+        return wrapResult(executeQuery());
     }
 }

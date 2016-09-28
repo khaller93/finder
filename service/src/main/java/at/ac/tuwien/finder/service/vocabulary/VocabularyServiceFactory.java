@@ -1,15 +1,15 @@
 package at.ac.tuwien.finder.service.vocabulary;
 
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
 import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
+import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
 import at.ac.tuwien.finder.service.spatial.SpatialServiceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -41,8 +41,8 @@ public class VocabularyServiceFactory extends InternalTreeNodeServiceFactory {
     }
 
     @Override
-    public IService getService(URI parent, Scanner pathScanner, Map<String, String> parameterMap)
-        throws RDFSerializableException {
+    public IService getService(IResourceIdentifier parent, Scanner pathScanner,
+        Map<String, String> parameterMap) throws IRIUnknownException, IRIInvalidException {
         if (pathScanner.hasNext()) {
             return super.getService(parent, pathScanner, parameterMap);
         } else {

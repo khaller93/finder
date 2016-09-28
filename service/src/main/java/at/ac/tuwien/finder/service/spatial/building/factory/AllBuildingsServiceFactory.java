@@ -1,13 +1,13 @@
 package at.ac.tuwien.finder.service.spatial.building.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
+import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
 import at.ac.tuwien.finder.service.spatial.building.service.AllBuildingsService;
 
-import java.net.URI;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -34,10 +34,10 @@ public class AllBuildingsServiceFactory implements IServiceFactory {
     }
 
     @Override
-    public IService getService(URI parent, Scanner pathScanner, Map<String, String> parameterMap)
-        throws RDFSerializableException {
+    public IService getService(IResourceIdentifier parent, Scanner pathScanner,
+        Map<String, String> parameterMap) throws IRIInvalidException, IRIUnknownException {
         if (!pathScanner.hasNext()) {
-            return new AllBuildingsService(tripleStoreManager);
+            return new AllBuildingsService(tripleStoreManager, parent.toString());
         } else {
             throw new IRIUnknownException(String
                 .format("'%s' does not expect any further path segments. '%s' is not valid.",

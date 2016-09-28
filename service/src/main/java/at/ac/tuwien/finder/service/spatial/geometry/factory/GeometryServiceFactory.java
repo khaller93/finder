@@ -1,4 +1,4 @@
-package at.ac.tuwien.finder.service.spatial.factory;
+package at.ac.tuwien.finder.service.spatial.geometry.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.service.IService;
@@ -41,9 +41,8 @@ public class GeometryServiceFactory extends InternalTreeNodeServiceFactory {
      * @return name of the path segment that is handled by this {@link IServiceFactory}.
      */
     public static String getManagedPathName() {
-        return "event";
+        return "geometry";
     }
-
 
     @Override
     public Map<String, IServiceFactory> getServiceFactoryMap() {

@@ -2,17 +2,18 @@ package at.ac.tuwien.finder.service;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.datamanagement.integration.exception.TripleStoreManagerException;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.catalog.factory.CatalogServiceFactory;
+import at.ac.tuwien.finder.service.event.EventServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
+import at.ac.tuwien.finder.service.exception.ServiceException;
+import at.ac.tuwien.finder.service.organizational.OrganizationalServiceFactory;
 import at.ac.tuwien.finder.service.spatial.SpatialServiceFactory;
 import at.ac.tuwien.finder.service.vocabulary.VocabularyServiceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -32,9 +33,16 @@ public class ServiceFactory extends InternalTreeNodeServiceFactory implements Au
 
     /**
      * Creates a new {@link ServiceFactory}.
+     *
+     * @throws ServiceException if this service factory cannot be established.
      */
-    public ServiceFactory() throws TripleStoreManagerException {
-        this(TripleStoreManager.getInstance());
+    public ServiceFactory() throws ServiceException {
+        try {
+            this.tripleStoreManager = TripleStoreManager.getInstanceOrThrowException();
+            setupServiceFactoryMap();
+        } catch (TripleStoreManagerException e) {
+            throw new ServiceException(e);
+        }
     }
 
     /**
@@ -45,8 +53,19 @@ public class ServiceFactory extends InternalTreeNodeServiceFactory implements Au
     public ServiceFactory(TripleStoreManager tripleStoreManager) {
         assert tripleStoreManager != null;
         this.tripleStoreManager = tripleStoreManager;
+        setupServiceFactoryMap();
+    }
+
+    /**
+     * Sets-up the factory map for the services.
+     */
+    private void setupServiceFactoryMap() {
         serviceFactoryMap.put(SpatialServiceFactory.getManagedPathName(),
             new SpatialServiceFactory(tripleStoreManager));
+        serviceFactoryMap.put(OrganizationalServiceFactory.getManagedPathName(),
+            new OrganizationalServiceFactory(tripleStoreManager));
+        serviceFactoryMap.put(EventServiceFactory.getManagedPathName(),
+            new EventServiceFactory(tripleStoreManager));
         serviceFactoryMap
             .put(VocabularyServiceFactory.getManagedPathName(), new VocabularyServiceFactory());
         serviceFactoryMap.put(CatalogServiceFactory.getManagedPathName(),
@@ -69,13 +88,10 @@ public class ServiceFactory extends InternalTreeNodeServiceFactory implements Au
      * @throws IRIInvalidException if the given IRI is not valid.
      */
     public IService getService(Scanner pathScanner, Map<String, String> parameterMap)
-        throws RDFSerializableException {
-        try {
-            return super.getService(new URI(TripleStoreManager.BASE.stringValue()), pathScanner,
+        throws IRIInvalidException, IRIUnknownException {
+        return super
+            .getService(new IResourceIdentifier(TripleStoreManager.BASE.stringValue()), pathScanner,
                 parameterMap);
-        } catch (URISyntaxException e) {
-            throw new IRIInvalidException(e);
-        }
     }
 
     /**
@@ -90,13 +106,11 @@ public class ServiceFactory extends InternalTreeNodeServiceFactory implements Au
      * @throws IRIUnknownException if no service is assigned to the given IRI.
      * @throws IRIInvalidException if the given IRI is not valid.
      */
-    public IService getService(Scanner pathScanner) throws RDFSerializableException {
-        try {
-            return super
-                .getService(new URI(TripleStoreManager.BASE.stringValue()), pathScanner, null);
-        } catch (URISyntaxException e) {
-            throw new IRIInvalidException(e);
-        }
+    public IService getService(Scanner pathScanner)
+        throws IRIInvalidException, IRIUnknownException {
+        return super
+            .getService(new IResourceIdentifier(TripleStoreManager.BASE.stringValue()), pathScanner,
+                null);
     }
 
     @Override

@@ -1,10 +1,9 @@
 package at.ac.tuwien.finder.service;
 
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
 
-import java.net.URI;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -27,13 +26,13 @@ public interface IServiceFactory {
      * part of the IRI that has already been parsed and the given {@link Scanner} points to the next
      * path segment.
      *
-     * @param parent       the path of the IRI that has already been parsed.
+     * @param parentIRI    the path of the IRI that has already been parsed.
      * @param pathScanner  the scanner that is pointing to the next path segment.
      * @param parameterMap the parameter map that contains given parameters.
      * @return the {@link IService} that is responsible for handling the requested URI
      * @throws IRIUnknownException if no service is assigned to the given IRI.
      * @throws IRIInvalidException if the given IRI is not valid.
      */
-    IService getService(URI parent, Scanner pathScanner, Map<String, String> parameterMap)
-        throws RDFSerializableException;
+    IService getService(IResourceIdentifier parentIRI, Scanner pathScanner,
+        Map<String, String> parameterMap) throws IRIInvalidException, IRIUnknownException;
 }

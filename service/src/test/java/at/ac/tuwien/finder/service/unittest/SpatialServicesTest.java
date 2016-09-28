@@ -1,18 +1,18 @@
 package at.ac.tuwien.finder.service.unittest;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import at.ac.tuwien.finder.dto.Dto;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.ServiceFactory;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
+import at.ac.tuwien.finder.service.exception.IRIInvalidException;
+import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ResourceNotFoundException;
+import at.ac.tuwien.finder.service.exception.ServiceException;
 import at.ac.tuwien.finder.vocabulary.LOCN;
-import at.ac.tuwien.finder.vocabulary.TUVS;
-import org.eclipse.rdf4j.model.IRI;
-import org.eclipse.rdf4j.model.Model;
-import org.eclipse.rdf4j.model.Value;
-import org.eclipse.rdf4j.model.ValueFactory;
+import org.eclipse.rdf4j.model.*;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.model.util.Models;
-import org.eclipse.rdf4j.model.vocabulary.RDF;
+import org.eclipse.rdf4j.model.util.RDFCollections;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
@@ -26,6 +26,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -44,12 +46,12 @@ import static org.mockito.Mockito.when;
 public class SpatialServicesTest {
 
     private static IRI BASE = TripleStoreManager.BASE;
-    private static java.net.URI BASE_URI;
+    private static IResourceIdentifier BASE_IRI;
 
     private static ValueFactory valueFactory = SimpleValueFactory.getInstance();
 
     public SpatialServicesTest() throws URISyntaxException {
-        BASE_URI = new java.net.URI(BASE.stringValue());
+        BASE_IRI = new IResourceIdentifier(BASE.stringValue());
     }
 
     /* Test data for the triple store */
@@ -78,11 +80,12 @@ public class SpatialServicesTest {
     }
 
     @Test
-    public void get_building_with_id_ok() throws RDFSerializableException {
+    public void get_building_with_id_ok()
+        throws ServiceException, IRIUnknownException, IRIInvalidException {
         IRI buildingA = valueFactory.createIRI(BASE.stringValue(), "spatial/building/id/A");
         Model result =
-            serviceFactory.getService(BASE_URI, getPathScanner("spatial/building/id/A"), null)
-                .execute();
+            serviceFactory.getService(BASE_IRI, getPathScanner("spatial/building/id/A"), null)
+                .execute().getModel();
         assertTrue(String.format("Resource <%s> must be part of the result.", buildingA.toString()),
             result.subjects().contains(buildingA));
         assertThat(String.format(
@@ -94,33 +97,38 @@ public class SpatialServicesTest {
     }
 
     @Test
-    public void get_tracts_of_building_with_id_ok() throws RDFSerializableException {
-        Model resultModel = serviceFactory
-            .getService(BASE_URI, getPathScanner("spatial/building/id/DABC/buildingtracts"), null)
+    public void get_tracts_of_building_with_id_ok()
+        throws ServiceException, IRIInvalidException, IRIUnknownException {
+        Dto resultDto = serviceFactory
+            .getService(BASE_IRI, getPathScanner("spatial/building/id/DABC/buildingtracts"), null)
             .execute();
-        assertThat("The result must contain building tracts with the ids DA, DB, DC.",
-            resultModel.filter(null, RDF.TYPE, TUVS.BuildingTract).subjects(),
+        List<Resource> resultValues = RDFCollections
+            .asValues(resultDto.getModel(), valueFactory.createIRI(resultDto.getIRI().toString()),
+                new LinkedList<>()).stream().filter(value -> value instanceof Resource)
+            .map(value -> (Resource) value).collect(Collectors.toList());
+        assertThat("The result must contain building tracts with the ids DA, DB, DC.", resultValues,
             hasItems(valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DA"),
                 valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DB"),
                 valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DC")));
-        assertThat("The result model must contain only three building tracts.",
-            resultModel.filter(null, RDF.TYPE, TUVS.BuildingTract), hasSize(3));
+        assertThat("The result model must contain only three building tracts.", resultValues,
+            hasSize(3));
     }
 
     @Test(expected = ResourceNotFoundException.class)
     public void get_building_with_unknown_id_throws_ResourceNotFoundException()
-        throws RDFSerializableException {
-        serviceFactory.getService(BASE_URI, getPathScanner("spatial/building/id/ABC"), null)
+        throws ServiceException, IRIUnknownException, IRIInvalidException {
+        serviceFactory.getService(BASE_IRI, getPathScanner("spatial/building/id/ABC"), null)
             .execute();
     }
 
     @Test
-    public void get_buildingtract_with_id_ok() throws RDFSerializableException {
+    public void get_buildingtract_with_id_ok()
+        throws ServiceException, IRIInvalidException, IRIUnknownException {
         IRI buildingTractAA =
             valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/AA");
         Model result =
-            serviceFactory.getService(BASE_URI, getPathScanner("spatial/buildingtract/id/AA"), null)
-                .execute();
+            serviceFactory.getService(BASE_IRI, getPathScanner("spatial/buildingtract/id/AA"), null)
+                .execute().getModel();
         assertTrue(
             String.format("Resource <%s> must be part of the result.", buildingTractAA.toString()),
             result.subjects().contains(buildingTractAA));
@@ -132,17 +140,18 @@ public class SpatialServicesTest {
 
     @Test(expected = ResourceNotFoundException.class)
     public void get_buildingtract_with_unknown_id_throws_ResourceNotFoundException()
-        throws RDFSerializableException {
-        serviceFactory.getService(BASE_URI, getPathScanner("spatial/buildingtract/id/ABCD"), null)
+        throws IRIInvalidException, IRIUnknownException, ServiceException {
+        serviceFactory.getService(BASE_IRI, getPathScanner("spatial/buildingtract/id/ABCD"), null)
             .execute();
     }
 
     @Test
-    public void get_floor_with_id_ok() throws RDFSerializableException {
+    public void get_floor_with_id_ok()
+        throws ServiceException, IRIUnknownException, IRIInvalidException {
         IRI floorAA03 = valueFactory.createIRI(BASE.stringValue(), "spatial/floor/id/AA03");
         Model result =
-            serviceFactory.getService(BASE_URI, getPathScanner("spatial/floor/id/AA03"), null)
-                .execute();
+            serviceFactory.getService(BASE_IRI, getPathScanner("spatial/floor/id/AA03"), null)
+                .execute().getModel();
         assertTrue(String.format("Resource <%s> must be part of the result.", floorAA03.toString()),
             result.subjects().contains(floorAA03));
         assertThat(String.format("Resource <%s> has rdfs:label '03'.", floorAA03.toString()),
@@ -152,18 +161,19 @@ public class SpatialServicesTest {
 
     @Test(expected = ResourceNotFoundException.class)
     public void get_floor_with_unknown_id_throws_ResourceNotFoundException()
-        throws RDFSerializableException {
-        serviceFactory.getService(BASE_URI, getPathScanner("spatial/floor/id/ABCD01"), null)
+        throws IRIInvalidException, IRIUnknownException, ServiceException {
+        serviceFactory.getService(BASE_IRI, getPathScanner("spatial/floor/id/ABCD01"), null)
             .execute();
     }
 
     @Test
-    public void get_address_with_id_ok() throws RDFSerializableException {
+    public void get_address_with_id_ok()
+        throws IRIInvalidException, IRIUnknownException, ServiceException {
         IRI addressKarlsplatz = valueFactory.createIRI(BASE.stringValue(),
             "spatial/address/id/AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13");
-        Model result = serviceFactory.getService(BASE_URI,
+        Model result = serviceFactory.getService(BASE_IRI,
             getPathScanner("spatial/address/id/AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13"), null)
-            .execute();
+            .execute().getModel();
         assertTrue(String
                 .format("Resource <%s> must be part of the result.", addressKarlsplatz.toString()),
             result.subjects().contains(addressKarlsplatz));
@@ -183,8 +193,8 @@ public class SpatialServicesTest {
 
     @Test(expected = ResourceNotFoundException.class)
     public void get_address_with_unknown_id_throws_IRIUnknownException()
-        throws RDFSerializableException {
-        serviceFactory.getService(BASE_URI,
+        throws ServiceException, IRIUnknownException, IRIInvalidException {
+        serviceFactory.getService(BASE_IRI,
             getPathScanner("spatial/address/id/DE1100-1c56fcbcb8725edda11e2c76a1d21c77-na"), null)
             .execute();
     }

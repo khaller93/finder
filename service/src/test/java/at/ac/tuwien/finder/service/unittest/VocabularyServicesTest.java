@@ -1,9 +1,11 @@
 package at.ac.tuwien.finder.service.unittest;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.ServiceFactory;
+import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
+import at.ac.tuwien.finder.service.exception.ServiceException;
 import at.ac.tuwien.finder.vocabulary.VocabularyManager;
 import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Literal;
@@ -19,7 +21,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -41,13 +42,13 @@ public class VocabularyServicesTest {
 
     private static ValueFactory valueFactory = SimpleValueFactory.getInstance();
 
-    private static URI BASE_URI;
+    private static IResourceIdentifier BASE_IRI;
 
     /**
      * Creates a new instance of {@link VocabularyServicesTest}.
      */
     public VocabularyServicesTest() throws URISyntaxException {
-        BASE_URI = new java.net.URI(TripleStoreManager.BASE.stringValue());
+        BASE_IRI = new IResourceIdentifier(TripleStoreManager.BASE.stringValue());
     }
 
     private static Model wineVocabularyModel;
@@ -78,7 +79,8 @@ public class VocabularyServicesTest {
         IRI wineResource =
             valueFactory.createIRI("http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine");
         Model spatialOntology =
-            serviceFactory.getService(BASE_URI, getPathScanner("vocab/spatial"), null).execute();
+            serviceFactory.getService(BASE_IRI, getPathScanner("vocab/spatial"), null).execute()
+                .getModel();
         assertThat(String.format("The returned model must contain the root resource '%s'.",
             rootResource.stringValue()), spatialOntology.subjects(), hasItem(rootResource));
         assertThat(
@@ -93,8 +95,9 @@ public class VocabularyServicesTest {
     }
 
     @Test(expected = IRIUnknownException.class)
-    public void getUnknownOntology_throwsIRIUnknownException() throws RDFSerializableException {
-        serviceFactory.getService(BASE_URI, getPathScanner("vocab/na"), null).execute();
+    public void getUnknownOntology_throwsIRIUnknownException()
+        throws IRIInvalidException, IRIUnknownException, ServiceException {
+        serviceFactory.getService(BASE_IRI, getPathScanner("vocab/na"), null).execute();
     }
 
     @AfterClass

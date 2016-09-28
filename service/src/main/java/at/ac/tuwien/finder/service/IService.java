@@ -1,8 +1,7 @@
 package at.ac.tuwien.finder.service;
 
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
+import at.ac.tuwien.finder.dto.Dto;
 import at.ac.tuwien.finder.service.exception.ServiceException;
-import org.eclipse.rdf4j.model.Model;
 
 /**
  * Instances of this interface represents services that carry out particular actions, when
@@ -15,10 +14,10 @@ public interface IService {
 
     /**
      * Executes this {@link IService} and returns the result of the service in form of a
-     * {@link Model}.
+     * {@link Dto}.
      *
-     * @return {@link Model} that contains the result of the service.
+     * @return {@link Dto} that contains the result of the service.
      * @throws ServiceException if the execution of this {@link IService} fails.
      */
-    Model execute() throws RDFSerializableException;
+    Dto execute() throws ServiceException;
 }

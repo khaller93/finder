@@ -5,7 +5,7 @@ package at.ac.tuwien.finder.service.exception;
  *
  * @author Kevin Haller
  */
-public class IRIUnknownException extends RDFSerializableException {
+public class IRIUnknownException extends Exception {
 
     /**
      * {@inheritDoc}
@@ -41,11 +41,6 @@ public class IRIUnknownException extends RDFSerializableException {
     protected IRIUnknownException(String message, Throwable cause, boolean enableSuppression,
         boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
-    }
-
-    @Override
-    public int statusCode() {
-        return 404;
     }
 
 }

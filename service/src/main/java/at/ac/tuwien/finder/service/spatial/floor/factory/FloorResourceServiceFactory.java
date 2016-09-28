@@ -1,13 +1,14 @@
 package at.ac.tuwien.finder.service.spatial.floor.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.service.DescribeResourceService;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
 import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
+import at.ac.tuwien.finder.service.SimpleDescribeResourceService;
+import at.ac.tuwien.finder.service.exception.IRIInvalidException;
+import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -51,15 +52,15 @@ public class FloorResourceServiceFactory extends InternalTreeNodeServiceFactory 
     }
 
     @Override
-    public IService getService(URI parent, Scanner pathScanner, Map<String, String> parameter)
-        throws RDFSerializableException {
+    public IService getService(IResourceIdentifier parent, Scanner pathScanner,
+        Map<String, String> parameter) throws IRIInvalidException, IRIUnknownException {
         String resourceId = pathScanner.next();
         if (pathScanner.hasNext()) {
-            URI newParent = parent.resolve(resourceId + "/");
+            IResourceIdentifier newParent = parent.resolve(resourceId + "/");
             return super.getService(newParent, pathScanner,
                 super.pushParameter(parameter, "id", newParent.toString()));
         }
-        return new DescribeResourceService(tripleStoreManager,
+        return new SimpleDescribeResourceService(tripleStoreManager,
             parent.resolve(resourceId).toString());
     }
 }

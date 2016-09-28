@@ -1,11 +1,12 @@
 package at.ac.tuwien.finder.service;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
+import at.ac.tuwien.finder.dto.Dto;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.SimpleResourceDto;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import org.eclipse.rdf4j.common.iteration.Iterations;
 import org.eclipse.rdf4j.model.IRI;
-import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
@@ -33,10 +34,11 @@ public class GraphDatasetService implements IService {
     }
 
     @Override
-    public Model execute() throws RDFSerializableException {
+    public Dto execute() throws ServiceException {
         try (RepositoryConnection connection = tripleStoreManager.getConnection();) {
-            return new LinkedHashModel(
-                Iterations.asList(connection.getStatements(null, null, null, true, graphName)));
+            return new SimpleResourceDto(new IResourceIdentifier(graphName.stringValue()),
+                new LinkedHashModel(Iterations
+                    .asList(connection.getStatements(null, null, null, true, graphName))));
         } catch (RepositoryException e) {
             throw new ServiceException(e);
         }

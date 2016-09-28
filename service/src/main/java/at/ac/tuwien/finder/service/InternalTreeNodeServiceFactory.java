@@ -1,9 +1,9 @@
 package at.ac.tuwien.finder.service;
 
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -41,18 +41,18 @@ public abstract class InternalTreeNodeServiceFactory implements IServiceFactory 
     }
 
     @Override
-    public IService getService(URI parent, Scanner pathScanner, Map<String, String> parameterMap)
-        throws RDFSerializableException {
+    public IService getService(IResourceIdentifier parent, Scanner pathScanner,
+        Map<String, String> parameterMap) throws IRIInvalidException, IRIUnknownException {
         if (!pathScanner.hasNext()) {
             throw new IRIUnknownException(
                 String.format("There is no service assigned to '%s'.", parent.toString()));
         }
         String pathSegment = pathScanner.next();
-        URI newParent = parent.resolve(pathSegment + "/");
+        IResourceIdentifier newParent = parent.resolve(pathSegment + "/");
         Map<String, IServiceFactory> serviceFactoryMap = getServiceFactoryMap();
         if (!serviceFactoryMap.containsKey(pathSegment)) {
             throw new IRIUnknownException(String.format(
-                "The given URI '%s' is not valid. Possible continuations of '%s' are ../%s.",
+                "The given IRI '%s' is not valid. Possible continuations of '%s' are ../%s.",
                 newParent.toString(), parent.toString(),
                 String.join(", ../", getServiceFactoryMap().keySet())));
         }

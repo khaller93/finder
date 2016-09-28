@@ -7,7 +7,7 @@ package at.ac.tuwien.finder.service.exception;
  *
  * @author Kevin Haller
  */
-public class ServiceException extends RDFSerializableException {
+public class ServiceException extends Exception {
 
     /**
      * {@inheritDoc}
@@ -42,11 +42,6 @@ public class ServiceException extends RDFSerializableException {
     public ServiceException(String message, Throwable cause, boolean enableSuppression,
         boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
-    }
-
-    @Override
-    public int statusCode() {
-        return 503;
     }
 
 }

@@ -1,11 +1,13 @@
 package at.ac.tuwien.finder.service.vocabulary;
 
+import at.ac.tuwien.finder.dto.Dto;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.SimpleResourceDto;
 import at.ac.tuwien.finder.service.IService;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
+import at.ac.tuwien.finder.vocabulary.TUVS;
 import at.ac.tuwien.finder.vocabulary.VocabularyManager;
 import at.ac.tuwien.finder.vocabulary.exception.OntologyAccessException;
-import org.eclipse.rdf4j.model.Model;
 
 /**
  * This class is an implementation of {@link IService} that describes a specified, local vocabulary.
@@ -22,16 +24,17 @@ class DescribeVocabularyService implements IService {
      *
      * @param localVocabName the name of the local vocabulary.
      */
-    public DescribeVocabularyService(String localVocabName) {
+    DescribeVocabularyService(String localVocabName) {
         assert localVocabName != null;
         this.localVocabName = localVocabName;
     }
 
     @Override
-    public Model execute() throws RDFSerializableException {
+    public Dto execute() throws ServiceException {
         if (localVocabName.equals("spatial")) {
             try {
-                return VocabularyManager.getInstance().getSpatialOntology();
+                return new SimpleResourceDto(new IResourceIdentifier(TUVS.NS),
+                    VocabularyManager.getInstance().getSpatialOntology());
             } catch (OntologyAccessException e) {
                 throw new ServiceException(e);
             }

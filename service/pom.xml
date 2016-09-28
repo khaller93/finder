@@ -39,6 +39,11 @@
             <artifactId>rdf4j-sail-memory</artifactId>
             <version>${rdf4j.version}</version>
         </dependency>
+        <dependency>
+            <groupId>at.ac.tuwien.finder</groupId>
+            <artifactId>dto</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

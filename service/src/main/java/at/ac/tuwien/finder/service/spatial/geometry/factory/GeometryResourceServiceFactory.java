@@ -1,15 +1,17 @@
-package at.ac.tuwien.finder.service.spatial.factory;
+package at.ac.tuwien.finder.service.spatial.geometry.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.service.DescribeResourceService;
-import at.ac.tuwien.finder.service.IService;
-import at.ac.tuwien.finder.service.IServiceFactory;
+import at.ac.tuwien.finder.dto.Dto;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.LocationPointDto;
+import at.ac.tuwien.finder.dto.SimpleResourceDto;
+import at.ac.tuwien.finder.service.*;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import at.ac.tuwien.finder.service.exception.ServiceException;
+import org.eclipse.rdf4j.model.Model;
 
-import java.net.URI;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -19,19 +21,19 @@ import java.util.Scanner;
  *
  * @author Kevin Haller
  */
-public class GeometryResourceServiceFactory implements IServiceFactory {
+class GeometryResourceServiceFactory extends InternalTreeNodeServiceFactory {
 
-    private static final Logger logger = LoggerFactory.getLogger(GeometryServiceFactory.class);
-
+    private Map<String, IServiceFactory> geometryServiceFactoryMap = new HashMap<>();
     private TripleStoreManager tripleStoreManager;
 
     /**
-     * Creates a new {@link GeometryServiceFactory}.
+     * Creates a new instance of {@link GeometryResourceServiceFactory}.
      *
      * @param tripleStoreManager the {@link TripleStoreManager} that manages the triple store that
-     *                           shall be used as knowledge base for this {@link GeometryServiceFactory}.
+     *                           shall be used as knowledge base for this
+     *                           {@link GeometryResourceServiceFactory}.
      */
-    public GeometryResourceServiceFactory(TripleStoreManager tripleStoreManager) {
+    GeometryResourceServiceFactory(TripleStoreManager tripleStoreManager) {
         assert tripleStoreManager != null;
         this.tripleStoreManager = tripleStoreManager;
     }
@@ -45,19 +47,29 @@ public class GeometryResourceServiceFactory implements IServiceFactory {
         return "id";
     }
 
+    @Override
+    public Map<String, IServiceFactory> getServiceFactoryMap() {
+        return geometryServiceFactoryMap;
+    }
 
     @Override
-    public IService getService(URI parent, Scanner pathScanner, Map<String, String> parameterMap)
-        throws IRIInvalidException, IRIUnknownException {
-        if (!pathScanner.hasNext()) {
-            if (parameterMap == null || !parameterMap.containsKey("id")) {
-                throw new IRIUnknownException("Id must be given.");
-            }
-            return new DescribeResourceService(tripleStoreManager, parameterMap.get("id"));
-        } else {
-            throw new IRIUnknownException(String
-                .format("'%s' does not expect any further path segments. '%s' is not valid.",
-                    parent.toString(), parent.resolve(pathScanner.next())));
+    public IService getService(IResourceIdentifier parent, Scanner pathScanner,
+        Map<String, String> parameter) throws IRIInvalidException, IRIUnknownException {
+        String resourceId = pathScanner.next();
+        if (pathScanner.hasNext()) {
+            IResourceIdentifier newParent = parent.resolve(resourceId + "/");
+            return super.getService(newParent, pathScanner,
+                super.pushParameter(parameter, "id", newParent.toString()));
         }
+        return new DescribeResourceService(tripleStoreManager,
+            parent.resolve(resourceId).toString()) {
+            @Override
+            public Dto wrapResult(Model model) throws ServiceException {
+                if(resourceId.startsWith("point:")){
+                    return new LocationPointDto(resourceIdentifier(), model);
+                }
+                return new SimpleResourceDto(resourceIdentifier(), model);
+            }
+        };
     }
 }

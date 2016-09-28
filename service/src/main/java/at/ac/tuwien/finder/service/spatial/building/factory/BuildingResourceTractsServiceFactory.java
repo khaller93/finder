@@ -1,14 +1,14 @@
 package at.ac.tuwien.finder.service.spatial.building.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
+import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
 import at.ac.tuwien.finder.service.spatial.building.service.UnitsOfBuildingService;
 import at.ac.tuwien.finder.vocabulary.TUVS;
 
-import java.net.URI;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -44,14 +44,14 @@ public class BuildingResourceTractsServiceFactory implements IServiceFactory {
     }
 
     @Override
-    public IService getService(URI parent, Scanner pathScanner, Map<String, String> parameterMap)
-        throws RDFSerializableException {
+    public IService getService(IResourceIdentifier parent, Scanner pathScanner,
+        Map<String, String> parameterMap) throws IRIInvalidException, IRIUnknownException {
         if (!pathScanner.hasNext()) {
             if (parameterMap == null || !parameterMap.containsKey("id")) {
                 throw new IRIUnknownException("Id is not given.");
             }
-            return new UnitsOfBuildingService(tripleStoreManager, parameterMap.get("id"),
-                TUVS.BuildingTract.toString());
+            return new UnitsOfBuildingService(tripleStoreManager, parent.toString(),
+                "Building tract", parameterMap.get("id"), TUVS.BuildingTract.toString());
         } else {
             throw new IRIUnknownException(String
                 .format("'%s' does not expect any further path segments. '%s' is not valid.",

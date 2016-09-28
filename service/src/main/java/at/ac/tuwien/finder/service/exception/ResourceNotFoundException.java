@@ -5,7 +5,7 @@ package at.ac.tuwien.finder.service.exception;
  *
  * @author Kevin Haller
  */
-public class ResourceNotFoundException extends RDFSerializableException {
+public class ResourceNotFoundException extends ServiceException {
 
     private String resourceUri;
 
@@ -69,9 +69,4 @@ public class ResourceNotFoundException extends RDFSerializableException {
         return resourceUri;
     }
 
-
-    @Override
-    public int statusCode() {
-        return 404;
-    }
 }

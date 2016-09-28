@@ -25,7 +25,8 @@ public class FloorServiceFactory extends InternalTreeNodeServiceFactory {
      * Creates a new {@link FloorServiceFactory}.
      *
      * @param tripleStoreManager the {@link TripleStoreManager} that manages the triple store that
-     *                           shall be used as knowledge base for this {@link FloorServiceFactory}.
+     *                           shall be used as knowledge base for this
+     *                           {@link FloorServiceFactory}.
      */
     public FloorServiceFactory(TripleStoreManager tripleStoreManager) {
         assert tripleStoreManager != null;

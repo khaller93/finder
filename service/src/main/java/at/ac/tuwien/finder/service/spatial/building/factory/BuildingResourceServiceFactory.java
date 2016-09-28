@@ -1,17 +1,20 @@
 package at.ac.tuwien.finder.service.spatial.building.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import at.ac.tuwien.finder.dto.BuildingDto;
+import at.ac.tuwien.finder.dto.Dto;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.DescribeResourceService;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
 import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
+import at.ac.tuwien.finder.service.exception.ServiceException;
+import org.eclipse.rdf4j.model.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -63,14 +66,20 @@ class BuildingResourceServiceFactory extends InternalTreeNodeServiceFactory {
     }
 
     @Override
-    public IService getService(URI parent, Scanner pathScanner, Map<String, String> parameter)
-        throws RDFSerializableException {
+    public IService getService(IResourceIdentifier parent, Scanner pathScanner,
+        Map<String, String> parameter) throws IRIInvalidException, IRIUnknownException {
         String resourceId = pathScanner.next();
         if (pathScanner.hasNext()) {
             return super.getService(parent.resolve(resourceId + "/"), pathScanner,
                 super.pushParameter(parameter, "id", parent.resolve(resourceId).toString()));
         }
         return new DescribeResourceService(tripleStoreManager,
-            parent.resolve(resourceId).toString());
+            parent.resolve(resourceId).toString()) {
+
+            @Override
+            public Dto wrapResult(Model model) throws ServiceException {
+                return new BuildingDto(resourceIdentifier(), model);
+            }
+        };
     }
 }

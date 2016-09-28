@@ -2,22 +2,24 @@ package at.ac.tuwien.finder.service.spatial;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.datamanagement.catalog.dataset.SimpleSpatialDataSet;
+import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.GraphDatasetService;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
 import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
-import at.ac.tuwien.finder.service.exception.RDFSerializableException;
+import at.ac.tuwien.finder.service.exception.IRIInvalidException;
+import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.spatial.address.factory.AddressServiceFactory;
 import at.ac.tuwien.finder.service.spatial.building.factory.AllBuildingsServiceFactory;
 import at.ac.tuwien.finder.service.spatial.building.factory.BuildingServiceFactory;
 import at.ac.tuwien.finder.service.spatial.buildingtract.factory.BuildingTractServiceFactory;
 import at.ac.tuwien.finder.service.spatial.floor.factory.FloorServiceFactory;
+import at.ac.tuwien.finder.service.spatial.geometry.factory.GeometryServiceFactory;
 import at.ac.tuwien.finder.service.spatial.room.factory.AllRoomsServiceFactory;
 import at.ac.tuwien.finder.service.spatial.room.factory.RoomServiceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -58,15 +60,18 @@ public class SpatialServiceFactory extends InternalTreeNodeServiceFactory {
             new AllRoomsServiceFactory(tripleStoreManager));
         spatialServiceFactoryMap.put(AddressServiceFactory.getManagedPathName(),
             new AddressServiceFactory(tripleStoreManager));
+        spatialServiceFactoryMap.put(GeometryServiceFactory.getManagedPathName(),
+            new GeometryServiceFactory(tripleStoreManager));
         logger.debug("Factory map of spatial services ({}): ../{}.", getManagedPathName(),
             String.join(", ../", spatialServiceFactoryMap.keySet()));
     }
 
     @Override
-    public IService getService(URI parent, Scanner pathScanner, Map<String, String> parameterMap)
-        throws RDFSerializableException {
+    public IService getService(IResourceIdentifier parent, Scanner pathScanner, Map<String, String> parameterMap)
+        throws IRIInvalidException, IRIUnknownException {
         if (!pathScanner.hasNext()) {
-            return new GraphDatasetService(tripleStoreManager, SimpleSpatialDataSet.NS.stringValue());
+            return new GraphDatasetService(tripleStoreManager,
+                SimpleSpatialDataSet.NS.stringValue());
         }
         return super.getService(parent, pathScanner, parameterMap);
     }

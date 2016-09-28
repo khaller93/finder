@@ -62,6 +62,7 @@
                             <className>TUVS</className>
                             <input>file:src/main/resources/local/tuViennaSpatialOntology.ttl</input>
                             <baseNamespace>http://finder.tuwien.ac.at/vocab/spatial#</baseNamespace>
+                            <preferredPrefix>tuvs</preferredPrefix>
                         </vocabulary>
                         <!-- ISA Programme Location Core Vocabulary -->
                         <vocabulary>
@@ -69,6 +70,16 @@
                             <input>http://www.w3.org/ns/locn</input>
                             <altInput>file:src/main/resources/external/locn.ttl</altInput>
                             <baseNamespace>http://www.w3.org/ns/locn#</baseNamespace>
+                            <preferredPrefix>locn</preferredPrefix>
+                        </vocabulary>
+                        <!-- Schema.org -->
+                        <vocabulary>
+                            <className>SCHEMA</className>
+                            <input>https://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fschema.org%2Fdocs%2Fschema_org_rdfa.html&amp;format=xml&amp;rdfagraph=output&amp;vocab_expansion=false&amp;rdfa_lite=false&amp;embedded_rdf=true&amp;space_preserve=true&amp;vocab_cache=true&amp;vocab_cache_report=false&amp;vocab_cache_refresh=false</input>
+                            <altInput>file:src/main/resources/external/schema.rdf</altInput>
+                            <rdfFormat>application/rdf+xml</rdfFormat>
+                            <baseNamespace>http://schema.org/</baseNamespace>
+                            <preferredPrefix>schema</preferredPrefix>
                         </vocabulary>
                         <!-- GeoSPARQL -->
                         <vocabulary>
@@ -77,6 +88,16 @@
                             <altInput>file:src/main/resources/external/geosparql.rdf</altInput>
                             <rdfFormat>application/rdf+xml</rdfFormat>
                             <baseNamespace>http://www.opengis.net/ont/geosparql#</baseNamespace>
+                            <preferredPrefix>gsp</preferredPrefix>
+                        </vocabulary>
+                        <!-- GeoSPARQL SF -->
+                        <vocabulary>
+                            <className>SF</className>
+                            <input>http://www.opengis.net/ont/sf</input>
+                            <altInput>file:src/main/resources/external/sf.rdf</altInput>
+                            <rdfFormat>application/rdf+xml</rdfFormat>
+                            <baseNamespace>http://www.opengis.net/ont/sf#</baseNamespace>
+                            <preferredPrefix>sf</preferredPrefix>
                         </vocabulary>
                         <!-- Dataset Catalog -->
                         <vocabulary>
@@ -85,6 +106,7 @@
                             <altInput>file:src/main/resources/external/dcat.rdf</altInput>
                             <rdfFormat>application/rdf+xml</rdfFormat>
                             <baseNamespace>http://www.w3.org/ns/dcat#</baseNamespace>
+                            <preferredPrefix>dcat</preferredPrefix>
                         </vocabulary>
                         <!-- SDMX Code -->
                         <vocabulary>
@@ -93,6 +115,7 @@
                             <altInput>file:src/main/resources/external/sdmx-ode.ttl</altInput>
                             <rdfFormat>text/turtle</rdfFormat>
                             <baseNamespace>http://purl.org/linked-data/sdmx/2009/code#</baseNamespace>
+                            <preferredPrefix>sdmx-code</preferredPrefix>
                         </vocabulary>
                         <!-- W3C Organization -->
                         <vocabulary>
@@ -101,6 +124,7 @@
                             <altInput>file:src/main/resources/external/org.rdf</altInput>
                             <rdfFormat>application/rdf+xml</rdfFormat>
                             <baseNamespace>http://www.w3.org/ns/org#</baseNamespace>
+                            <preferredPrefix>org</preferredPrefix>
                         </vocabulary>
                     </vocabularies>
                 </configuration>

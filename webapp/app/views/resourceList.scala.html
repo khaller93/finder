@@ -1,0 +1,36 @@
+@import at.ac.tuwien.finder.dto.{ResourceDto, ExceptionResourceDto}
+@(path: String)(resourceDto: ResourceDto)
+
+@basic(resourceDto.getLabel(null)) {
+    @HtmlFormat.empty
+} {
+    @HtmlFormat.empty
+} {
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1>About: <a href="@resourceDto.getURI">@resourceDto.getLabel(null)</a></h1>
+            <div class="page-subheader">
+                Entity of type: @for(resource <- resourceDto.getTypes){
+                    <a href="@resource.getURI">@resource</a>,
+                }
+            </div>
+        </div>
+        @if(resourceDto.getDescription(null) != null){
+            <div class="row">
+                @resourceDto match {
+                    case _ : ExceptionResourceDto => {
+                        <div class="alert alert-danger" role="alert">
+                            <p class="lead">@resourceDto.getDescription(null)</p>
+                        </div>
+                    }
+                    case _  => {
+                        <p class="lead">@resourceDto.getDescription(null)</p>
+                    }
+                }
+            </div>
+        }
+        <div class="row">
+            @propertyTable(resourceDto.getProperties)
+        </div>
+    </div>
+}

@@ -9,244 +9,325 @@
 
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/GA> a fs:BuildingTract ;
+	fs:buildingTractCode "GA" ;
 	rdfs:label "GA Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AE> a fs:BuildingTract ;
+	fs:buildingTractCode "AE" ;
 	rdfs:label "AE Karlstrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/EC> a fs:BuildingTract ;
+	fs:buildingTractCode "EC" ;
 	rdfs:label "EC Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/HG> a fs:BuildingTract ;
+	fs:buildingTractCode "HG" ;
 	rdfs:label "HG" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/OV> a fs:BuildingTract ;
+	fs:buildingTractCode "OV" ;
 	rdfs:label "OV ARSENAL Objekt 219" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/EB> a fs:BuildingTract ;
+	fs:buildingTractCode "EB" ;
 	rdfs:label "EB Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AH> a fs:BuildingTract ;
+	fs:buildingTractCode "AH" ;
 	rdfs:label "AH Hofpavillon" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZA> a fs:BuildingTract ;
+	fs:buildingTractCode "ZA" ;
 	rdfs:label "ZA Physiktrakt Atominst." .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/CH> a fs:BuildingTract ;
+	fs:buildingTractCode "CH" ;
 	rdfs:label "CH Bauhof" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/MA> a fs:BuildingTract ;
+	fs:buildingTractCode "MA" ;
 	rdfs:label "MA Funke-Halle (Büro)" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/MD> a fs:BuildingTract ;
+	fs:buildingTractCode "MD" ;
 	rdfs:label "MD Hirnböckhalle" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/GE> a fs:BuildingTract ;
+	fs:buildingTractCode "GE" ;
 	rdfs:label "GE Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/DD> a fs:BuildingTract ;
+	fs:buildingTractCode "DD" ;
 	rdfs:label "DD Hauptbibliothek" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/MB> a fs:BuildingTract ;
+	fs:buildingTractCode "MB" ;
 	rdfs:label "MB Funke-Halle (Werk)" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/HH> a fs:BuildingTract ;
+	fs:buildingTractCode "HH" ;
 	rdfs:label "HH" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/CB> a fs:BuildingTract ;
+	fs:buildingTractCode "CB" ;
 	rdfs:label "CB Trakt 2" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AF> a fs:BuildingTract ;
+	fs:buildingTractCode "AF" ;
 	rdfs:label "AF Panigltrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AQ> a fs:BuildingTract ;
+	fs:buildingTractCode "AQ" ;
 	rdfs:label "AQ Ödenburg" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/MC> a fs:BuildingTract ;
+	fs:buildingTractCode "MC" ;
 	rdfs:label "MC Plechaty-Halle" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/MF> a fs:BuildingTract ;
+	fs:buildingTractCode "MF" ;
 	rdfs:label "MF Transalpinahalle" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/PB> a fs:BuildingTract ;
+	fs:buildingTractCode "PB" ;
 	rdfs:label "PB Labor Fertigungstech." .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/CG> a fs:BuildingTract ;
+	fs:buildingTractCode "CG" ;
 	rdfs:label "CG Seitentrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AG> a fs:BuildingTract ;
+	fs:buildingTractCode "AG" ;
 	rdfs:label "AG Lammtrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/FB> a fs:BuildingTract ;
+	fs:buildingTractCode "FB" ;
 	rdfs:label "FB Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/BL> a fs:BuildingTract ;
+	fs:buildingTractCode "BL" ;
 	rdfs:label "BL Wirtschaftsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/QB> a fs:BuildingTract ;
+	fs:buildingTractCode "QB" ;
 	rdfs:label "QB Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/BE> a fs:BuildingTract ;
+	fs:buildingTractCode "BE" ;
 	rdfs:label "BE Lückenbau" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/CD> a fs:BuildingTract ;
+	fs:buildingTractCode "CD" ;
 	rdfs:label "CD Trakt 4" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/EA> a fs:BuildingTract ;
+	fs:buildingTractCode "EA" ;
 	rdfs:label "EA Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AS> a fs:BuildingTract ;
+	fs:buildingTractCode "AS" ;
 	rdfs:label "AS Wohnhaus" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/DC> a fs:BuildingTract ;
+	fs:buildingTractCode "DC" ;
 	rdfs:label "DC Freihaus (roter Bereich)" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AI> a fs:BuildingTract ;
+	fs:buildingTractCode "AI" ;
 	rdfs:label "AI Luftpavillon" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/PA> a fs:BuildingTract ;
+	fs:buildingTractCode "PA" ;
 	rdfs:label "PA Labor Fertigungstech." .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZC> a fs:BuildingTract ;
+	fs:buildingTractCode "ZC" ;
 	rdfs:label "ZC Reaktor" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/HE> a fs:BuildingTract ;
+	fs:buildingTractCode "HE" ;
 	rdfs:label "HE" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AD> a fs:BuildingTract ;
+	fs:buildingTractCode "AD" ;
 	rdfs:label "AD Resseltrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AK> a fs:BuildingTract ;
+	fs:buildingTractCode "AK" ;
 	rdfs:label "AK Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/BA> a fs:BuildingTract ;
+	fs:buildingTractCode "BA" ;
 	rdfs:label "BA Plus Energie Büro Hochhaus" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/HB> a fs:BuildingTract ;
+	fs:buildingTractCode "HB" ;
 	rdfs:label "HB" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/MI> a fs:BuildingTract ;
+	fs:buildingTractCode "MI" ;
 	rdfs:label "MI Segelfliegerhalle" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AA> a fs:BuildingTract ;
+	fs:buildingTractCode "AA" ;
 	rdfs:label "AA Haupttrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/PC> a fs:BuildingTract ;
+	fs:buildingTractCode "PC" ;
 	rdfs:label "PC Labor Fertigungstech." .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AP> a fs:BuildingTract ;
+	fs:buildingTractCode "AP" ;
 	rdfs:label "AP Goldenes Lamm" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/FC> a fs:BuildingTract ;
+	fs:buildingTractCode "FC" ;
 	rdfs:label "FC Hoftrakt Inst. Geb." .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/CF> a fs:BuildingTract ;
+	fs:buildingTractCode "CF" ;
 	rdfs:label "CF Hoftrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AC> a fs:BuildingTract ;
+	fs:buildingTractCode "AC" ;
 	rdfs:label "AC Mitteltrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/QA> a fs:BuildingTract ;
+	fs:buildingTractCode "QA" ;
 	rdfs:label "QA Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/BB> a fs:BuildingTract ;
+	fs:buildingTractCode "BB" ;
 	rdfs:label "BB Eckbau" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/CE> a fs:BuildingTract ;
+	fs:buildingTractCode "CE" ;
 	rdfs:label "CE Trakt 5" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/BD> a fs:BuildingTract ;
+	fs:buildingTractCode "BD" ;
 	rdfs:label "BD Hoftrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/HC> a fs:BuildingTract ;
+	fs:buildingTractCode "HC" ;
 	rdfs:label "HC" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/HF> a fs:BuildingTract ;
+	fs:buildingTractCode "HF" ;
 	rdfs:label "HF" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/DB> a fs:BuildingTract ;
+	fs:buildingTractCode "DB" ;
 	rdfs:label "DB Freihaus (gelber Bereich)" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/GB> a fs:BuildingTract ;
+	fs:buildingTractCode "GB" ;
 	rdfs:label "GB Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/BK> a fs:BuildingTract ;
+	fs:buildingTractCode "BK" ;
 	rdfs:label "BK Chemie- Neubau Keller" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/DA> a fs:BuildingTract ;
+	fs:buildingTractCode "DA" ;
 	rdfs:label "DA Freihaus (grüner Bereich)" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/OZ> a fs:BuildingTract ;
+	fs:buildingTractCode "OZ" ;
 	rdfs:label "OZ ARSENAL Objekt 214" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/BG> a fs:BuildingTract ;
+	fs:buildingTractCode "BG" ;
 	rdfs:label "BG Tiefgarage" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/HL> a fs:BuildingTract ;
+	fs:buildingTractCode "HL" ;
 	rdfs:label "HL Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/HI> a fs:BuildingTract ;
+	fs:buildingTractCode "HI" ;
 	rdfs:label "HI" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/MH> a fs:BuildingTract ;
+	fs:buildingTractCode "MH" ;
 	rdfs:label "MH Transalpinahalle NEU" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/MG> a fs:BuildingTract ;
+	fs:buildingTractCode "MG" ;
 	rdfs:label "MG Transalpinahalle NEU" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/DE> a fs:BuildingTract ;
+	fs:buildingTractCode "DE" ;
 	rdfs:label "DE Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/ME> a fs:BuildingTract ;
+	fs:buildingTractCode "ME" ;
 	rdfs:label "ME Rella Halle" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/HK> a fs:BuildingTract ;
+	fs:buildingTractCode "HK" ;
 	rdfs:label "HK Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/CC> a fs:BuildingTract ;
+	fs:buildingTractCode "CC" ;
 	rdfs:label "CC Trakt 3" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/OY> a fs:BuildingTract ;
+	fs:buildingTractCode "OY" ;
 	rdfs:label "OY ARSENAL Objekt 214" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/HD> a fs:BuildingTract ;
+	fs:buildingTractCode "HD" ;
 	rdfs:label "HD" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/FA> a fs:BuildingTract ;
+	fs:buildingTractCode "FA" ;
 	rdfs:label "FA Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AB> a fs:BuildingTract ;
+	fs:buildingTractCode "AB" ;
 	rdfs:label "AB Hoftrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/BI> a fs:BuildingTract ;
+	fs:buildingTractCode "BI" ;
 	rdfs:label "BI Chemie- Neubau" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZD> a fs:BuildingTract ;
+	fs:buildingTractCode "ZD" ;
 	rdfs:label "ZD Hörsaaltrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/CI> a fs:BuildingTract ;
+	fs:buildingTractCode "CI" ;
 	rdfs:label "CI Makartvilla" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/BC> a fs:BuildingTract ;
+	fs:buildingTractCode "BC" ;
 	rdfs:label "BC Lehartrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/AT> a fs:BuildingTract ;
+	fs:buildingTractCode "AT" ;
 	rdfs:label "AT Wohnhaus" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/HA> a fs:BuildingTract ;
+	fs:buildingTractCode "HA" ;
 	rdfs:label "HA Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/ZB> a fs:BuildingTract ;
+	fs:buildingTractCode "ZB" ;
 	rdfs:label "ZB Chemietrakt" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/BZ> a fs:BuildingTract ;
+	fs:buildingTractCode "BZ" ;
 	rdfs:label "BZ Geniegebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/BH> a fs:BuildingTract ;
+	fs:buildingTractCode "BH" ;
 	rdfs:label "BH Institutsgebäude" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/CA> a fs:BuildingTract ;
+	fs:buildingTractCode "CA" ;
 	rdfs:label "CA Trakt 1" .
 
 <http://finder.tuwien.ac.at/spatial/buildingtract/id/DF> a fs:BuildingTract ;
+	fs:buildingTractCode "DF" ;
 	rdfs:label "DF Institutsgebäude" .

@@ -3,18 +3,19 @@
 @import at.ac.tuwien.finder.dto.rdf.IResource
 @(properties: Collection[Property])
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Property</th>
-            <th>Value</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for(property <- properties) {
+<div class="col-xs-12">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <th><a href="@property.getIRI">@property.toString</a></th>
-                <th>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(property <- properties) {
+                <tr>
+                    <th><a href="@property.getIRI">@property.toString</a></th>
+                    <th>
                     @if(property.getValues.size == 1) {
                         @property.getValues.get(0) match {
                             case _ : IResource => {<a href="@property.getValues.get(0).asInstanceOf[IResource].getIRI">@property.getValues.get(0)</a>}
@@ -32,9 +33,10 @@
                         }
                         </ul>
                     }
-                </th>
-            </tr>
-        }
-    </tbody>
-</table>
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 

@@ -1,12 +1,12 @@
 @import at.ac.tuwien.finder.dto.rdf.IResource
-@import at.ac.tuwien.finder.dto.{ExceptionResourceDto, ResourceDto}
+@import at.ac.tuwien.finder.dto.{ExceptionResourceDto, ResourceDto, FeatureDto, GeometryDto}
+@import java.util
 @(path: String)(resourceDto: ResourceDto)
 
-<div class="container-fluid">
-    <div class="row">
+<section id="resource-header-section" class="row">
+    <div class="col-xs-12">
         <h1>About: <a href="@resourceDto.getIRI">@resourceDto.getLabel()</a></h1>
-        <div class="page-subheader">
-            Entity of type: @for(resource <- resourceDto.getTypes) {
+        <div class="page-subheader"> Entity of type: @for(resource <- resourceDto.getTypes) {
             @resource match {
                 case _: IResource => { <a href="@resource.asInstanceOf[IResource].getIRI">@resource</a> }
                 case _ => { @resource }
@@ -14,8 +14,19 @@
         }
         </div>
     </div>
-    @if(resourceDto.getDescription() != null) {
-        <div class="row">
+</section>
+@if(resourceDto.isInstanceOf[FeatureDto] || resourceDto.isInstanceOf[GeometryDto]) {
+    <section id="map-view-section" class="row">
+            @if(resourceDto.isInstanceOf[FeatureDto]){
+                @mapWidget(16.3699039, 48.1989798)(geometries = resourceDto.asInstanceOf[FeatureDto].getGeometryShapes.map(geometryShape => geometryShape.asWKT()).asJavaCollection)
+            }
+            @if(resourceDto.isInstanceOf[GeometryDto]) {
+                @mapWidget(16.3699039, 48.1989798)(util.Arrays.asList(resourceDto.asInstanceOf[GeometryDto].asWKT()))
+            }
+    </section>
+}
+@if(resourceDto.getDescription() != null) {
+    <section id="error-message-section" class="row">
         @resourceDto match {
             case _: ExceptionResourceDto => {
                 <div class="alert alert-danger" role="alert">
@@ -24,9 +35,9 @@
             }
             case _ => { <p class="lead">@resourceDto.getDescription()</p> }
         }
-        </div>
-    }
-    <div class="row">
+    </section>
+}
+<section id="property-table-section" class="row">
     @propertyTable(resourceDto.getProperties)
-    </div>
-</div>
+</section>
+

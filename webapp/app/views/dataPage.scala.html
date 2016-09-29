@@ -1,9 +1,9 @@
 @import at.ac.tuwien.finder.dto.rdf.Resource
-@import at.ac.tuwien.finder.dto.{CollectionDto, Dto, ResourceDto, SerializationFormat}
-@import at.ac.tuwien.finder.dto.FeatureDto
-@import at.ac.tuwien.finder.dto.GeometryDto
+@import at.ac.tuwien.finder.dto.{CollectionDto, Dto, ResourceDto, SerializationFormat, FeatureDto, GeometryDto}
 @import java.util
+@import collection.JavaConverters._
 
+@import scala.collection.JavaConversions
 @(path: String)(dto: Dto)
 
 @basic(dto.getLabel()) {
@@ -54,32 +54,15 @@
         </div>
     </nav>
     @* Main content *@
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                @dto match {
-                    case _: ResourceDto => {
-                        @resource(path)(dto.asInstanceOf[ResourceDto])
-                    }
-                    case _: CollectionDto[Resource] => {
-                        @resourceList(path)(dto.asInstanceOf[CollectionDto[Resource]])
-                    }
-                    case _ => {}
-                }
-            </div>
-        </div>
-        @if(dto.isInstanceOf[FeatureDto] || dto.isInstanceOf[GeometryDto]) {
-            <div class="row">
-                <div class="col-xs-12">
-                    @* collectionAsScalaIterable() *@
-                    @* dto.asInstanceOf[FeatureDto].getGeometryShapes().map(geometryShape => geometryShape.asWKT())) *@
-                    @dto match {
-                        case _ : FeatureDto =>  { @Html(" ") }
-                        case _ : GeometryDto => {@mapWidget(16.3699039, 48.1989798)(util.Arrays.asList(dto.asInstanceOf[GeometryDto].asWKT()))}
-                        case _ => { }
-                    }
-                </div>
-            </div>
+    <div id="data-page-main-container" class="container">
+        @dto match {
+            case _: ResourceDto => {
+                @resource(path)(dto.asInstanceOf[ResourceDto])
+            }
+            case _: CollectionDto[Resource] => {
+                @resourceList(path)(dto.asInstanceOf[CollectionDto[Resource]])
+            }
+            case _ => {}
         }
     </div>
     @* Footer bar *@

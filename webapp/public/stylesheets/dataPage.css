@@ -1,15 +1,19 @@
-html{
+html {
     position: relative !important;
     min-height: 100% !important;
 }
 
-body{
+body {
     margin: 0 0 85px !important;
 }
 
 .map-widget {
     width: 100%;
     min-height: 200px;
+}
+
+#data-page-main-container section:nth-child(n+1) {
+    margin-top: 15px;
 }
 
 .footer {

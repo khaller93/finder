@@ -11,6 +11,7 @@ import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
+import at.ac.tuwien.finder.vocabulary.GeoSPARQL;
 import org.eclipse.rdf4j.model.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,6 +76,14 @@ class BuildingResourceServiceFactory extends InternalTreeNodeServiceFactory {
         }
         return new DescribeResourceService(tripleStoreManager,
             parent.resolve(resourceId).toString()) {
+
+            @Override
+            public String getQuery() {
+                return String
+                    .format("DESCRIBE <%s> ?geometry WHERE {OPTIONAL { <%s> <%s> ?geometry .}}",
+                        resourceIdentifier().toString(), resourceIdentifier().toString(),
+                        GeoSPARQL.hasGeometry);
+            }
 
             @Override
             public Dto wrapResult(Model model) throws ServiceException {

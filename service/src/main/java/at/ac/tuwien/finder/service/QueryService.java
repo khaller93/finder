@@ -1,5 +1,7 @@
 package at.ac.tuwien.finder.service;
 
+import org.eclipse.rdf4j.query.parser.ParsedGraphQuery;
+
 /**
  * Instances of this interface represents {@link IService}s that
  *

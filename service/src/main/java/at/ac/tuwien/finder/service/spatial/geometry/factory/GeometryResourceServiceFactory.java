@@ -1,10 +1,7 @@
 package at.ac.tuwien.finder.service.spatial.geometry.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
-import at.ac.tuwien.finder.dto.LocationPointDto;
-import at.ac.tuwien.finder.dto.SimpleResourceDto;
+import at.ac.tuwien.finder.dto.*;
 import at.ac.tuwien.finder.service.*;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
@@ -67,6 +64,8 @@ class GeometryResourceServiceFactory extends InternalTreeNodeServiceFactory {
             public Dto wrapResult(Model model) throws ServiceException {
                 if(resourceId.startsWith("point:")){
                     return new LocationPointDto(resourceIdentifier(), model);
+                } else if(resourceId.startsWith("polygon:")){
+                    return new PolygonShapeDto(resourceIdentifier(), model);
                 }
                 return new SimpleResourceDto(resourceIdentifier(), model);
             }

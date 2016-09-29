@@ -6,14 +6,13 @@ import at.ac.tuwien.finder.dto.IResourceIdentifier;
 import at.ac.tuwien.finder.service.exception.ResourceNotFoundException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import org.eclipse.rdf4j.model.Model;
-import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.query.MalformedQueryException;
 import org.eclipse.rdf4j.query.QueryEvaluationException;
 import org.eclipse.rdf4j.query.QueryLanguage;
+import org.eclipse.rdf4j.query.QueryResults;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.RepositoryException;
 import org.eclipse.rdf4j.rio.RDFHandlerException;
-import org.eclipse.rdf4j.rio.helpers.StatementCollector;
 
 /**
  * This abstract class is an implementation of {@link QueryService} that returns all
@@ -55,7 +54,7 @@ public abstract class DescribeResourceService implements QueryService {
 
     @Override
     public String getQuery() {
-        return String.format("DESCRIBE <%s>", resourceIdentifier());
+        return String.format("DESCRIBE <%s>", resourceIri);
     }
 
     /**
@@ -64,11 +63,10 @@ public abstract class DescribeResourceService implements QueryService {
      * @return the result of the execution of the query given by this {@link QueryService}.
      * @throws ServiceException if the execution of the given query failed.
      */
-    public Model executeQuery() throws ServiceException {
+    private Model executeQuery() throws ServiceException {
         try (RepositoryConnection connection = tripleStoreManager.getConnection()) {
-            Model resultModel = new LinkedHashModel();
-            connection.prepareGraphQuery(QueryLanguage.SPARQL, getQuery())
-                .evaluate(new StatementCollector(resultModel));
+            Model resultModel = QueryResults
+                .asModel(connection.prepareGraphQuery(QueryLanguage.SPARQL, getQuery()).evaluate());
             if (resultModel.isEmpty()) {
                 throw new ResourceNotFoundException(
                     String.format("The resource <%s> cannot be located.", resourceIdentifier()));
@@ -86,7 +84,7 @@ public abstract class DescribeResourceService implements QueryService {
      * @return {@link Dto} that wraps the result of this {@link DescribeResourceService}.
      * @throws ServiceException if the result cannot be wrapped.
      */
-    public abstract Dto wrapResult(Model model) throws ServiceException;
+    protected abstract Dto wrapResult(Model model) throws ServiceException;
 
     @Override
     public Dto execute() throws ServiceException {

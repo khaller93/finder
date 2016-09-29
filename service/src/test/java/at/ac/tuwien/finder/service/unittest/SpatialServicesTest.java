@@ -1,8 +1,10 @@
 package at.ac.tuwien.finder.service.unittest;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import at.ac.tuwien.finder.dto.BuildingDto;
 import at.ac.tuwien.finder.dto.Dto;
 import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.LocationPointDto;
 import at.ac.tuwien.finder.service.ServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
@@ -64,12 +66,11 @@ public class SpatialServicesTest {
             RDFFormat.TRIG);
     }
 
-    private TripleStoreManager tripleStoreManager;
     private ServiceFactory serviceFactory;
 
     @Before
     public void setUp() throws Exception {
-        tripleStoreManager = mock(TripleStoreManager.class);
+        TripleStoreManager tripleStoreManager = mock(TripleStoreManager.class);
         Repository repository = new SailRepository(new MemoryStore());
         repository.initialize();
         try (RepositoryConnection connection = repository.getConnection()) {
@@ -80,7 +81,7 @@ public class SpatialServicesTest {
     }
 
     @Test
-    public void get_building_with_id_ok()
+    public void getBuildingWithId_ok()
         throws ServiceException, IRIUnknownException, IRIInvalidException {
         IRI buildingA = valueFactory.createIRI(BASE.stringValue(), "spatial/building/id/A");
         Model result =
@@ -97,7 +98,26 @@ public class SpatialServicesTest {
     }
 
     @Test
-    public void get_tracts_of_building_with_id_ok()
+    public void getGeometryOfBuilding_ok() throws Exception {
+        Dto resultDto =
+            serviceFactory.getService(BASE_IRI, getPathScanner("spatial/building/id/H"), null)
+                .execute();
+        assertThat("The result of requesting a building resource must be a BuildingDto.", resultDto,
+            instanceOf(BuildingDto.class));
+        BuildingDto buildingHDto = (BuildingDto) resultDto;
+        assertThat(
+            "The label of the building with id H must be 'Building of the informatics institute'.",
+            buildingHDto.getLabel(), is("Building of the informatics institute"));
+        assertThat("There must be at least a location point.", buildingHDto.getGeometryShapes(),
+            hasSize(greaterThan(0)));
+        assertThat(buildingHDto.getLocations().stream().map(LocationPointDto::asWKT).findFirst()
+            .orElse(null), is("POINT(16.3701504 48.19490159999999)"));
+    }
+
+
+
+    @Test
+    public void getTractsOfBuildingWithId_ok()
         throws ServiceException, IRIInvalidException, IRIUnknownException {
         Dto resultDto = serviceFactory
             .getService(BASE_IRI, getPathScanner("spatial/building/id/DABC/buildingtracts"), null)
@@ -115,14 +135,14 @@ public class SpatialServicesTest {
     }
 
     @Test(expected = ResourceNotFoundException.class)
-    public void get_building_with_unknown_id_throws_ResourceNotFoundException()
+    public void getBuildingWithUnknownId_throwsResourceNotFoundException()
         throws ServiceException, IRIUnknownException, IRIInvalidException {
         serviceFactory.getService(BASE_IRI, getPathScanner("spatial/building/id/ABC"), null)
             .execute();
     }
 
     @Test
-    public void get_buildingtract_with_id_ok()
+    public void getBuildingtractWithId_ok()
         throws ServiceException, IRIInvalidException, IRIUnknownException {
         IRI buildingTractAA =
             valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/AA");
@@ -139,14 +159,14 @@ public class SpatialServicesTest {
     }
 
     @Test(expected = ResourceNotFoundException.class)
-    public void get_buildingtract_with_unknown_id_throws_ResourceNotFoundException()
+    public void getBuildingtractWithUnknownId_throwsResourceNotFoundException()
         throws IRIInvalidException, IRIUnknownException, ServiceException {
         serviceFactory.getService(BASE_IRI, getPathScanner("spatial/buildingtract/id/ABCD"), null)
             .execute();
     }
 
     @Test
-    public void get_floor_with_id_ok()
+    public void getFloorWithId_ok()
         throws ServiceException, IRIUnknownException, IRIInvalidException {
         IRI floorAA03 = valueFactory.createIRI(BASE.stringValue(), "spatial/floor/id/AA03");
         Model result =
@@ -160,14 +180,14 @@ public class SpatialServicesTest {
     }
 
     @Test(expected = ResourceNotFoundException.class)
-    public void get_floor_with_unknown_id_throws_ResourceNotFoundException()
+    public void getFloorWithUnknownId_throwsResourceNotFoundException()
         throws IRIInvalidException, IRIUnknownException, ServiceException {
         serviceFactory.getService(BASE_IRI, getPathScanner("spatial/floor/id/ABCD01"), null)
             .execute();
     }
 
     @Test
-    public void get_address_with_id_ok()
+    public void getAddressWithId_ok()
         throws IRIInvalidException, IRIUnknownException, ServiceException {
         IRI addressKarlsplatz = valueFactory.createIRI(BASE.stringValue(),
             "spatial/address/id/AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13");
@@ -179,20 +199,20 @@ public class SpatialServicesTest {
             result.subjects().contains(addressKarlsplatz));
         assertThat(
             String.format("Resource <%s> has locn:postCode '1040'.", addressKarlsplatz.toString()),
-            Models.objectLiteral(result.filter(addressKarlsplatz, LOCN.fullAddress, null)).get()
-                .stringValue(), is("Karlsplatz 13, 1040 Wien, Österreich"));
+            Models.objectLiteral(result.filter(addressKarlsplatz, LOCN.fullAddress, null))
+                .orElse(null).stringValue(), is("Karlsplatz 13, 1040 Wien, Österreich"));
         assertThat(
             String.format("Resource <%s> has locn:postCode '1040'.", addressKarlsplatz.toString()),
-            Models.objectLiteral(result.filter(addressKarlsplatz, LOCN.postCode, null)).get()
+            Models.objectLiteral(result.filter(addressKarlsplatz, LOCN.postCode, null)).orElse(null)
                 .stringValue(), is("1040"));
         assertThat(
             String.format("Resource <%s> has locn:poBox '13'.", addressKarlsplatz.toString()),
             Models.objectLiteral(result.filter(addressKarlsplatz, LOCN.locatorDesignator, null))
-                .get().stringValue(), is("13"));
+                .orElse(null).stringValue(), is("13"));
     }
 
     @Test(expected = ResourceNotFoundException.class)
-    public void get_address_with_unknown_id_throws_IRIUnknownException()
+    public void getAddressWithUnknownId_throwsIRIUnknownException()
         throws ServiceException, IRIUnknownException, IRIInvalidException {
         serviceFactory.getService(BASE_IRI,
             getPathScanner("spatial/address/id/DE1100-1c56fcbcb8725edda11e2c76a1d21c77-na"), null)

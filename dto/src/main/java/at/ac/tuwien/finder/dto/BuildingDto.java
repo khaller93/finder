@@ -6,8 +6,8 @@ import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * This class is an implementation of {@link FeatureDto} that represents a building.
@@ -37,11 +37,20 @@ public class BuildingDto extends AbstractResourceDto implements FeatureDto {
         return getModel().filter(null, RDF.TYPE, SF.Point).subjects().stream()
             .filter(resource -> resource instanceof IRI).map(
                 resource -> new LocationPointDto(new IResourceIdentifier(resource.stringValue()),
-                    getModel())).collect(Collectors.toSet());
+                    getModel().filter(resource, null, null))).collect(Collectors.toSet());
     }
 
     @Override
     public Collection<GeometryDto> getGeometryShapes() {
-        return new LinkedList<>(getLocations());
+        return Stream.concat(getLocations().stream(), getIndoorPlanShape().stream())
+            .collect(Collectors.toList());
+    }
+
+
+    public Collection<PolygonShapeDto> getIndoorPlanShape() {
+        return getModel().filter(null, RDF.TYPE, SF.Polygon).subjects().stream()
+            .filter(resource -> resource instanceof IRI).map(
+                resource -> new PolygonShapeDto(new IResourceIdentifier(resource.stringValue()),
+                    getModel().filter(resource, null, null))).collect(Collectors.toSet());
     }
 }

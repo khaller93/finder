@@ -18,7 +18,6 @@ public class Property extends IResource {
 
     public Property(IRI resourceIRI, Collection<Value> values) {
         super(resourceIRI);
-        System.out.println(String.format("%s: %s", resourceIRI, values));
         this.values = new LinkedList<>();
         for (Value value : values) {
             if (value instanceof org.eclipse.rdf4j.model.Literal) {

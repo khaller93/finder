@@ -1,21 +1,19 @@
-
 @import java.util
 @(centerLong: Double, centerLat: Double)(geometries: util.Collection[String])
 @* Section for the map view of geometries. *@
-<div id="map-w" class="col-xs-12 map-widget">
-</div>
-@Html("Geometries:"+geometries)
+<div id="map-w" class="col-xs-12 map-widget"></div>
 @* Javascript managing the variables for displaying the geometry (special, not to cache)*@
 <script type="text/javascript">
-        var mapInfo = new FinderMapInformation({'long':@centerLong.toString, 'lat':@centerLat.toString},
+        var mapInfo = new FinderMapInformation({
+                    'long':@centerLong.toString,
+                    'lat':@centerLat.toString
+                },
                 [@Html(geometries.map(geometry => "\""+geometry+"\"").mkString(","))]);
-        var geometries = [@Html(geometries.map(geometry => "\""+geometry+"\"").mkString(","))];
-        var centerLongitude = @centerLong.toString;
-        var centerLatitude = @centerLat.toString;
 </script>
 @* Generic code for presenting the given geometries. *@
 <script type="text/javascript">
-        new ol.Map({
+        var features = mapInfo.transformGeometriesToFeatures();
+        var mapWidget = new ol.Map({
             target: 'map-w',
             layers: [
                 new ol.layer.Tile({
@@ -23,13 +21,17 @@
                 }),
                 new ol.layer.Vector({
                     source: new ol.source.Vector({
-                        features: mapInfo.transformGeometriesToFeatures()
+                        features: features
                     })
                 })
             ],
             view: new ol.View({
-                center: ol.proj.fromLonLat([centerLongitude, centerLatitude]),
-                zoom: 17
+                center: ol.proj.fromLonLat([mapInfo.center['long'], mapInfo.center['lat']]),
+                zoom: 18
             })
         });
+        @* Centers the map widget to the geometry of the first feature. *@
+        if (features.length > 0) {
+            mapWidget.getView().fit(features[0].getGeometry(), mapWidget.getSize(), {'maxZoom': 18});
+        }
 </script>

@@ -1,14 +1,21 @@
-@import at.ac.tuwien.finder.dto.rdf.IResource
+@import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier
 @import at.ac.tuwien.finder.dto.{ExceptionResourceDto, ResourceDto, FeatureDto, GeometryDto}
 @import java.util
 @(path: String)(resourceDto: ResourceDto)
 
 <section id="resource-header-section" class="row">
     <div class="col-xs-12">
-        <h1>About: <a href="@resourceDto.getIRI">@resourceDto.getLabel()</a></h1>
+        <h1>About: <a href="@resourceDto.getIRI">
+        @if(resourceDto.getLabel() != null && resourceDto.getLabel.length > 0){
+            @resourceDto.getLabel()
+        } else {
+            @resourceDto
+        }
+        </a>
+        </h1>
         <div class="page-subheader"> Entity of type: @for(resource <- resourceDto.getTypes) {
             @resource match {
-                case _: IResource => { <a href="@resource.asInstanceOf[IResource].getIRI">@resource</a> }
+                case _: IResourceIdentifier => { <a href="@resource.asInstanceOf[IResourceIdentifier].rawIRI">@resource</a> }
                 case _ => { @resource }
             },
         }
@@ -18,10 +25,10 @@
 @if(resourceDto.isInstanceOf[FeatureDto] || resourceDto.isInstanceOf[GeometryDto]) {
     <section id="map-view-section" class="row">
             @if(resourceDto.isInstanceOf[FeatureDto]){
-                @mapWidget(16.3699039, 48.1989798)(geometries = resourceDto.asInstanceOf[FeatureDto].getGeometryShapes.map(geometryShape => geometryShape.asWKT()).asJavaCollection)
+                @mapWidget(geometries = resourceDto.asInstanceOf[FeatureDto].getGeometryShapes.map(geometryShape => geometryShape.asWKT()).asJavaCollection)
             }
             @if(resourceDto.isInstanceOf[GeometryDto]) {
-                @mapWidget(16.3699039, 48.1989798)(util.Arrays.asList(resourceDto.asInstanceOf[GeometryDto].asWKT()))
+                @mapWidget(util.Arrays.asList(resourceDto.asInstanceOf[GeometryDto].asWKT()))
             }
     </section>
 }

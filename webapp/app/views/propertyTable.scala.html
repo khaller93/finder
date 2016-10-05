@@ -1,6 +1,6 @@
 @import java.util.Collection
-@import at.ac.tuwien.finder.dto.rdf.{Literal, Property, Resource}
-@import at.ac.tuwien.finder.dto.rdf.IResource
+@import at.ac.tuwien.finder.dto.rdf.Property
+@import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier
 @(properties: Collection[Property])
 
 <div class="col-xs-12">
@@ -14,11 +14,11 @@
         <tbody>
             @for(property <- properties) {
                 <tr>
-                    <th><a href="@property.getIRI">@property.toString</a></th>
+                    <th><a href="@property.rawIRI()">@property.toString</a></th>
                     <th>
                     @if(property.getValues.size == 1) {
                         @property.getValues.get(0) match {
-                            case _ : IResource => {<a href="@property.getValues.get(0).asInstanceOf[IResource].getIRI">@property.getValues.get(0)</a>}
+                            case _ : IResourceIdentifier => {<a href="@property.getValues.get(0).asInstanceOf[IResourceIdentifier].rawIRI">@property.getValues.get(0)</a>}
                             case _ => {@property.getValues.get(0)}
                         }
                     } else {
@@ -26,7 +26,7 @@
                         @for(vObject <- property.getValues) {
                             <li>
                             @vObject match {
-                                case _ : IResource => {<a href="@vObject.asInstanceOf[IResource].getIRI">@vObject</a>}
+                                case _ : IResourceIdentifier => {<a href="@vObject.asInstanceOf[IResourceIdentifier].rawIRI">@vObject</a>}
                                 case _ => {@vObject}
                             }
                             </li>

@@ -1,6 +1,6 @@
 @import at.ac.tuwien.finder.dto.{CollectionDto}
 @import at.ac.tuwien.finder.dto.rdf.Resource
-@import at.ac.tuwien.finder.dto.rdf.IResource
+@import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier
 @(path: String)(collectionDto: CollectionDto[Resource])
 
 @basic(collectionDto.getLabel()) {
@@ -10,7 +10,7 @@
 } {
     <div class="container-fluid">
         <div class="row">
-            <h1>Bag: <a href="@collectionDto.getIRI">@collectionDto.getLabel()</a></h1>
+            <h1>Bag: <a href="@collectionDto.getIRI.rawIRI()">@collectionDto.getLabel()</a></h1>
         </div>
         <div class="row">
             <table class="table">
@@ -26,9 +26,10 @@
                             <th>@count</th>
                             <th>
                                 @entry match {
-                                    case _ : IResource => { <a href="@entry.asInstanceOf[IResource].getIRI">@entry</a> }
+                                    case _ : IResourceIdentifier => { <a href="@entry.asInstanceOf[IResourceIdentifier].rawIRI">@entry</a> }
                                     case _  => { @entry }
                                 }
+                            </th>
                         </tr>
                     }
                 </tbody>

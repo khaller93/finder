@@ -1,12 +1,12 @@
 @import java.util
-@(centerLong: Double, centerLat: Double)(geometries: util.Collection[String])
+@(geometries: util.Collection[String])
 @* Section for the map view of geometries. *@
 <div id="map-w" class="col-xs-12 map-widget"></div>
 @* Javascript managing the variables for displaying the geometry (special, not to cache)*@
 <script type="text/javascript">
         var mapInfo = new FinderMapInformation({
-                    'long':@centerLong.toString,
-                    'lat':@centerLat.toString
+                    'long': 16.3699039,
+                    'lat': 48.1989798
                 },
                 [@Html(geometries.map(geometry => "\""+geometry+"\"").mkString(","))]);
 </script>

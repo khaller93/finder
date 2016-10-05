@@ -1,6 +1,6 @@
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.BuildingDto;
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.ServiceFactory;
 import controllers.APIController;
 import org.eclipse.rdf4j.common.iteration.Iterations;

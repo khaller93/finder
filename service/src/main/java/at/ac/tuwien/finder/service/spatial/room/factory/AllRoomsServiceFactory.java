@@ -1,7 +1,7 @@
 package at.ac.tuwien.finder.service.spatial.room.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
@@ -39,11 +39,11 @@ public class AllRoomsServiceFactory implements IServiceFactory {
     public IService getService(IResourceIdentifier parent, Scanner pathScanner, Map<String, String> parameterMap)
         throws IRIInvalidException, IRIUnknownException {
         if (!pathScanner.hasNext()) {
-            return new AllRoomsService(tripleStoreManager, parent.toString());
+            return new AllRoomsService(tripleStoreManager, parent.rawIRI());
         } else {
             throw new IRIUnknownException(String
                 .format("'%s' does not expect any further path segments. '%s' is not valid.",
-                    parent.toString(), parent.resolve(pathScanner.next()).toString()));
+                    parent.rawIRI(), parent.resolve(pathScanner.next()).rawIRI()));
         }
     }
 

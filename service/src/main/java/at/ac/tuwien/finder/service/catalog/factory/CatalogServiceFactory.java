@@ -2,7 +2,7 @@ package at.ac.tuwien.finder.service.catalog.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.datamanagement.catalog.DataCatalog;
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.GraphDatasetService;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
@@ -40,7 +40,7 @@ public class CatalogServiceFactory implements IServiceFactory {
         } else {
             throw new IRIUnknownException(String
                 .format("'%s' does not expect any further path segments. '%s' is not valid.",
-                    parent.toString(), parent.resolve(pathScanner.next()).toString()));
+                    parent.rawIRI(), parent.resolve(pathScanner.next()).rawIRI()));
         }
     }
 

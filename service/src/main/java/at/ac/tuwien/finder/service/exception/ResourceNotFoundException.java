@@ -14,16 +14,6 @@ public class ResourceNotFoundException extends ServiceException {
      *
      * @param resourceUri the URI for which the resource cannot be found in the knowledge base.
      */
-    public ResourceNotFoundException(String resourceUri) {
-        super();
-        this.resourceUri = resourceUri;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param resourceUri the URI for which the resource cannot be found in the knowledge base.
-     */
     public ResourceNotFoundException(String message, String resourceUri) {
         super(message);
         this.resourceUri = resourceUri;

@@ -2,7 +2,7 @@ package at.ac.tuwien.finder.service;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.datamanagement.integration.exception.TripleStoreManagerException;
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.catalog.factory.CatalogServiceFactory;
 import at.ac.tuwien.finder.service.event.EventServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;

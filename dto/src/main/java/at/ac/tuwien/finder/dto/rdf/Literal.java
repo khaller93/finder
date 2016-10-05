@@ -26,7 +26,7 @@ public class Literal implements Object {
     }
 
     public Resource getDatatype() {
-        return new IResource(literal.getDatatype());
+        return new IResourceIdentifier(literal.getDatatype());
     }
 
     @Override

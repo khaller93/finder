@@ -1,7 +1,7 @@
 package at.ac.tuwien.finder.service.spatial.floor.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
 import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
@@ -61,6 +61,6 @@ public class FloorResourceServiceFactory extends InternalTreeNodeServiceFactory 
                 super.pushParameter(parameter, "id", newParent.toString()));
         }
         return new SimpleDescribeResourceService(tripleStoreManager,
-            parent.resolve(resourceId).toString());
+            parent.resolve(resourceId).rawIRI());
     }
 }

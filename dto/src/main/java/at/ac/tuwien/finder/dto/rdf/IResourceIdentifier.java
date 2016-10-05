@@ -1,5 +1,6 @@
-package at.ac.tuwien.finder.dto;
+package at.ac.tuwien.finder.dto.rdf;
 
+import at.ac.tuwien.finder.dto.util.Namespaces;
 import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 
@@ -9,7 +10,7 @@ import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
  * @author Kevin Haller
  * @see <a href="https://tools.ietf.org/html/rfc3987">Internationalized Resource Identifiers</a>
  */
-public class IResourceIdentifier {
+public class IResourceIdentifier extends Resource {
 
     private IRI value;
 
@@ -24,12 +25,13 @@ public class IResourceIdentifier {
     }
 
     /**
-     * Creates a new instance of {@link IResourceIdentifier}.
+     * Creates a new instance of {@link IResourceIdentifier} from the given string.
      *
-     * @param value {@link org.eclipse.rdf4j.model.IRI} that shall
+     * @param iri {@link IRI} from which a {@link IResourceIdentifier} shall be
+     *            created.
      */
-    private IResourceIdentifier(IRI value) {
-        this.value = value;
+    public IResourceIdentifier(IRI iri) {
+        this.value = iri;
     }
 
     /**
@@ -48,12 +50,21 @@ public class IResourceIdentifier {
      *
      * @return the wrapped {@link IRI} value.
      */
-    IRI iriValue() {
+    public IRI iriValue() {
         return value;
+    }
+
+    /**
+     * Gets the raw {@link IRI} string of this {@link IResourceIdentifier}.
+     *
+     * @return the raw {@link IRI} string of this {@link IResourceIdentifier}.
+     */
+    public String rawIRI() {
+        return value.stringValue();
     }
 
     @Override
     public String toString() {
-        return value.stringValue();
+        return Namespaces.format(value.stringValue(), value.getNamespace(), value.getLocalName());
     }
 }

@@ -1,6 +1,6 @@
 package at.ac.tuwien.finder.service;
 
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 
@@ -45,7 +45,7 @@ public abstract class InternalTreeNodeServiceFactory implements IServiceFactory 
         Map<String, String> parameterMap) throws IRIInvalidException, IRIUnknownException {
         if (!pathScanner.hasNext()) {
             throw new IRIUnknownException(
-                String.format("There is no service assigned to '%s'.", parent.toString()));
+                String.format("There is no service assigned to '%s'.", parent.rawIRI()));
         }
         String pathSegment = pathScanner.next();
         IResourceIdentifier newParent = parent.resolve(pathSegment + "/");
@@ -53,7 +53,7 @@ public abstract class InternalTreeNodeServiceFactory implements IServiceFactory 
         if (!serviceFactoryMap.containsKey(pathSegment)) {
             throw new IRIUnknownException(String.format(
                 "The given IRI '%s' is not valid. Possible continuations of '%s' are ../%s.",
-                newParent.toString(), parent.toString(),
+                newParent.rawIRI(), parent.rawIRI(),
                 String.join(", ../", getServiceFactoryMap().keySet())));
         }
         return serviceFactoryMap.get(pathSegment).getService(newParent, pathScanner, parameterMap);

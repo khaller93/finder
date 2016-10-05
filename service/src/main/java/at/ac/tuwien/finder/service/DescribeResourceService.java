@@ -2,7 +2,7 @@ package at.ac.tuwien.finder.service;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.exception.ResourceNotFoundException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import org.eclipse.rdf4j.model.Model;
@@ -23,7 +23,7 @@ import org.eclipse.rdf4j.rio.RDFHandlerException;
  */
 public abstract class DescribeResourceService implements QueryService {
 
-    private IResourceIdentifier resourceIri;
+    private IResourceIdentifier resourceIdentifier;
     private TripleStoreManager tripleStoreManager;
 
     /**
@@ -40,7 +40,7 @@ public abstract class DescribeResourceService implements QueryService {
         assert tripleStoreManager != null;
         assert resourceIri != null;
         this.tripleStoreManager = tripleStoreManager;
-        this.resourceIri = new IResourceIdentifier(resourceIri);
+        this.resourceIdentifier = new IResourceIdentifier(resourceIri);
     }
 
     /**
@@ -49,12 +49,12 @@ public abstract class DescribeResourceService implements QueryService {
      * @return the {@link IResourceIdentifier} of the resource that shall be described.
      */
     public IResourceIdentifier resourceIdentifier() {
-        return resourceIri;
+        return resourceIdentifier;
     }
 
     @Override
     public String getQuery() {
-        return String.format("DESCRIBE <%s>", resourceIri);
+        return String.format("DESCRIBE <%s>", resourceIdentifier.rawIRI());
     }
 
     /**
@@ -68,8 +68,8 @@ public abstract class DescribeResourceService implements QueryService {
             Model resultModel = QueryResults
                 .asModel(connection.prepareGraphQuery(QueryLanguage.SPARQL, getQuery()).evaluate());
             if (resultModel.isEmpty()) {
-                throw new ResourceNotFoundException(
-                    String.format("The resource <%s> cannot be located.", resourceIdentifier()));
+                throw new ResourceNotFoundException(resourceIdentifier.rawIRI(), String
+                    .format("The resource <%s> cannot be located.", resourceIdentifier().rawIRI()));
             }
             return resultModel;
         } catch (RepositoryException | MalformedQueryException | QueryEvaluationException | RDFHandlerException e) {

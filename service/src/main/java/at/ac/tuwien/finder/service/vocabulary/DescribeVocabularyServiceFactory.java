@@ -1,6 +1,6 @@
 package at.ac.tuwien.finder.service.vocabulary;
 
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
@@ -29,7 +29,7 @@ class DescribeVocabularyServiceFactory implements IServiceFactory {
         Map<String, String> parameterMap) throws IRIInvalidException, IRIUnknownException {
         if (pathScanner.hasNext()) {
             throw new IRIUnknownException(String.format("No service is assigned to '%s'.",
-                parent.resolve(pathScanner.next()).toString()));
+                parent.resolve(pathScanner.next()).rawIRI()));
         }
         return new DescribeVocabularyService(localVocabName);
     }

@@ -3,7 +3,7 @@ package at.ac.tuwien.finder.service.spatial.building.factory;
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.BuildingDto;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.DescribeResourceService;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
@@ -72,16 +72,16 @@ class BuildingResourceServiceFactory extends InternalTreeNodeServiceFactory {
         String resourceId = pathScanner.next();
         if (pathScanner.hasNext()) {
             return super.getService(parent.resolve(resourceId + "/"), pathScanner,
-                super.pushParameter(parameter, "id", parent.resolve(resourceId).toString()));
+                super.pushParameter(parameter, "id", parent.resolve(resourceId).rawIRI()));
         }
         return new DescribeResourceService(tripleStoreManager,
-            parent.resolve(resourceId).toString()) {
+            parent.resolve(resourceId).rawIRI()) {
 
             @Override
             public String getQuery() {
                 return String
                     .format("DESCRIBE <%s> ?geometry WHERE {OPTIONAL { <%s> <%s> ?geometry .}}",
-                        resourceIdentifier().toString(), resourceIdentifier().toString(),
+                        resourceIdentifier().rawIRI(), resourceIdentifier().rawIRI(),
                         GeoSPARQL.hasGeometry);
             }
 

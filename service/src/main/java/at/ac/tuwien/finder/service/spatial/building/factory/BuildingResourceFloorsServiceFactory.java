@@ -1,7 +1,7 @@
 package at.ac.tuwien.finder.service.spatial.building.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
@@ -50,12 +50,12 @@ public class BuildingResourceFloorsServiceFactory implements IServiceFactory {
             if (parameterMap == null || !parameterMap.containsKey("id")) {
                 throw new IRIUnknownException("Id is not given.");
             }
-            return new UnitsOfBuildingService(tripleStoreManager, parent.toString(), "Floor",
+            return new UnitsOfBuildingService(tripleStoreManager, parent.rawIRI(), "Floor",
                 parameterMap.get("id"), TUVS.Floor.stringValue());
         } else {
             throw new IRIUnknownException(String
                 .format("'%s' does not expect any further path segments. '%s' is not valid.",
-                    parent.toString(), parent.resolve(pathScanner.next())));
+                    parent.rawIRI(), parent.resolve(pathScanner.next()).rawIRI()));
         }
     }
 }

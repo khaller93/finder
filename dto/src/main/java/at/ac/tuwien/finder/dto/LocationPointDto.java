@@ -1,5 +1,6 @@
 package at.ac.tuwien.finder.dto;
 
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.vocabulary.GeoSPARQL;
 import org.eclipse.rdf4j.model.Literal;
 import org.eclipse.rdf4j.model.Model;

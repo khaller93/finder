@@ -1,12 +1,11 @@
 package at.ac.tuwien.finder.service.spatial.buildingtract.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.*;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -56,8 +55,8 @@ class BuildingTractResourceServiceFactory extends InternalTreeNodeServiceFactory
         IResourceIdentifier newParent = parent.resolve(resourceId);
         if (pathScanner.hasNext()) {
             return super.getService(newParent, pathScanner,
-                super.pushParameter(parameter, "id", newParent.toString()));
+                super.pushParameter(parameter, "id", newParent.rawIRI()));
         }
-        return new SimpleDescribeResourceService(tripleStoreManager, newParent.toString());
+        return new SimpleDescribeResourceService(tripleStoreManager, newParent.rawIRI());
     }
 }

@@ -2,6 +2,7 @@ package at.ac.tuwien.finder.service.spatial.geometry.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.*;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.*;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
@@ -56,10 +57,10 @@ class GeometryResourceServiceFactory extends InternalTreeNodeServiceFactory {
         if (pathScanner.hasNext()) {
             IResourceIdentifier newParent = parent.resolve(resourceId + "/");
             return super.getService(newParent, pathScanner,
-                super.pushParameter(parameter, "id", newParent.toString()));
+                super.pushParameter(parameter, "id", newParent.rawIRI()));
         }
         return new DescribeResourceService(tripleStoreManager,
-            parent.resolve(resourceId).toString()) {
+            parent.resolve(resourceId).rawIRI()) {
             @Override
             public Dto wrapResult(Model model) throws ServiceException {
                 if(resourceId.startsWith("point:")){

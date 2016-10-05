@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @æuthor Kevin Haller
  */
-public class Property extends IResource {
+public class Property extends IResourceIdentifier {
 
     private List<Object> values;
 

@@ -1,5 +1,6 @@
 package at.ac.tuwien.finder.dto;
 
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.dto.rdf.Resource;
 import at.ac.tuwien.finder.dto.util.RDFUtils;
 import at.ac.tuwien.finder.vocabulary.SCHEMA;

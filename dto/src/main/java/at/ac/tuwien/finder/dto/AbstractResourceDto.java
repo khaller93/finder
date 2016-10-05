@@ -1,5 +1,6 @@
 package at.ac.tuwien.finder.dto;
 
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.dto.rdf.Property;
 import at.ac.tuwien.finder.dto.util.RDFUtils;
 import at.ac.tuwien.finder.vocabulary.SCHEMA;
@@ -58,27 +59,27 @@ public abstract class AbstractResourceDto implements ResourceDto {
 
     @Override
     public String getLabel(String preferredLanguageCode) {
-        return RDFUtils.getFirstLiteralFor(getModel(), valueFactory.createIRI(getIRI().toString()),
+        return RDFUtils.getFirstLiteralFor(getModel(), valueFactory.createIRI(getIRI().rawIRI()),
             preferredLanguageCode, LABEL_PROPERTIES).orElse(null);
     }
 
     @Override
     public String getDescription(String preferredLanguageCode) {
-        return RDFUtils.getFirstLiteralFor(getModel(), valueFactory.createIRI(getIRI().toString()),
+        return RDFUtils.getFirstLiteralFor(getModel(), valueFactory.createIRI(getIRI().rawIRI()),
             preferredLanguageCode, COMMENT_PROPERTIES).orElse(null);
     }
 
     @Override
     public Set<Property> getProperties() {
-        return model.filter(valueFactory.createIRI(getIRI().toString()), null, null).predicates()
+        return model.filter(valueFactory.createIRI(getIRI().rawIRI()), null, null).predicates()
             .stream().map(predicate -> new Property(predicate,
-                model.filter(valueFactory.createIRI(getIRI().toString()), predicate, null)
+                model.filter(valueFactory.createIRI(getIRI().rawIRI()), predicate, null)
                     .objects())).collect(Collectors.toSet());
     }
 
     @Override
     public Set<at.ac.tuwien.finder.dto.rdf.Resource> getTypes() {
-        return model.filter(valueFactory.createIRI(getIRI().toString()), RDF.TYPE, null).objects()
+        return model.filter(valueFactory.createIRI(getIRI().rawIRI()), RDF.TYPE, null).objects()
             .stream().filter(value -> value instanceof Resource)
             .map(value -> at.ac.tuwien.finder.dto.rdf.Resource.createResource((Resource) value))
             .collect(Collectors.toSet());

@@ -1,7 +1,7 @@
 package at.ac.tuwien.finder.service.vocabulary;
 
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.dto.SimpleResourceDto;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.exception.ServiceException;

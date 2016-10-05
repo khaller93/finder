@@ -1,6 +1,6 @@
 package at.ac.tuwien.finder.service.vocabulary;
 
-import at.ac.tuwien.finder.dto.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
 import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
@@ -47,7 +47,7 @@ public class VocabularyServiceFactory extends InternalTreeNodeServiceFactory {
             return super.getService(parent, pathScanner, parameterMap);
         } else {
             throw new IRIUnknownException(
-                String.format("Not implemented yet ! (%s)", parent.toString()));
+                String.format("Not implemented yet ! (%s)", parent.rawIRI()));
         }
     }
 

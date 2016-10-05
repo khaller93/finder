@@ -1,5 +1,6 @@
 package at.ac.tuwien.finder.dto;
 
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import org.eclipse.rdf4j.model.Model;
 
 /**

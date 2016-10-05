@@ -87,7 +87,7 @@ public class APIUnitTest extends WithApplication {
         assertEquals("text/html", dataPageContent.contentType());
         assertThat(
             "The building label with the code H must be 'Building of the informatic institute'.",
-            dataPageContent.body(), containsString("Building of the informatics institute"));
+            dataPageContent.body(), containsString("Building of the informatic institute"));
         assertThat("Building must have the property value 'tuvs:Building'.", dataPageContent.body(),
             containsString("tuvs:Building"));
     }

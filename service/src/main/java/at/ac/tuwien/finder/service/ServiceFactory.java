@@ -9,6 +9,7 @@ import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import at.ac.tuwien.finder.service.organizational.OrganizationalServiceFactory;
+import at.ac.tuwien.finder.service.search.factory.SearchServiceFactory;
 import at.ac.tuwien.finder.service.spatial.SpatialServiceFactory;
 import at.ac.tuwien.finder.service.vocabulary.VocabularyServiceFactory;
 import org.slf4j.Logger;
@@ -70,6 +71,8 @@ public class ServiceFactory extends InternalTreeNodeServiceFactory implements Au
             .put(VocabularyServiceFactory.getManagedPathName(), new VocabularyServiceFactory());
         serviceFactoryMap.put(CatalogServiceFactory.getManagedPathName(),
             new CatalogServiceFactory(tripleStoreManager));
+        serviceFactoryMap.put(SearchServiceFactory.getManagedPathName(),
+            new SearchServiceFactory(tripleStoreManager));
         logger.debug("Factory map of services initialized: ../{}",
             String.join(", ../ ", serviceFactoryMap.keySet()));
     }

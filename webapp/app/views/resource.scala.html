@@ -5,11 +5,11 @@
 
 <section id="resource-header-section" class="row">
     <div class="col-xs-12">
-        <h1>About: <a href="@resourceDto.getIRI">
+        <h1>About: <a href="@resourceDto.getIRI.rawIRI()">
         @if(resourceDto.getLabel() != null && resourceDto.getLabel.length > 0){
             @resourceDto.getLabel()
         } else {
-            @resourceDto
+            @resourceDto.getIRI
         }
         </a>
         </h1>

@@ -10,7 +10,14 @@
 } {
     <div class="container-fluid">
         <div class="row">
-            <h1>Bag: <a href="@collectionDto.getIRI.rawIRI()">@collectionDto.getLabel()</a></h1>
+            <h1>Bag: <a href="@collectionDto.getIRI.rawIRI()">
+                    @if(collectionDto.getLabel() != null && collectionDto.getLabel().length > 0) {
+                        @collectionDto.getLabel()
+                    } else {
+                        @collectionDto.getIRI
+                    }
+                </a>
+            </h1>
         </div>
         <div class="row">
             <table class="table">

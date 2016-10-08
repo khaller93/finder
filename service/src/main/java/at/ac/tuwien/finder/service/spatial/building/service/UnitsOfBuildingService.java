@@ -62,7 +62,7 @@ public class UnitsOfBuildingService implements IService {
         this.unitName = unitName;
         this.unitsOfBuildingsIRI = valueFactory.createIRI(unitsOfBuildingsUri);
         this.unitsOfBuildingQuery = String
-            .format("SELECT ?unit WHERE { <%s> a <%s> ; <%s> ?unit . ?unit a <%s> . }", resourceUri,
+            .format("SELECT DISTINCT ?unit WHERE { <%s> a <%s> ; <%s> ?unit . ?unit a <%s> . }", resourceUri,
                 TUVS.Building.stringValue(), TUVS.containsBuildingUnit.stringValue(),
                 buildingUnitTypeUri);
         logger.debug("Query for getting {} of buildings: {}", buildingUnitTypeUri,

@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 public class AllRoomsService implements IService {
 
     private final static String ALL_ROOMS_QUERY =
-        String.format("SELECT ?room WHERE { ?room a <%s> . }", TUVS.Room.stringValue());
+        String.format("SELECT DISTINCT ?room WHERE { ?room a <%s> . }", TUVS.Room.stringValue());
 
     private TripleStoreManager tripleStoreManager;
     private IRI roomsIri;

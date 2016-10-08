@@ -5,7 +5,6 @@ import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.*;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
-import at.ac.tuwien.finder.service.spatial.floor.factory.FloorResourceServiceFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +23,7 @@ public class AddressResourceServiceFactory extends InternalTreeNodeServiceFactor
     private TripleStoreManager tripleStoreManager;
 
     /**
-     * Creates a new instance of {@link FloorResourceServiceFactory}.
+     * Creates a new instance of {@link AddressResourceServiceFactory}.
      *
      * @param tripleStoreManager the {@link TripleStoreManager} that manages the triple store that
      *                           shall be used as knowledge base for this

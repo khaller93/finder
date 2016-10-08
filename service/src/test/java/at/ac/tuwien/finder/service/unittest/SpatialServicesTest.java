@@ -3,8 +3,9 @@ package at.ac.tuwien.finder.service.unittest;
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.BuildingDto;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.dto.LocationPointDto;
+import at.ac.tuwien.finder.dto.ResourceCollectionDto;
+import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.ServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
@@ -107,14 +108,12 @@ public class SpatialServicesTest {
         BuildingDto buildingHDto = (BuildingDto) resultDto;
         assertThat(
             "The label of the building with id H must be 'Building of the informatics institute'.",
-            buildingHDto.getLabel(), is("Building of the informatics institute"));
+            buildingHDto.getLabel(), is("Building of the informatic institute"));
         assertThat("There must be at least a location point.", buildingHDto.getGeometryShapes(),
             hasSize(greaterThan(0)));
         assertThat(buildingHDto.getLocations().stream().map(LocationPointDto::asWKT).findFirst()
             .orElse(null), is("POINT(16.3701504 48.19490159999999)"));
     }
-
-
 
     @Test
     public void getTractsOfBuildingWithId_ok()
@@ -126,6 +125,7 @@ public class SpatialServicesTest {
             .asValues(resultDto.getModel(), valueFactory.createIRI(resultDto.getIRI().toString()),
                 new LinkedList<>()).stream().filter(value -> value instanceof Resource)
             .map(value -> (Resource) value).collect(Collectors.toList());
+        System.out.println(resultValues);
         assertThat("The result must contain building tracts with the ids DA, DB, DC.", resultValues,
             hasItems(valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DA"),
                 valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DB"),
@@ -168,15 +168,15 @@ public class SpatialServicesTest {
     @Test
     public void getFloorWithId_ok()
         throws ServiceException, IRIUnknownException, IRIInvalidException {
-        IRI floorAA03 = valueFactory.createIRI(BASE.stringValue(), "spatial/floor/id/AA03");
+        IRI floorH_EG = valueFactory.createIRI(BASE.stringValue(), "spatial/floor/id/H-EG");
         Model result =
-            serviceFactory.getService(BASE_IRI, getPathScanner("spatial/floor/id/AA03"), null)
+            serviceFactory.getService(BASE_IRI, getPathScanner("spatial/floor/id/H-EG"), null)
                 .execute().getModel();
-        assertTrue(String.format("Resource <%s> must be part of the result.", floorAA03.toString()),
-            result.subjects().contains(floorAA03));
-        assertThat(String.format("Resource <%s> has rdfs:label '03'.", floorAA03.toString()),
-            result.filter(floorAA03, RDFS.LABEL, null).objects().iterator().next().stringValue(),
-            is("03"));
+        assertTrue(String.format("Resource <%s> must be part of the result.", floorH_EG.toString()),
+            result.subjects().contains(floorH_EG));
+        assertThat(String.format("Resource <%s> has rdfs:label 'EG'.", floorH_EG.toString()),
+            result.filter(floorH_EG, RDFS.LABEL, null).objects().iterator().next().stringValue(),
+            is("EG"));
     }
 
     @Test(expected = ResourceNotFoundException.class)
@@ -184,6 +184,48 @@ public class SpatialServicesTest {
         throws IRIInvalidException, IRIUnknownException, ServiceException {
         serviceFactory.getService(BASE_IRI, getPathScanner("spatial/floor/id/ABCD01"), null)
             .execute();
+    }
+
+    @Test
+    public void getFloorSectionWithId_ok()
+        throws IRIInvalidException, IRIUnknownException, ServiceException {
+        IRI sectionHAEG =
+            valueFactory.createIRI(BASE.stringValue(), "spatial/floor/id/H-EG/section/id/HAEG");
+        Dto resultDto = serviceFactory
+            .getService(BASE_IRI, getPathScanner("spatial/floor/id/H-EG/section/id/HAEG"), null)
+            .execute();
+        assertThat(
+            "The result dto must contain the requested resource 'spatial/floor/id/H-EG/section/HAEG'.",
+            resultDto.getModel().subjects(), hasItem(sectionHAEG));
+        assertThat("The label of the returned dto must be 'Section HA in EG'.",
+            resultDto.getLabel(), is("Section HA in EG"));
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void getFloorSectionWithUnknownId_throwsResourceNotFoundException()
+        throws IRIInvalidException, IRIUnknownException, ServiceException {
+        serviceFactory
+            .getService(BASE_IRI, getPathScanner("spatial/floor/id/H-EG/section/id/HZEG"), null)
+            .execute();
+    }
+
+    @Test
+    public void getFloorSectionsOfFloorWithId_ok()
+        throws IRIInvalidException, IRIUnknownException, ServiceException {
+        IRI allSectionsOfH_EG =
+            valueFactory.createIRI(BASE.stringValue(), "spatial/floor/id/H-EG/sections");
+        Dto resultDto = serviceFactory
+            .getService(BASE_IRI, getPathScanner("spatial/floor/id/H-EG/sections"), null).execute();
+        assertThat(resultDto, instanceOf(ResourceCollectionDto.class));
+        ResourceCollectionDto resourcesList = (ResourceCollectionDto) resultDto;
+        assertThat(resourcesList.asList().stream()
+                .filter(resource -> resource instanceof IResourceIdentifier)
+                .map(resource -> ((IResourceIdentifier) resource).rawIRI())
+                .collect(Collectors.toList()),
+            hasItems("http://finder.tuwien.ac.at/spatial/floor/id/H-EG/section/id/HAEG",
+                "http://finder.tuwien.ac.at/spatial/floor/id/H-EG/section/id/HGEG",
+                "http://finder.tuwien.ac.at/spatial/floor/id/H-EG/section/id/HBEG"));
+        assertThat("Floor 'H-EG' has 8 sections.", resourcesList.asList(), hasSize(9));
     }
 
     @Test

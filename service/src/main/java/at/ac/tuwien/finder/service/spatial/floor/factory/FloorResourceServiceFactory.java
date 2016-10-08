@@ -8,6 +8,8 @@ import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
 import at.ac.tuwien.finder.service.SimpleDescribeResourceService;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +22,9 @@ import java.util.Scanner;
  *
  * @author Kevin Haller
  */
-public class FloorResourceServiceFactory extends InternalTreeNodeServiceFactory {
+class FloorResourceServiceFactory extends InternalTreeNodeServiceFactory {
+
+    private static final Logger logger = LoggerFactory.getLogger(FloorSectionsServiceFactory.class);
 
     private Map<String, IServiceFactory> floorServiceFactoryMap = new HashMap<>();
     private TripleStoreManager tripleStoreManager;
@@ -32,9 +36,15 @@ public class FloorResourceServiceFactory extends InternalTreeNodeServiceFactory 
      *                           shall be used as knowledge base for this
      *                           {@link FloorResourceServiceFactory}.
      */
-    public FloorResourceServiceFactory(TripleStoreManager tripleStoreManager) {
+    FloorResourceServiceFactory(TripleStoreManager tripleStoreManager) {
         assert tripleStoreManager != null;
         this.tripleStoreManager = tripleStoreManager;
+        floorServiceFactoryMap.put(FloorSectionServiceFactory.getManagedPathName(),
+            new FloorSectionServiceFactory(tripleStoreManager));
+        floorServiceFactoryMap.put(FloorSectionsServiceFactory.getManagedPathName(),
+            new FloorSectionsServiceFactory(tripleStoreManager));
+        logger.debug("Factory map of floor resource services ({}): ../{}.", getManagedPathName(),
+            String.join(", ../", floorServiceFactoryMap.keySet()));
     }
 
     /**
@@ -58,7 +68,7 @@ public class FloorResourceServiceFactory extends InternalTreeNodeServiceFactory 
         if (pathScanner.hasNext()) {
             IResourceIdentifier newParent = parent.resolve(resourceId + "/");
             return super.getService(newParent, pathScanner,
-                super.pushParameter(parameter, "id", newParent.toString()));
+                super.pushParameter(parameter, "id", parent.resolve(resourceId).rawIRI()));
         }
         return new SimpleDescribeResourceService(tripleStoreManager,
             parent.resolve(resourceId).rawIRI());

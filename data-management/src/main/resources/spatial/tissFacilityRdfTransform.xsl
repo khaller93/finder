@@ -106,7 +106,7 @@
                 <xsl:value-of select="normalize-space(location)"/>
             </oo:access>
             <xsl:if test="buildingId != ''">
-                <tuvs:isPartOfBuilding
+                <tuvs:isBuildingUnitOf
                         rdf:resource="&spatial;building/id/{normalize-space(buildingId)}"/>
             </xsl:if>
             <tuvs:capacity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">

@@ -69,15 +69,55 @@ fsb:AT a fs:Building ;
 	locn:address fsa:AT1040-6291e1b5f5aa26891b7668edaaa67156-5 ;
 	gsp:hasGeometry <http://finder.tuwien.ac.at/spatial/geometry/id/point:AT1040-6291e1b5f5aa26891b7668edaaa67156-5> .
 
+fsb:BABIK a fs:Building ;
+	rdfs:label "Büro Hochhaus"@de, "Office Tower"@en ;
+	fs:buildingCode "BABIK" ;
+	fs:containsBuildingUnit fsbt:BA , fsbt:BI, fsbt:BB, fsbt:BK ;
+	locn:address fsa:AT1060-1133b78fa20f06c6656ca91d934c3fc8-9 ;
+	gsp:hasGeometry <http://finder.tuwien.ac.at/spatial/geometry/id/point:AT1060-1133b78fa20f06c6656ca91d934c3fc8-9> .
+
+fsb:BC a fs:Building ;
+	rdfs:label "Lehartrakt"@de, "Lehartrakt"@en ;
+	fs:buildingCode "BC" ;
+	fs:containsBuildingUnit fsbt:BC ;
+	locn:address fsa:AT1060-5b825d126058ef28b9a81cd799454134-4 ;
+	gsp:hasGeometry <http://finder.tuwien.ac.at/spatial/geometry/id/point:AT1060-5b825d126058ef28b9a81cd799454134-4> .
+
+fsb:BD a fs:Building ;
+	rdfs:label "Hoftrakt"@de, "Hoftrakt"@en ;
+	fs:buildingCode "BD" ;
+	fs:containsBuildingUnit fsbt:BD ;
+	locn:address fsa:AT1060-1133b78fa20f06c6656ca91d934c3fc8-9 ;
+	gsp:hasGeometry <http://finder.tuwien.ac.at/spatial/geometry/id/point:AT1060-1133b78fa20f06c6656ca91d934c3fc8-9> .
+
+fsb:BE a fs:Building ;
+	rdfs:label "Lückenbau"@de, "Lückenbau"@en ;
+	fs:buildingCode "BE" ;
+	fs:containsBuildingUnit fsbt:BE .
+
+fsb:BG a fs:Building ;
+	rdfs:label "Tiefgarage"@de, "Underground carpark"@en ;
+	fs:buildingCode "BG" ;
+	fs:containsBuildingUnit fsbt:BG ;
+	locn:address fsa:AT1060-5b825d126058ef28b9a81cd799454134-2 ;
+	gsp:hasGeometry <http://finder.tuwien.ac.at/spatial/geometry/id/point:AT1060-5b825d126058ef28b9a81cd799454134-2> .
+
 fsb:BH a fs:Building ;
-	rdfs:label "Wirtschaftsgebäude"@de, "Economy-Bulding" ;
+	rdfs:label "Institutsgebäude"@de, "Institute building"@en ;
 	fs:buildingCode "BH" ;
 	fs:containsBuildingUnit fsbt:BH ;
 	locn:address fsa:AT1060-482ccca3c6ffdffedaa901c2561d53b6-1a ;
 	gsp:hasGeometry <http://finder.tuwien.ac.at/spatial/geometry/id/point:AT1060-482ccca3c6ffdffedaa901c2561d53b6-1a> .
 
+fsb:BL a fs:Building ;
+	rdfs:label "Wirtschaftsgebäude"@de, "Economy-Bulding"@en ;
+	fs:buildingCode "BL" ;
+	fs:containsBuildingUnit fsbt:BL ;
+	locn:address fsa:AT1060-1133b78fa20f06c6656ca91d934c3fc8-9 ;
+	gsp:hasGeometry <http://finder.tuwien.ac.at/spatial/geometry/id/point:AT1060-1133b78fa20f06c6656ca91d934c3fc8-9> .
+
 fsb:BZ a fs:Building ;
-	rdfs:label "Geniegebäude"@de, "Genius-Bulding" ;
+	rdfs:label "Geniegebäude"@de, "Genius-Bulding"@en ;
 	fs:buildingCode "BZ" ;
 	fs:containsBuildingUnit fsbt:BZ ;
 	locn:address fsa:AT1060-1133b78fa20f06c6656ca91d934c3fc8-9 ;
@@ -840,3 +880,39 @@ fsa:AT1030-c16620064d29acfc05845de15cb51da2-3 a locn:Address ;
 
 <http://finder.tuwien.ac.at/spatial/geometry/id/point:AT1030-c16620064d29acfc05845de15cb51da2-3> a sf:Point ;
 	gsp:asWKT "POINT(16.400377 48.17989009999999)"^^gsp:wktLiteral .
+
+fsa:AT1060-5b825d126058ef28b9a81cd799454134-2 a locn:Address ;
+	locn:locatorDesignator "2" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Lehargasse 2, 1060 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1060-5b825d126058ef28b9a81cd799454134-2" ;
+	locn:postCode "1060" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Mariahilf" ;
+	locn:postName "Wien"@de ;
+	locn:thoroughfare "Lehargasse" ;
+	geo:latitude 48.20052930000001 ;
+	geo:longitude 16.3639723 .
+
+<http://finder.tuwien.ac.at/spatial/geometry/id/point:AT1060-5b825d126058ef28b9a81cd799454134-2> a sf:Point ;
+	gsp:asWKT "POINT(16.3639723 48.20052930000001)"^^gsp:wktLiteral .
+
+fsa:AT1060-5b825d126058ef28b9a81cd799454134-4 a locn:Address ;
+	locn:locatorDesignator "4" ;
+	locn:adminUnitL2 dbr:Vienna ;
+	locn:adminUnitL1 dbr:Austria ;
+	locn:fullAddress "Lehargasse 4, 1060 Wien, Österreich" ;
+	locn:addressId "http://finder.tuwien.ac.at/spatial/address/id/AT1060-5b825d126058ef28b9a81cd799454134-4" ;
+	locn:postCode "1060" ;
+	locn:postName "Vienna"@en ;
+	locn:addressArea "Gemeindebezirk Mariahilf" ;
+	locn:postName "Wien"@de ;
+	locn:thoroughfare "Lehargasse" ;
+	geo:latitude 48.201313 ;
+	geo:longitude 16.3626912 .
+
+<http://finder.tuwien.ac.at/spatial/geometry/id/point:AT1060-5b825d126058ef28b9a81cd799454134-4> a sf:Point ;
+	gsp:asWKT "POINT(16.3626912 48.201313)"^^gsp:wktLiteral .
+
+

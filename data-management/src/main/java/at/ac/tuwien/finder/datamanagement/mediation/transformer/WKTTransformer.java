@@ -13,6 +13,8 @@ import org.eclipse.rdf4j.model.ValueFactory;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -25,22 +27,25 @@ import java.io.StringReader;
  */
 public class WKTTransformer implements DataTransformer<String> {
 
+    private final static Logger logger = LoggerFactory.getLogger(WKTTransformer.class);
+
     @Override
     public Model transform(String data) throws DataTransformationException {
-        System.out.println(data);
+        logger.debug("transforms CSV string ({}) by {}", data, this);
         try (StringReader csvDataReader = new StringReader(data)) {
             Model resultModel = new LinkedHashModel();
             ValueFactory valueFactory = SimpleValueFactory.getInstance();
             for (CSVRecord record : CSVFormat.DEFAULT.parse(csvDataReader).getRecords()) {
                 IRI geometryIRI = valueFactory.createIRI(TripleStoreManager.BASE.stringValue(),
                     String.format("spatial/geometry/id/polygon:%s",
-                        record.get(2).replaceAll("^(.*)/spatial/", "").replaceAll("/", "-")));
+                        record.get(1).replaceAll("^(.*)/spatial/", "").replaceAll("/", "-")));
                 resultModel
-                    .add(valueFactory.createIRI(record.get(2)), GeoSPARQL.hasGeometry, geometryIRI);
+                    .add(valueFactory.createIRI(record.get(1)), GeoSPARQL.hasGeometry, geometryIRI);
                 resultModel.add(geometryIRI, RDF.TYPE, SF.Polygon);
                 resultModel.add(geometryIRI, GeoSPARQL.asWKT,
                     valueFactory.createLiteral(record.get(0), GeoSPARQL.wktLiteral));
             }
+            logger.debug("Result of the transformation processed by {}: {}", this, resultModel);
             return resultModel;
         } catch (IOException e) {
             throw new DataTransformationException(e);

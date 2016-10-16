@@ -1,0 +1,17 @@
+Prefix lgdo: <http://linkedgeodata.org/ontology/>
+Prefix geom: <http://geovocab.org/geometry#>
+Prefix gsp: <http://www.opengis.net/ont/geosparql#>
+Prefix owl: <http://www.w3.org/2002/07/owl#>
+
+# This query takes the location point of the city Vienna (Stephansdom) and
+# includes all amenities that are in distance lower than 20 km from this
+# point.
+SELECT * {
+  ?amenity a lgdo:Amenity ;
+  	geom:geometry [ gsp:asWKT ?amenityGeometry ] .
+
+  ?vienna owl:sameAs <http://dbpedia.org/resource/Vienna> ;    
+  	geom:geometry [ gsp:asWKT ?viennaTerritoryGeometry ] . 
+
+  filter( <bif:st_intersects>(?amenityGeometry, ?viennaTerritoryGeometry, 20.0) ) .
+}

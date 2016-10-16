@@ -1,0 +1,136 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix tuvs: <http://finder.tuwien.ac.at/vocab/spatial#> .
+@prefix navi: <http://finder.tuwien.ac.at/vocab/navigation#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix route: <http://finder.tuwien.ac.at/spatial/route/id/> .
+
+
+route:HEEGM1-HEEG14V-14 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEGM1> ;
+	navi:xyFeature  <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEG14V-14> .
+
+route:HEEG14V-14-HEEG14-P1 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEG14V-14> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HEEG14-P1> .
+
+route:HEEG14-P1-HEEG14-15A a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HEEG14-P1> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEG14-15A> .
+
+# There is a contraint (steps)!!!
+route:HEEG14-P1-HEEG14V-HHEG07 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HEEG14-P1> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEG14V-HHEG07> .
+
+route:HEEG14V-HHEG07-HHEG07-P1 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEG14V-HHEG07> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG07-P1> .
+
+route:HHEG07-P1-HHEG07-P2 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG07-P1> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG07-P2> .
+
+route:HHEG07-P2-HHEG08-HEEG07 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG07-P2> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HHEG08-HEEG07> .
+
+route:HHEG08-HEEG07-HHEG08-P1 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HHEG08-HEEG07> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P1> .
+
+route:HHEG08-P1-HHEG08-HEEG07 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P1> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HHEG08-HEEG07> .
+
+# There is a constraint (steps) !!!
+route:HHEG08-HEEG07-HEEG04-07 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HHEG08-HEEG07> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEG04-07> .
+
+route:HHEG08-P1-HHEG08-P2 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P1> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P2> .
+
+route:HHEG08-P2-HHEG08-HEEG04 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P2> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HHEG08-HEEG04> .
+
+route:HHEG08-HEEG04-HEEG04-P1 a navi:BiRoute ;
+	navi:xyFeature  <http://finder.tuwien.ac.at/spatial/accessunit/id/HHEG08-HEEG04> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HEEG04-P1> .
+
+route:HEEG04-P1-HEEG04-02 a navi:BiRoute ;
+	navi:xyFeature  <http://finder.tuwien.ac.at/spatial/por/id/HEEG04-P1> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEG04-02> .
+
+route:HEEG04-P1-HEEG04-P2 a navi:BiRoute ;
+	navi:xyFeature  <http://finder.tuwien.ac.at/spatial/por/id/HEEG04-P1> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HEEG04-P2> .
+
+route:HEEG04-P2-HEEG04-10 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HEEG04-P2> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEG04-10> .
+
+route:HEEG04-P2-HEEG04-07 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HEEG04-P2> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEG04-07> .
+
+route:HHEG08-P2-HHEG08-P3 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P2> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P3> .
+
+route:HHEG08-P3-HHEG08-HFEG15A a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P3> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HHEG08-HFEG15A> .
+
+route:HHEG08-P3-HHEG08-HFEG15 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P3> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HHEG08-HFEG15> .
+
+route:HHEG08-P2-HHEG08-P4 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P2> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P4> .
+
+route:HHEG08-P4-HHEG08-P5 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P4> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P5> .
+
+route:HHEG08-P5-HFEG05 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P5> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/stairway/id/HFEG05> .
+
+route:HHEG08-P5-HFEG02C a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P5> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/elevator/id/HFEG02C> .
+
+route:HHEG08-P5-HHEG08-HAEGPARK a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HHEG08-P5> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HHEG08-HAEGPARK> .
+
+route:HHEG08-HAEGPARK-HAEGPARK-P2 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HHEG08-HAEGPARK> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HAEGPARK-P2> .
+
+route:HHEG08-HAEGPARK-HAEGPARK-P2 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HAEGPARK-P2> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HAEGPARK-P1> .
+
+route:HAEGPARK-P1-HAEGPARK-P2 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HAEGPARK-P2> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HAEGPARK-P1> .
+
+route:HAEG12-P2-HAEGPARK-P1 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HAEG12-P2> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HAEGPARK-P1> .
+
+route:HAEG12-P1-HAEG12-P2 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HAEG12-P2> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HAEG12-P1> .
+
+route:HAEG12M2-HAEG12-P1 a navi:BiRoute ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HAEG12-P1> ;
+	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HAEG12M2> .
+

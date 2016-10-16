@@ -1,0 +1,51 @@
+<Silk>
+        <Prefixes>
+      <Prefix id="rdf" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/><Prefix id="locn" namespace="http://www.w3.org/ns/locn#"/><Prefix id="gsp" namespace="http://www.opengis.net/ont/geosparql#"/><Prefix id="tuvs" namespace="http://finder.tuwien.ac.at/vocab/spatial#"/><Prefix id="owl" namespace="http://www.w3.org/2002/07/owl#"/><Prefix id="foaf" namespace="http://xmlns.com/foaf/0.1/"/><Prefix id="rdfs" namespace="http://www.w3.org/2000/01/rdf-schema#"/><Prefix id="org" namespace="http://www.w3.org/ns/org#"/>
+    </Prefixes>
+        <DataSources>
+          <Dataset id="Finder-GraphDB-SPARQL" type="sparqlEndpoint">
+            <Param name="pageSize" value="1000"/><Param name="pauseTime" value="0"/><Param name="retryCount" value="3"/><Param name="endpointURI" value="http://localhost:7200/repositories/finder-repo"/><Param name="retryPause" value="1000"/><Param name="graph" value="http://finder.tuwien.ac.at/spatial"/><Param name="queryParameters" value=""/><Param name="login" value=""/><Param name="useOrderBy" value="true"/><Param name="entityList" value=""/><Param name="parallel" value="true"/><Param name="password" value=""/>
+          </Dataset><Dataset id="DBPedia-SPARQL" type="sparqlEndpoint">
+            <Param name="pageSize" value="1000"/><Param name="pauseTime" value="0"/><Param name="retryCount" value="3"/><Param name="endpointURI" value="http://dbpedia.org/sparql"/><Param name="retryPause" value="1000"/><Param name="graph" value=""/><Param name="queryParameters" value=""/><Param name="login" value=""/><Param name="useOrderBy" value="true"/><Param name="entityList" value=""/><Param name="parallel" value="true"/><Param name="password" value=""/>
+          </Dataset>
+        </DataSources>
+        <Interlinks>
+          <Interlink id="personLinking">
+        <SourceDataset dataSource="Finder-GraphDB-SPARQL" var="a" typeUri="http://xmlns.com/foaf/0.1/Person">
+        <RestrictTo>
+          
+        </RestrictTo>
+      </SourceDataset>
+        <TargetDataset dataSource="DBPedia-SPARQL" var="b" typeUri="http://dbpedia.org/ontology/Agent">
+        <RestrictTo>
+          
+        </RestrictTo>
+      </TargetDataset>
+        <LinkageRule linkType="owl:sameAs">
+        <Aggregate id="max1" required="false" weight="1" type="max">
+            <Compare id="levenshteinDistance1" required="false" weight="1" metric="levenshteinDistance" threshold="0.0" indexing="true">
+            <Input id="sourcePath3" path="/foaf:name"/><Input id="targetPath3" path="/foaf:name"/><Param name="minChar" value="0"/><Param name="maxChar" value="z"/>
+          </Compare><Aggregate id="min1" required="false" weight="1" type="min">
+            <Compare id="equality1" required="false" weight="1" metric="equality" threshold="0.0" indexing="true">
+            <Input id="sourcePath1" path="/foaf:familyName"/><Input id="targetPath1" path="/foaf:surname"/>
+          </Compare><Compare id="equality2" required="false" weight="1" metric="equality" threshold="0.0" indexing="true">
+            <Input id="sourcePath2" path="/foaf:givenName"/><Input id="targetPath2" path="/foaf:givenName"/>
+          </Compare>
+          </Aggregate>
+          </Aggregate>
+        <Filter/>
+      </LinkageRule>
+        <Outputs>
+          <Output id="linking"/>
+        </Outputs>
+      </Interlink>
+        </Interlinks>
+        <Transforms>
+          
+        </Transforms>
+        <Outputs>
+          <Dataset id="linking" type="xml">
+            <Param name="file" value="undefined"/><Param name="basePath" value=""/><Param name="uriPattern" value=""/>
+          </Dataset>
+        </Outputs>
+      </Silk>

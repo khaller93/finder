@@ -1,0 +1,2275 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix tuvs: <http://finder.tuwien.ac.at/vocab/spatial#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0207> tuvs:roomCode "HA0207" ;
+	a tuvs:Room ;
+	rdfs:label "Labor 2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0208> tuvs:roomCode "HA0208" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0209> tuvs:roomCode "HA0209" ;
+	a tuvs:Room ;
+	rdfs:label "Labor 3"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0210> tuvs:roomCode "HA0210" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0211> tuvs:roomCode "HA0211" ;
+	a tuvs:Room ;
+	rdfs:label "Maschinenraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0211A> tuvs:roomCode "HA0211A" ;
+	a tuvs:Room ;
+	rdfs:label "Etagenverteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0213> tuvs:roomCode "HA0213" ;
+	a tuvs:Corridor ;
+	rdfs:label "Vorraum / Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0214> tuvs:roomCode "HA0214" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0216> tuvs:roomCode "HA0216" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0220> tuvs:roomCode "HA0220" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0301> tuvs:roomCode "HA0301" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0301A> tuvs:roomCode "HA0301A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0301B> tuvs:roomCode "HA0301B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0301C> tuvs:roomCode "HA0301C" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0301D> tuvs:roomCode "HA0301D" ;
+	a tuvs:Corridor ;
+	rdfs:label "Vorraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0302> tuvs:roomCode "HA0302" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0303> tuvs:roomCode "HA0303" ;
+	a tuvs:Room ;
+	rdfs:label "Teeküche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0303A> tuvs:roomCode "HA0303A" ;
+	a tuvs:Room ;
+	rdfs:label "Lager"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0305> tuvs:roomCode "HA0305" ;
+	a tuvs:Room ;
+	rdfs:label "EDV-Labor 1"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0306> tuvs:roomCode "HA0306" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0307> tuvs:roomCode "HA0307" ;
+	a tuvs:Room ;
+	rdfs:label "EDV-Labor 2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0308> tuvs:roomCode "HA0308" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0309> tuvs:roomCode "HA0309" ;
+	a tuvs:Room ;
+	rdfs:label "EDV-Labor 3"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0310> tuvs:roomCode "HA0310" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0311> tuvs:roomCode "HA0311" ;
+	a tuvs:Room ;
+	rdfs:label "Lager"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0311A> tuvs:roomCode "HA0311A" ;
+	a tuvs:Room ;
+	rdfs:label "Etagenverteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0311B> tuvs:roomCode "HA0311B" ;
+	a tuvs:Corridor ;
+	rdfs:label "Vorraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0312> tuvs:roomCode "HA0312" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0314> tuvs:roomCode "HA0314" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0316> tuvs:roomCode "HA0316" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0318> tuvs:roomCode "HA0318" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0320> tuvs:roomCode "HA0320" ;
+	a tuvs:Room ;
+	rdfs:label "Technologisches Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0401> tuvs:roomCode "HA0401" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0401A> tuvs:roomCode "HA0401A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0401B> tuvs:roomCode "HA0401B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0401F> tuvs:roomCode "HA0401F" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0402> tuvs:roomCode "HA0402" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0403> tuvs:roomCode "HA0403" ;
+	a tuvs:Room ;
+	rdfs:label "Seminarraum 183/2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0406> tuvs:roomCode "HA0406" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0407> tuvs:roomCode "HA0407" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0410> tuvs:roomCode "HA0410" ;
+	a tuvs:Room ;
+	rdfs:label "Smart-Room"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0411> tuvs:roomCode "HA0411" ;
+	a tuvs:Room ;
+	rdfs:label "Serverraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0411A> tuvs:roomCode "HA0411A" ;
+	a tuvs:Room ;
+	rdfs:label "Etagenverteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0416> tuvs:roomCode "HA0416" ;
+	a tuvs:Room ;
+	rdfs:label "3D-Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0420> tuvs:roomCode "HA0420" ;
+	a tuvs:Room ;
+	rdfs:label "Multimedia-Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0501> tuvs:roomCode "HA0501" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0501A> tuvs:roomCode "HA0501A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0501B> tuvs:roomCode "HA0501B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0502> tuvs:roomCode "HA0502" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0503> tuvs:roomCode "HA0503" ;
+	a tuvs:Room ;
+	rdfs:label "Seminarraum 186"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0506> tuvs:roomCode "HA0506" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0506A> tuvs:roomCode "HA0506A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0509> tuvs:roomCode "HA0509" ;
+	a tuvs:Room ;
+	rdfs:label "Besprechungsraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0509A> tuvs:roomCode "HA0509A" ;
+	a tuvs:Room ;
+	rdfs:label "Teeküche / Lager"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0509B> tuvs:roomCode "HA0509B" ;
+	a tuvs:Room ;
+	rdfs:label "Etagenverteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0510> tuvs:roomCode "HA0510" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0514> tuvs:roomCode "HA0514" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0520> tuvs:roomCode "HA0520" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HA0520A> tuvs:roomCode "HA0520A" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG01> tuvs:roomCode "HAEG01" ;
+	a tuvs:Room ;
+	rdfs:label "Lager"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG01A> tuvs:roomCode "HAEG01A" ;
+	a tuvs:Room ;
+	rdfs:label "Papierlager"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG01B> tuvs:roomCode "HAEG01B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG02> tuvs:roomCode "HAEG02" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Techniker"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG02A> tuvs:roomCode "HAEG02A" ;
+	a tuvs:Room ;
+	rdfs:label "Aufzug"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG03> tuvs:roomCode "HAEG03" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG03A> tuvs:roomCode "HAEG03A" ;
+	a tuvs:Room ;
+	rdfs:label "Niederspannungsraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG03B> tuvs:roomCode "HAEG03B" ;
+	a tuvs:Corridor ;
+	rdfs:label "Windfang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG04> tuvs:roomCode "HAEG04" ;
+	a tuvs:Room ;
+	rdfs:label "Labor - Ofenraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG05> tuvs:roomCode "HAEG05" ;
+	a tuvs:Room ;
+	rdfs:label "Lager"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HAEG05A> tuvs:spatialIdentifier "HAEG05A" ;
+	a tuvs:Stairway ;
+	rdfs:label "Kellerstiege"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG05B> tuvs:roomCode "HAEG05B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG05C> tuvs:roomCode "HAEG05C" ;
+	a tuvs:Room ;
+	rdfs:label "Lieferraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG09> tuvs:roomCode "HAEG09" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG09A> tuvs:roomCode "HAEG09A" ;
+	a tuvs:Room ;
+	rdfs:label "Abstellraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG11> tuvs:roomCode "HAEG11" ;
+	a tuvs:Room ;
+	rdfs:label "Labor WM"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG11A> tuvs:roomCode "HAEG11A" ;
+	a tuvs:Room ;
+	rdfs:label "Lager"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG11B> tuvs:roomCode "HAEG11B" ;
+	a tuvs:Corridor ;
+	rdfs:label "Diele"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG12> tuvs:roomCode "HAEG12" ;
+	a tuvs:Corridor ;
+	rdfs:label "Durchgang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG13> tuvs:roomCode "HAEG13" ;
+	a tuvs:WC ;
+	rdfs:label "WC, Vorraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG16> tuvs:roomCode "HAEG16" ;
+	a tuvs:Room ;
+	rdfs:label "Labor WM1"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HAEG22> tuvs:roomCode "HAEG22" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0102> tuvs:roomCode "HB0102" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0102A> tuvs:roomCode "HB0102A" ;
+	a tuvs:Room ;
+	rdfs:label "Server Inst."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0104> tuvs:roomCode "HB0104" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0106> tuvs:roomCode "HB0106" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0108> tuvs:roomCode "HB0108" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0112> tuvs:roomCode "HB0112" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0114> tuvs:roomCode "HB0114" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0114A> tuvs:roomCode "HB0114A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0118> tuvs:roomCode "HB0118" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0122> tuvs:roomCode "HB0122" ;
+	a tuvs:Room ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0124> tuvs:roomCode "HB0124" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0124A> tuvs:roomCode "HB0124A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HB0126> tuvs:spatialIdentifier "HB0126" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 1"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0202> tuvs:roomCode "HB0202" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0202A> tuvs:roomCode "HB0202A" ;
+	a tuvs:Room ;
+	rdfs:label "Server"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0204> tuvs:roomCode "HB0204" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0206> tuvs:roomCode "HB0206" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0210> tuvs:roomCode "HB0210" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0214> tuvs:roomCode "HB0214" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Techniker / Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0218> tuvs:roomCode "HB0218" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0220> tuvs:roomCode "HB0220" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0222> tuvs:roomCode "HB0222" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0224> tuvs:roomCode "HB0224" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HB0226> tuvs:spatialIdentifier "HB0226" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 1"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0302> tuvs:roomCode "HB0302" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0304> tuvs:roomCode "HB0304" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum, Bespr."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0306> tuvs:roomCode "HB0306" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Techniker"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0308> tuvs:roomCode "HB0308" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0312> tuvs:roomCode "HB0312" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0316> tuvs:roomCode "HB0316" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0320> tuvs:roomCode "HB0320" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0324> tuvs:roomCode "HB0324" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0324A> tuvs:roomCode "HB0324A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HB0326> tuvs:spatialIdentifier "HB0326" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 1"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0402> tuvs:roomCode "HB0402" ;
+	a tuvs:Room ;
+	rdfs:label "Reingiungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0402A> tuvs:roomCode "HB0402A" ;
+	a tuvs:Room ;
+	rdfs:label "Serverraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0404> tuvs:roomCode "HB0404" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0406> tuvs:roomCode "HB0406" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0408> tuvs:roomCode "HB0408" ;
+	a tuvs:Room ;
+	rdfs:label "Bespr., Bibliothek"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0412> tuvs:roomCode "HB0412" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0414> tuvs:roomCode "HB0414" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0416> tuvs:roomCode "HB0416" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0418> tuvs:roomCode "HB0418" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0420> tuvs:roomCode "HB0420" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0422> tuvs:roomCode "HB0422" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0424> tuvs:roomCode "HB0424" ;
+	a tuvs:WC ;
+	rdfs:label "WC Waschraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0424A> tuvs:roomCode "HB0424A" ;
+	a tuvs:WC ;
+	rdfs:label "WC Herren"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0424B> tuvs:roomCode "HB0424B" ;
+	a tuvs:WC ;
+	rdfs:label "WC Damen"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HB0426> tuvs:spatialIdentifier "HB0426" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 1"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0502> tuvs:roomCode "HB0502" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0502A> tuvs:roomCode "HB0502A" ;
+	a tuvs:Room ;
+	rdfs:label "Archiv"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0504> tuvs:roomCode "HB0504" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0506> tuvs:roomCode "HB0506" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0508> tuvs:roomCode "HB0508" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0510> tuvs:roomCode "HB0510" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0512> tuvs:roomCode "HB0512" ;
+	a tuvs:Room ;
+	rdfs:label "EDV-Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0516> tuvs:roomCode "HB0516" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0518> tuvs:roomCode "HB0518" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0522> tuvs:roomCode "HB0522" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0524> tuvs:roomCode "HB0524" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HB0524A> tuvs:roomCode "HB0524A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HB0526> tuvs:spatialIdentifier "HB0526" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 1"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HBEG02> tuvs:roomCode "HBEG02" ;
+	a tuvs:Room ;
+	rdfs:label "Serverraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HBEG10> tuvs:roomCode "HBEG10" ;
+	a tuvs:Room ;
+	rdfs:label "Seminarraum Gödel"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HBEG16> tuvs:roomCode "HBEG16" ;
+	a tuvs:Room ;
+	rdfs:label "Seminarraum von Neumann"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HBEG20> tuvs:roomCode "HBEG20" ;
+	a tuvs:Room ;
+	rdfs:label "Traforaum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HBEG20A> tuvs:roomCode "HBEG20A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HBEG26> tuvs:spatialIdentifier "HBEG26" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 1"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0101> tuvs:roomCode "HC0101" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0102> tuvs:roomCode "HC0102" ;
+	a tuvs:WC ;
+	rdfs:label "WC Herren"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0102A> tuvs:roomCode "HC0102A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0104> tuvs:roomCode "HC0104" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum, Teeküche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0105> tuvs:roomCode "HC0105" ;
+	a tuvs:Room ;
+	rdfs:label "Besprechungsraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HC0106> tuvs:spatialIdentifier "HC0106" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0106A> tuvs:roomCode "HC0106A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0107> tuvs:roomCode "HC0107" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0108> tuvs:roomCode "HC0108" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum, Teeküche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0108A> tuvs:roomCode "HC0108A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0110> tuvs:roomCode "HC0110" ;
+	a tuvs:WC ;
+	rdfs:label "WC Damen"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0111> tuvs:roomCode "HC0111" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0113> tuvs:roomCode "HC0113" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0115> tuvs:roomCode "HC0115" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0201> tuvs:roomCode "HC0201" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0202> tuvs:roomCode "HC0202" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0202A> tuvs:roomCode "HC0202A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0204> tuvs:roomCode "HC0204" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0205> tuvs:roomCode "HC0205" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HC0206> tuvs:spatialIdentifier "HC0206" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0206A> tuvs:roomCode "HC0206A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0208> tuvs:roomCode "HC0208" ;
+	a tuvs:Room ;
+	rdfs:label "Teeküche / Bürotechnik"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0208A> tuvs:roomCode "HC0208A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0209> tuvs:roomCode "HC0209" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0210> tuvs:roomCode "HC0210" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0211> tuvs:roomCode "HC0211" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0215> tuvs:roomCode "HC0215" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0301> tuvs:roomCode "HC0301" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0302> tuvs:roomCode "HC0302" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0302A> tuvs:roomCode "HC0302A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0304> tuvs:roomCode "HC0304" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0304A> tuvs:roomCode "HC0304A" ;
+	a tuvs:Room ;
+	rdfs:label "Bürotechnik"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0305> tuvs:roomCode "HC0305" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HC0306> tuvs:spatialIdentifier "HC0306" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0306A> tuvs:roomCode "HC0306A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0308> tuvs:roomCode "HC0308" ;
+	a tuvs:Room ;
+	rdfs:label "Drucker"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0308A> tuvs:roomCode "HC0308A" ;
+	a tuvs:SanitaryRoom ;
+	rdfs:label "Dusche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0308B> tuvs:roomCode "HC0308B" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0309> tuvs:roomCode "HC0309" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Sekretariat"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0310> tuvs:roomCode "HC0310" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0311> tuvs:roomCode "HC0311" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0315> tuvs:roomCode "HC0315" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0401> tuvs:roomCode "HC0401" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0402> tuvs:roomCode "HC0402" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0402A> tuvs:roomCode "HC0402A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0404> tuvs:roomCode "HC0404" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum, Küche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0405> tuvs:roomCode "HC0405" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Sekretariat"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HC0406> tuvs:spatialIdentifier "HC0406" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0406A> tuvs:roomCode "HC0406A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0407> tuvs:roomCode "HC0407" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0408> tuvs:roomCode "HC0408" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum, Küche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0408A> tuvs:roomCode "HC0408A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0410> tuvs:roomCode "HC0410" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0411> tuvs:roomCode "HC0411" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0413> tuvs:roomCode "HC0413" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Sekretariat"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0415> tuvs:roomCode "HC0415" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0501> tuvs:roomCode "HC0501" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0502> tuvs:roomCode "HC0502" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0502A> tuvs:roomCode "HC0502A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0504> tuvs:roomCode "HC0504" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum, Küche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0505> tuvs:roomCode "HC0505" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HC0506> tuvs:spatialIdentifier "HC0506" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0508> tuvs:roomCode "HC0508" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum, Küche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0509> tuvs:roomCode "HC0509" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Sekretariat"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0510> tuvs:roomCode "HC0510" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0511> tuvs:roomCode "HC0511" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Sekretariat"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HC0515> tuvs:roomCode "HC0515" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG02> tuvs:roomCode "HCEG02" ;
+	a tuvs:WC ;
+	rdfs:label "WC, Vorraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG02A> tuvs:roomCode "HCEG02A" ;
+	a tuvs:WC ;
+	rdfs:label "WC, Vorraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG02B> tuvs:roomCode "HCEG02B" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG03> tuvs:roomCode "HCEG03" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Dipl."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG04> tuvs:roomCode "HCEG04" ;
+	a tuvs:Room ;
+	rdfs:label "Lager"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG04A> tuvs:roomCode "HCEG04A" ;
+	a tuvs:Room ;
+	rdfs:label "EDV-Verteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HCEG06> tuvs:spatialIdentifier "HCEG06" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG06A> tuvs:roomCode "HCEG06A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Entree"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG06B> tuvs:roomCode "HCEG06B" ;
+	a tuvs:Room ;
+	rdfs:label "Aufzug"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG08> tuvs:roomCode "HCEG08" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Techniker"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG08A> tuvs:roomCode "HCEG08A" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG08B> tuvs:roomCode "HCEG08B" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG09> tuvs:roomCode "HCEG09" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG10> tuvs:roomCode "HCEG10" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG10A> tuvs:roomCode "HCEG10A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG11> tuvs:roomCode "HCEG11" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG13> tuvs:roomCode "HCEG13" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HCEG19> tuvs:roomCode "HCEG19" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0101> tuvs:roomCode "HD0101" ;
+	a tuvs:Room ;
+	rdfs:label "EDV"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0101A> tuvs:roomCode "HD0101A" ;
+	a tuvs:Room ;
+	rdfs:label "Kopierraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0103> tuvs:roomCode "HD0103" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0107> tuvs:roomCode "HD0107" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0111> tuvs:roomCode "HD0111" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0115> tuvs:roomCode "HD0115" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0119> tuvs:roomCode "HD0119" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0119A> tuvs:roomCode "HD0119A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0121> tuvs:roomCode "HD0121" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0123> tuvs:roomCode "HD0123" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0125> tuvs:roomCode "HD0125" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0201> tuvs:roomCode "HD0201" ;
+	a tuvs:Room ;
+	rdfs:label "Etagenverteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0201A> tuvs:roomCode "HD0201A" ;
+	a tuvs:Room ;
+	rdfs:label "Server"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0203> tuvs:roomCode "HD0203" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0205> tuvs:roomCode "HD0205" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0209> tuvs:roomCode "HD0209" ;
+	a tuvs:Room ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0211> tuvs:roomCode "HD0211" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0215> tuvs:roomCode "HD0215" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0219> tuvs:roomCode "HD0219" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0219A> tuvs:roomCode "HD0219A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0221> tuvs:roomCode "HD0221" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0223> tuvs:roomCode "HD0223" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0301> tuvs:roomCode "HD0301" ;
+	a tuvs:Room ;
+	rdfs:label "Etagenverteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0301A> tuvs:roomCode "HD0301A" ;
+	a tuvs:Room ;
+	rdfs:label "Maschinenraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0303> tuvs:roomCode "HD0303" ;
+	a tuvs:Room ;
+	rdfs:label "Server"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0305> tuvs:roomCode "HD0305" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0307> tuvs:roomCode "HD0307" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0309> tuvs:roomCode "HD0309" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0313> tuvs:roomCode "HD0313" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0315> tuvs:roomCode "HD0315" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Sekretariat"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0315A> tuvs:roomCode "HD0315A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0319> tuvs:roomCode "HD0319" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Techniker"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0319A> tuvs:roomCode "HD0319A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0323> tuvs:roomCode "HD0323" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0401> tuvs:roomCode "HD0401" ;
+	a tuvs:Room ;
+	rdfs:label "EDV"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0401A> tuvs:roomCode "HD0401A" ;
+	a tuvs:Room ;
+	rdfs:label "Server"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0403> tuvs:roomCode "HD0403" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0405> tuvs:roomCode "HD0405" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0407> tuvs:roomCode "HD0407" ;
+	a tuvs:Room ;
+	rdfs:label "Seminarraum 188/2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0415> tuvs:roomCode "HD0415" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0419> tuvs:roomCode "HD0419" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0419A> tuvs:roomCode "HD0419A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0421> tuvs:roomCode "HD0421" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0423> tuvs:roomCode "HD0423" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0501> tuvs:roomCode "HD0501" ;
+	a tuvs:Room ;
+	rdfs:label "Etagenverteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0501A> tuvs:roomCode "HD0501A" ;
+	a tuvs:Room ;
+	rdfs:label "Maschinenraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0501B> tuvs:roomCode "HD0501B" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0503> tuvs:roomCode "HD0503" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0505> tuvs:roomCode "HD0505" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0509> tuvs:roomCode "HD0509" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0513> tuvs:roomCode "HD0513" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0515> tuvs:roomCode "HD0515" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0517> tuvs:roomCode "HD0517" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0519> tuvs:roomCode "HD0519" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0519A> tuvs:roomCode "HD0519A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HD0523> tuvs:roomCode "HD0523" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HDEG01> tuvs:roomCode "HDEG01" ;
+	a tuvs:Room ;
+	rdfs:label "Roboterlabor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HDEG05> tuvs:roomCode "HDEG05" ;
+	a tuvs:Corridor ;
+	rdfs:label "Windfang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HDEG21> tuvs:roomCode "HDEG21" ;
+	a tuvs:Corridor ;
+	rdfs:label "Entree"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0101> tuvs:roomCode "HE0101" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0101A> tuvs:roomCode "HE0101A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0101B> tuvs:roomCode "HE0101B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0102> tuvs:roomCode "HE0102" ;
+	a tuvs:Room ;
+	rdfs:label "Netz-Labor 1 - Praktikum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0103> tuvs:roomCode "HE0103" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0108> tuvs:roomCode "HE0108" ;
+	a tuvs:Room ;
+	rdfs:label "Netz-Labor 2 - Netzequipment"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0109> tuvs:roomCode "HE0109" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0113> tuvs:roomCode "HE0113" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HE0115> tuvs:spatialIdentifier "HE0115" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 4"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0115B> tuvs:roomCode "HE0115B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0116> tuvs:roomCode "HE0116" ;
+	a tuvs:Room ;
+	rdfs:label "PC-Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0119> tuvs:roomCode "HE0119" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0120> tuvs:roomCode "HE0120" ;
+	a tuvs:Room ;
+	rdfs:label "PC-Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0124> tuvs:roomCode "HE0124" ;
+	a tuvs:Room ;
+	rdfs:label "PC-Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0131A> tuvs:roomCode "HE0131A" ;
+	a tuvs:WC ;
+	rdfs:label "WC Herren, Waschraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0132> tuvs:roomCode "HE0132" ;
+	a tuvs:Room ;
+	rdfs:label "PC-Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0135A> tuvs:roomCode "HE0135A" ;
+	a tuvs:WC ;
+	rdfs:label "WC Damen, Waschraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0136> tuvs:roomCode "HE0136" ;
+	a tuvs:Room ;
+	rdfs:label "PC-Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0140> tuvs:roomCode "HE0140" ;
+	a tuvs:Room ;
+	rdfs:label "PC-Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0146> tuvs:roomCode "HE0146" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0150> tuvs:roomCode "HE0150" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0154> tuvs:roomCode "HE0154" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0201> tuvs:roomCode "HE0201" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0201A> tuvs:roomCode "HE0201A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0201B> tuvs:roomCode "HE0201B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0202> tuvs:roomCode "HE0202" ;
+	a tuvs:Room ;
+	rdfs:label "(ISTU) Besprechung / Bibliothe"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0203> tuvs:roomCode "HE0203" ;
+	a tuvs:Corridor ;
+	rdfs:label "Rampe"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0204A> tuvs:roomCode "HE0204A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0205> tuvs:roomCode "HE0205" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "(ISTU) Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0206> tuvs:roomCode "HE0206" ;
+	a tuvs:Room ;
+	rdfs:label "(ISTU) Labor/Übung"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0209> tuvs:roomCode "HE0209" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "(ISTU) Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0210> tuvs:roomCode "HE0210" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "(ISTU) Büro Dipl."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0210A> tuvs:roomCode "HE0210A" ;
+	a tuvs:Room ;
+	rdfs:label "(ISTU) Maschinenraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0213> tuvs:roomCode "HE0213" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "(ISTU) Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0214> tuvs:roomCode "HE0214" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "(ISTU) Sekretariat"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HE0215> tuvs:spatialIdentifier "HE0215" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 4"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0215A> tuvs:roomCode "HE0215A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0216> tuvs:roomCode "HE0216" ;
+	a tuvs:Room ;
+	rdfs:label "(ISTU) Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0216A> tuvs:roomCode "HE0216A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0219> tuvs:roomCode "HE0219" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0219A> tuvs:roomCode "HE0219A" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0220> tuvs:roomCode "HE0220" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Ass."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0223> tuvs:roomCode "HE0223" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0224> tuvs:roomCode "HE0224" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Ass."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0231A> tuvs:roomCode "HE0231A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0232> tuvs:roomCode "HE0232" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Ass."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0235A> tuvs:roomCode "HE0235A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0236> tuvs:roomCode "HE0236" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Ass."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0240> tuvs:roomCode "HE0240" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Ass."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0244> tuvs:roomCode "HE0244" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Ass."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0246> tuvs:roomCode "HE0246" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Dipl."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0250> tuvs:roomCode "HE0250" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0254> tuvs:roomCode "HE0254" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Ass."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0254A> tuvs:roomCode "HE0254A" ;
+	a tuvs:Room ;
+	rdfs:label "Teeküche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0301> tuvs:roomCode "HE0301" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0301A> tuvs:roomCode "HE0301A" ;
+	a tuvs:Room ;
+	rdfs:label "Besprechungsraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0302> tuvs:roomCode "HE0302" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HE0303> tuvs:spatialIdentifier "HE0303" ;
+	a tuvs:Stairway ;
+	rdfs:label "Rampe"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0304> tuvs:roomCode "HE0304" ;
+	a tuvs:Room ;
+	rdfs:label "Technologisches Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0305> tuvs:roomCode "HE0305" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0308> tuvs:roomCode "HE0308" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0309> tuvs:roomCode "HE0309" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0310> tuvs:roomCode "HE0310" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0313> tuvs:roomCode "HE0313" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0314> tuvs:roomCode "HE0314" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HE0315> tuvs:spatialIdentifier "HE0315" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 4"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0315B> tuvs:roomCode "HE0315B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0316> tuvs:roomCode "HE0316" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0316A> tuvs:roomCode "HE0316A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0317C> tuvs:roomCode "HE0317C" ;
+	a tuvs:Room ;
+	rdfs:label "Aufzug"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0318> tuvs:roomCode "HE0318" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0319> tuvs:roomCode "HE0319" ;
+	a tuvs:Room ;
+	rdfs:label "Bibliothek"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0319A> tuvs:roomCode "HE0319A" ;
+	a tuvs:Room ;
+	rdfs:label "Teeküche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0320> tuvs:roomCode "HE0320" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0323> tuvs:roomCode "HE0323" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0324> tuvs:roomCode "HE0324" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0327> tuvs:roomCode "HE0327" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0331> tuvs:roomCode "HE0331" ;
+	a tuvs:WC ;
+	rdfs:label "WC Damen"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0332> tuvs:roomCode "HE0332" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0332A> tuvs:roomCode "HE0332A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0333> tuvs:roomCode "HE0333" ;
+	a tuvs:SanitaryRoom ;
+	rdfs:label "Vorraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0335> tuvs:roomCode "HE0335" ;
+	a tuvs:WC ;
+	rdfs:label "WC Herren"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0336> tuvs:roomCode "HE0336" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0337> tuvs:roomCode "HE0337" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0337A> tuvs:roomCode "HE0337A" ;
+	a tuvs:Room ;
+	rdfs:label "Abstellraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0340> tuvs:roomCode "HE0340" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0344> tuvs:roomCode "HE0344" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0346> tuvs:roomCode "HE0346" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0348> tuvs:roomCode "HE0348" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0350> tuvs:roomCode "HE0350" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0354> tuvs:roomCode "HE0354" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0354A> tuvs:roomCode "HE0354A" ;
+	a tuvs:Room ;
+	rdfs:label "Besprechungsraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0354B> tuvs:roomCode "HE0354B" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0401> tuvs:roomCode "HE0401" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0401A> tuvs:roomCode "HE0401A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0401B> tuvs:roomCode "HE0401B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0402> tuvs:roomCode "HE0402" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0405> tuvs:roomCode "HE0405" ;
+	a tuvs:Room ;
+	rdfs:label "Archiv"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HE0405A> tuvs:spatialIdentifier "HE0405A" ;
+	a tuvs:Stairway ;
+	rdfs:label "Rampe"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0406> tuvs:roomCode "HE0406" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0409> tuvs:roomCode "HE0409" ;
+	a tuvs:Room ;
+	rdfs:label "Teeküche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0409A> tuvs:roomCode "HE0409A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0410> tuvs:roomCode "HE0410" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0413> tuvs:roomCode "HE0413" ;
+	a tuvs:Room ;
+	rdfs:label "Server"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0414> tuvs:roomCode "HE0414" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0415> tuvs:roomCode "HE0415" ;
+	a tuvs:Room ;
+	rdfs:label "Aufzug Maschinenraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0416> tuvs:roomCode "HE0416" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HE0417> tuvs:spatialIdentifier "HE0417" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 4"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0417A> tuvs:roomCode "HE0417A" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0420> tuvs:roomCode "HE0420" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0423> tuvs:roomCode "HE0423" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0424> tuvs:roomCode "HE0424" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0426> tuvs:roomCode "HE0426" ;
+	a tuvs:Corridor ;
+	rdfs:label "Dachboden"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0432> tuvs:roomCode "HE0432" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0434> tuvs:roomCode "HE0434" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0438> tuvs:roomCode "HE0438" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0440> tuvs:roomCode "HE0440" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0444> tuvs:roomCode "HE0444" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0446> tuvs:roomCode "HE0446" ;
+	a tuvs:Room ;
+	rdfs:label "Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0452> tuvs:roomCode "HE0452" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0454A> tuvs:roomCode "HE0454A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0454B> tuvs:roomCode "HE0454B" ;
+	a tuvs:Corridor ;
+	rdfs:label "Vorraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HE0454C> tuvs:roomCode "HE0454C" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG01> tuvs:roomCode "HEEG01" ;
+	a tuvs:Room ;
+	rdfs:label "Lager / HT"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG02> tuvs:roomCode "HEEG02" ;
+	a tuvs:Room ;
+	rdfs:label "IT-Verteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG03> tuvs:roomCode "HEEG03" ;
+	a tuvs:Room ;
+	rdfs:label "Inf - Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG04> tuvs:roomCode "HEEG04" ;
+	a tuvs:Room ;
+	rdfs:label "Informatiklabor Pac-Man"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG07> tuvs:roomCode "HEEG07" ;
+	a tuvs:Room ;
+	rdfs:label "Informatiklabor Breakout"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG10> tuvs:roomCode "HEEG10" ;
+	a tuvs:Room ;
+	rdfs:label "Informatiklabor Zelda"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG14> tuvs:roomCode "HEEG14" ;
+	a tuvs:Corridor ;
+	rdfs:label "Entree/Windfang"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HEEG15> tuvs:spatialIdentifier "HEEG15" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 4"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HEEG15A> tuvs:spatialIdentifier "HEEG15A" ;
+	a tuvs:Stairway ;
+	rdfs:label "Kellerstiege"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG16> tuvs:roomCode "HEEG16" ;
+	a tuvs:Room ;
+	rdfs:label "Müllraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG17> tuvs:roomCode "HEEG17" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG17A> tuvs:roomCode "HEEG17A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG17B> tuvs:roomCode "HEEG17B" ;
+	a tuvs:WC ;
+	rdfs:label "WC Portier"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG17C> tuvs:roomCode "HEEG17C" ;
+	a tuvs:Room ;
+	rdfs:label "Aufzug"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG19> tuvs:roomCode "HEEG19" ;
+	a tuvs:Room ;
+	rdfs:label "Erste Hilfe Raum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG22A> tuvs:roomCode "HEEG22A" ;
+	a tuvs:Room ;
+	rdfs:label "Abstellraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HEEG31> tuvs:spatialIdentifier "HEEG31" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 5"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG35> tuvs:roomCode "HEEG35" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG35A> tuvs:roomCode "HEEG35A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG37> tuvs:roomCode "HEEG37" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG37A> tuvs:roomCode "HEEG37A" ;
+	a tuvs:Room ;
+	rdfs:label "Abstellraum Zvw"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG37B> tuvs:roomCode "HEEG37B" ;
+	a tuvs:SanitaryRoom ;
+	rdfs:label "Waschraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG44> tuvs:roomCode "HEEG44" ;
+	a tuvs:Room ;
+	rdfs:label "Reinigung/Gard/Lager"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG44A> tuvs:roomCode "HEEG44A" ;
+	a tuvs:SanitaryRoom ;
+	rdfs:label "Waschraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG44B> tuvs:roomCode "HEEG44B" ;
+	a tuvs:SanitaryRoom ;
+	rdfs:label "Dusche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG48> tuvs:roomCode "HEEG48" ;
+	a tuvs:Room ;
+	rdfs:label "Besprechungsraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG50> tuvs:roomCode "HEEG50" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HEEG54A> tuvs:roomCode "HEEG54A" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0103> tuvs:roomCode "HF0103" ;
+	a tuvs:WC ;
+	rdfs:label "WC Behinderte"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HF0105> tuvs:spatialIdentifier "HF0105" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 3"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0109> tuvs:roomCode "HF0109" ;
+	a tuvs:Room ;
+	rdfs:label "Photoniknetz-Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0113> tuvs:roomCode "HF0113" ;
+	a tuvs:Room ;
+	rdfs:label "Photoniknetz-Labor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0203> tuvs:roomCode "HF0203" ;
+	a tuvs:WC ;
+	rdfs:label "WC Behinderte"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HF0205> tuvs:spatialIdentifier "HF0205" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 3"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0209> tuvs:roomCode "HF0209" ;
+	a tuvs:Room ;
+	rdfs:label "Seminarraum 187/2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0302C> tuvs:roomCode "HF0302C" ;
+	a tuvs:Room ;
+	rdfs:label "Aufzug"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0303> tuvs:roomCode "HF0303" ;
+	a tuvs:WC ;
+	rdfs:label "WC Behinderte"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HF0305> tuvs:spatialIdentifier "HF0305" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 3"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0309> tuvs:roomCode "HF0309" ;
+	a tuvs:Room ;
+	rdfs:label "Abstellraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0311> tuvs:roomCode "HF0311" ;
+	a tuvs:Room ;
+	rdfs:label "Besprechungsraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0317> tuvs:roomCode "HF0317" ;
+	a tuvs:Room ;
+	rdfs:label "Bibliothek"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0317A> tuvs:roomCode "HF0317A" ;
+	a tuvs:Room ;
+	rdfs:label "Teeküche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0401> tuvs:roomCode "HF0401" ;
+	a tuvs:Room ;
+	rdfs:label "Archiv"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0403> tuvs:roomCode "HF0403" ;
+	a tuvs:WC ;
+	rdfs:label "WC Behinderte"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0403A> tuvs:roomCode "HF0403A" ;
+	a tuvs:Room ;
+	rdfs:label "Haustechnikschacht"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HF0405> tuvs:spatialIdentifier "HF0405" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 3"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0409> tuvs:roomCode "HF0409" ;
+	a tuvs:Room ;
+	rdfs:label "Bespr. / Küche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0413> tuvs:roomCode "HF0413" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0501> tuvs:roomCode "HF0501" ;
+	a tuvs:Room ;
+	rdfs:label "Kopierraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0503> tuvs:roomCode "HF0503" ;
+	a tuvs:Room ;
+	rdfs:label "Archiv"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0503A> tuvs:roomCode "HF0503A" ;
+	a tuvs:WC ;
+	rdfs:label "WC Behinderte"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0503B> tuvs:roomCode "HF0503B" ;
+	a tuvs:SanitaryRoom ;
+	rdfs:label "Dusche"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HF0505> tuvs:spatialIdentifier "HF0505" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 3"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0509> tuvs:roomCode "HF0509" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Techniker"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0513> tuvs:roomCode "HF0513" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HF0517> tuvs:roomCode "HF0517" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HFEG01> tuvs:roomCode "HFEG01" ;
+	a tuvs:Room ;
+	rdfs:label "Serverraum 2"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HFEG01A> tuvs:roomCode "HFEG01A" ;
+	a tuvs:Room ;
+	rdfs:label "Serverraum 3"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HFEG01B> tuvs:roomCode "HFEG01B" ;
+	a tuvs:Room ;
+	rdfs:label "Haustechnik"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HFEG02> tuvs:roomCode "HFEG02" ;
+	a tuvs:Room ;
+	rdfs:label "Serverraum 1"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HFEG02C> tuvs:roomCode "HFEG02C" ;
+	a tuvs:Room ;
+	rdfs:label "Aufzug"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HFEG05> tuvs:spatialIdentifier "HFEG05" ;
+	a tuvs:Stairway ;
+	rdfs:label "Stiege 3"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HFEG15> tuvs:roomCode "HFEG15" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HFEG15A> tuvs:roomCode "HFEG15A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HFEG15B> tuvs:roomCode "HFEG15B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HFEG15C> tuvs:spatialIdentifier "HFEG15C" ;
+	a tuvs:Stairway ;
+	rdfs:label "Kellerstiege"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0101> tuvs:roomCode "HG0101" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0102> tuvs:roomCode "HG0102" ;
+	a tuvs:Room ;
+	rdfs:label "Etagenverteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0102A> tuvs:roomCode "HG0102A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0102B> tuvs:roomCode "HG0102B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0102C> tuvs:roomCode "HG0102C" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0105> tuvs:roomCode "HG0105" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0106> tuvs:roomCode "HG0106" ;
+	a tuvs:Room ;
+	rdfs:label "Teeküche"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0108> tuvs:roomCode "HG0108" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0109> tuvs:roomCode "HG0109" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0110> tuvs:roomCode "HG0110" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0111> tuvs:roomCode "HG0111" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0115> tuvs:roomCode "HG0115" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0119> tuvs:roomCode "HG0119" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0201> tuvs:roomCode "HG0201" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0202> tuvs:roomCode "HG0202" ;
+	a tuvs:Room ;
+	rdfs:label "Etagenverteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0202A> tuvs:roomCode "HG0202A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0202B> tuvs:roomCode "HG0202B" ;
+	a tuvs:WC ;
+	rdfs:label "WC Damen, Waschraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0202C> tuvs:roomCode "HG0202C" ;
+	a tuvs:WC ;
+	rdfs:label "WC Herren, Waschraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0204> tuvs:roomCode "HG0204" ;
+	a tuvs:Room ;
+	rdfs:label "Telekommunikation"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0205> tuvs:roomCode "HG0205" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0206> tuvs:roomCode "HG0206" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0209> tuvs:roomCode "HG0209" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0210> tuvs:roomCode "HG0210" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0211> tuvs:roomCode "HG0211" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0212> tuvs:roomCode "HG0212" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0215> tuvs:roomCode "HG0215" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0219> tuvs:roomCode "HG0219" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0301> tuvs:roomCode "HG0301" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0302> tuvs:roomCode "HG0302" ;
+	a tuvs:Room ;
+	rdfs:label "Etagenverteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0302A> tuvs:roomCode "HG0302A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0302B> tuvs:roomCode "HG0302B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0302C> tuvs:roomCode "HG0302C" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0304> tuvs:roomCode "HG0304" ;
+	a tuvs:Room ;
+	rdfs:label "Maschinenraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0304A> tuvs:roomCode "HG0304A" ;
+	a tuvs:Room ;
+	rdfs:label "Abstellraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0305> tuvs:roomCode "HG0305" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0306> tuvs:roomCode "HG0306" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0308> tuvs:roomCode "HG0308" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0309> tuvs:roomCode "HG0309" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0310> tuvs:roomCode "HG0310" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Techniker, Server"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0311> tuvs:roomCode "HG0311" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0312> tuvs:roomCode "HG0312" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0314> tuvs:roomCode "HG0314" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0315> tuvs:roomCode "HG0315" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Prof."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0319> tuvs:roomCode "HG0319" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0401> tuvs:roomCode "HG0401" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0401A> tuvs:roomCode "HG0401A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0402> tuvs:roomCode "HG0402" ;
+	a tuvs:Room ;
+	rdfs:label "Etagenverteiler"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0404> tuvs:roomCode "HG0404" ;
+	a tuvs:Room ;
+	rdfs:label "Archiv"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0405> tuvs:roomCode "HG0405" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Techniker"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0406> tuvs:roomCode "HG0406" ;
+	a tuvs:Room ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0409> tuvs:roomCode "HG0409" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0410> tuvs:roomCode "HG0410" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0411> tuvs:roomCode "HG0411" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0412> tuvs:roomCode "HG0412" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0414> tuvs:roomCode "HG0414" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro Ass."@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0415> tuvs:roomCode "HG0415" ;
+	a tuvs:OfficeRoom ;
+	rdfs:label "Büro"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0419> tuvs:roomCode "HG0419" ;
+	a tuvs:Room ;
+	rdfs:label "Lager"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HG0502> tuvs:roomCode "HG0502" ;
+	a tuvs:Room ;
+	rdfs:label "Bibliothek"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG01> tuvs:roomCode "HGEG01" ;
+	a tuvs:Room ;
+	rdfs:label "Sonderlabor"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG01A> tuvs:roomCode "HGEG01A" ;
+	a tuvs:Room ;
+	rdfs:label "Informatiklabor Q*bert"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG05> tuvs:roomCode "HGEG05" ;
+	a tuvs:Room ;
+	rdfs:label "Informatiklabor Frogger"@de .
+
+<http://finder.tuwien.ac.at/spatial/stairway/id/HGEG06> tuvs:spatialIdentifier "HGEG06" ;
+	a tuvs:Stairway ;
+	rdfs:label "Kellerstiege"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG08> tuvs:roomCode "HGEG08" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG08A> tuvs:roomCode "HGEG08A" ;
+	a tuvs:SanitaryRoom ;
+	rdfs:label "Reinigung/Wasseranschluss"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG10> tuvs:roomCode "HGEG10" ;
+	a tuvs:WC ;
+	rdfs:label "WC Behinderte"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG10A> tuvs:roomCode "HGEG10A" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG10B> tuvs:roomCode "HGEG10B" ;
+	a tuvs:WC ;
+	rdfs:label "WC"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG11> tuvs:roomCode "HGEG11" ;
+	a tuvs:Corridor ;
+	rdfs:label "Vorraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG12> tuvs:roomCode "HGEG12" ;
+	a tuvs:Room ;
+	rdfs:label "Server"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG15> tuvs:roomCode "HGEG15" ;
+	a tuvs:Room ;
+	rdfs:label "Informatiklabor Pong"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG19> tuvs:roomCode "HGEG19" ;
+	a tuvs:Corridor ;
+	rdfs:label "Vorraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HHEG01> tuvs:roomCode "HHEG01" ;
+	a tuvs:Room ;
+	rdfs:label "Seminarraum Zemanek"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HHEG01A> tuvs:roomCode "HHEG01A" ;
+	a tuvs:Corridor ;
+	rdfs:label "Gang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HHEG02> tuvs:roomCode "HHEG02" ;
+	a tuvs:Corridor ;
+	rdfs:label "Servicegang"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HHEG02A> tuvs:roomCode "HHEG02A" ;
+	a tuvs:Room ;
+	rdfs:label "Reingiungsmaterial"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HHEG02B> tuvs:roomCode "HHEG02B" ;
+	a tuvs:Room ;
+	rdfs:label "Ladestation Reinigung"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HHEG05> tuvs:roomCode "HHEG05" ;
+	a tuvs:Room ;
+	rdfs:label "Abstellraum"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HHEG07> tuvs:roomCode "HHEG07" ;
+	a tuvs:Corridor ;
+	rdfs:label "Foyer"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HHEG07A> tuvs:roomCode "HHEG07A" ;
+	a tuvs:Room ;
+	rdfs:label "Sozialraum Portier"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HHEG07B> tuvs:roomCode "HHEG07B" ;
+	a tuvs:Room ;
+	rdfs:label "Portierloge"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HHEG08> tuvs:roomCode "HHEG08" ;
+	a tuvs:Corridor ;
+	rdfs:label "Halle"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HIEG02> tuvs:roomCode "HIEG02" ;
+	a tuvs:Room ;
+	rdfs:label "Werkstatt"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HIEG06> tuvs:roomCode "HIEG06" ;
+	a tuvs:Room ;
+	rdfs:label "Werkstatt"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HIEG08> tuvs:roomCode "HIEG08" ;
+	a tuvs:Room ;
+	rdfs:label "Werkstatt"@de .
+
+<http://finder.tuwien.ac.at/spatial/room/id/HIEG12> tuvs:roomCode "HIEG12" ;
+	a tuvs:Corridor ;
+	rdfs:label "Windfang"@de .

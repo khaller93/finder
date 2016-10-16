@@ -20,15 +20,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This class is an implementation of {@link DataLinker} that links rooms to their building tract by
- * using the room and building tract identifier.
+ * This class is an implementation of {@link DataLinker} that links rooms to their floor section by
+ * using the room and floor section identifier.
  *
  * @author Kevin Haller
  */
-public final class RoomFloorLinker extends RoomBuildingUnitLinker {
+public final class RoomFloorSectionLinker extends RoomBuildingUnitLinker {
 
-    public RoomFloorLinker() {
-        super(TUVS.Floor, TUVS.floorCode);
+    public RoomFloorSectionLinker() {
+        super(TUVS.FloorSection, TUVS.floorSectionCode);
     }
 
 }

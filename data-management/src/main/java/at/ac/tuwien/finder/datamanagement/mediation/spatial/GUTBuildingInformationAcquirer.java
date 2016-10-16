@@ -37,6 +37,9 @@ public class GUTBuildingInformationAcquirer implements SpatialDataAcquirer<Model
         "spatial/GUTBuilding-Tract-Overview.ttl";
     private static final String GUT_BUILDING_TRACT_FLOORS = "spatial/GUTBuilding-Tract-Floors.ttl";
 
+    private static final String GUT_ROOMS_BUILDING_H_OVERVIEW =
+        "spatial/GUTRoom-Building-H.ttl";
+
     @Override
     public DataTransformer<Model> transformer() throws DataTransformationException {
         return new NOPTransformer();
@@ -49,7 +52,9 @@ public class GUTBuildingInformationAcquirer implements SpatialDataAcquirer<Model
             InputStream buildingTractOverviewStream = GUTBuildingInformationAcquirer.class
                 .getClassLoader().getResourceAsStream(GUT_BUILDING_TRACT_OVERVIEW);
             InputStream buildingTractFloorsStream = GUTBuildingInformationAcquirer.class
-                .getClassLoader().getResourceAsStream(GUT_BUILDING_TRACT_FLOORS)) {
+                .getClassLoader().getResourceAsStream(GUT_BUILDING_TRACT_FLOORS);
+            InputStream buildingHRoomsStream = GUTBuildingInformationAcquirer.class.getClassLoader()
+                .getResourceAsStream(GUT_ROOMS_BUILDING_H_OVERVIEW)) {
             Model buildingInfoModel = new LinkedHashModel();
             if (buildingOverviewStream == null) {
                 logger.error("The rdf file of the building overview ({}) cannot be found.",
@@ -69,6 +74,10 @@ public class GUTBuildingInformationAcquirer implements SpatialDataAcquirer<Model
                 throw new DataAcquireException(
                     "The rdf file of the building tract overview (" + GUT_BUILDING_TRACT_FLOORS
                         + ") cannot be found.");
+            } else if(buildingHRoomsStream == null){
+                throw new DataAcquireException(
+                    "The rdf file of rooms of building H overview (" + GUT_ROOMS_BUILDING_H_OVERVIEW
+                        + ") cannot be found.");
             }
             RDFParser parser = Rio.createParser(RDFFormat.TURTLE);
             parser.setRDFHandler(new StatementCollector(buildingInfoModel));
@@ -76,6 +85,7 @@ public class GUTBuildingInformationAcquirer implements SpatialDataAcquirer<Model
                 parser.parse(buildingOverviewStream, TripleStoreManager.BASE.stringValue());
                 parser.parse(buildingTractOverviewStream, TripleStoreManager.BASE.stringValue());
                 parser.parse(buildingTractFloorsStream, TripleStoreManager.BASE.stringValue());
+                parser.parse(buildingHRoomsStream, TripleStoreManager.BASE.stringValue());
             } catch (RDFParseException | RDFHandlerException e) {
                 logger
                     .error("The linked data about university facilities can not be read in. {}", e);

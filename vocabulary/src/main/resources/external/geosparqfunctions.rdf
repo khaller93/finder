@@ -1,0 +1,211 @@
+<rdf:RDF
+    xmlns:api="http://purl.org/linked-data/api/vocab#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:def="http://www.opengis.net/def/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="http://www.opengis.net/def/function/">
+    <skos:member>
+      <skos:Collection rdf:about="http://www.opengis.net/def/function/geosparql/">
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/sfIntersects">
+            <rdfs:label xml:lang="en">intersects</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >GeoSPARQL Functions	</rdfs:label>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/distance">
+            <rdfs:label xml:lang="en">distance</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/union">
+            <rdfs:label xml:lang="en">union</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/ehOverlap">
+            <rdfs:label xml:lang="en">overlap</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/ehInside">
+            <rdfs:label xml:lang="en">inside</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/convexHull">
+            <rdfs:label xml:lang="en">convex hull</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/sfOverlaps">
+            <rdfs:label xml:lang="en">overlaps</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <rdfs:seeAlso rdf:resource="http://www.opengis.net/doc/geosparql/1.0"/>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/rcc8eq">
+            <rdfs:label xml:lang="en">equals</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/rcc8ec">
+            <rdfs:label xml:lang="en">externally connected</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/relate">
+            <rdfs:label xml:lang="en">relate</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/difference">
+            <rdfs:label xml:lang="en">difference</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/rcc8tpp">
+            <rdfs:label xml:lang="en">tangential proper part</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/sfEquals">
+            <rdfs:label xml:lang="en">equals</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/buffer">
+            <rdfs:label xml:lang="en">buffer</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >GeoSPARQL Functions	</skos:prefLabel>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/ehEquals">
+            <rdfs:label xml:lang="en">equals</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/ehDisjoint">
+            <rdfs:label xml:lang="en">disjoint</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/ehContains">
+            <rdfs:label xml:lang="en">contains</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/sfCrosses">
+            <rdfs:label xml:lang="en">crosses</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/rcc8ntpp">
+            <rdfs:label xml:lang="en">non-tangential proper part</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/rcc8tppi">
+            <rdfs:label xml:lang="en">tangential proper part inverse</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/symDifference">
+            <rdfs:label xml:lang="en">symmetric difference</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/sfWithin">
+            <rdfs:label xml:lang="en">within</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/sfContains">
+            <rdfs:label xml:lang="en">contains</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/sfTouches">
+            <rdfs:label xml:lang="en">touches</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/getSRID">
+            <rdfs:label xml:lang="en">getSRID</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/ehCovers">
+            <rdfs:label xml:lang="en">covers</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/ehMeet">
+            <rdfs:label xml:lang="en">meet</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/ehCoveredBy">
+            <rdfs:label xml:lang="en">covered by</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/rcc8ntppi">
+            <rdfs:label xml:lang="en">non-tangential proper part inverse</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/rcc8po">
+            <rdfs:label xml:lang="en">partially overlapping</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/envelope">
+            <rdfs:label xml:lang="en">envelope</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/sfDisjoint">
+            <rdfs:label xml:lang="en">disjoint</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <dc:source rdf:resource="http://www.opengis.net/doc/geosparql/1.0"/>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/intersection">
+            <rdfs:label xml:lang="en">intersection</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/rcc8dc">
+            <rdfs:label xml:lang="en">disconnected</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <skos:member>
+          <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql/boundary">
+            <rdfs:label xml:lang="en">boundary</rdfs:label>
+          </rdf:Description>
+        </skos:member>
+        <foaf:isPrimaryTopicOf>
+          <api:Page rdf:about="http://auscope-services.arrc.csiro.au/sissvoc/ogc-def/resource.rdf?uri=http://www.opengis.net/def/function/geosparql/">
+            <foaf:primaryTopic rdf:resource="http://www.opengis.net/def/function/geosparql/"/>
+            <api:extendedMetadataVersion rdf:resource="http://auscope-services.arrc.csiro.au/sissvoc/ogc-def/resource.rdf?_metadata=all&amp;uri=http://www.opengis.net/def/function/geosparql/"/>
+            <api:definition rdf:resource="http://auscope-services.arrc.csiro.au/sissvoc/ogc-def/resource.rdf?uri=http://www.opengis.net/def/function/geosparql/"/>
+          </api:Page>
+        </foaf:isPrimaryTopicOf>
+      </skos:Collection>
+    </skos:member>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.opengis.net/def/function/geosparql">
+    <owl:sameAs rdf:resource="http://www.opengis.net/def/function/geosparql/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.opengis.net/def/geosparql">
+    <rdfs:seeAlso rdf:resource="http://www.opengis.net/def/function/geosparql/"/>
+  </rdf:Description>
+</rdf:RDF>

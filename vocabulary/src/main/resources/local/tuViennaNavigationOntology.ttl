@@ -1,0 +1,162 @@
+@prefix : <http://finder.tuwien.ac.at/vocab/navigation##> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://finder.tuwien.ac.at/vocab/navigation#> a owl:Ontology ;
+	owl:imports <http://www.opengis.net/ont/geosparql> .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#accessTo
+
+<http://finder.tuwien.ac.at/vocab/navigation#accessTo> a owl:ObjectProperty ;
+	rdfs:domain <http://finder.tuwien.ac.at/vocab/navigation#Access> ;
+	rdfs:range <http://www.opengis.net/ont/geosparql#Feature> ;
+	rdfs:comment "Dieser Zugang bereitet Zugang zu einem oder mehreren räumlichen Features."@de , "This access provides access to one or more given features."@en ;
+	rdfs:isDefinedBy "http://finder.tuwien.ac.at/vocab/navigation#" ;
+	rdfs:label "Zugang zu"@de , "access to"@en .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#hasContraint
+
+<http://finder.tuwien.ac.at/vocab/navigation#hasContraint> a owl:ObjectProperty ;
+	rdfs:domain <http://finder.tuwien.ac.at/vocab/navigation#NavigationEntity> ;
+	rdfs:range <http://finder.tuwien.ac.at/vocab/navigation#Constraint> ;
+	rdfs:comment "Diese Navigations-Entität hat die gegebene Beschränkung."@de , "This navigation entity has the given constraint."@en ;
+	rdfs:isDefinedBy "http://finder.tuwien.ac.at/vocab/navigation#" ;
+	rdfs:label "has constraint"@en , "hat Beschränkung"@de .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#provideAccess
+
+<http://finder.tuwien.ac.at/vocab/navigation#provideAccess> a owl:ObjectProperty ;
+	rdfs:domain <http://www.opengis.net/ont/geosparql#Feature> ;
+	rdfs:range <http://finder.tuwien.ac.at/vocab/navigation#Access> ;
+	rdfs:comment "Dieses räumliche Feature bietet den gegebenen Zugang an."@de , "This spatial feature provides an access."@en ;
+	rdfs:isDefinedBy "http://finder.tuwien.ac.at/vocab/navigation#" ;
+	rdfs:label "bietet Zugang an"@de , "provide access"@en .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#xFeature
+
+<http://finder.tuwien.ac.at/vocab/navigation#xFeature> a owl:ObjectProperty ;
+	owl:inverseOf <http://finder.tuwien.ac.at/vocab/navigation#xOfRoute> ;
+	rdfs:domain <http://finder.tuwien.ac.at/vocab/navigation#Route> ;
+	rdfs:range <http://www.opengis.net/ont/geosparql#Feature> ;
+	rdfs:comment "Diese Route R(x,y) hat das gegebene räumliche Feature als Ausgangspunkt x."@de , "This route R(x,y) has the given spatial feature as starting point x."@en ;
+	rdfs:isDefinedBy "http://finder.tuwien.ac.at/vocab/navigation#" ;
+	rdfs:label "Feature for x"@en , "Feature für x"@de .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#xOfRoute
+
+<http://finder.tuwien.ac.at/vocab/navigation#xOfRoute> a owl:ObjectProperty ;
+	rdfs:domain <http://www.opengis.net/ont/geosparql#Feature> ;
+	rdfs:range <http://finder.tuwien.ac.at/vocab/navigation#Route> ;
+	rdfs:comment "Dieses räumliche Feature ist der x-Punkt der gegebenen Strecke R(x,y)."@de , "This spatial feature is the x point of the given route R(x, y),"@en ;
+	rdfs:isDefinedBy "http://finder.tuwien.ac.at/vocab/navigation#" ;
+	rdfs:label "x einer Strecke R(x,y)"@de , "x of a route R(x,y)"@en .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#xyFeature
+
+<http://finder.tuwien.ac.at/vocab/navigation#xyFeature> a owl:ObjectProperty ;
+	rdfs:subPropertyOf <http://finder.tuwien.ac.at/vocab/navigation#xFeature> , <http://finder.tuwien.ac.at/vocab/navigation#yFeature> ;
+	owl:inverseOf <http://finder.tuwien.ac.at/vocab/navigation#xyOfRoute> ;
+	rdfs:domain <http://finder.tuwien.ac.at/vocab/navigation#BiRoute> ;
+	rdfs:range <http://www.opengis.net/ont/geosparql#Feature> ;
+	rdfs:comment "Diese BiRoute R(x,y) hat das gegebene räumliche Feature als Start- (x) und Endpunkt (y)."@de , "This biroute R(x,y) has the given spatial feature as starting (x) and end point (y)."@en ;
+	rdfs:isDefinedBy "http://finder.tuwien.ac.at/vocab/navigation#" ;
+	rdfs:label "Feature for x or y"@en , "Feature für x oder y"@de .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#xyOfRoute
+
+<http://finder.tuwien.ac.at/vocab/navigation#xyOfRoute> a owl:ObjectProperty ;
+	rdfs:subPropertyOf <http://finder.tuwien.ac.at/vocab/navigation#xOfRoute> , <http://finder.tuwien.ac.at/vocab/navigation#yOfRoute> ;
+	rdfs:domain <http://www.opengis.net/ont/geosparql#Feature> ;
+	rdfs:range <http://finder.tuwien.ac.at/vocab/navigation#BiRoute> ;
+	rdfs:comment "Das räumliche Feature ist Teil der gegebenen BiRoute R(x,y). Es kann entweder x oder y sein."@de , "This spatial feature is part of the given BiRoute R(x,y). It can be x and y of the Route."@en ;
+	rdfs:isDefinedBy "http://finder.tuwien.ac.at/vocab/navigation#" ;
+	rdfs:label "x oder y einer Route"@de , "x or y of a BiRoute"@en .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#yFeature
+
+<http://finder.tuwien.ac.at/vocab/navigation#yFeature> a owl:ObjectProperty ;
+	owl:inverseOf <http://finder.tuwien.ac.at/vocab/navigation#yOfRoute> ;
+	rdfs:domain <http://finder.tuwien.ac.at/vocab/navigation#Route> ;
+	rdfs:range <http://www.opengis.net/ont/geosparql#Feature> .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#yOfRoute
+
+<http://finder.tuwien.ac.at/vocab/navigation#yOfRoute> a owl:ObjectProperty ;
+	rdfs:domain <http://www.opengis.net/ont/geosparql#Feature> ;
+	rdfs:range <http://finder.tuwien.ac.at/vocab/navigation#Route> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#Access
+
+<http://finder.tuwien.ac.at/vocab/navigation#Access> a owl:Class ;
+	rdfs:subClassOf <http://finder.tuwien.ac.at/vocab/navigation#NavigationEntity> ;
+	rdfs:comment "Beschreibt einen Zugang zu gegebenen räumlichen Features unter Berücksichtigung möglicher Beschränkungen."@de , "Describes the access to certain features by considering possible constraints."@en ;
+	rdfs:isDefinedBy "http://finder.tuwien.ac.at/vocab/navigation#" ;
+	rdfs:label "Access"@en , "Zugang"@de .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#BiRoute
+
+<http://finder.tuwien.ac.at/vocab/navigation#BiRoute> a owl:Class ;
+	rdfs:subClassOf <http://finder.tuwien.ac.at/vocab/navigation#Route> ;
+	rdfs:comment "Beschreibt eine bidirektionale Strecke zwischen zwei räumlichen Features, was bedeutet, dass die Strecke zwischen x und y in beide Richtungen begehbar ist mit den selben Eigenschaften und Einschränkungen."@de , "Describes a bidirectional route between two spatial features, means that the route is walk-able from x to y and from y to x with the same constraints and characteristics."@en ;
+	rdfs:isDefinedBy "http://finder.tuwien.ac.at/vocab/navigation#" ;
+	rdfs:label "Bidirectional Route"@en , "Bidirektionale Strecke"@de .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#Constraint
+
+<http://finder.tuwien.ac.at/vocab/navigation#Constraint> a owl:Class ;
+	owl:disjointWith <http://finder.tuwien.ac.at/vocab/navigation#PoR> , <http://finder.tuwien.ac.at/vocab/navigation#Route> ;
+	rdfs:comment "A constraint for a route like access control or existing obstacles that are hard to overcome for persons with mobility impairments."@en ;
+	rdfs:label "Beschränkung"@de , "Constraint"@en .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#MobilityConstraint
+
+<http://finder.tuwien.ac.at/vocab/navigation#MobilityConstraint> a owl:Class ;
+	rdfs:subClassOf <http://finder.tuwien.ac.at/vocab/navigation#Constraint> .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#NavigationEntity
+
+<http://finder.tuwien.ac.at/vocab/navigation#NavigationEntity> a owl:Class .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#PoR
+
+<http://finder.tuwien.ac.at/vocab/navigation#PoR> a owl:Class ;
+	rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+	owl:disjointWith <http://finder.tuwien.ac.at/vocab/navigation#Route> ;
+	rdfs:comment "Point of a route that is somehow interesting for a route, but does not have any further purpose."@en , "Punkt einer Route, der irgendwie interessant für eine Route ist, aber darüber hinaus keine Funktion hat."@de ;
+	rdfs:isDefinedBy "http://finder.tuwien.ac.at/vocab/navigation#" ;
+	rdfs:label "Point of Route"@en , "Punkt einer Route"@de .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#Route
+
+<http://finder.tuwien.ac.at/vocab/navigation#Route> a owl:Class ;
+	rdfs:subClassOf <http://finder.tuwien.ac.at/vocab/navigation#NavigationEntity> ;
+	rdfs:comment "Beschreibt eine Strecke zwischen zwei raümlichen Features wie zum Beispiel einem Eingang und einem Raum. R(x, y), wobei ein gehbarer Weg zwischen x und y besteht in genau dieser Richtung. Es werden keine Annahmen über die andere Richtung getroffen."@de , "Describes a route between two spatial features such as between an entrance and an room. This route can have constraints for certain agents. R(x, y), where there is a walk-able path between x and y in exactly this direction. No assumption about the other direction are made."@en ;
+	rdfs:isDefinedBy "http://finder.tuwien.ac.at/vocab/navigation#" ;
+	rdfs:label "Route"@en , "Strecke"@de .
+# 
+# http://finder.tuwien.ac.at/vocab/navigation#TimeConstraint
+
+<http://finder.tuwien.ac.at/vocab/navigation#TimeConstraint> a owl:Class ;
+	rdfs:subClassOf <http://finder.tuwien.ac.at/vocab/navigation#Constraint> .
+# 
+# Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi

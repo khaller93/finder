@@ -64,6 +64,13 @@
                             <baseNamespace>http://finder.tuwien.ac.at/vocab/spatial#</baseNamespace>
                             <preferredPrefix>tuvs</preferredPrefix>
                         </vocabulary>
+                        <!-- Local TU Vienna navigation ontology -->
+                        <vocabulary>
+                            <className>NAVI</className>
+                            <input>file:src/main/resources/local/tuViennaNavigationOntology.ttl</input>
+                            <baseNamespace>http://finder.tuwien.ac.at/vocab/navigation#</baseNamespace>
+                            <preferredPrefix>tuvs</preferredPrefix>
+                        </vocabulary>
                         <!-- ISA Programme Location Core Vocabulary -->
                         <vocabulary>
                             <className>LOCN</className>
@@ -89,6 +96,14 @@
                             <rdfFormat>application/rdf+xml</rdfFormat>
                             <baseNamespace>http://www.opengis.net/ont/geosparql#</baseNamespace>
                             <preferredPrefix>gsp</preferredPrefix>
+                        </vocabulary>
+                        <vocabulary>
+                            <className>GeoSPARQLFunction</className>
+                            <input>http://www.opengis.net/def/function/geosparql/</input>
+                            <altInput>file:src/main/resources/external/geosparqlfunctions.rdf</altInput>
+                            <rdfFormat>application/rdf+xml</rdfFormat>
+                            <baseNamespace>http://www.opengis.net/def/function/geosparql/</baseNamespace>
+                            <preferredPrefix>gspf</preferredPrefix>
                         </vocabulary>
                         <!-- GeoSPARQL SF -->
                         <vocabulary>

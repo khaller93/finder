@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://vocab.deri.ie/rooms" uri="http://vocab.deri.ie/rooms#"/>
+    <uri id="Imports Wizard Entry" name="http://finder.tuwien.ac.at/vocab/spatial#0.2-SNAPSHOT" uri="tuViennaSpatialOntology.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://www.w3.org/ns/locn" uri="file:/home/haller/Dokumente/6.Semester%20SS2016/Bachelorarbeit/Arbeit/development/finder-sesame/vocabulary/src/main/resources/external/locn.ttl"/>
+    <uri id="User Entered Import Resolution" name="http://www.opengis.net/ont/sf" uri="file:/home/haller/Dokumente/6.Semester%20SS2016/Bachelorarbeit/Arbeit/development/finder-sesame/vocabulary/src/main/resources/external/sf.rdf"/>
+    <uri id="User Entered Import Resolution" name="http://www.opengis.net/ont/geosparql" uri="file:/home/haller/Dokumente/6.Semester%20SS2016/Bachelorarbeit/Arbeit/development/finder-sesame/vocabulary/src/main/resources/external/geosparql.rdf"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
+</catalog>

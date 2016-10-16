@@ -20,6 +20,7 @@ import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.sail.memory.MemoryStore;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -105,9 +106,15 @@ public class SearchServicesTest {
     @Test(expected = IRIInvalidException.class)
     public void searchFreeRoomsForTimeRange_MissingRequiredStartDate_throwsIRIInvalidException()
         throws IRIUnknownException, IRIInvalidException, ServiceException {
-        serviceFactory.getService(getPathScanner(
-            "/search/freerooms/endDate/2016-10-06T14:00:00+01:00"))
+        serviceFactory
+            .getService(getPathScanner("/search/freerooms/endDate/2016-10-06T14:00:00+01:00"))
             .execute();
+    }
+
+    @Test
+    @Ignore
+    public void searchRoutesTo() throws IRIUnknownException, IRIInvalidException, ServiceException {
+        serviceFactory.getService(getPathScanner("/search/routeTo")).execute();
     }
 
     private static Scanner getPathScanner(String path) {

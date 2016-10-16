@@ -31,6 +31,8 @@ public class SearchServiceFactory extends InternalTreeNodeServiceFactory {
         assert tripleStoreManager != null;
         searchServiceFactoryMap.put(FreeRoomsServiceFactory.getManagedPathName(),
             new FreeRoomsServiceFactory(tripleStoreManager));
+        searchServiceFactoryMap.put(RouteServiceFactory.getManagedPathName(),
+            new RouteServiceFactory(tripleStoreManager));
         logger.debug("Factory map of spatial services ({}): ../{}.", getManagedPathName(),
             String.join(", ../", searchServiceFactoryMap.keySet()));
     }

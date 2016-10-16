@@ -44,6 +44,11 @@
             <artifactId>dto</artifactId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
+        <!-- Query -->
+        <dependency>
+            <groupId>org.eclipse.rdf4j</groupId>
+            <artifactId>rdf4j-queryalgebra-geosparql</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

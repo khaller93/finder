@@ -117,7 +117,7 @@ public class DataCatalog {
             DataSet dataSet = DataSetFactory.createDataSet(namespace, tripleStoreManager);
             if (dataSet != null) {
                 try (RepositoryConnection connection = tripleStoreManager.getConnection()) {
-                    connection.add(NS, DCAT.dataset, namespace);
+                    connection.add(NS, DCAT.dataset, namespace, NS);
                 }
             }
             return dataSet;

@@ -5,6 +5,7 @@ import at.ac.tuwien.finder.dto.Dto;
 import at.ac.tuwien.finder.dto.ResourceCollectionDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.ServiceFactory;
+import at.ac.tuwien.finder.service.TestTripleStore;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
@@ -18,10 +19,7 @@ import org.eclipse.rdf4j.repository.sail.SailRepository;
 import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.sail.memory.MemoryStore;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.*;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -48,31 +46,18 @@ public class SearchServicesTest {
         BASE_IRI = new IResourceIdentifier(BASE.stringValue());
     }
 
-    /* Test data for the triple store */
-    private static Model dbTestData;
-
-    @BeforeClass
-    public static void setUpClass() throws IOException {
-        dbTestData = Rio.parse(
-            SpatialServicesTest.class.getClassLoader().getResourceAsStream("dbTestDump.trig"), "",
-            RDFFormat.TRIG);
-    }
+    @Rule
+    public TestTripleStore testTripleStore = new TestTripleStore();
 
     private ServiceFactory serviceFactory;
 
     @Before
     public void setUp() throws Exception {
-        TripleStoreManager tripleStoreManager = mock(TripleStoreManager.class);
-        Repository repository = new SailRepository(new MemoryStore());
-        repository.initialize();
-        try (RepositoryConnection connection = repository.getConnection()) {
-            connection.add(dbTestData);
-        }
-        when(tripleStoreManager.getConnection()).thenReturn(repository.getConnection());
-        serviceFactory = new ServiceFactory(tripleStoreManager);
+        serviceFactory = new ServiceFactory(testTripleStore.getTripleStoreManager());
     }
 
     @Test
+    @Ignore
     public void searchFreeRoomsForTimeRange_ok()
         throws IRIUnknownException, IRIInvalidException, ServiceException {
         Dto freeRoomsDto = serviceFactory.getService(getPathScanner(

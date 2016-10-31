@@ -3,10 +3,11 @@ package at.ac.tuwien.finder.service.unittest;
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.BuildingDto;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.LocationPointDto;
 import at.ac.tuwien.finder.dto.ResourceCollectionDto;
+import at.ac.tuwien.finder.dto.RoomDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.ServiceFactory;
+import at.ac.tuwien.finder.service.TestTripleStore;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ResourceNotFoundException;
@@ -17,17 +18,11 @@ import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.model.util.Models;
 import org.eclipse.rdf4j.model.util.RDFCollections;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
-import org.eclipse.rdf4j.repository.Repository;
-import org.eclipse.rdf4j.repository.RepositoryConnection;
-import org.eclipse.rdf4j.repository.sail.SailRepository;
-import org.eclipse.rdf4j.rio.RDFFormat;
-import org.eclipse.rdf4j.rio.Rio;
-import org.eclipse.rdf4j.sail.memory.MemoryStore;
 import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
 import java.util.List;
@@ -37,9 +32,8 @@ import java.util.stream.Collectors;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 /**
  * THis class shall test the service structure concerning spatial data.
@@ -57,44 +51,38 @@ public class SpatialServicesTest {
         BASE_IRI = new IResourceIdentifier(BASE.stringValue());
     }
 
-    /* Test data for the triple store */
-    private static Model dbTestData;
-
-    @BeforeClass
-    public static void setUpClass() throws IOException {
-        dbTestData = Rio.parse(
-            SpatialServicesTest.class.getClassLoader().getResourceAsStream("dbTestDump.trig"), "",
-            RDFFormat.TRIG);
-    }
+    @Rule
+    public TestTripleStore testTripleStore = new TestTripleStore();
 
     private ServiceFactory serviceFactory;
 
     @Before
     public void setUp() throws Exception {
-        TripleStoreManager tripleStoreManager = mock(TripleStoreManager.class);
-        Repository repository = new SailRepository(new MemoryStore());
-        repository.initialize();
-        try (RepositoryConnection connection = repository.getConnection()) {
-            connection.add(dbTestData);
-        }
-        when(tripleStoreManager.getConnection()).thenReturn(repository.getConnection());
-        serviceFactory = new ServiceFactory(tripleStoreManager);
+        serviceFactory = new ServiceFactory(testTripleStore.getTripleStoreManager());
     }
 
     @Test
     public void getBuildingWithId_ok()
         throws ServiceException, IRIUnknownException, IRIInvalidException {
         IRI buildingA = valueFactory.createIRI(BASE.stringValue(), "spatial/building/id/A");
-        Model result =
+        Dto responseDto =
             serviceFactory.getService(BASE_IRI, getPathScanner("spatial/building/id/A"), null)
-                .execute().getModel();
+                .execute();
+        assertNotNull("The response must not be null.", responseDto);
+        assertThat("The response must be an instance of BuildingDto", responseDto,
+            instanceOf(BuildingDto.class));
+        BuildingDto buildingDto = (BuildingDto) responseDto;
+        assertThat("The spatial identifier of the building must be the building code 'A'",
+            buildingDto.getSpatialIdentifier(), is("A"));
+        //Check for the model
+        Model responseModel = responseDto.getModel();
         assertTrue(String.format("Resource <%s> must be part of the result.", buildingA.toString()),
-            result.subjects().contains(buildingA));
+            responseModel.subjects().contains(buildingA));
         assertThat(String.format(
             "Resource <%s> has two rdfs:label objects (Central building@en, Hauptgebäude@de).",
             buildingA.toString()),
-            result.filter(buildingA, RDFS.LABEL, null).objects().stream().map(Value::stringValue)
-                .collect(Collectors.toList()),
+            responseModel.filter(buildingA, RDFS.LABEL, null).objects().stream()
+                .map(Value::stringValue).collect(Collectors.toList()),
             containsInAnyOrder("Central building", "Hauptgebäude"));
     }
 
@@ -111,8 +99,24 @@ public class SpatialServicesTest {
             buildingHDto.getLabel(), is("Building of the informatic institute"));
         assertThat("There must be at least a location point.", buildingHDto.getGeometryShapes(),
             hasSize(greaterThan(0)));
-        assertThat(buildingHDto.getLocations().stream().map(LocationPointDto::asWKT).findFirst()
-            .orElse(null), is("POINT(16.3701504 48.19490159999999)"));
+        assertThat(buildingHDto.getLocationPoint().getWkt(),
+            is("POINT(16.3701504 48.19490159999999)"));
+    }
+
+    @Test
+    @Ignore
+    public void getRoomOfBuilding_ok() throws Exception {
+        Dto responseDto =
+            serviceFactory.getService(BASE_IRI, getPathScanner("spatial/building/id/H"), null)
+                .execute();
+        assertNotNull("The response must not be null.", responseDto);
+        assertThat("The response must be an instance of BuildingDto", responseDto,
+            instanceOf(BuildingDto.class));
+        BuildingDto buildingDto = (BuildingDto) responseDto;
+        assertThat(
+            buildingDto.getRooms().stream().map(RoomDto::getIRI).collect(Collectors.toList()),
+            hasItems("http://finder.tuwien.ac.at/spatial/room/id/HBEG02",
+                "http://finder.tuwien.ac.at/spatial/room/id/HA0318"));
     }
 
     @Test
@@ -149,11 +153,11 @@ public class SpatialServicesTest {
         Model result =
             serviceFactory.getService(BASE_IRI, getPathScanner("spatial/buildingtract/id/AA"), null)
                 .execute().getModel();
-        assertTrue(
-            String.format("Resource <%s> must be part of the result.", buildingTractAA.toString()),
+        assertTrue(String
+                .format("Resource <%s> must be part of the result.", buildingTractAA.stringValue()),
             result.subjects().contains(buildingTractAA));
-        assertThat(String
-                .format("Resource <%s> has the rdfs:label 'AA Haupttrakt'", buildingTractAA.toString()),
+        assertThat(String.format("Resource <%s> has the rdfs:label 'AA Haupttrakt'",
+            buildingTractAA.stringValue()),
             result.filter(buildingTractAA, RDFS.LABEL, null).objects().iterator().next()
                 .stringValue(), is("AA Haupttrakt"));
     }

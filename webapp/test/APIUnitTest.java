@@ -1,6 +1,5 @@
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.BuildingDto;
-import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.ServiceFactory;
 import controllers.APIController;
 import org.eclipse.rdf4j.common.iteration.Iterations;
@@ -20,7 +19,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import play.mvc.Result;
 import play.test.Helpers;
-import play.test.WithApplication;
 import play.twirl.api.Content;
 
 import java.io.IOException;
@@ -80,9 +78,9 @@ public class APIUnitTest {
     public void renderBuildingTemplate_ok() {
         IRI buildingHIRI =
             valueFactory.createIRI("http://finder.tuwien.ac.at/spatial/building/id/H");
-        BuildingDto buildingHDto =
-            new BuildingDto(new IResourceIdentifier(buildingHIRI.stringValue()),
-                getModel().filter(buildingHIRI, null, null));
+        BuildingDto buildingHDto = new BuildingDto();
+        buildingHDto.id(buildingHIRI);
+        buildingHDto.setModel(getModel().filter(buildingHIRI, null, null));
         Content dataPageContent = views.html.dataPage.render("spatial/building/id/H", buildingHDto);
         assertEquals("text/html", dataPageContent.contentType());
         assertThat(

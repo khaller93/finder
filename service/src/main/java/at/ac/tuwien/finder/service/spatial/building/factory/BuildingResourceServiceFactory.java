@@ -13,6 +13,7 @@ import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import at.ac.tuwien.finder.vocabulary.GeoSPARQL;
 import org.eclipse.rdf4j.model.Model;
+import org.outofbits.opinto.RDFMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -87,7 +88,8 @@ class BuildingResourceServiceFactory extends InternalTreeNodeServiceFactory {
 
             @Override
             public Dto wrapResult(Model model) throws ServiceException {
-                return new BuildingDto(resourceIdentifier(), model);
+                return RDFMapper.create()
+                    .readValue(model, BuildingDto.class, resourceIdentifier().iriValue());
             }
         };
     }

@@ -1,13 +1,20 @@
 package at.ac.tuwien.finder.service.spatial.geometry.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.dto.*;
+import at.ac.tuwien.finder.dto.Dto;
+import at.ac.tuwien.finder.dto.LocationPointDto;
+import at.ac.tuwien.finder.dto.PolygonShapeDto;
+import at.ac.tuwien.finder.dto.SimpleResourceDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
-import at.ac.tuwien.finder.service.*;
+import at.ac.tuwien.finder.service.DescribeResourceService;
+import at.ac.tuwien.finder.service.IService;
+import at.ac.tuwien.finder.service.IServiceFactory;
+import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import org.eclipse.rdf4j.model.Model;
+import org.outofbits.opinto.RDFMapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -63,10 +70,12 @@ class GeometryResourceServiceFactory extends InternalTreeNodeServiceFactory {
             parent.resolve(resourceId).rawIRI()) {
             @Override
             public Dto wrapResult(Model model) throws ServiceException {
-                if(resourceId.startsWith("point:")){
-                    return new LocationPointDto(resourceIdentifier(), model);
-                } else if(resourceId.startsWith("polygon:")){
-                    return new PolygonShapeDto(resourceIdentifier(), model);
+                if (resourceId.startsWith("point:")) {
+                    return RDFMapper.create()
+                        .readValue(model, LocationPointDto.class, resourceIdentifier().iriValue());
+                } else if (resourceId.startsWith("polygon:")) {
+                    return RDFMapper.create()
+                        .readValue(model, PolygonShapeDto.class, resourceIdentifier().iriValue());
                 }
                 return new SimpleResourceDto(resourceIdentifier(), model);
             }

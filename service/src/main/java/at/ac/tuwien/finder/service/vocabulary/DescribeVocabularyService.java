@@ -1,6 +1,7 @@
 package at.ac.tuwien.finder.service.vocabulary;
 
 import at.ac.tuwien.finder.dto.Dto;
+import at.ac.tuwien.finder.dto.VocabularyResourceDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.dto.SimpleResourceDto;
 import at.ac.tuwien.finder.service.IService;
@@ -33,7 +34,7 @@ class DescribeVocabularyService implements IService {
     public Dto execute() throws ServiceException {
         if (localVocabName.equals("spatial")) {
             try {
-                return new SimpleResourceDto(new IResourceIdentifier(TUVS.NS),
+                return new VocabularyResourceDto(new IResourceIdentifier(TUVS.NS),
                     VocabularyManager.getInstance().getSpatialOntology());
             } catch (OntologyAccessException e) {
                 throw new ServiceException(e);

@@ -5,6 +5,8 @@ import at.ac.tuwien.finder.vocabulary.GeoSPARQL;
 import org.eclipse.rdf4j.model.Literal;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.util.Models;
+import org.outofbits.opinto.annotations.RdfProperty;
+import org.outofbits.opinto.annotations.RdfsClass;
 
 import java.util.Optional;
 
@@ -13,7 +15,14 @@ import java.util.Optional;
  *
  * @author Kevin Haller
  */
+@RdfsClass("http://www.opengis.net/ont/sf#Point")
 public class LocationPointDto extends AbstractResourceDto implements GeometryDto {
+
+    private String wktString;
+
+    public LocationPointDto() {
+
+    }
 
     /**
      * Creates an instance of {@link AbstractResourceDto} with the {@link IResourceIdentifier}
@@ -24,7 +33,19 @@ public class LocationPointDto extends AbstractResourceDto implements GeometryDto
      * @param model       {@link Model} that contains all statements describing the entity.
      */
     public LocationPointDto(IResourceIdentifier resourceIRI, Model model) {
-        super(resourceIRI, model);
+        assert resourceIRI != null;
+        assert model != null;
+        super.id(resourceIRI.iriValue());
+        super.setModel(model);
+    }
+
+    @RdfProperty(value = "http://www.opengis.net/ont/geosparql#asWKT")
+    public void setWKT(String wktString){
+        this.wktString = wktString;
+    }
+
+    public String getWkt(){
+        return wktString;
     }
 
     @Override

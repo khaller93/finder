@@ -24,7 +24,10 @@ public class ExceptionResourceDto extends AbstractResourceDto {
      * @param model       {@link Model} that describes the exception.
      */
     public ExceptionResourceDto(IResourceIdentifier resourceIRI, Model model) {
-        super(resourceIRI, model);
+        assert resourceIRI != null;
+        assert model != null;
+        super.id(resourceIRI.iriValue());
+        super.setModel(model);
     }
 
     /**

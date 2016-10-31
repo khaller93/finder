@@ -1,9 +1,14 @@
 package at.ac.tuwien.finder.dto.util;
 
 import at.ac.tuwien.finder.vocabulary.*;
+import org.eclipse.rdf4j.model.Namespace;
+import org.eclipse.rdf4j.model.impl.SimpleNamespace;
+import org.eclipse.rdf4j.model.vocabulary.DCAT;
 import org.eclipse.rdf4j.model.vocabulary.*;
+import org.eclipse.rdf4j.model.vocabulary.ORG;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -11,33 +16,46 @@ import java.util.Map;
  *
  * @author Kevin Haller
  */
-public final class Namespaces {
+public final class Namespaces implements Iterable<Namespace> {
 
-    private static final Map<String, String> nameSpaceMap = new HashMap<>();
+    private static final Map<String, Namespace> nameSpaceMap = new HashMap<>();
 
     static {
-        nameSpaceMap.put(RDF.NAMESPACE, RDF.PREFIX);
-        nameSpaceMap.put(RDFS.NAMESPACE, RDFS.PREFIX);
-        nameSpaceMap.put(OWL.NAMESPACE, OWL.PREFIX);
-        nameSpaceMap.put(XMLSchema.NAMESPACE, XMLSchema.PREFIX);
-        nameSpaceMap.put("http://finder.tuwien.ac.at/vocab/spatial#", "tuvs");
-        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/building/id/", "building");
-        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/buildingtract/id/", "buildingtract");
-        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/floor/id/", "floor");
-        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/room/id/", "room");
-        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/address/id/", "address");
-        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/geometry/id/", "geometry");
-        nameSpaceMap.put("http://finder.tuwien.ac.at/event/id/", "event");
-        nameSpaceMap.put(FOAF.NAMESPACE, FOAF.PREFIX);
-        nameSpaceMap.put(LOCN.NS, LOCN.PREFIX);
-        nameSpaceMap.put(DCTERMS.NAMESPACE, DCTERMS.PREFIX);
-        nameSpaceMap.put(ORG.NS, ORG.PREFIX);
-        nameSpaceMap.put(SCHEMA.NS, SCHEMA.PREFIX);
-        nameSpaceMap.put("http://www.w3.org/2003/01/geo/wgs84_pos#", "geo");
-        nameSpaceMap.put(GeoSPARQL.NS, GeoSPARQL.PREFIX);
-        nameSpaceMap.put(SF.NS, SF.PREFIX);
-        nameSpaceMap.put("http://purl.org/vocommons/voaf#", "voaf");
-        nameSpaceMap.put("http://purl.org/vocab/vann/", "vann");
+        nameSpaceMap.put(RDF.NAMESPACE, new SimpleNamespace(RDF.PREFIX, RDF.NAMESPACE));
+        nameSpaceMap.put(RDFS.NAMESPACE, new SimpleNamespace(RDFS.PREFIX, RDFS.NAMESPACE));
+        nameSpaceMap.put(OWL.NAMESPACE, new SimpleNamespace(OWL.PREFIX, OWL.NAMESPACE));
+        nameSpaceMap
+            .put(XMLSchema.NAMESPACE, new SimpleNamespace(XMLSchema.PREFIX, XMLSchema.NAMESPACE));
+        nameSpaceMap.put(TUVS.NS, new SimpleNamespace(TUVS.PREFIX, TUVS.NS));
+        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/building/id/",
+            new SimpleNamespace("building", "http://finder.tuwien.ac.at/spatial/building/id/"));
+        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/buildingtract/id/",
+            new SimpleNamespace("buildingtract",
+                "http://finder.tuwien.ac.at/spatial/buildingtract/id/"));
+        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/floor/id/",
+            new SimpleNamespace("floor", "http://finder.tuwien.ac.at/spatial/floor/id/"));
+        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/room/id/",
+            new SimpleNamespace("room", "http://finder.tuwien.ac.at/spatial/room/id/"));
+        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/address/id/",
+            new SimpleNamespace("address", "http://finder.tuwien.ac.at/spatial/address/id/"));
+        nameSpaceMap.put("http://finder.tuwien.ac.at/spatial/geometry/id/",
+            new SimpleNamespace("geometry", "http://finder.tuwien.ac.at/spatial/geometry/id/"));
+        nameSpaceMap.put("http://finder.tuwien.ac.at/event/id/",
+            new SimpleNamespace("event", "http://finder.tuwien.ac.at/event/id/"));
+        nameSpaceMap.put(FOAF.NAMESPACE, new SimpleNamespace(FOAF.PREFIX, FOAF.NAMESPACE));
+        nameSpaceMap.put(LOCN.NS, new SimpleNamespace(LOCN.PREFIX, LOCN.NS));
+        nameSpaceMap.put(DCTERMS.NAMESPACE, new SimpleNamespace(DCTERMS.PREFIX, DCTERMS.NAMESPACE));
+        nameSpaceMap.put(ORG.NAMESPACE, new SimpleNamespace(ORG.PREFIX, ORG.NAMESPACE));
+        nameSpaceMap.put(SCHEMA.NS, new SimpleNamespace(SCHEMA.PREFIX, SCHEMA.NS));
+        nameSpaceMap.put("http://www.w3.org/2003/01/geo/wgs84_pos#",
+            new SimpleNamespace("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#"));
+        nameSpaceMap.put(GeoSPARQL.NS, new SimpleNamespace(GeoSPARQL.PREFIX, GeoSPARQL.NS));
+        nameSpaceMap.put(SF.NS, new SimpleNamespace(SF.PREFIX, SF.NS));
+        nameSpaceMap.put(DCAT.NAMESPACE, new SimpleNamespace(DCAT.PREFIX, DCAT.NAMESPACE));
+        nameSpaceMap.put("http://purl.org/vocommons/voaf#",
+            new SimpleNamespace("voaf", "http://purl.org/vocommons/voaf#"));
+        nameSpaceMap.put("http://purl.org/vocab/vann/",
+            new SimpleNamespace("vann", "http://purl.org/vocab/vann/"));
     }
 
     /**
@@ -66,7 +84,7 @@ public final class Namespaces {
      * Formats a given string into the presentation {@code prefix:LocatorName}, if the namespace
      * for the given string of an IRI is known, otherwise the given IRI is returned without change.
      *
-     * @param iri
+     * @param iri       the IRI that shall be formatted.
      * @param nameSpace the namespace of the given IRI
      * @param localName the local name of the given IRI that forms the given IRI when appended to
      *                  the given namespace.
@@ -79,9 +97,13 @@ public final class Namespaces {
             return "iri:none";
         }
         if (nameSpaceMap.containsKey(nameSpace)) {
-            return String.format("%s:%s", nameSpaceMap.get(nameSpace), localName);
+            return String.format("%s:%s", nameSpaceMap.get(nameSpace).getPrefix(), localName);
         }
         return iri;
     }
 
+    @Override
+    public Iterator<Namespace> iterator() {
+        return nameSpaceMap.values().iterator();
+    }
 }

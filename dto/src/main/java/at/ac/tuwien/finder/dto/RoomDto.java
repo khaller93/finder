@@ -15,24 +15,11 @@ import java.util.Set;
  * @author Kevin Haller
  */
 @RdfsClass("http://finder.tuwien.ac.at/vocab/spatial#Room")
-public class BRoomDto implements FeatureDto, Identifiable {
-
-    private IResourceIdentifier resourceIdentifier;
+public class RoomDto extends AbstractFeatureDto implements FeatureDto {
 
     private String roomCode;
     private LocationPointDto locationPointDto;
     private PolygonShapeDto polygonShapeDto;
-
-
-    @Override
-    public org.eclipse.rdf4j.model.Resource id() {
-        return resourceIdentifier.iriValue();
-    }
-
-    @Override
-    public void id(org.eclipse.rdf4j.model.Resource theResource) {
-        this.resourceIdentifier = new IResourceIdentifier(theResource.stringValue());
-    }
 
     @RdfProperty(value = "http://finder.tuwien.ac.at/vocab/spatial#roomCode", datatype = "xs:string")
     public void setRoomCode(String roomCode) {
@@ -41,31 +28,6 @@ public class BRoomDto implements FeatureDto, Identifiable {
 
     public String getRoomCode() {
         return roomCode;
-    }
-    
-    @Override
-    public IResourceIdentifier getIRI() {
-        return resourceIdentifier;
-    }
-
-    @Override
-    public String getLabel(String preferredLanguageCode) {
-        return null;
-    }
-
-    @Override
-    public String getDescription(String preferredLanguageCode) {
-        return null;
-    }
-
-    @Override
-    public void setModel(Model model) {
-
-    }
-
-    @Override
-    public Model getModel() {
-        return null;
     }
 
     @RdfProperty(value = "http://www.opengis.net/ont/geosparql#hasGeometry")
@@ -90,16 +52,6 @@ public class BRoomDto implements FeatureDto, Identifiable {
 
     @Override
     public Collection<GeometryDto> getGeometryShapes() {
-        return null;
-    }
-
-    @Override
-    public Set<Property> getProperties() {
-        return null;
-    }
-
-    @Override
-    public Set<Resource> getTypes() {
         return null;
     }
 }

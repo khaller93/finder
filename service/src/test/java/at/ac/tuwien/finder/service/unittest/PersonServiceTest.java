@@ -1,9 +1,9 @@
 package at.ac.tuwien.finder.service.unittest;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.dto.RoomDto;
 import at.ac.tuwien.finder.dto.Dto;
 import at.ac.tuwien.finder.dto.PersonDto;
+import at.ac.tuwien.finder.dto.RoomDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.ServiceFactory;
 import at.ac.tuwien.finder.service.TestTripleStore;
@@ -51,6 +51,8 @@ public class PersonServiceTest {
         serviceFactory = new ServiceFactory(testTripleStore.getTripleStoreManager());
     }
 
+    //Steffen,Amsel,SteffenAmsel@einrot.com,0676 659 72 54,male
+
     @Test
     public void getPersonWithId_ok()
         throws IRIUnknownException, IRIInvalidException, ServiceException {
@@ -60,12 +62,12 @@ public class PersonServiceTest {
         assertThat("The returned DTO must be an instance of PersonDto.", responseDto,
             instanceOf(PersonDto.class));
         PersonDto personDto = (PersonDto) responseDto;
-        assertThat("The family name of the returned person must be Sabou.",
-            personDto.getFamilyName(), is("Sabou"));
-        assertThat("The given name of the returned person must be Reka Marta.",
-            personDto.getGivenName(), is("Reka Marta"));
+        assertThat("The family name of the returned person must be 'Amsel'.",
+            personDto.getFamilyName(), is("Amsel"));
+        assertThat("The given name of the returned person must be 'Steffen'.",
+            personDto.getGivenName(), is("Steffen"));
         assertThat("The gender of the returned person must be female.", personDto.getGender(),
-            is("female"));
+            is("male"));
     }
 
     @Test(expected = ResourceNotFoundException.class)
@@ -85,10 +87,10 @@ public class PersonServiceTest {
         PersonDto personDto = (PersonDto) responseDto;
         assertThat(personDto.getIRI().rawIRI(),
             is(BASE_IRI.resolve("organizational/person/id/OID754841").rawIRI()));
-        assertThat("The family name of the returned person must be Biffl.",
-            personDto.getFamilyName(), is("Biffl"));
-        assertThat("The given name of the returned person must be Stefan.",
-            personDto.getGivenName(), is("Stefan"));
+        assertThat("The family name of the returned person must be 'Hartmann'.",
+            personDto.getFamilyName(), is("Hartmann"));
+        assertThat("The given name of the returned person must be 'Steffen'.",
+            personDto.getGivenName(), is("Steffen"));
         assertThat("The gender of the returned person must be male.", personDto.getGender(),
             is("male"));
         Rio.write(responseDto.getModel(), System.out, RDFFormat.TURTLE);

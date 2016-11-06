@@ -12,6 +12,12 @@
     <artifactId>service</artifactId>
 
     <dependencies>
+        <!-- RDF/OO Mapper -->
+        <dependency>
+            <groupId>org.outofbits.opinto</groupId>
+            <artifactId>opinto</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!-- Finder data-management -->
         <dependency>
             <groupId>${project.groupId}</groupId>

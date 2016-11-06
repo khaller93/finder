@@ -165,6 +165,34 @@
         </dependencies>
     </dependencyManagement>
 
+    <repositories>
+        <repository>
+            <id>outofbits.repository</id>
+            <name>outofbits.repository</name>
+            <url>http://repo.outofbits.com/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>outofbits.repository</id>
+            <name>outofbits.repository</name>
+            <url>http://repo.outofbits.com/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <plugins>
             <plugin>

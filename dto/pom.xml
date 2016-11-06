@@ -59,18 +59,4 @@
         </dependency>
     </dependencies>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>outofbits.repository</id>
-            <name>outofbits.repository</name>
-            <url>http://repo.outofbits.com/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
 </project>

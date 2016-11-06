@@ -2,7 +2,6 @@ package at.ac.tuwien.finder.service.organizational.person;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.DtoMapper;
 import at.ac.tuwien.finder.dto.PersonDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.DescribeResourceService;

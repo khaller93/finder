@@ -2,8 +2,8 @@ package at.ac.tuwien.finder.service.spatial.geometry.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.LocationPointDto;
-import at.ac.tuwien.finder.dto.PolygonShapeDto;
+import at.ac.tuwien.finder.dto.spatial.LocationPointDto;
+import at.ac.tuwien.finder.dto.spatial.PolygonShapeDto;
 import at.ac.tuwien.finder.dto.SimpleResourceDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.DescribeResourceService;

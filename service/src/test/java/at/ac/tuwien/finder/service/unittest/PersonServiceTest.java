@@ -2,8 +2,8 @@ package at.ac.tuwien.finder.service.unittest;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.PersonDto;
-import at.ac.tuwien.finder.dto.RoomDto;
+import at.ac.tuwien.finder.dto.organizational.PersonDto;
+import at.ac.tuwien.finder.dto.spatial.RoomDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.service.ServiceFactory;
 import at.ac.tuwien.finder.service.TestTripleStore;

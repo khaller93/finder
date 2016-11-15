@@ -1,13 +1,16 @@
 package at.ac.tuwien.finder.service.spatial.floor.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
+import at.ac.tuwien.finder.dto.Dto;
+import at.ac.tuwien.finder.dto.spatial.FloorDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
-import at.ac.tuwien.finder.service.IService;
-import at.ac.tuwien.finder.service.IServiceFactory;
-import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
-import at.ac.tuwien.finder.service.SimpleDescribeResourceService;
+import at.ac.tuwien.finder.service.*;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
+import at.ac.tuwien.finder.service.exception.ServiceException;
+import at.ac.tuwien.finder.vocabulary.GeoSPARQL;
+import org.eclipse.rdf4j.model.Model;
+import org.outofbits.opinto.RDFMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -70,7 +73,22 @@ class FloorResourceServiceFactory extends InternalTreeNodeServiceFactory {
             return super.getService(newParent, pathScanner,
                 super.pushParameter(parameter, "id", parent.resolve(resourceId).rawIRI()));
         }
-        return new SimpleDescribeResourceService(tripleStoreManager,
-            parent.resolve(resourceId).rawIRI());
+        return new DescribeResourceService(tripleStoreManager,
+            parent.resolve(resourceId).rawIRI()) {
+
+            @Override
+            public String getQuery() {
+                return String
+                    .format("DESCRIBE <%s> ?geometry WHERE {OPTIONAL { <%s> <%s> ?geometry .}}",
+                        resourceIdentifier().rawIRI(), resourceIdentifier().rawIRI(),
+                        GeoSPARQL.hasGeometry);
+            }
+
+            @Override
+            public Dto wrapResult(Model model) throws ServiceException {
+                return RDFMapper.create()
+                    .readValue(model, FloorDto.class, resourceIdentifier().iriValue());
+            }
+        };
     }
 }

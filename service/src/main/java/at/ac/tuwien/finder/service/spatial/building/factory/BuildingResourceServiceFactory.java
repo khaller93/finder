@@ -1,9 +1,9 @@
 package at.ac.tuwien.finder.service.spatial.building.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
-import at.ac.tuwien.finder.dto.BuildingDto;
 import at.ac.tuwien.finder.dto.Dto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.spatial.BuildingDto;
 import at.ac.tuwien.finder.service.DescribeResourceService;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
@@ -12,6 +12,7 @@ import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import at.ac.tuwien.finder.vocabulary.GeoSPARQL;
+import at.ac.tuwien.finder.vocabulary.TUVS;
 import org.eclipse.rdf4j.model.Model;
 import org.outofbits.opinto.RDFMapper;
 import org.slf4j.Logger;
@@ -80,10 +81,10 @@ class BuildingResourceServiceFactory extends InternalTreeNodeServiceFactory {
 
             @Override
             public String getQuery() {
-                return String
-                    .format("DESCRIBE <%s> ?geometry WHERE {OPTIONAL { <%s> <%s> ?geometry .}}",
-                        resourceIdentifier().rawIRI(), resourceIdentifier().rawIRI(),
-                        GeoSPARQL.hasGeometry);
+                return String.format(
+                    "DESCRIBE <%s> ?buildingUnit ?geometry WHERE {OPTIONAL { <%s> <%s> ?geometry .} . OPTIONAL {<%s> <%s> ?buildingUnit .} .}",
+                    resourceIdentifier().rawIRI(), resourceIdentifier().rawIRI(),
+                    GeoSPARQL.hasGeometry, resourceIdentifier().rawIRI(), TUVS.containsBuildingUnit);
             }
 
             @Override

@@ -1,6 +1,8 @@
 @import at.ac.tuwien.finder.dto.rdf.Resource
-@import at.ac.tuwien.finder.dto.{CollectionDto, Dto, ResourceDto, SerializationFormat, FeatureDto, GeometryDto}
+@import at.ac.tuwien.finder.dto.{CollectionDto, Dto, ResourceDto, SerializationFormat}
 
+@import at.ac.tuwien.finder.dto.spatial.FeatureDto
+@import at.ac.tuwien.finder.dto.spatial.GeometryDto
 @(path: String)(dto: Dto)
 
 @basic(dto.getLabel()) {

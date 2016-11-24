@@ -9,7 +9,8 @@ import org.outofbits.opinto.annotations.SuperclassOf;
  * @author Kevin Haller
  */
 @RdfsClass(value = "http://finder.tuwien.ac.at/vocab/spatial#BuildingUnit")
-@SuperclassOf(subclasses = {RoomDto.class, FloorDto.class, BuildingTractDto.class})
+@SuperclassOf(subclasses = {RoomDto.class, FloorDto.class, BuildingTractDto.class,
+    FloorSectionDto.class})
 public class BuildingUnitDto extends AbstractFeatureDto implements FeatureDto {
 
 }

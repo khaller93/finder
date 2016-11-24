@@ -41,8 +41,9 @@ public class IResourceIdentifier extends Resource {
      * @return the result of resolving the given path against this IRI.
      */
     public IResourceIdentifier resolve(String path) {
-        return new IResourceIdentifier(
-            SimpleValueFactory.getInstance().createIRI(value.stringValue(), path));
+        return new IResourceIdentifier(SimpleValueFactory.getInstance()
+            .createIRI(value.stringValue().replaceAll("(/)+$", "") + "/",
+                path.replaceAll("^(/)*", "")));
     }
 
     /**

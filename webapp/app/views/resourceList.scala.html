@@ -1,7 +1,7 @@
 @import at.ac.tuwien.finder.dto.{CollectionDto}
-@import at.ac.tuwien.finder.dto.rdf.Resource
+@import at.ac.tuwien.finder.dto.Dto
 @import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier
-@(path: String)(collectionDto: CollectionDto[Resource])
+@(path: String)(collectionDto: CollectionDto[Dto])
 
 @basic(collectionDto.getLabel()) {
     @HtmlFormat.empty
@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for((entry, count) <- collectionDto.asList().zipWithIndex){
+                    @for((entry, count) <- collectionDto.asResourceList().zipWithIndex){
                         <tr>
                             <th>@count</th>
                             <th>

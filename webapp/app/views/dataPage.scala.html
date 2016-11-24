@@ -59,7 +59,7 @@
                 @resource(path)(dto.asInstanceOf[ResourceDto])
             }
             case _: CollectionDto[Resource] => {
-                @resourceList(path)(dto.asInstanceOf[CollectionDto[Resource]])
+                @resourceList(path)(dto.asInstanceOf[CollectionDto[Dto]])
             }
             case _ => {}
         }

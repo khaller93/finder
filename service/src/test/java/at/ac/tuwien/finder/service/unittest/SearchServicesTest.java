@@ -2,33 +2,27 @@ package at.ac.tuwien.finder.service.unittest;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.ResourceCollectionDto;
+import at.ac.tuwien.finder.dto.SimpleDtoCollectionDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.spatial.RoomDto;
 import at.ac.tuwien.finder.service.ServiceFactory;
 import at.ac.tuwien.finder.service.TestTripleStore;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import org.eclipse.rdf4j.model.IRI;
-import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.ValueFactory;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
-import org.eclipse.rdf4j.repository.Repository;
-import org.eclipse.rdf4j.repository.RepositoryConnection;
-import org.eclipse.rdf4j.repository.sail.SailRepository;
-import org.eclipse.rdf4j.rio.RDFFormat;
-import org.eclipse.rdf4j.rio.Rio;
-import org.eclipse.rdf4j.sail.memory.MemoryStore;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Rule;
+import org.junit.Test;
 
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 /**
  * This class tests search services.
@@ -64,19 +58,20 @@ public class SearchServicesTest {
             "/search/freerooms/startDate/2016-10-06T13:00:00+01:00/endDate/2016-10-06T14:00:00+01:00"))
             .execute();
         assertThat("The returned Dto must be a collection of room resources.", freeRoomsDto,
-            instanceOf(ResourceCollectionDto.class));
-        ResourceCollectionDto freeRoomsCollectionDto = (ResourceCollectionDto) freeRoomsDto;
+            instanceOf(SimpleDtoCollectionDto.class));
+        SimpleDtoCollectionDto<RoomDto> freeRoomsCollectionDto =
+            (SimpleDtoCollectionDto<RoomDto>) freeRoomsDto;
         assertThat(
             "The returned rooms must not contain 'Semninarraum Gödel', which is not free at the given time.",
-            freeRoomsCollectionDto.asList(),
+            freeRoomsCollectionDto.asResourceList(),
             not(contains(valueFactory.createIRI(BASE_IRI.rawIRI(), "spatial/room/id/HBEG10"))));
         assertThat(
             "The returned rooms must not contain 'Seminarraum Gödel', which is not free at the given time.",
-            freeRoomsCollectionDto.asList(),
+            freeRoomsCollectionDto.asResourceList(),
             not(contains(valueFactory.createIRI(BASE_IRI.rawIRI(), "spatial/room/id/HBEG10"))));
         assertThat(
             "The returned rooms must not contain 'Informatiklabor Pong', which is free at the given time.",
-            freeRoomsCollectionDto.asList(),
+            freeRoomsCollectionDto.asResourceList(),
             not(contains(valueFactory.createIRI(BASE_IRI.rawIRI(), "spatial/room/id/HGEG05"))));
     }
 

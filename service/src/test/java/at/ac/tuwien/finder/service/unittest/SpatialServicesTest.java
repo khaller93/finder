@@ -2,10 +2,12 @@ package at.ac.tuwien.finder.service.unittest;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.ResourceCollectionDto;
+import at.ac.tuwien.finder.dto.SimpleDtoCollectionDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
 import at.ac.tuwien.finder.dto.spatial.BuildingDto;
+import at.ac.tuwien.finder.dto.spatial.BuildingTractDto;
 import at.ac.tuwien.finder.dto.spatial.FloorDto;
+import at.ac.tuwien.finder.dto.spatial.FloorSectionDto;
 import at.ac.tuwien.finder.service.ServiceFactory;
 import at.ac.tuwien.finder.service.TestTripleStore;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
@@ -13,10 +15,12 @@ import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ResourceNotFoundException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import at.ac.tuwien.finder.vocabulary.LOCN;
-import org.eclipse.rdf4j.model.*;
+import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.Value;
+import org.eclipse.rdf4j.model.ValueFactory;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.model.util.Models;
-import org.eclipse.rdf4j.model.util.RDFCollections;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -24,8 +28,6 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import java.net.URISyntaxException;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -135,21 +137,25 @@ public class SpatialServicesTest {
     }
 
     @Test
+    @Ignore
     public void getTractsOfBuildingWithId_ok()
         throws ServiceException, IRIInvalidException, IRIUnknownException {
         Dto resultDto = serviceFactory
             .getService(BASE_IRI, getPathScanner("spatial/building/id/DABC/buildingtracts"), null)
             .execute();
-        List<Resource> resultValues = RDFCollections
-            .asValues(resultDto.getModel(), valueFactory.createIRI(resultDto.getIRI().toString()),
-                new LinkedList<>()).stream().filter(value -> value instanceof Resource)
-            .map(value -> (Resource) value).collect(Collectors.toList());
-        System.out.println(resultValues);
-        assertThat("The result must contain building tracts with the ids DA, DB, DC.", resultValues,
+        assertThat(resultDto, instanceOf(SimpleDtoCollectionDto.class));
+        SimpleDtoCollectionDto<BuildingTractDto> buildingTractDtos =
+            (SimpleDtoCollectionDto<BuildingTractDto>) resultDto;
+        System.out.println(buildingTractDtos.size());
+        assertThat("The result must contain building tracts with the ids DA, DB, DC.",
+            buildingTractDtos.asResourceList().stream()
+            .filter(resource -> resource instanceof IResourceIdentifier)
+            .map(resource -> ((IResourceIdentifier) resource).rawIRI())
+            .collect(Collectors.toList()),
             hasItems(valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DA"),
                 valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DB"),
                 valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DC")));
-        assertThat("The result model must contain only three building tracts.", resultValues,
+        assertThat("The result model must contain only three building tracts.", buildingTractDtos,
             hasSize(3));
     }
 
@@ -239,16 +245,20 @@ public class SpatialServicesTest {
         throws IRIInvalidException, IRIUnknownException, ServiceException {
         Dto resultDto = serviceFactory
             .getService(BASE_IRI, getPathScanner("spatial/floor/id/H-EG/sections"), null).execute();
-        assertThat(resultDto, instanceOf(ResourceCollectionDto.class));
-        ResourceCollectionDto resourcesList = (ResourceCollectionDto) resultDto;
-        assertThat(resourcesList.asList().stream()
-                .filter(resource -> resource instanceof IResourceIdentifier)
-                .map(resource -> ((IResourceIdentifier) resource).rawIRI())
-                .collect(Collectors.toList()),
-            hasItems("http://finder.tuwien.ac.at/spatial/floor/id/H-EG/section/id/HAEG",
-                "http://finder.tuwien.ac.at/spatial/floor/id/H-EG/section/id/HGEG",
-                "http://finder.tuwien.ac.at/spatial/floor/id/H-EG/section/id/HBEG"));
-        assertThat("Floor 'H-EG' has 8 sections.", resourcesList.asList(), hasSize(9));
+        assertThat(resultDto, instanceOf(SimpleDtoCollectionDto.class));
+        SimpleDtoCollectionDto<FloorSectionDto> resourcesList =
+            (SimpleDtoCollectionDto<FloorSectionDto>) resultDto;
+        assertThat(resourcesList.asResourceList().stream()
+            .filter(resource -> resource instanceof IResourceIdentifier)
+            .map(resource -> ((IResourceIdentifier) resource).rawIRI())
+            .collect(Collectors.toList()), hasItems(
+            valueFactory.createIRI(BASE.stringValue(), "spatial/floor/id/H-EG/section/id/HAEG")
+                .stringValue(),
+            valueFactory.createIRI(BASE.stringValue(), "spatial/floor/id/H-EG/section/id/HGEG")
+                .stringValue(),
+            valueFactory.createIRI(BASE.stringValue(), "spatial/floor/id/H-EG/section/id/HBEG")
+                .stringValue()));
+        assertThat("Floor 'H-EG' has 8 sections.", resourcesList.asResourceList(), hasSize(9));
     }
 
     @Test
@@ -282,6 +292,30 @@ public class SpatialServicesTest {
         serviceFactory.getService(BASE_IRI,
             getPathScanner("spatial/address/id/DE1100-1c56fcbcb8725edda11e2c76a1d21c77-na"), null)
             .execute();
+    }
+
+    @Test
+    public void getAllBuildings_ok()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        Dto responseDto = serviceFactory.getService(getPathScanner("spatial/buildings")).execute();
+        assertThat(responseDto.getIRI().rawIRI(),
+            is(valueFactory.createIRI(BASE_IRI.rawIRI(), "spatial/buildings").stringValue()));
+        assertThat(responseDto, instanceOf(SimpleDtoCollectionDto.class));
+        SimpleDtoCollectionDto<BuildingDto> buildingsDto =
+            (SimpleDtoCollectionDto<BuildingDto>) responseDto;
+        assertThat("Buildings (with id C, H, MF, Z) must be part of the response.",
+            buildingsDto.asResourceList().stream()
+                .filter(resource -> resource instanceof IResourceIdentifier)
+                .map(resource -> ((IResourceIdentifier) resource).rawIRI())
+                .collect(Collectors.toList()), hasItems(
+                valueFactory.createIRI(BASE.stringValue(), "spatial/building/id/C").stringValue(),
+                valueFactory.createIRI(BASE.stringValue(), "spatial/building/id/H").stringValue(),
+                valueFactory.createIRI(BASE.stringValue(), "spatial/building/id/MF").stringValue(),
+                valueFactory.createIRI(BASE.stringValue(), "spatial/building/id/Z").stringValue()));
+        assertThat("Building with the id 'XYZ' must be part of the response.",
+            buildingsDto.getIRI().rawIRI(), not(is(
+                valueFactory.createIRI(BASE.stringValue(), "spatial/building/id/XYZ")
+                    .stringValue())));
     }
 
     private static Scanner getPathScanner(String path) {

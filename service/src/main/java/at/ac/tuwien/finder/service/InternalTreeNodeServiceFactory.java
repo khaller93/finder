@@ -48,7 +48,7 @@ public abstract class InternalTreeNodeServiceFactory implements IServiceFactory 
                 String.format("There is no service assigned to '%s'.", parent.rawIRI()));
         }
         String pathSegment = pathScanner.next();
-        IResourceIdentifier newParent = parent.resolve(pathSegment + "/");
+        IResourceIdentifier newParent = parent.resolve(pathSegment);
         Map<String, IServiceFactory> serviceFactoryMap = getServiceFactoryMap();
         if (!serviceFactoryMap.containsKey(pathSegment)) {
             throw new IRIUnknownException(String.format(

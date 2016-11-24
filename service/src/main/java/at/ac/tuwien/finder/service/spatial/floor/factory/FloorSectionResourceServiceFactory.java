@@ -43,7 +43,7 @@ class FloorSectionResourceServiceFactory extends InternalTreeNodeServiceFactory 
         Map<String, String> parameterMap) throws IRIInvalidException, IRIUnknownException {
         String resourceId = pathScanner.next();
         if (pathScanner.hasNext()) {
-            IResourceIdentifier newParent = parentIRI.resolve(resourceId + "/");
+            IResourceIdentifier newParent = parentIRI.resolve(resourceId);
             return super.getService(newParent, pathScanner,
                 super.pushParameter(parameterMap, "id", newParent.toString()));
         }

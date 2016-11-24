@@ -2,28 +2,28 @@ package at.ac.tuwien.finder.service.spatial.building.service;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.ResourceCollectionDto;
+import at.ac.tuwien.finder.dto.SimpleDtoCollectionDto;
+import at.ac.tuwien.finder.dto.spatial.BuildingUnitDto;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import at.ac.tuwien.finder.vocabulary.TUVS;
-import org.eclipse.rdf4j.common.iteration.Iterations;
 import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.ValueFactory;
-import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.model.util.RDFCollections;
+import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
 import org.eclipse.rdf4j.query.MalformedQueryException;
 import org.eclipse.rdf4j.query.QueryEvaluationException;
 import org.eclipse.rdf4j.query.QueryLanguage;
+import org.eclipse.rdf4j.query.QueryResults;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.RepositoryException;
 import org.eclipse.rdf4j.rio.RDFHandlerException;
+import org.outofbits.opinto.RDFMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.stream.Collectors;
 
 /**
  * This class is an implementation of {@link IService} that returns a description of all
@@ -62,8 +62,8 @@ public class UnitsOfBuildingService implements IService {
         this.unitName = unitName;
         this.unitsOfBuildingsIRI = valueFactory.createIRI(unitsOfBuildingsUri);
         this.unitsOfBuildingQuery = String
-            .format("SELECT DISTINCT ?unit WHERE { <%s> a <%s> ; <%s> ?unit . ?unit a <%s> . }", resourceUri,
-                TUVS.Building.stringValue(), TUVS.containsBuildingUnit.stringValue(),
+            .format("DESCRIBE ?unit WHERE { <%s> a <%s> ; <%s> ?unit . ?unit a <%s> . }",
+                resourceUri, TUVS.Building.stringValue(), TUVS.containsBuildingUnit.stringValue(),
                 buildingUnitTypeUri);
         logger.debug("Query for getting {} of buildings: {}", buildingUnitTypeUri,
             unitsOfBuildingQuery);
@@ -72,14 +72,17 @@ public class UnitsOfBuildingService implements IService {
     @Override
     public Dto execute() throws ServiceException {
         try (RepositoryConnection connection = tripleStoreManager.getConnection()) {
-            Model responseModel = new LinkedHashModel();
+            Model responseModel = QueryResults.asModel(
+                connection.prepareGraphQuery(QueryLanguage.SPARQL, unitsOfBuildingQuery)
+                    .evaluate());
             responseModel.add(unitsOfBuildingsIRI, RDFS.LABEL, valueFactory
                 .createLiteral(String.format("All known %ss", unitName.toLowerCase()), "en"));
-            return new ResourceCollectionDto(unitsOfBuildingsIRI, RDFCollections.asRDF(Iterations
-                .stream(connection.prepareTupleQuery(QueryLanguage.SPARQL, unitsOfBuildingQuery)
-                    .evaluate()).map(bindings -> bindings.getBinding("unit").getValue())
-                .filter(value -> value instanceof IRI).map(value -> (IRI) value)
-                .collect(Collectors.toList()), unitsOfBuildingsIRI, responseModel));
+            responseModel = RDFCollections
+                .asRDF(responseModel.filter(null, RDF.TYPE, TUVS.BuildingUnit).subjects(),
+                    unitsOfBuildingsIRI, responseModel);
+            return RDFMapper.create()
+                .readValue(responseModel, SimpleDtoCollectionDto.class, BuildingUnitDto.class,
+                    unitsOfBuildingsIRI);
         } catch (RepositoryException | QueryEvaluationException | MalformedQueryException | RDFHandlerException e) {
             throw new ServiceException(e);
         }

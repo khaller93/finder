@@ -62,7 +62,7 @@ class GeometryResourceServiceFactory extends InternalTreeNodeServiceFactory {
         Map<String, String> parameter) throws IRIInvalidException, IRIUnknownException {
         String resourceId = pathScanner.next();
         if (pathScanner.hasNext()) {
-            IResourceIdentifier newParent = parent.resolve(resourceId + "/");
+            IResourceIdentifier newParent = parent.resolve(resourceId);
             return super.getService(newParent, pathScanner,
                 super.pushParameter(parameter, "id", newParent.rawIRI()));
         }

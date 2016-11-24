@@ -73,7 +73,7 @@ class BuildingResourceServiceFactory extends InternalTreeNodeServiceFactory {
         Map<String, String> parameter) throws IRIInvalidException, IRIUnknownException {
         String resourceId = pathScanner.next();
         if (pathScanner.hasNext()) {
-            return super.getService(parent.resolve(resourceId + "/"), pathScanner,
+            return super.getService(parent.resolve(resourceId), pathScanner,
                 super.pushParameter(parameter, "id", parent.resolve(resourceId).rawIRI()));
         }
         return new DescribeResourceService(tripleStoreManager,

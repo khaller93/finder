@@ -2,7 +2,8 @@ package at.ac.tuwien.finder.service.search.service;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.ResourceCollectionDto;
+import at.ac.tuwien.finder.dto.SimpleDtoCollectionDto;
+import at.ac.tuwien.finder.dto.spatial.RoomDto;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import at.ac.tuwien.finder.vocabulary.SCHEMA;
@@ -14,10 +15,12 @@ import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.model.util.RDFCollections;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
+import org.eclipse.rdf4j.query.GraphQuery;
 import org.eclipse.rdf4j.query.QueryLanguage;
 import org.eclipse.rdf4j.query.QueryResults;
 import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.outofbits.opinto.RDFMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -63,7 +66,7 @@ public class FreeRoomsService implements IService {
         this.requestIRIString = requestIRIString;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.query = String.format("select ?room where { ?room a <%s> . FILTER NOT EXISTS {\n"
+        this.query = String.format("DESCRIBE ?room where { ?room a <%s> . FILTER NOT EXISTS {\n"
             + "?event a <%s> ; <%s> ?room ; <%s> ?startDate ; <%s> ?endDate .\n"
             + "FILTER(!((?startDate < ?tfBegin && ?tfBegin >= ?endDate) || (?startDate >= ?tfEnd && ?tfEnd < ?endDate))) .\n"
             + "}}", TUVS.Room, SCHEMA.Event, SCHEMA.location, SCHEMA.startDate, SCHEMA.endDate);
@@ -74,20 +77,16 @@ public class FreeRoomsService implements IService {
     public Dto execute() throws ServiceException {
         try (RepositoryConnection connection = tripleStoreManager.getConnection()) {
             ValueFactory valueFactory = SimpleValueFactory.getInstance();
-            TupleQuery freeRoomsQuery = connection.prepareTupleQuery(QueryLanguage.SPARQL, query);
+            GraphQuery freeRoomsQuery = connection.prepareGraphQuery(QueryLanguage.SPARQL, query);
             freeRoomsQuery.setBinding("tfBegin", valueFactory.createLiteral(startDate));
             freeRoomsQuery.setBinding("tfEnd", valueFactory.createLiteral(endDate));
             IRI requestIRI = valueFactory.createIRI(requestIRIString);
-            Model responseModel = new LinkedHashModel();
+            Model responseModel = QueryResults.asModel(freeRoomsQuery.evaluate());
             responseModel.add(requestIRI, RDFS.LABEL, valueFactory.createLiteral(String
                 .format("All free rooms from %s to %s.", readableDateFormat.format(startDate),
                     readableDateFormat.format(endDate)), "en"));
-            List<IRI> rooms = QueryResults.asList(freeRoomsQuery.evaluate()).stream()
-                .map(bindings -> bindings.getBinding("room").getValue())
-                .filter(value -> value instanceof IRI).map(value -> (IRI) value)
-                .collect(Collectors.toList());
-            return new ResourceCollectionDto(requestIRI,
-                RDFCollections.asRDF(rooms, requestIRI, responseModel));
+            return RDFMapper.create().readValue(responseModel, SimpleDtoCollectionDto.class,
+                RoomDto.class, requestIRI);
         }
     }
 }

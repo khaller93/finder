@@ -2,26 +2,26 @@ package at.ac.tuwien.finder.service.spatial.floor.service;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.ResourceCollectionDto;
+import at.ac.tuwien.finder.dto.SimpleDtoCollectionDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.spatial.FloorSectionDto;
 import at.ac.tuwien.finder.service.QueryService;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import at.ac.tuwien.finder.vocabulary.TUVS;
-import org.eclipse.rdf4j.common.iteration.Iterations;
 import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.ValueFactory;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.model.util.RDFCollections;
+import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
 import org.eclipse.rdf4j.query.QueryLanguage;
+import org.eclipse.rdf4j.query.QueryResults;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.outofbits.opinto.RDFMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * This class is an implementation of {@link QueryService} that gets all the floor sections of a
@@ -56,23 +56,21 @@ public class AllFloorSectionsService implements QueryService {
     @Override
     public Dto execute() throws ServiceException {
         try (RepositoryConnection connection = tripleStoreManager.getConnection()) {
-            Model floorSectionsModel = new LinkedHashModel();
+            Model floorSectionsModel = QueryResults.asModel(
+                connection.prepareGraphQuery(QueryLanguage.SPARQL, getQuery()).evaluate());
             IRI head = valueFactory.createIRI(requestIRI.rawIRI());
             floorSectionsModel.add(head, RDFS.LABEL,
                 valueFactory.createLiteral("All known floor sections.", "en"));
-            List<IRI> floorSections = Iterations
-                .stream(connection.prepareTupleQuery(QueryLanguage.SPARQL, getQuery()).evaluate())
-                .map(bindingSet -> bindingSet.getBinding("fSection").getValue())
-                .filter(value -> value instanceof IRI).map(value -> (IRI) value)
-                .collect(Collectors.toList());
-            return new ResourceCollectionDto(head,
-                RDFCollections.asRDF(floorSections, head, floorSectionsModel));
+            return RDFMapper.create().readValue(RDFCollections
+                    .asRDF(floorSectionsModel.filter(null, RDF.TYPE, TUVS.FloorSection).subjects(),
+                        head, floorSectionsModel), SimpleDtoCollectionDto.class, FloorSectionDto.class,
+                head);
         }
     }
 
     @Override
     public String getQuery() {
-        return String.format("SELECT DISTINCT ?fSection WHERE { <%s> a <%s> ; <%s> ?fSection . }",
+        return String.format("DESCRIBE ?fSection WHERE { <%s> a <%s> ; <%s> ?fSection . }",
             floorResource.rawIRI(), TUVS.Floor, TUVS.hasFloorSection);
     }
 }

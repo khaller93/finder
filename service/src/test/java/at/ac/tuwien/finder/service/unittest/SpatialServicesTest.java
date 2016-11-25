@@ -134,7 +134,6 @@ public class SpatialServicesTest {
     }
 
     @Test
-    @Ignore
     public void getTractsOfBuildingWithId_ok()
         throws ServiceException, IRIInvalidException, IRIUnknownException {
         Dto resultDto = serviceFactory
@@ -148,10 +147,13 @@ public class SpatialServicesTest {
             buildingTractDtos.asResourceList().stream()
                 .filter(resource -> resource instanceof IResourceIdentifier)
                 .map(resource -> ((IResourceIdentifier) resource).rawIRI())
-                .collect(Collectors.toList()),
-            hasItems(valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DA"),
-                valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DB"),
-                valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DC")));
+                .collect(Collectors.toList()), hasItems(
+                valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DA")
+                    .stringValue(),
+                valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DB")
+                    .stringValue(),
+                valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DC")
+                    .stringValue()));
         assertThat("The result model must contain only three building tracts.", buildingTractDtos,
             hasSize(3));
     }
@@ -334,11 +336,11 @@ public class SpatialServicesTest {
     }
 
     @Test
-    @Ignore //Test data must be provided.
     public void getRouteInBuildingH_ok()
         throws IRIUnknownException, IRIInvalidException, ServiceException {
         Dto responseDto =
-            serviceFactory.getService(getPathScanner("spatial/route/id/HEEG14-P1-HEEG14-15A")).execute();
+            serviceFactory.getService(getPathScanner("spatial/route/id/HEEG14-P1-HEEG14-15A"))
+                .execute();
         assertThat(responseDto, instanceOf(RouteDto.class));
         RouteDto routeDto = (RouteDto) responseDto;
         assertThat(routeDto.id().stringValue(),

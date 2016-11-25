@@ -17,6 +17,8 @@ import org.eclipse.rdf4j.model.Value;
 import org.eclipse.rdf4j.model.ValueFactory;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
+import org.eclipse.rdf4j.rio.RDFFormat;
+import org.eclipse.rdf4j.rio.Rio;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -409,6 +411,24 @@ public class SpatialServicesTest {
     public void getElevatorInBuildingH_throwsResourceNotFoundException()
         throws IRIUnknownException, IRIInvalidException, ServiceException {
         serviceFactory.getService(getPathScanner("spatial/elevator/id/HXYXXX")).execute();
+    }
+
+    @Test
+    public void getAddressOfRoomWithIdHGEG15_ok()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        Dto responseDto =
+            serviceFactory.getService(getPathScanner("spatial/room/id/HGEG15/address")).execute();
+        assertThat(responseDto, instanceOf(AddressDto.class));
+        AddressDto addressDto = (AddressDto) responseDto;
+        assertThat(addressDto.getLocatorDesignator(), containsString("EG"));
+        assertThat(addressDto.getLocatorDesignator(), containsString("Tract HG"));
+        assertThat(addressDto.getLocatorName(), containsString("Pong"));
+    }
+
+    @Test(expected = IRIUnknownException.class)
+    public void getAddressOfRoomWithIdHGEG15_UnknownIRI_IRIUnknownException()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        serviceFactory.getService(getPathScanner("spatial/room/id/HGEG15/address/na")).execute();
     }
 
     private static Scanner getPathScanner(String path) {

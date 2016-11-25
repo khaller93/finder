@@ -20,7 +20,7 @@ route:HEEG14-P1-HEEG14-15A a navi:BiRoute ;
 	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HEEG14-P1> ;
 	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEG14-15A> .
 
-# There is a contraint (steps)!!!
+# There is a constraint (steps)!!!
 route:HEEG14-P1-HEEG14V-HHEG07 a navi:BiRoute ;
 	navi:xyFeature <http://finder.tuwien.ac.at/spatial/por/id/HEEG14-P1> ;
 	navi:xyFeature <http://finder.tuwien.ac.at/spatial/accessunit/id/HEEG14V-HHEG07> .

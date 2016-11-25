@@ -2178,6 +2178,10 @@
 	a tuvs:Room ;
 	rdfs:label "Informatiklabor Frogger"@de .
 
+<http://finder.tuwien.ac.at/spatial/room/id/HGEG05A> tuvs:roomCode "HGEG05A" ;
+	a tuvs:Room ;
+	rdfs:label "Informatiklabor QBert"@de .
+
 <http://finder.tuwien.ac.at/spatial/stairway/id/HGEG06> tuvs:spatialIdentifier "HGEG06" ;
 	a tuvs:Stairway ;
 	rdfs:label "Kellerstiege"@de .
@@ -2204,7 +2208,7 @@
 
 <http://finder.tuwien.ac.at/spatial/room/id/HGEG11> tuvs:roomCode "HGEG11" ;
 	a tuvs:Corridor ;
-	rdfs:label "Vorraum"@de .
+	rdfs:label "Vorraum zu QBert-, Pong- und Frogger-Labor"@de .
 
 <http://finder.tuwien.ac.at/spatial/room/id/HGEG12> tuvs:roomCode "HGEG12" ;
 	a tuvs:Room ;

@@ -141,26 +141,6 @@ public final class RDFDumpPersonAnonymizer {
                     Person newPerson =
                         fakePersonNamesCopy.get((int) (Math.random() * fakePersonNamesCopy.size()));
                     if (!nameMap.values().contains(newPerson)) {
-                        if (responseModel.remove(resource, FOAF.NAME, null)) {
-                            responseModel.add(resource, FOAF.NAME, valueFactory.createLiteral(
-                                newPerson.getGivenName() + " " + newPerson.getFamilyName()));
-                        }
-                        if (responseModel.remove(resource, FOAF.GIVEN_NAME, null)) {
-                            responseModel.add(resource, FOAF.GIVEN_NAME,
-                                valueFactory.createLiteral(newPerson.getGivenName()));
-                        }
-                        if (responseModel.remove(resource, FOAF.FAMILY_NAME, null)) {
-                            responseModel.add(resource, FOAF.FAMILY_NAME,
-                                valueFactory.createLiteral(newPerson.getFamilyName()));
-                        }
-                        if (responseModel.remove(resource, FOAF.MBOX, null)) {
-                            responseModel.add(resource, FOAF.MBOX,
-                                valueFactory.createLiteral(newPerson.getEmail()));
-                        }
-                        if (responseModel.remove(resource, FOAF.GENDER, null)) {
-                            responseModel.add(resource, FOAF.GENDER,
-                                valueFactory.createLiteral(newPerson.getGender()));
-                        }
                         nameMap.put(resource.stringValue(), newPerson);
                         fakeNameFound = true;
                     }
@@ -168,6 +148,27 @@ public final class RDFDumpPersonAnonymizer {
                 if (!fakeNameFound) {
                     throw new IllegalStateException("No fake names left to assign.");
                 }
+            }
+            Person newPerson = nameMap.get(resource.stringValue());
+            if (responseModel.remove(resource, FOAF.NAME, null)) {
+                responseModel.add(resource, FOAF.NAME, valueFactory.createLiteral(
+                    newPerson.getGivenName() + " " + newPerson.getFamilyName()));
+            }
+            if (responseModel.remove(resource, FOAF.GIVEN_NAME, null)) {
+                responseModel.add(resource, FOAF.GIVEN_NAME,
+                    valueFactory.createLiteral(newPerson.getGivenName()));
+            }
+            if (responseModel.remove(resource, FOAF.FAMILY_NAME, null)) {
+                responseModel.add(resource, FOAF.FAMILY_NAME,
+                    valueFactory.createLiteral(newPerson.getFamilyName()));
+            }
+            if (responseModel.remove(resource, FOAF.MBOX, null)) {
+                responseModel.add(resource, FOAF.MBOX,
+                    valueFactory.createLiteral(newPerson.getEmail()));
+            }
+            if (responseModel.remove(resource, FOAF.GENDER, null)) {
+                responseModel.add(resource, FOAF.GENDER,
+                    valueFactory.createLiteral(newPerson.getGender()));
             }
         }
         // CSV config update.

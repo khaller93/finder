@@ -22,7 +22,7 @@ import java.util.Scanner;
  */
 public class RoomResourceServiceFactory extends InternalTreeNodeServiceFactory {
 
-    private Map<String, IServiceFactory> floorServiceFactoryMap = new HashMap<>();
+    private Map<String, IServiceFactory> roomServiceFactoryMap = new HashMap<>();
     private TripleStoreManager tripleStoreManager;
 
     /**
@@ -35,6 +35,8 @@ public class RoomResourceServiceFactory extends InternalTreeNodeServiceFactory {
     public RoomResourceServiceFactory(TripleStoreManager tripleStoreManager) {
         assert tripleStoreManager != null;
         this.tripleStoreManager = tripleStoreManager;
+        roomServiceFactoryMap.put(AddressOfRoomServiceFactory.getManagedPathName(),
+            new AddressOfRoomServiceFactory(tripleStoreManager));
     }
 
     /**
@@ -48,7 +50,7 @@ public class RoomResourceServiceFactory extends InternalTreeNodeServiceFactory {
 
     @Override
     public Map<String, IServiceFactory> getServiceFactoryMap() {
-        return floorServiceFactoryMap;
+        return roomServiceFactoryMap;
     }
 
     @Override

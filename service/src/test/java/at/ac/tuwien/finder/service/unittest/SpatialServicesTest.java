@@ -4,10 +4,7 @@ import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.Dto;
 import at.ac.tuwien.finder.dto.SimpleDtoCollectionDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
-import at.ac.tuwien.finder.dto.spatial.BuildingDto;
-import at.ac.tuwien.finder.dto.spatial.BuildingTractDto;
-import at.ac.tuwien.finder.dto.spatial.FloorDto;
-import at.ac.tuwien.finder.dto.spatial.FloorSectionDto;
+import at.ac.tuwien.finder.dto.spatial.*;
 import at.ac.tuwien.finder.service.ServiceFactory;
 import at.ac.tuwien.finder.service.TestTripleStore;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
@@ -149,9 +146,9 @@ public class SpatialServicesTest {
         System.out.println(buildingTractDtos.size());
         assertThat("The result must contain building tracts with the ids DA, DB, DC.",
             buildingTractDtos.asResourceList().stream()
-            .filter(resource -> resource instanceof IResourceIdentifier)
-            .map(resource -> ((IResourceIdentifier) resource).rawIRI())
-            .collect(Collectors.toList()),
+                .filter(resource -> resource instanceof IResourceIdentifier)
+                .map(resource -> ((IResourceIdentifier) resource).rawIRI())
+                .collect(Collectors.toList()),
             hasItems(valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DA"),
                 valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DB"),
                 valueFactory.createIRI(BASE.stringValue(), "spatial/buildingtract/id/DC")));
@@ -316,6 +313,97 @@ public class SpatialServicesTest {
             buildingsDto.getIRI().rawIRI(), not(is(
                 valueFactory.createIRI(BASE.stringValue(), "spatial/building/id/XYZ")
                     .stringValue())));
+    }
+
+    @Test
+    public void getAccessUnitMainEntryOfBuildingH_ok()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        Dto responseDto =
+            serviceFactory.getService(getPathScanner("spatial/accessunit/id/HEEGM1")).execute();
+        assertThat(responseDto, instanceOf(AccessUnitDto.class));
+        AccessUnitDto accessUnitDto = (AccessUnitDto) responseDto;
+        assertThat(accessUnitDto.id().stringValue(),
+            is(valueFactory.createIRI(BASE.stringValue(), "spatial/accessunit/id/HEEGM1")
+                .stringValue()));
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void getAccessUnitWithUnknownId_throwsResourceNotFoundException()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        serviceFactory.getService(getPathScanner("spatial/accessunit/id/HXYXXX")).execute();
+    }
+
+    @Test
+    @Ignore //Test data must be provided.
+    public void getRouteInBuildingH_ok()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        Dto responseDto =
+            serviceFactory.getService(getPathScanner("spatial/route/id/HEEG14-P1-HEEG14-15A")).execute();
+        assertThat(responseDto, instanceOf(RouteDto.class));
+        RouteDto routeDto = (RouteDto) responseDto;
+        assertThat(routeDto.id().stringValue(),
+            is(valueFactory.createIRI(BASE.stringValue(), "spatial/route/id/HEEG14-P1-HEEG14-15A")
+                .stringValue()));
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void getRouteWithUnknownId_throwsResourceNotFoundException()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        serviceFactory.getService(getPathScanner("spatial/route/id/HXYXXX-HXYZZZZ")).execute();
+    }
+
+    @Test
+    public void getPointOfRouteInBuildingH_ok()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        Dto responseDto =
+            serviceFactory.getService(getPathScanner("spatial/por/id/HEEG14-P1")).execute();
+        assertThat(responseDto, instanceOf(PointsOfRouteDto.class));
+        PointsOfRouteDto pointsOfRouteDto = (PointsOfRouteDto) responseDto;
+        assertThat(pointsOfRouteDto.id().stringValue(),
+            is(valueFactory.createIRI(BASE.stringValue(), "spatial/por/id/HEEG14-P1")
+                .stringValue()));
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void getPointOfRouteInBuildingH_throwsResourceNotFoundException()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        serviceFactory.getService(getPathScanner("spatial/por/id/HXYXXX")).execute();
+    }
+
+    @Test
+    public void getStairwayInBuildingH_ok()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        Dto responseDto =
+            serviceFactory.getService(getPathScanner("spatial/stairway/id/HEEG15")).execute();
+        assertThat(responseDto, instanceOf(StairwayDto.class));
+        StairwayDto stairwayDto = (StairwayDto) responseDto;
+        assertThat(stairwayDto.id().stringValue(),
+            is(valueFactory.createIRI(BASE.stringValue(), "spatial/stairway/id/HEEG15")
+                .stringValue()));
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void getStairwayInBuildingH_throwsResourceNotFoundException()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        serviceFactory.getService(getPathScanner("spatial/stairway/id/HXYXXX")).execute();
+    }
+
+    @Test
+    public void getElevatorInBuildingH_ok()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        Dto responseDto =
+            serviceFactory.getService(getPathScanner("spatial/elevator/id/HFEG02C")).execute();
+        assertThat(responseDto, instanceOf(ElevatorDto.class));
+        ElevatorDto elevatorDto = (ElevatorDto) responseDto;
+        assertThat(elevatorDto.id().stringValue(),
+            is(valueFactory.createIRI(BASE.stringValue(), "spatial/elevator/id/HFEG02C")
+                .stringValue()));
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void getElevatorInBuildingH_throwsResourceNotFoundException()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        serviceFactory.getService(getPathScanner("spatial/elevator/id/HXYXXX")).execute();
     }
 
     private static Scanner getPathScanner(String path) {

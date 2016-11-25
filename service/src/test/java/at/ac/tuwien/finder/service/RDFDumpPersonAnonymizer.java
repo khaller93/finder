@@ -176,7 +176,7 @@ public final class RDFDumpPersonAnonymizer {
             CSVPrinter csvConfigPrinter =
                 new CSVPrinter(configWriter, CSVFormat.DEFAULT.withHeader());
             csvConfigPrinter
-                .printRecord("GivenName", "FamilyName", "Email", "TelephoneNumber", "Gender");
+                .printRecord("id", "GivenName", "FamilyName", "Email", "TelephoneNumber", "Gender");
             for (String resourceId : nameMap.keySet()) {
                 Person currentPerson = nameMap.get(resourceId);
                 csvConfigPrinter.printRecord(resourceId, currentPerson.getGivenName(),
@@ -227,7 +227,6 @@ public final class RDFDumpPersonAnonymizer {
         if (rdfDumpModel != null) {
             try (Writer writer = new FileWriter(rdfDumpFile)) {
                 Model m = anonymousPersons(rdfDumpModel, args[1]);
-                System.out.println(m);
                 Rio.write(m, writer, RDFFormat.TRIG);
             } catch (IOException e) {
                 System.err.println(String.format("The RDF dump (%s) update could not be persisted.",

@@ -11,16 +11,13 @@ import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ResourceNotFoundException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
-import at.ac.tuwien.finder.vocabulary.LOCN;
 import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.Value;
 import org.eclipse.rdf4j.model.ValueFactory;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
-import org.eclipse.rdf4j.model.util.Models;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -103,7 +100,6 @@ public class SpatialServicesTest {
     }
 
     @Test
-    @Ignore
     public void getRoomsOfBuildingWithID_H_ok() throws Exception {
         Dto responseDto =
             serviceFactory.getService(BASE_IRI, getPathScanner("spatial/building/id/H"), null)
@@ -263,26 +259,33 @@ public class SpatialServicesTest {
     @Test
     public void getAddressWithId_ok()
         throws IRIInvalidException, IRIUnknownException, ServiceException {
-        IRI addressKarlsplatz = valueFactory.createIRI(BASE.stringValue(),
-            "spatial/address/id/AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13");
-        Model result = serviceFactory.getService(BASE_IRI,
-            getPathScanner("spatial/address/id/AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13"), null)
-            .execute().getModel();
-        assertTrue(String
-                .format("Resource <%s> must be part of the result.", addressKarlsplatz.toString()),
-            result.subjects().contains(addressKarlsplatz));
+        Dto responseDto = serviceFactory.getService(
+            getPathScanner("spatial/address/id/AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13"))
+            .execute();
+        assertThat(responseDto, instanceOf(AddressDto.class));
+        assertThat(responseDto.getIRI().rawIRI(), is(valueFactory.createIRI(BASE.stringValue(),
+            "spatial/address/id/AT1040-1c56fcbcb8725edda11e2c76a1d21c77-13").stringValue()));
+        AddressDto addressDto = (AddressDto) responseDto;
         assertThat(
-            String.format("Resource <%s> has locn:postCode '1040'.", addressKarlsplatz.toString()),
-            Models.objectLiteral(result.filter(addressKarlsplatz, LOCN.fullAddress, null))
-                .orElse(null).stringValue(), is("Karlsplatz 13, 1040 Wien, Österreich"));
-        assertThat(
-            String.format("Resource <%s> has locn:postCode '1040'.", addressKarlsplatz.toString()),
-            Models.objectLiteral(result.filter(addressKarlsplatz, LOCN.postCode, null)).orElse(null)
-                .stringValue(), is("1040"));
-        assertThat(
-            String.format("Resource <%s> has locn:poBox '13'.", addressKarlsplatz.toString()),
-            Models.objectLiteral(result.filter(addressKarlsplatz, LOCN.locatorDesignator, null))
-                .orElse(null).stringValue(), is("13"));
+            "This address has the 'locn:fulLAddress' 'Karlsplatz 13, 1040 Wien, Österreich'.",
+            addressDto.getFullAddress(), is("Karlsplatz 13, 1040 Wien, Österreich"));
+        assertThat("This address has the 'locn:postCode' '1040'.", addressDto.getPostalCode(),
+            is("1040"));
+        assertThat("This address has 'locn:locatorDesignator' '13'.",
+            addressDto.getLocatorDesignator(), is("13"));
+    }
+
+    @Test
+    public void getAddressOfBuildingWithIdH_ok()
+        throws IRIUnknownException, IRIInvalidException, ServiceException {
+        Dto responseDto =
+            serviceFactory.getService(getPathScanner("spatial/building/id/H")).execute();
+        assertThat(responseDto, instanceOf(BuildingDto.class));
+        BuildingDto buildingDto = (BuildingDto) responseDto;
+        assertNotNull(buildingDto.getAddress());
+        AddressDto addressDto = buildingDto.getAddress();
+        assertThat(addressDto.getThoroughfare(), is("Favoritenstraße"));
+        assertThat(addressDto.getLocatorDesignator(), is("9-11"));
     }
 
     @Test(expected = ResourceNotFoundException.class)

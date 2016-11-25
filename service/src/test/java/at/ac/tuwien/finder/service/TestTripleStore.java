@@ -32,7 +32,6 @@ import static org.mockito.Mockito.when;
 public class TestTripleStore extends ExternalResource {
 
     private static final String TEST_DUMP_PATH = "dbTestDump.trig";
-    private static final String TEST_DUMP_ANON_PERSON_CSV = "anonPerson.csv";
 
     private static Model dbTestData;
 

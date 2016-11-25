@@ -15,7 +15,6 @@ import java.util.Map;
  */
 public class AddressServiceFactory extends InternalTreeNodeServiceFactory {
 
-    private static AddressServiceFactory addressServiceFactory;
     private Map<String, IServiceFactory> serviceFactoryMap = new HashMap<>();
 
     /**

@@ -6,12 +6,8 @@ import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
-import at.ac.tuwien.finder.service.search.service.FreeRoomsService;
 import at.ac.tuwien.finder.service.search.service.RoutesService;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -21,7 +17,7 @@ import java.util.Scanner;
  *
  * @author Kevin Haller
  */
-public class RouteServiceFactory implements IServiceFactory {
+class RouteServiceFactory implements IServiceFactory {
 
     private TripleStoreManager tripleStoreManager;
 
@@ -31,7 +27,7 @@ public class RouteServiceFactory implements IServiceFactory {
      * @param tripleStoreManager {@link TripleStoreManager} that shall be used for this service
      *                           factory.
      */
-    public RouteServiceFactory(TripleStoreManager tripleStoreManager) {
+    RouteServiceFactory(TripleStoreManager tripleStoreManager) {
         assert tripleStoreManager != null;
         this.tripleStoreManager = tripleStoreManager;
     }

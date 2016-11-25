@@ -1,6 +1,8 @@
 package at.ac.tuwien.finder.dto.spatial;
 
 import at.ac.tuwien.finder.dto.ResourceDto;
+import org.outofbits.opinto.annotations.RdfsClass;
+import org.outofbits.opinto.annotations.SuperclassOf;
 
 import java.util.Collection;
 
@@ -9,6 +11,8 @@ import java.util.Collection;
  *
  * @author Kevin Haller
  */
+@RdfsClass("http://www.opengis.net/ont/geosparql#Feature")
+@SuperclassOf(subclasses = {BuildingDto.class, BuildingUnitDto.class, PointsOfRouteDto.class})
 public interface FeatureDto extends ResourceDto {
 
     /**

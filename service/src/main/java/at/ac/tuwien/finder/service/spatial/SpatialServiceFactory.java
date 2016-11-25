@@ -9,14 +9,19 @@ import at.ac.tuwien.finder.service.IServiceFactory;
 import at.ac.tuwien.finder.service.InternalTreeNodeServiceFactory;
 import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
+import at.ac.tuwien.finder.service.spatial.accessunit.factory.AccessUnitServiceFactory;
 import at.ac.tuwien.finder.service.spatial.address.factory.AddressServiceFactory;
 import at.ac.tuwien.finder.service.spatial.building.factory.AllBuildingsServiceFactory;
 import at.ac.tuwien.finder.service.spatial.building.factory.BuildingServiceFactory;
 import at.ac.tuwien.finder.service.spatial.buildingtract.factory.BuildingTractServiceFactory;
+import at.ac.tuwien.finder.service.spatial.elevator.factory.ElevatorServiceFactory;
 import at.ac.tuwien.finder.service.spatial.floor.factory.FloorServiceFactory;
 import at.ac.tuwien.finder.service.spatial.geometry.factory.GeometryServiceFactory;
+import at.ac.tuwien.finder.service.spatial.pointofroute.factory.PointOfRouteServiceFactory;
 import at.ac.tuwien.finder.service.spatial.room.factory.AllRoomsServiceFactory;
 import at.ac.tuwien.finder.service.spatial.room.factory.RoomServiceFactory;
+import at.ac.tuwien.finder.service.spatial.route.factory.RouteServiceFactory;
+import at.ac.tuwien.finder.service.spatial.stairway.factory.StairwayServiceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,13 +67,23 @@ public class SpatialServiceFactory extends InternalTreeNodeServiceFactory {
             new AddressServiceFactory(tripleStoreManager));
         spatialServiceFactoryMap.put(GeometryServiceFactory.getManagedPathName(),
             new GeometryServiceFactory(tripleStoreManager));
+        spatialServiceFactoryMap.put(AccessUnitServiceFactory.getManagedPathName(),
+            new AccessUnitServiceFactory(tripleStoreManager));
+        spatialServiceFactoryMap.put(RouteServiceFactory.getManagedPathName(),
+            new RouteServiceFactory(tripleStoreManager));
+        spatialServiceFactoryMap.put(PointOfRouteServiceFactory.getManagedPathName(),
+            new PointOfRouteServiceFactory(tripleStoreManager));
+        spatialServiceFactoryMap.put(ElevatorServiceFactory.getManagedPathName(),
+            new ElevatorServiceFactory(tripleStoreManager));
+        spatialServiceFactoryMap.put(StairwayServiceFactory.getManagedPathName(),
+            new StairwayServiceFactory(tripleStoreManager));
         logger.debug("Factory map of spatial services ({}): ../{}.", getManagedPathName(),
             String.join(", ../", spatialServiceFactoryMap.keySet()));
     }
 
     @Override
-    public IService getService(IResourceIdentifier parent, Scanner pathScanner, Map<String, String> parameterMap)
-        throws IRIInvalidException, IRIUnknownException {
+    public IService getService(IResourceIdentifier parent, Scanner pathScanner,
+        Map<String, String> parameterMap) throws IRIInvalidException, IRIUnknownException {
         if (!pathScanner.hasNext()) {
             return new GraphDatasetService(tripleStoreManager,
                 SimpleSpatialDataSet.NS.stringValue());

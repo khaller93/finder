@@ -12,6 +12,7 @@ import at.ac.tuwien.finder.service.exception.IRIInvalidException;
 import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import at.ac.tuwien.finder.vocabulary.GeoSPARQL;
+import at.ac.tuwien.finder.vocabulary.LOCN;
 import at.ac.tuwien.finder.vocabulary.TUVS;
 import org.eclipse.rdf4j.model.Model;
 import org.outofbits.opinto.RDFMapper;
@@ -82,9 +83,10 @@ class BuildingResourceServiceFactory extends InternalTreeNodeServiceFactory {
             @Override
             public String getQuery() {
                 return String.format(
-                    "DESCRIBE <%s> ?buildingUnit ?geometry WHERE {OPTIONAL { <%s> <%s> ?geometry .} . OPTIONAL {<%s> <%s> ?buildingUnit .} .}",
+                    "DESCRIBE <%s> ?buildingUnit ?address ?geometry WHERE {OPTIONAL { <%s> <%s> ?geometry .} . OPTIONAL {<%s> <%s> ?buildingUnit .} OPTIONAL {<%s> <%s> ?address .}.}",
                     resourceIdentifier().rawIRI(), resourceIdentifier().rawIRI(),
-                    GeoSPARQL.hasGeometry, resourceIdentifier().rawIRI(), TUVS.containsBuildingUnit);
+                    GeoSPARQL.hasGeometry, resourceIdentifier().rawIRI(), TUVS.containsBuildingUnit,
+                    resourceIdentifier().rawIRI(), LOCN.address);
             }
 
             @Override

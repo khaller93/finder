@@ -67,7 +67,8 @@ public abstract class DescribeResourceService implements QueryService {
         try (RepositoryConnection connection = tripleStoreManager.getConnection()) {
             Model resultModel = QueryResults
                 .asModel(connection.prepareGraphQuery(QueryLanguage.SPARQL, getQuery()).evaluate());
-            if (resultModel.isEmpty()) {
+            if (resultModel.isEmpty() || !resultModel
+                .contains(resourceIdentifier.iriValue(), null, null)) {
                 throw new ResourceNotFoundException(resourceIdentifier.rawIRI(), String
                     .format("The resource <%s> cannot be located.", resourceIdentifier().rawIRI()));
             }

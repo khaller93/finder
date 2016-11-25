@@ -12,7 +12,7 @@ import java.util.*;
  * @æuthor Kevin Haller
  */
 public enum SerializationFormat {
-    RDFXML, TURTLE, JSONLD, N3;
+    RDFXML, TURTLE, JSONLD, N3, TRIG;
 
     private RDFFormat rdfFormat;
     private static Map<RDFFormat, SerializationFormat> internalFormatMapping = new HashMap<>();
@@ -22,11 +22,13 @@ public enum SerializationFormat {
         SerializationFormat.TURTLE.rdfFormat = RDFFormat.TURTLE;
         SerializationFormat.JSONLD.rdfFormat = RDFFormat.JSONLD;
         SerializationFormat.N3.rdfFormat = RDFFormat.N3;
+        SerializationFormat.TRIG.rdfFormat = RDFFormat.TRIG;
         //Set-up internal mapping
         internalFormatMapping.put(RDFFormat.RDFXML, SerializationFormat.RDFXML);
         internalFormatMapping.put(RDFFormat.TURTLE, SerializationFormat.TURTLE);
         internalFormatMapping.put(RDFFormat.JSONLD, SerializationFormat.JSONLD);
         internalFormatMapping.put(RDFFormat.N3, SerializationFormat.N3);
+        internalFormatMapping.put(RDFFormat.TRIG, SerializationFormat.TRIG);
     }
 
     /**

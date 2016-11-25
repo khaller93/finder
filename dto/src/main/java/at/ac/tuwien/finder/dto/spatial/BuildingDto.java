@@ -16,9 +16,20 @@ public class BuildingDto extends AbstractFeatureDto implements FeatureDto {
 
     private Collection<BuildingUnitDto> buildingUnits;
 
+    private AddressDto addressDto;
+
     @RdfProperty("http://finder.tuwien.ac.at/vocab/spatial#containsBuildingUnit")
     public void setBuildingUnits(Collection<BuildingUnitDto> buildingUnits) {
         this.buildingUnits = buildingUnits;
+    }
+
+    public AddressDto getAddress() {
+        return addressDto;
+    }
+
+    @RdfProperty("http://www.w3.org/ns/locn#address")
+    public void setAddress(AddressDto addressDto) {
+        this.addressDto = addressDto;
     }
 
     public Collection<BuildingUnitDto> getBuildingUnits() {

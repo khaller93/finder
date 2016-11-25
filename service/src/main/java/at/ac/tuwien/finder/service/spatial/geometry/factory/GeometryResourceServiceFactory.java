@@ -2,10 +2,10 @@ package at.ac.tuwien.finder.service.spatial.geometry.factory;
 
 import at.ac.tuwien.finder.datamanagement.TripleStoreManager;
 import at.ac.tuwien.finder.dto.Dto;
-import at.ac.tuwien.finder.dto.spatial.LocationPointDto;
-import at.ac.tuwien.finder.dto.spatial.PolygonShapeDto;
 import at.ac.tuwien.finder.dto.SimpleResourceDto;
 import at.ac.tuwien.finder.dto.rdf.IResourceIdentifier;
+import at.ac.tuwien.finder.dto.spatial.LocationPointDto;
+import at.ac.tuwien.finder.dto.spatial.PolygonShapeDto;
 import at.ac.tuwien.finder.service.DescribeResourceService;
 import at.ac.tuwien.finder.service.IService;
 import at.ac.tuwien.finder.service.IServiceFactory;
@@ -15,6 +15,7 @@ import at.ac.tuwien.finder.service.exception.IRIUnknownException;
 import at.ac.tuwien.finder.service.exception.ServiceException;
 import org.eclipse.rdf4j.model.Model;
 import org.outofbits.opinto.RDFMapper;
+import org.outofbits.opinto.RDFMappingException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -70,14 +71,18 @@ class GeometryResourceServiceFactory extends InternalTreeNodeServiceFactory {
             parent.resolve(resourceId).rawIRI()) {
             @Override
             public Dto wrapResult(Model model) throws ServiceException {
-                if (resourceId.startsWith("point:")) {
-                    return RDFMapper.create()
-                        .readValue(model, LocationPointDto.class, resourceIdentifier().iriValue());
-                } else if (resourceId.startsWith("polygon:")) {
-                    return RDFMapper.create()
-                        .readValue(model, PolygonShapeDto.class, resourceIdentifier().iriValue());
-                }
-                return new SimpleResourceDto(resourceIdentifier(), model);
+                try {
+                    if (resourceId.startsWith("point:")) {
+                        return RDFMapper.create().readValue(model, LocationPointDto.class,
+                            resourceIdentifier().iriValue());
+                    } else if (resourceId.startsWith("polygon:")) {
+                        return RDFMapper.create().readValue(model, PolygonShapeDto.class,
+                            resourceIdentifier().iriValue());
+                    }
+                } catch (RDFMappingException r) {
+                    throw new ServiceException(
+                        String.format("Resource <%s> could not be mapped.", parent.rawIRI()), r);
+                } return new SimpleResourceDto(resourceIdentifier(), model);
             }
         };
     }

@@ -10,7 +10,7 @@
     <version>0.1-SNAPSHOT</version>
 
     <properties>
-        <rdf4j.version>2.1</rdf4j.version>
+        <rdf4j.version>2.4.0</rdf4j.version>
         <!-- Versions for logging frameworks -->
         <slf4j.version>1.7.13</slf4j.version>
         <jcl-over-slf4j.version>1.7.13</jcl-over-slf4j.version>
